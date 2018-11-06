@@ -1,14 +1,49 @@
 body {
+  font-family: 'Source Code Pro', monospace;
+  background-color: #fff;
+  padding: 20px;
   margin: 0;
+}
+h1, h2, p, ul, li {
+  font-family: 'Source Code Pro';
+  font-weight: bold;
+  color: #000;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  text-align: center;
+}
+ul.header {
+  background-color: #4c4c4c;
   padding: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+.content {
+  background-color: #a5693d;
+  padding: 20px;
+}
+.content h2 {
+  padding: 0;
+  margin: 0;
+}
+.content li {
+  margin-bottom: 10px;
+}
+.active {
+  background-color: #100656;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+footer {
+  font-family: 'Source Code Pro:300', monospace;
+  font-size: 12px;
+  margin-top: 12px;
+  text-align: center;
 }
