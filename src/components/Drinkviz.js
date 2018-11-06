@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-class drinkViz extends Component {
+class Drinkviz extends Component {
   render() {
     return (
       <div>
@@ -11,4 +11,4 @@ class drinkViz extends Component {
   }
 }
 
-export default drinkViz;
+export default Drinkviz;
