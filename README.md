@@ -1,23 +1,32 @@
 drinkbase
 
+TODO: learn markdown for making this README look nice...
+
 a cocktail-finding app built using a react frontend with python/flask backend
 ---
 
-development environment
+Build instructions
+---
+Install npm and create-react-app
 
-npm/javascript depedencies:
-  -react (comes with create-react-app)
-  -react-dom (comes with create-react-app)
-  -react-router-dom
+  sudo dnf/yum/apt-get install npm
+  npm install -g create-react-app
 
-python3 dependencies:
-  -flask
-  -sqlite3
+Create throway folder
 
-other server dependencies:
-  -sqlite3
-  -node.js
+  create-react-app throwaway
 
-To deploy a development version of this app, clone repo and copy a 
-node_modules/ directory created by a "create-react-app" to the main
-drinkbase/ directory. Install additional dependencies as needed.
+Clone git repo, move throwaway/node_modules to new directory
+
+  git clone https://github.com/ntbloom/drinkbase.git
+  cd drinkbase
+  mv ../throwaway/node_modules .
+
+Install npm dependencies
+
+  npm install react-router-dom
+
+Run development version 
+
+  (from drinkbase/ directory)
+  npm start
