@@ -1,3 +1,9 @@
+/* Main
+ * component renders nav bar
+ * component renders all other components
+ * lone component rendered by index.js
+ */
+
 import React, { Component } from "react";
 import {
   Route,

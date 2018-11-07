@@ -1,3 +1,7 @@
+/* About component
+ * simple static html page
+ */
+
 import React, { Component } from "react";
 
 class About extends Component {

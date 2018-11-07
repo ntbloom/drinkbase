@@ -1,3 +1,8 @@
+/* Ingredientsearch
+ * page for searching for drinks by ingredient
+ * Results component renders in this frame
+ */
+
 import React, { Component } from "react";
 
 let drinksObj = {

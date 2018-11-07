@@ -1,3 +1,7 @@
+/* Drinkviz
+ * 3d modeling of drinks based on ingredients
+ */
+
 import React, { Component } from "react";
 
 class Drinkviz extends Component {

@@ -1,3 +1,8 @@
+/* Namesearch
+ * component for searching for drinks by name
+ * Results component gets rendered here
+ */
+
 import React, { Component } from "react";
 
 class Namesearch extends Component {
