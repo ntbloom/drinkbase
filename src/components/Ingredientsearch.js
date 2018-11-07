@@ -26,7 +26,7 @@ let drinksArr = [
   'Dark & Stormy']
 
 //logic for rendering html in loops
-const drinks = drinksArr.map((drinkName)  
+const drinks = drinksArr.map((drinkName) =>
   <p>{drinkName}</p>
 );
 
