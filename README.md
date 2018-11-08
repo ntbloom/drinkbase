@@ -43,3 +43,10 @@ Run development version
 # npm start
 ```
 
+***
+
+### Flask deployment for server/API
+
+TODO: figure out how to serve up drinkbase results as JSON
+
+
