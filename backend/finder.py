@@ -4,7 +4,7 @@
 import sqlite3, re
 
 # connection to drinkBase.db
-location = '/home/ubuntu/drinkWeb/drinkBase.db'
+location = '../drinkBase.db'
 drinkBase = sqlite3.connect(location, check_same_thread=False)
 drinkBase.row_factory = lambda cursor, row: row[0]
 cursor = drinkBase.cursor()
