@@ -1,17 +1,21 @@
 #!/usr/bin/python
-# DrinkStore.py
+# drinkStore.py
 
-'''defines DrinkStore class for performing drinkBase searches'''
+'''defines DrinkBase class for performing drinkBase searches'''
 
 import sqlite3, re, json
 
-class DrinkStore:
+class DrinkBase:
     def __init__(self, database):
         self.database = database
-
-    #TODO: figure out best way to populate DrinkStore with database data
-
-
+    
+    def connectDB(self):
+        '''connects with sqlite3 database'''
+        dbConnect = sqlite3.connect(self.database, check_same_thread=False)
+        dbConnect.row_factory = lambda cursor, row: row[0]
+        self.cursor = dbConnect.cursor()
+    
+    
     def ingRegex(self, ingredient):
         '''populates set of drinks that contain 'ingredient'
         variable'''
