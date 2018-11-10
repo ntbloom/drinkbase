@@ -19,7 +19,7 @@ class DrinkBase:
     #TODO: refactor to combine self.cursor.fetchall/drinks into method
     #TODO: refactor to parametize and wildcard SQL
 
-    def ingRegex(self, ingredient):
+    def ingSearch(self, ingredient):
         '''populates set of drinks that contain 'ingredient'
         variable'''
         self.cursor.execute(
@@ -29,7 +29,7 @@ class DrinkBase:
         drinks = sorted(set(drinks))
         return drinks
 
-    def nameRegex(self, name):
+    def nameSearch(self, name):
         '''populates set of drinks whose name matches 'name' variable'''
         self.cursor.execute(
             'SELECT DISTINCT name from ingredients where name like ? \
@@ -51,10 +51,10 @@ class DrinkBase:
 db = DrinkBase('drinkBase.db')
 db.connectDB()
 
-## ingRegex
-ryeDrinks = db.ingRegex('RYE')
+## ingSearch
+ryeDrinks = db.ingSearch('RYE')
 print(ryeDrinks)
 
-## nameRegex
-frenchDrinks = db.nameRegex('french')
+## nameSearch
+frenchDrinks = db.nameSearch('french')
 print(frenchDrinks)
