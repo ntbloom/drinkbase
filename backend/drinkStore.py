@@ -6,19 +6,13 @@
 import sqlite3, json
 
 class DrinkBase:
-    #TODO: combine __init__ and connectDB?
     def __init__(self, database):
         self.database = database
-     
-    def connectDB(self):
-        '''connects with sqlite3 database'''
-        dbConnect = sqlite3.connect(self.database, check_same_thread=False)
+        dbConnect = sqlite3.connect(
+            self.database, check_same_thread=False)
         dbConnect.row_factory = lambda cursor, row: row[0]
         self.cursor = dbConnect.cursor()
     
-    #TODO: refactor to combine self.cursor.fetchall/drinks into method
-    #TODO: refactor to parametize and wildcard SQL
-
     def ingSearch(self, ingredient):
         '''populates set of drinks that contain 'ingredient'
         variable'''
@@ -69,7 +63,6 @@ class DrinkBase:
 
 # for development/debugging
 db = DrinkBase('drinkBase.db')
-db.connectDB()
 
 ## ingSearch
 #ryeDrinks = db.ingSearch('RYE')
@@ -80,7 +73,7 @@ db.connectDB()
 #print(frenchDrinks)
 
 # getRecipe
-martinez = db.getRecipe('French 75')
+martinez = db.getRecipe('Manhattan')
 print(martinez)
 
 
