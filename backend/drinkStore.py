@@ -3,7 +3,7 @@
 
 '''defines DrinkBase class for performing drinkBase searches'''
 
-import sqlite3, json
+import sqlite3
 
 class DrinkBase:
     def __init__(self, database):
@@ -44,7 +44,7 @@ class DrinkBase:
         return drinks
 
     def getRecipe(self, drink):
-        '''returns full recipe for 'drink' variable in JSON format'''
+        '''returns full recipe for 'drink' variable in'''
         self.cursor.execute(
             'SELECT ingredient from ingredients where name = ?', \
                     (drink,))
@@ -63,8 +63,7 @@ class DrinkBase:
             unit = self.cursor.fetchall()
             unit = str(unit[0])
             recipe.append(amount + ' ' + unit + ' ' + i)
-        fullRecipe = json.dumps(dict(Name=drink, Ingredients=recipe))
-        return fullRecipe
+        return recipe
 
     def drinkSearch(self, included='', excluded='', drinkName=''):
         '''returns set of drinks based on included ingredients, excluded

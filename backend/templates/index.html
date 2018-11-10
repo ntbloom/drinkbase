@@ -1,24 +1,16 @@
-<!-- results.html, main page for drinkBase website -->
+<!-- index.html, main page for drinkBase back end API-->
 
 <!doctype html>
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>drinkBase API</title>
 </head>
 
 <body>
-
  <div>
-    </h1>
-    {% for i in drinks %}
-    <h2> {{ i['name'] }}:</h2>
-	{% for value in i['recipe'] %}
-    <h3> {{ value }}</h3>
-        {% endfor %}
-	<p><br></p>
-    {% endfor %}
-  </div>
-
+   <p>{{ drinks }}</p>
+ </div>
   <footer>
     website by ntbloom. &#x00A9; 2018 drinkBase
   </footer>
