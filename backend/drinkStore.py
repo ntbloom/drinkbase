@@ -45,16 +45,42 @@ class DrinkBase:
 
     def getRecipe(self, drink):
         '''returns full recipe for 'drink' variable in JSON format'''
-        #TODO: define recipe algorithm
+        self.cursor.execute(
+            'SELECT ingredient from ingredients where name = ?', \
+                    (drink,))
+        ingredients = self.cursor.fetchall()
+        recipe = []
+        for i in ingredients:
+            self.cursor.execute('SELECT amount FROM ingredients where \
+                name = ? AND ingredient = ?', (drink, i))
+            amount = self.cursor.fetchall()
+            if int(amount[0]) == amount[0]:
+                amount = str(int(amount[0]))
+            else:
+                amount = str(amount[0])
+            self.cursor.execute('SELECT unit FROM ingredients where name \
+                 = ? AND ingredient = ?', (drink, i))
+            unit = self.cursor.fetchall()
+            unit = str(unit[0])
+            recipe.append(amount + ' ' + unit + ' ' + i)
+        #TODO: jsonify drink recipes
+        return recipe
+
 
 # for development/debugging
 db = DrinkBase('drinkBase.db')
 db.connectDB()
 
 ## ingSearch
-ryeDrinks = db.ingSearch('RYE')
-print(ryeDrinks)
+#ryeDrinks = db.ingSearch('RYE')
+#print(ryeDrinks)
 
 ## nameSearch
-frenchDrinks = db.nameSearch('french')
-print(frenchDrinks)
+#frenchDrinks = db.nameSearch('french')
+#print(frenchDrinks)
+
+# getRecipe
+martinez = db.getRecipe('French 75')
+print(martinez)
+
+
