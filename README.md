@@ -6,7 +6,7 @@ a cocktail-finding app built using a react frontend with python/flask backend
 ***
 <br/>
 
-### Build instructions
+### Build instructions for React front-end
 
 Install npm and create-react-app
 
@@ -44,9 +44,26 @@ Run development version
 ```
 
 ***
+<br/>
+### Build instructions for Flask back-end
 
-### Flask deployment for server/API
+Install python
 
-TODO: figure out how to serve up drinkbase results as JSON
+```
+$ [dnf/yum/apt-get] install python3 python3-pip python3-venv
+```
 
+Create virtual environment and install Flask
 
+```
+# cd ~/drinkbase/backend/
+# python3 -m venv drinkEnv
+# source drinkEnv/bin/activate
+(drinkEnv)# pip3 install flask
+```
+
+Run development server.  Make sure drinkEnv is activated.
+
+```
+(drinkEnv)# python3 main.py
+```
