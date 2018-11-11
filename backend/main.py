@@ -4,7 +4,7 @@
 '''python/flask script for running drinkBase back end'''
 
 import drinkStore
-from flask import Flask, render_template, request, redirect
+from flask import Flask, jsonify
 import json
 
 database = 'drinkBase.db'
@@ -12,7 +12,7 @@ ds = drinkStore.DrinkBase(database)
 
 app = Flask(__name__)
 
-@app.route('/')
+@app.route('/api.json')
 def render_api():
     allDrinks = sorted(ds.allDrinks)
     
@@ -22,10 +22,9 @@ def render_api():
     for drink in allDrinks:
         recipe = ds.getRecipe(drink)
         drinks[drink] = recipe
-    drinks = json.dumps(drinks)
 
     #TODO: prettify json output
-    return render_template('index.html', drinks=drinks)
+    return jsonify({'drinks': drinks})
 
 if __name__ == '__main__':
     app.run(debug=True)
