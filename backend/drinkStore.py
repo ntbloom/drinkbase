@@ -44,7 +44,7 @@ class DrinkBase:
         return drinks
 
     def getRecipe(self, drink):
-        '''returns full recipe for 'drink' variable in'''
+        '''returns full recipe for 'drink' variable'''
         self.cursor.execute(
             'SELECT ingredient from ingredients where name = ?', \
                     (drink,))
@@ -63,6 +63,7 @@ class DrinkBase:
             unit = self.cursor.fetchall()
             unit = str(unit[0])
             recipe.append(amount + ' ' + unit + ' ' + i)
+        recipeDict = {'Ingredients': recipe}
         return recipe
 
     def drinkSearch(self, included='', excluded='', drinkName=''):
