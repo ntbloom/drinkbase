@@ -12,41 +12,55 @@ ds = drinkStore.DrinkBase(database)
 
 app = Flask(__name__)
 
-def cleanInput(string):
-    '''automatically puts included/excluded into list form for
-    rendering'''
+@app.route('/api/<JSONquery>', methods=['GET'])
+def api(JSONquery):
+    query = json.loads(JSONquery)    
     
-    #TODO: define this method. decide separator % or | or /
-    
-    return string
-
-
-@app.route(
-        '/api/v1.0/drinks/<included>/<excluded>/<name>', methods=['GET'])
-def render_api(included, excluded, name):
-    '''renders API in json format'''
-
-    drinkList = set(ds.allDrinks)
-    if included != '':   
-        incl = set(ds.ingSearch(included))
-        drinkList = drinkList & incl
-    if excluded != '':
-        excl = set(ds.ingSearch(excluded))
-        drinkList = drinkList - excl
-    #TODO: fix name logic
-    if name != '':
-        named = set(ds.nameSearch(name))
-        drinkList = drinkList & named
-    
-    #TODO: fix for multiple ingredients
-
-    
+    apiCall = ds.drinkSearch(included, excluded)
     drinks = []
-    for drink in drinkList: 
+    for drink in apiCall: 
         recipe =  ds.getRecipe(drink)
         drinkDict = {'Name': drink, 'Recipe': recipe}
         drinks.append(drinkDict)
-    return jsonify({'Drinks': drinks})
+    return jsonify(
+            #{'allDrinks': list(ds.allDrinks)},
+            {'apiCall': apiCall},
+            {'Included': included}, 
+            {'Excluded': excluded}, 
+            {'Drinks': drinks}
+            )
+
+@app.route('/test/<JSONquery>', methods=['GET'])
+app.config['DEBUG'] = True
+def test(JSONquery):
+    query = json.loads(JSONquery)    
+    return query 
+#@app.route(
+#       '/api/v1.0/drinks/<included>/<excluded>/<name>', methods=['GET'])
+#def render_api(included, excluded, name):
+#    '''renders API in json format'''
+#
+#    drinkList = set(ds.allDrinks)
+#    if included != '':   
+#        incl = set(ds.ingSearch(included))
+#        drinkList = drinkList & incl
+#    if excluded != '':
+#        excl = set(ds.ingSearch(excluded))
+#        drinkList = drinkList - excl
+#    #TODO: fix name logic
+#    if name != '':
+#        named = set(ds.nameSearch(name))
+#        drinkList = drinkList & named
+#    
+#    #TODO: fix for multiple ingredients
+#
+#    
+#    drinks = []
+#    for drink in drinkList: 
+#        recipe =  ds.getRecipe(drink)
+#        drinkDict = {'Name': drink, 'Recipe': recipe}
+#        drinks.append(drinkDict)
+#    return jsonify({'Drinks': drinks})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
