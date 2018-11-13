@@ -12,13 +12,28 @@ ds = DrinkBase(database)
 
 app = Flask(__name__)
 
-@app.route('/api/names/', methods=['GET'])
+@app.route('/api/v1.0/ingreds/', methods=['GET'])
 def ingreds():
     incl = request.args.get('incl')
-    #excl = request.args.get('excl')
-    
-    drinks = jsonify(ds.ingSearch(incl))
+    excl = request.args.get('excl')
+    print(incl, '\n')
+    print(excl, '\n')
+    drinks = ds.allDrinks
+    if incl:
+        wanted = set(ds.ingSearch(incl))
+        drinks = drinks & wanted
+    if excl:
+        unwanted = set(ds.ingSearch(excl))
+        drinks = drinks - unwanted
+    drinks = jsonify(list(drinks))
     return drinks 
-    
+
+@app.route('/api/v1.0/names/', methods=['GET'])
+def names():
+    name = request.args.get('name')
+    drinks = ds.nameSearch(name)
+    drinks = jsonify(drinks)
+    return drinks
+
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False)
