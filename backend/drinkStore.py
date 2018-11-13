@@ -66,15 +66,15 @@ class DrinkBase:
         recipeDict = {'Ingredients': recipe}
         return recipe
 
-    def drinkSearch(self, included='', excluded=''):
+    def drinkSearch(self, included, excluded):
         '''returns set of drinks based on included or excluded ingredients'''
         
         # remember to send imcoming http request as Python list
         drinks = self.allDrinks
-        if len(included) > 0:
+        if included: 
             for i in included:
                 drinks = drinks & set(self.ingSearch(i))
-        if len(excluded) > 0:
+        if excluded:
             for i in excluded:
                 drinks = drinks - set(self.ingSearch(i))
         drinks = sorted(drinks) 
@@ -86,15 +86,19 @@ class DrinkBase:
 db = DrinkBase('drinkBase.db')
 
 # drinkSearch
-#included = ['rye']
-#excluded = ['vermouth']
-#ryeDrinks = db.drinkSearch(included, excluded)
-#print(ryeDrinks)
+included = ['rye']
+excluded = ['vermouth']
+ryeDrinks = db.drinkSearch(included, excluded)
+print(ryeDrinks)
+
 
 ## ingSearch
-#ryeDrinks = db.ingSearch('RYE')
-#print(ryeDrinks)
-
+#ryeDrinks = set(db.ingSearch('RYE'))
+#vermouthDrinks = set(db.ingSearch('VERMOUTH'))
+#drinks = ryeDrinks - vermouthDrinks
+#print('rye: ', ryeDrinks)
+#print('\nvermouth: ', vermouthDrinks)
+#print('\ndrinks: ', drinks)
 ## nameSearch
 #frenchDrinks = db.nameSearch('french')
 #print(frenchDrinks)

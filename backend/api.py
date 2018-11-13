@@ -3,35 +3,22 @@
 
 '''python/flask script for running drinkBase back end'''
 
-import drinkStore
+from drinkStore import DrinkBase
 from flask import Flask, request, jsonify
-import json, sqlite3
+import json
 
 database = 'drinkBase.db'
-ds = drinkStore.DrinkBase(database)
+ds = DrinkBase(database)
 
 app = Flask(__name__)
 
-@app.route('/api/v1', methods=['GET'])
-def api():
-    parameters = request.args
+@app.route('/api/names/', methods=['GET'])
+def ingreds():
+    incl = request.args.get('incl')
+    #excl = request.args.get('excl')
     
-    included = parameters.get('inc')
-    excluded = parameters.get('exc')
-    name = parameters.get('name')
-    
-    query = "SELECT * FROM ingredients WHERE"
-    queryFilter = []
-
-    if included:
-        query += ' ingredient = ?'
-        queryFilter.append(included)
-    
-    results = ds.cursor.execute(query, queryFilter).fetchall()
-
-    return jsonify(results)
-
-    
+    drinks = jsonify(ds.ingSearch(incl))
+    return drinks 
     
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, use_reloader=False)
