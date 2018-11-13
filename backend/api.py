@@ -25,13 +25,29 @@ def ingreds():
     if excl:
         unwanted = set(ds.ingSearch(excl))
         drinks = drinks - unwanted
-    drinks = jsonify(list(drinks))
+    
+    #TODO: refactor or make a class?
+    drinkDict ={}
+    for i in drinks:
+        recipe = ds.getRecipe(i)
+        recipeDict = {'Recipe': recipe}
+        drinkDict[i] = recipeDict
+
+    drinks = jsonify({'Drinks': drinkDict})
     return drinks 
 
 @app.route('/api/v1.0/names/', methods=['GET'])
 def names():
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
+     
+    drinkDict ={}
+    for i in drinks:
+        recipe = ds.getRecipe(i)
+        recipeDict = {'Recipe': recipe}
+        nameDict = {'Name': i}
+        drinkDict[i] = recipeDict
+
     drinks = jsonify(drinks)
     return drinks
 
