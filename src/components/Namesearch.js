@@ -20,6 +20,7 @@ class Namesearch extends Component {
   }
 }
 
+var url = "localhost:5000/api/v1.0/names/?name=";
 class Nameform extends Component {
   constructor(props) {
     super(props);
@@ -34,6 +35,9 @@ class Nameform extends Component {
   handleChange(event) {
     this.setState({value: event.target.value});
   }
+  
+
+  //TODO: define api call 
 
   handleSubmit(event) {
     console.log(this.state.value);
