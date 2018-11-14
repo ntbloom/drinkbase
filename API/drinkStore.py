@@ -4,6 +4,7 @@
 '''defines DrinkBase class for performing drinkBase searches'''
 
 import sqlite3
+from flask import jsonify
 
 class DrinkBase:
     def __init__(self, database):
@@ -65,6 +66,20 @@ class DrinkBase:
             recipe.append(amount + ' ' + unit + ' ' + i)
         recipeDict = {'Ingredients': recipe}
         return recipe
+
+    def sendRecipe(self, drinks):
+        '''formats recipe list as JSON data for given list of drink
+        names'''
+        drinkList = []
+        for i in drinks:
+            drinkDict = {}
+            recipe = self.getRecipe(i)
+            recipeDict = {'Recipe': recipe}
+            drinkDict['Name'] = i
+            drinkDict['Recipe'] = recipe
+            drinkList.append(drinkDict)
+        drinks = jsonify({'Drinks': drinkList})
+        return drinks
 
 
 # for development/debugging
