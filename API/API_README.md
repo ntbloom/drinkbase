@@ -2,8 +2,8 @@
 
 For ingredient searches, use:
 
-```[domain]/api/v1.0/ingreds/?incl=[query]&excl=[query]```
+```https://[domain]/api/v1.0/ingreds/?incl=[query terms]&excl=[query terms]```
 
 For name searches, use:
 
-```[domain]/api/v1.0/names/?name=[query terms]```
+```https://[domain]/api/v1.0/names/?name=[query terms]```
