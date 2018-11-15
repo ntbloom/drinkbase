@@ -1,12 +1,33 @@
 import React, { Component } from "react";
 
-var url = "localhost:5000/api/v1.0/names/?name=";
+var url = "http://localhost:5000/api/v1.0/names/?name=";
+
+function apiCall(apiURL1, queryTerms) {
+  // api call to url concatenated with query terms 
+  var xhr = new XMLHttpRequest()
+  var apiResponse = {}
+  xhr.open("GET", apiURL1.concat(queryTerms), true)
+  xhr.send();
+  xhr.onload = function(e) {
+    if (xhr.status === 200) {
+      apiResponse = JSON.parse(xhr.response)
+      console.log('xhr200', xhr.status, apiResponse)
+    } else {
+      apiResponse = xhr.statusText
+      console.log('else', apiResponse)
+      console.error(xhr.statusText)
+    }
+  }
+  //xhr.onreadystatechange = handler;
+  return apiResponse;
+}
 
 class Nameform extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      value: ''
+      value: '',
+      drinkBaseCall: {}
     };
 
     this.handleChange = this.handleChange.bind(this); 
@@ -14,15 +35,15 @@ class Nameform extends Component {
   }
   
   handleChange(event) {
+    // required for modifying form data
     this.setState({value: event.target.value});
   }
   
-
-  //TODO: define api call 
-
   handleSubmit(event) {
+    // response when you hit submit
     console.log(this.state.value)
-    event.preventDefault()
+    this.setState({drinkBaseCall: apiCall(url, this.state.value)})
+    event.preventDefault();
   }
 
   render() {
