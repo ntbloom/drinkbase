@@ -4,12 +4,15 @@
 '''python/flask script for running drinkBase back end'''
 
 from drinkStore import DrinkBase
-from flask import Flask, request
+from flask import Flask, request, Response
+from flask_cors import CORS
 
 database = 'drinkBase.db'
 ds = DrinkBase(database)
 
 app = Flask(__name__)
+#TODO: remove for production and configure in apache
+CORS(app)
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 def ingreds():
@@ -34,4 +37,4 @@ def names():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False)
+    app.run(debug=True, use_reloader=False, port=5000)
