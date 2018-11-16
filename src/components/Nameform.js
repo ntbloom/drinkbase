@@ -27,9 +27,9 @@ class Nameform extends Component {
     super(props);
     this.state = {
       value: '',
-      drinkBaseCall: {}
+      drinkBaseCall: {},
+      btnPress: props.btnPress
     };
-
     this.handleChange = this.handleChange.bind(this); 
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -41,7 +41,9 @@ class Nameform extends Component {
   
   handleSubmit(event) {
     // response when you hit submit
-    console.log(this.state.value)
+    console.log(this.state.value);
+    //this.btnPress("no state", this.state.value);
+    this.state.btnPress(this.state.value);
     this.setState({drinkBaseCall: apiCall(url, this.state.value)})
     event.preventDefault();
   }

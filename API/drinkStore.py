@@ -83,7 +83,7 @@ class DrinkBase:
 
 
 # for development/debugging
-db = DrinkBase('drinkBase.db')
+# db = DrinkBase('drinkBase.db')
 
 ## ingSearch
 #ryeDrinks = set(db.ingSearch('RYE'))
