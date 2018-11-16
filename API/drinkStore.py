@@ -8,10 +8,7 @@ from flask import jsonify
 
 class DrinkBase:
     def __init__(self, database):
-        
-        # file name, needs to end in .db
         self.database = database
-        
         dbConnect = sqlite3.connect(
             self.database, check_same_thread=False)
         dbConnect.row_factory = lambda cursor, row: row[0]
@@ -19,8 +16,8 @@ class DrinkBase:
         # self.cursor can be used to define any SQL query
         # use self.cursor.fetchall() to actually run query
         self.cursor = dbConnect.cursor()
-        drinkNameQuery = self.cursor.execute(
-            'SELECT DISTINCT name FROM ingredients GROUP BY name')
+        self.cursor.execute(
+            'SELECT name FROM ingredients GROUP BY name')
         
         # set of every drink named in the database
         self.allDrinks = set(sorted(self.cursor.fetchall()))
@@ -29,7 +26,7 @@ class DrinkBase:
         '''populates set of drinks that contain 'ingredient'
         variable'''
         self.cursor.execute(
-            'SELECT DISTINCT name FROM ingredients where ingredient \
+            'SELECT name FROM ingredients where ingredient \
                     like ? GROUP BY name', ('%'+ingredient+'%',))
         drinks = self.cursor.fetchall()
         drinks = sorted(set(drinks))
@@ -38,7 +35,7 @@ class DrinkBase:
     def nameSearch(self, name):
         '''populates set of drinks whose name matches 'name' variable'''
         self.cursor.execute(
-            'SELECT DISTINCT name from ingredients where name like ? \
+            'SELECT name from ingredients where name like ? \
                     GROUP BY name', ('%'+name+'%',))
         drinks = self.cursor.fetchall()
         drinks = sorted(set(drinks))
