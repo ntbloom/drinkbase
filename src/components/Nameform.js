@@ -41,7 +41,7 @@ class Nameform extends Component {
   
   handleSubmit(event) {
     // response when you hit submit
-    console.log(this.state.value);
+    console.log('handleSubmit: ', this.state.value);
     //this.btnPress("no state", this.state.value);
     this.state.btnPress(this.state.value);
     this.setState({drinkBaseCall: apiCall(url, this.state.value)})
