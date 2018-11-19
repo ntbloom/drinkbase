@@ -27,9 +27,6 @@ class Results extends Component {
         <ul>
           {things}
         </ul>
-
-        //insert code here
-      
       </div>
     );
   }
