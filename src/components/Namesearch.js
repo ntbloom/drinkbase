@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from "react";
-//import Results from "./Results";
+import Results from "./Results";
 
 class Namesearch extends Component {
 
@@ -12,46 +12,31 @@ class Namesearch extends Component {
     super(props);
     this.state = {
       value: '',
-      drinks: {},
-      things: [] 
+      query: ''
     };
     this.handleChange = this.handleChange.bind(this);
-    this.apiCall = this.apiCall.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
-
-  
 
   handleChange(event) {
     // required for modifying form data
     this.setState({value: event.target.value});
   }
 
-  apiCall(event) {
-    var xhr = new XMLHttpRequest();
-    var apiResponse = {'blah':'blah'};
-    var url = "http://localhost:5000/api/v1.0/names/?name=";
-    xhr.open("GET", url.concat(this.state.value), true);
-    xhr.send();
-    xhr.onload = function(e) {
-      if (xhr.status === 200) {
-        apiResponse = JSON.parse(xhr.response)
-        console.log('xhr200', xhr.status, apiResponse)
-      } else {
-        apiResponse = xhr.statusText
-        console.error(xhr.statusText)
-      }
-    }
-  }
- 
-    console.log('componentDidUpdateTHIS', this.state.value);
-    console.log('componentDidUpdateDRINKS', this.state.drinks);
+  handleSubmit(event) {
+    event.preventDefault();
+      
+    
+    console.log("handleSubmit, value : ", this.state.value);
+    console.log("handleSubmit, query : ", this.state.query);
+ }
 
   render() {
     return (
       <div className="namesearchMain">
         <div>
           <h2>SEARCH BY DRINK NAME</h2>
-        <form onSubmit={this.apiCall}>
+        <form onSubmit={this.handleSubmit}>
           <label>
             :: enter the name of a drink ::
             <input
@@ -62,6 +47,9 @@ class Namesearch extends Component {
           </label>
           <input type="submit" value="Submit" />
         </form>
+        <div>
+          <Results drinks={this.state.value} />
+        </div>
       </div>
     </div>
     );
