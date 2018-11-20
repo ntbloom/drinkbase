@@ -25,8 +25,14 @@ class Namesearch extends Component {
 
   handleSubmit(event) {
     event.preventDefault();
-      
-    
+
+    // TODO: make handleSubmit render the <Results />
+    // TODO: Results gets query terms from Namesearch
+    // TODO: use componentDidMount() when Results gets called
+    // TODO: Results runs the API query 
+
+
+
     console.log("handleSubmit, value : ", this.state.value);
     console.log("handleSubmit, query : ", this.state.query);
  }
