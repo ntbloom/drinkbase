@@ -6,7 +6,7 @@ class Results extends Component {
     super(props);
     this.state = {
       //query: this.props.drinks,
-      query: "martinez",
+      query: '',
       drinks: {}
     };
     console.log("constructor call : ", this.state.query);
@@ -36,10 +36,11 @@ class Results extends Component {
   
   render() {
     console.log("render this.state.query : ", this.state.query);
-  
+    const drinks = this.state.drinks; 
     return (
-      <div>
-        <h2>TRY ONE OF THESE</h2>
+      <div className="results">
+        <h2>TODO: add results here</h2>
+        <h3>{/*TODO: add drink object from python API */}</h3>
       </div>
     );
   }
