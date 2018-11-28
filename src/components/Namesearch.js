@@ -25,8 +25,7 @@ class Namesearch extends Component {
 
   handleSubmit(event) {
     this.setState({submitted: true});
-    console.log('query: ' + this.state.value);
-    console.log('submitted: ' + this.state.submitted);
+    console.log('Namesearch query: ' + this.state.value);
     event.preventDefault(); // why do I need this?
     // TODO: make sure query is getting passed to Results
   
