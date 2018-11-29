@@ -6,6 +6,7 @@
 import React, { Component } from "react";
 import Results from "./Results";
 
+let query = ""
 class Namesearch extends Component {
 
   constructor(props) {
@@ -21,12 +22,13 @@ class Namesearch extends Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
-    console.log("handlechange: ", this.state.value);
+    //console.log("handlechange: ", this.state.value);
   }
 
   handleSubmit(event) {
     this.setState({submitted: true})
     console.log("submit: ", this.state.value)
+    query = this.state.value
     event.preventDefault(); // why do I need this?
   
   }
@@ -34,7 +36,7 @@ class Namesearch extends Component {
   render() {
     //TODO: refactor to make it clean
     if (this.state.submitted === true) {
-      const query = this.state.value;    
+      console.log("render: ", query);
       return (
         <div className="namesearchMain">
           <div>

@@ -11,17 +11,33 @@ class Results extends Component {
   }
   
   componentDidMount() {
+    // TODO: refactor
     var api = "http://localhost:5000/api/v1.0/names/?name=";
-    var url = api.concat(this.state.query);
+    var url = api.concat(this.props.query);
     axios.get(url)
       .then(res => {
-        const drinks = res.data;
+        let drinks = res.data;
         this.setState({drinks});
-      });
+      }
+    );
+  }
+  
+  componentDidUpdate(prevProps) {
+    // TODO: refactor
+    if (this.props.query !== prevProps.query) {
+      var api = "http://localhost:5000/api/v1.0/names/?name=";
+      var url = api.concat(this.props.query);
+      axios.get(url)
+        .then(res => {
+          let drinks = res.data;
+          this.setState({drinks});
+        }
+      );
+    }
   }
 
   render() {
-    //  console.log("query at render : ", this.state.query);
+    console.log("query at render : ", this.props.query);
     //console.log("drinks at render : ", this.state.drinks);
     return (
       <div className="results">
