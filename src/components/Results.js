@@ -20,19 +20,6 @@ function apiCall(queryTerms) {
   return apiResponse
   console.log("end of API call : ", apiResponse);
 };
-
-
-
-function apiCall(queryTerms) {
-  var xhr = new XMLHttpRequest();
-  var apiResponse = {};
-  var url= "http://localhost:5000/api/v1.0/names/?name=";
-  xhr.open("GET", url.concat(queryTerms));
-  xhr.send();
-  apiResponse = xhr.response
-  console.log("apiCall: ", apiResponse)
-  return apiResponse;
-}
 */
 
 function holdingPattern(randomData) {
@@ -56,28 +43,40 @@ class Results extends Component {
       query: this.props.query,
       drinks: {},
     };
-    console.log("results query : ", this.state.query);
-    console.log("results at load drinks: ", this.state.drinks);
+    // console.log("results query : ", this.state.query);
   }
-
+  /*
   componentDidMount() {
     const cocktails = holdingPattern(this.state.query)
     this.setState({drinks: cocktails})
     console.log("didLoad drinks: ", this.state.drinks);
   }
-  //this.setState({drinks: apiResponse});
-  //componentDidUpdate()?
-  
+  */
+
+  componentDidMount() {
+    var xhr = new XMLHttpRequest()
+    var api = "http://localhost:5000/api/v1.0/names/?name=";
+    var url = api.concat(this.state.query);
+    console.log("url: ", url);
+    xhr.open("GET", url);
+    xhr.send();
+    xhr.onload = function() {
+      this.setState({drinks: JSON.parse(xhr.response)})
+    };
+  }
+};
+
+
   render() {
-    console.log("render this.state.query : ", this.state.query);
-    console.log("render this.state.drinks : ", this.state.drinks);
+    console.log("query at render : ", this.state.query);
+    console.log("drinks at render : ", this.state.drinks);
     return (
       <div className="results">
-        <h2>:: Try one of these ::</h2>
+        <h2>:: try one of these ::</h2>
         <h3>{JSON.stringify(this.state.drinks)}</h3>
       </div>
     );
   }
-}
+
 
 export default Results;
