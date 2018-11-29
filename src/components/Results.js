@@ -21,8 +21,8 @@ class Results extends Component {
   }
 
   render() {
-    console.log("query at render : ", this.state.query);
-    console.log("drinks at render : ", this.state.drinks);
+    //  console.log("query at render : ", this.state.query);
+    //console.log("drinks at render : ", this.state.drinks);
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>

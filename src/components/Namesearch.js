@@ -21,10 +21,12 @@ class Namesearch extends Component {
 
   handleChange(event) {
     this.setState({value: event.target.value});
+    console.log("handlechange: ", this.state.value);
   }
 
   handleSubmit(event) {
-    this.setState({submitted: true});
+    this.setState({submitted: true})
+    console.log("submit: ", this.state.value)
     event.preventDefault(); // why do I need this?
   
   }
@@ -48,7 +50,6 @@ class Namesearch extends Component {
             </label>
             <input type="submit" value="Submit" />
           </form>
-          
           <div>
             <Results query={query}/>
           </div>
