@@ -25,9 +25,7 @@ class Namesearch extends Component {
 
   handleSubmit(event) {
     this.setState({submitted: true});
-    //console.log('Namesearch query: ' + this.state.value);
     event.preventDefault(); // why do I need this?
-    // TODO: make sure query is getting passed to Results
   
   }
 
@@ -58,7 +56,6 @@ class Namesearch extends Component {
       </div>
       );
     } else {
-
       return (
         <div className="namesearchMain">
           <div>
@@ -74,9 +71,6 @@ class Namesearch extends Component {
             </label>
             <input type="submit" value="Submit" />
           </form>
-          
-          <div>
-          </div>
         </div>
       </div>
       );
