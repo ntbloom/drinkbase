@@ -69,12 +69,12 @@ class Results extends Component {
 
   render() {
     console.log("results render: ", this.state.drinks);
-    var drinkObj = this.state.drinks;
+    var drinkObj = this.state.drinks.Drinks;
     console.log("results drinkObj: ", drinkObj);
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
-        <h3>{JSON.stringify(this.state.drinks)}</h3>
+        <h3>{JSON.stringify(drinkObj)}</h3>
         <div>
         </div>
       </div>
