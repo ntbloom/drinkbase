@@ -10,7 +10,6 @@ class Results extends Component {
   }
   
   componentDidMount() {
-    // TODO: refactor
     var api = "http://localhost:5000/api/v1.0/names/?name=";
     var url = api.concat(this.props.query);
     axios.get(url)
@@ -22,7 +21,6 @@ class Results extends Component {
   }
   
   componentDidUpdate(prevProps) {
-    // TODO: refactor
     if (this.props.query !== prevProps.query) {
       var api = "http://localhost:5000/api/v1.0/names/?name=";
       var url = api.concat(this.props.query);
@@ -36,8 +34,6 @@ class Results extends Component {
   }
 
   render() {
-    console.log("query at render : ", this.props.query);
-    //console.log("drinks at render : ", this.state.drinks);
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
