@@ -70,6 +70,7 @@ class Results extends Component {
   render() {
     console.log("results render: ", this.state.drinks);
     var drinkObj = this.state.drinks.Drinks;
+    // var drinkObj = this.state.drinks.Drinks.length
     console.log("results drinkObj: ", drinkObj);
     return (
       <div className="results">
