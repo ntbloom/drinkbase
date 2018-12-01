@@ -27,7 +27,7 @@ class Namesearch extends Component {
 
   handleSubmit(event) {
     this.setState({submitted: true})
-    console.log("submit: ", this.state.value)
+    //console.log("submit: ", this.state.value)
     query = this.state.value
     event.preventDefault(); // why do I need this?
   
@@ -36,7 +36,7 @@ class Namesearch extends Component {
   render() {
     //TODO: refactor to make it clean
     if (this.state.submitted === true) {
-      console.log("render: ", query);
+      //console.log("query at render: ", query);
       return (
         <div className="namesearchMain">
           <div>
