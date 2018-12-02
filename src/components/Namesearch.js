@@ -6,7 +6,9 @@
 import React, { Component } from "react";
 import Results from "./Results";
 
-let query = ""
+let query = "";
+let url = "http://localhost:5000/api/v1.0/names/?name=";
+
 class Namesearch extends Component {
 
   constructor(props) {
@@ -53,7 +55,10 @@ class Namesearch extends Component {
             <input type="submit" value="Submit" />
           </form>
           <div>
-            <Results query={query}/>
+            <Results 
+              query={query} 
+              url={url}
+            />
           </div>
         </div>
       </div>

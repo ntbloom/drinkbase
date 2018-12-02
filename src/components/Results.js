@@ -21,7 +21,7 @@ class Results extends Component {
   }
   
   componentDidMount() {
-    var api = "http://localhost:5000/api/v1.0/names/?name=";
+    var api = this.props.url;
     var url = api.concat(this.props.query);
     axios.get(url)
       .then(res => {
@@ -36,7 +36,7 @@ class Results extends Component {
   
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
-      var api = "http://localhost:5000/api/v1.0/names/?name=";
+      var api = this.props.url;
       var url = api.concat(this.props.query);
       axios.get(url)
         .then(res => {
