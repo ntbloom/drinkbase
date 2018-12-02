@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 
 function pullNames(array) {
-  // returns simple array of drink names, works in the console
+  // returns simple array of drink names
   let names = [];
   for (let i=0; i<array.Drinks.length; i++) {
     names.push(array.Drinks[i].Name);
@@ -10,40 +10,13 @@ function pullNames(array) {
   return names;
 }
 
-class Drinkarray extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      names: [],
-    };
-  }
-
-  componentDidMount() {
-    //
-    var names = pullNames(this.props.drinkObj);
-    this.setState({names: names});
-    console.log("CDM: ", this.state.names);
-  }
-
-  render() {
-    // renders unordered list of drink names from simple array
-    // working properly
-    var namesList = this.state.names.map(function(name, index){
-      return <li key={index}>{name}</li>
-    })
-    return <ul>{ namesList }</ul>
-  }
-};
-
-
-
-
 
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
       drinks: {},
+      names: [],
     };
   }
   
@@ -53,7 +26,10 @@ class Results extends Component {
     axios.get(url)
       .then(res => {
         let drinks = res.data;
-        this.setState({drinks});
+        this.setState({drinks: drinks});
+        let names = pullNames(drinks);
+        this.setState({names: names});
+        console.log("CDM names: ", this.state.names);
       }
     );
   }
@@ -65,7 +41,10 @@ class Results extends Component {
       axios.get(url)
         .then(res => {
           let drinks = res.data;
-          this.setState({drinks});
+          this.setState({drinks: drinks});
+          let names = pullNames(drinks);
+          this.setState({names: names});
+          console.log("CDU names: ", this.state.names);
         }
       );
     }
@@ -78,16 +57,7 @@ class Results extends Component {
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
-        <h3>{JSON.stringify(drinkObj)}</h3>
-        <div>
-          {/* 
-            Problematic part of the code.  React thinks drinkObj is 
-            empty even though in the above h3 it renders properly.
-            Delete <Drinkarray /> below and the code works with 
-            proper object returned but unformatted html rendering.
-          */ }
-           <Drinkarray drinkObj={drinkObj} />
-        </div>
+        <h3>{this.state.names}</h3>
       </div>
     );
   }
