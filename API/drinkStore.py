@@ -6,6 +6,8 @@
 import sqlite3
 from flask import jsonify
 
+#TODO: make api work for multiple ingredients
+
 class DrinkBase:
     def __init__(self, database):
         self.database = database

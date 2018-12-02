@@ -11,8 +11,9 @@ database = 'drinkBase.db'
 ds = DrinkBase(database)
 
 app = Flask(__name__)
-#TODO: remove for production and configure in apache
-CORS(app)
+CORS(app) #remove for production & configure in apache
+
+#TODO: make api work with multiple ingredients
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 def ingreds():
