@@ -54,10 +54,13 @@ class Results extends Component {
     console.log("results render: ", this.state.drinks);
     var drinkObj = this.state.drinks;
     console.log("results drinkObj: ", drinkObj);
+    var namesList = this.state.names.map(function(name, index){
+      return <li key={index}>{name}</li>
+    })
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
-        <h3>{this.state.names}</h3>
+        <ul>{namesList}</ul>
       </div>
     );
   }
