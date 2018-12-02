@@ -10,7 +10,6 @@ function pullNames(array) {
   return names;
 }
 
-
 class Results extends Component {
   constructor(props) {
     super(props);
@@ -19,7 +18,6 @@ class Results extends Component {
       names: [],
     };
   }
-  
   componentDidMount() {
     var api = this.props.url;
     var url = api.concat(this.props.query);
@@ -29,11 +27,9 @@ class Results extends Component {
         this.setState({drinks: drinks});
         let names = pullNames(drinks);
         this.setState({names: names});
-        console.log("CDM names: ", this.state.names);
       }
     );
   }
-  
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
       var api = this.props.url;
@@ -44,16 +40,12 @@ class Results extends Component {
           this.setState({drinks: drinks});
           let names = pullNames(drinks);
           this.setState({names: names});
-          console.log("CDU names: ", this.state.names);
         }
       );
     }
   }
-
   render() {
-    console.log("results render: ", this.state.drinks);
     var drinkObj = this.state.drinks;
-    console.log("results drinkObj: ", drinkObj);
     var namesList = this.state.names.map(function(name, index){
       return <li key={index}>{name}</li>
     })
@@ -66,5 +58,4 @@ class Results extends Component {
   }
 }
 
-        
 export default Results;

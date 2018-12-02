@@ -10,35 +10,25 @@ let query = "";
 let url = "http://localhost:5000/api/v1.0/names/?name=";
 
 class Namesearch extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
       value: '',
       submitted: '',
     };
-
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
-
   handleChange(event) {
     this.setState({value: event.target.value});
-    //console.log("handlechange: ", this.state.value);
   }
-
   handleSubmit(event) {
     this.setState({submitted: true})
-    //console.log("submit: ", this.state.value)
     query = this.state.value
-    event.preventDefault(); // why do I need this?
-  
+    event.preventDefault(); 
   }
-
   render() {
-    //TODO: refactor to make it clean
     if (this.state.submitted === true) {
-      //console.log("query at render: ", query);
       return (
         <div className="namesearchMain">
           <div>
