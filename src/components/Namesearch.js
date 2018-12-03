@@ -7,7 +7,7 @@ import React, { Component } from "react";
 import Results from "./Results";
 
 let query = "";
-let url = "http://localhost:5000/api/v1.0/names/?name=";
+const url = "http://localhost:5000/api/v1.0/names/?name=";
 
 class Namesearch extends Component {
   constructor(props) {

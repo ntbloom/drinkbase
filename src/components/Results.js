@@ -19,50 +19,34 @@ class Results extends Component {
       drinks: {},
       names: [],
     };
-    //this.apiCall = this.apiCall.bind(this);
+  this.apiCall = this.apiCall.bind(this);
   }
 
-  /*
   apiCall() {
-    var url = api.concat(this.props.query);
-    axios.get(url)
-      .then(response => {
-        let drinks = res.data;
-        this.setState({drinks: drinks});
-        let names = getNames(drinks);
-        this.setState({names: names});
-      }
-      );
-  }
-  */
-
-
-  componentDidMount() {
+    // calls Python api
     let api = this.props.url;
-    var url = api.concat(this.props.query);
+    let url = api.concat(this.props.query);
     axios.get(url)
-      .then(res => {
-        let drinks = res.data;
-        this.setState({drinks: drinks});
-        let names = getNames(drinks);
-        this.setState({names: names});
-      }
-    );
-  }
-  componentDidUpdate(prevProps) {
-    let api = this.props.url;
-    if (this.props.query !== prevProps.query) {
-      var url = api.concat(this.props.query);
-      axios.get(url)
-        .then(res => {
-          let drinks = res.data;
+      .then(
+        response => {
+          let drinks = response.data;
           this.setState({drinks: drinks});
           let names = getNames(drinks);
           this.setState({names: names});
         }
       );
+  }
+  
+  componentDidMount() {
+    this.apiCall();
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.query !== prevProps.query) {
+      this.apiCall();
     }
   }
+  
   render() {
     var drinkObj = this.state.drinks;
     var namesList = this.state.names.map(function(name, index){
