@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import Recipes from "./Recipes";
 
 function pullNames(array) {
   // returns simple array of drink names
