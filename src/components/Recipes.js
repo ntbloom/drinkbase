@@ -17,6 +17,7 @@ class Recipes extends Component {
     }
   }
   render() {
+    // TODO: populate
     return (
       <div className="recipes">
         <p>this is where the ingredients will go</p>
