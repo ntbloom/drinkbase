@@ -54,5 +54,6 @@ footer {
 }
 
 .recipes {
+  padding-left: 1em;
   font-style: italic;
 }
