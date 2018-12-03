@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import axios from "axios";
 import Recipes from "./Recipes";
 
-function pullNames(array) {
+function getNames(array) {
   // returns simple array of drink names
   let names = [];
   for (let i=0; i<array.Drinks.length; i++) {
@@ -11,6 +11,7 @@ function pullNames(array) {
   return names;
 }
 
+
 class Results extends Component {
   constructor(props) {
     super(props);
@@ -18,28 +19,45 @@ class Results extends Component {
       drinks: {},
       names: [],
     };
+    //this.apiCall = this.apiCall.bind(this);
   }
+
+  /*
+  apiCall() {
+    var url = api.concat(this.props.query);
+    axios.get(url)
+      .then(response => {
+        let drinks = res.data;
+        this.setState({drinks: drinks});
+        let names = getNames(drinks);
+        this.setState({names: names});
+      }
+      );
+  }
+  */
+
+
   componentDidMount() {
-    var api = this.props.url;
+    let api = this.props.url;
     var url = api.concat(this.props.query);
     axios.get(url)
       .then(res => {
         let drinks = res.data;
         this.setState({drinks: drinks});
-        let names = pullNames(drinks);
+        let names = getNames(drinks);
         this.setState({names: names});
       }
     );
   }
   componentDidUpdate(prevProps) {
+    let api = this.props.url;
     if (this.props.query !== prevProps.query) {
-      var api = this.props.url;
       var url = api.concat(this.props.query);
       axios.get(url)
         .then(res => {
           let drinks = res.data;
           this.setState({drinks: drinks});
-          let names = pullNames(drinks);
+          let names = getNames(drinks);
           this.setState({names: names});
         }
       );
