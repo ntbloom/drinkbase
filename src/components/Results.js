@@ -50,6 +50,7 @@ class Results extends Component {
     var namesList = this.state.names.map(function(name, index){
       return <li key={index}>{name}</li>
     })
+    // TODO: render <Recipes /> for specific ingredients
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
