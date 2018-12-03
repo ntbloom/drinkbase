@@ -48,7 +48,23 @@ class Results extends Component {
   render() {
     var drinkObj = this.state.drinks;
     var namesList = this.state.names.map(function(name, index){
-      return <li key={index}>{name}</li>
+      //return <li key={index}>{name}</li>
+      return (
+        React.createElement(
+          "div",
+          null,
+          React.createElement(
+            "li",
+            { key: index },
+            name
+          ),
+          React.createElement(
+            Recipes, {name: name}
+          )
+        )
+      )
+
+          
     })
     // TODO: render <Recipes /> for specific ingredients
     return (
