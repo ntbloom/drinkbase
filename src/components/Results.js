@@ -1,23 +1,24 @@
 import React, { Component } from "react";
 import axios from "axios";
-import Recipes from "./Recipes";
 
-function getNames(array) {
-  // returns simple array of drink names
-  let names = [];
-  for (let i=0; i<array.Drinks.length; i++) {
-    names.push(array.Drinks[i].Name);
-  }
-  return names;
+function DrinksList(props) {
+  const drinks = props.drinks; //send Drinks
+  const listItems = drinks.map((drink) =>
+    <li key={drinks.indexOf(drink).toString()}>
+      {Object.values(drink)}
+    </li>
+  );
+  return (
+    <ul>{listItems}</ul>
+  );
 }
-
 
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
       drinks: {},
-      names: [],
+      submitted: '',
     };
     this.apiCall = this.apiCall.bind(this);
   }
@@ -30,8 +31,7 @@ class Results extends Component {
         response => {
           let drinks = response.data;
           this.setState({drinks: drinks});
-          let names = getNames(drinks);
-          this.setState({names: names});
+          this.setState({submitted: true});
           console.log(this.state.drinks);
         }
       );
@@ -45,34 +45,16 @@ class Results extends Component {
     }
   }
   render() {
-    var drinkObj = this.state.drinks;
-    // TODO: try making simple loop that returns drink name and recipe
-    // in a single rendering
-    
-    var namesList = this.state.names.map(function(name, index){
-      //return <li key={index}>{name}</li>
+    if (this.state.submitted === true) {
+      let drinks = this.state.drinks.Drinks;
       return (
-        React.createElement(
-          "div",
-          null,
-          React.createElement(
-            "li",
-            { key: index },
-            name
-          ),
-          React.createElement(
-            Recipes, 
-            {name: name, drinkObj: drinkObj}
-          )
-        )
-      )
-    })
-    return (
-      <div className="results">
-        <h2>:: try one of these ::</h2>
-        <ul>{namesList}</ul>
-      </div>
-    );
+        <div>
+          <DrinksList drinks={drinks} />
+        </div>
+      );
+    } else {
+      return null
+    }
   }
 }
 
