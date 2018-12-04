@@ -19,9 +19,8 @@ class Results extends Component {
       drinks: {},
       names: [],
     };
-  this.apiCall = this.apiCall.bind(this);
+    this.apiCall = this.apiCall.bind(this);
   }
-
   apiCall() {
     // calls Python api
     let api = this.props.url;
@@ -33,22 +32,23 @@ class Results extends Component {
           this.setState({drinks: drinks});
           let names = getNames(drinks);
           this.setState({names: names});
+          console.log(this.state.drinks);
         }
       );
   }
-  
   componentDidMount() {
     this.apiCall();
   }
-
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
       this.apiCall();
     }
   }
-  
   render() {
     var drinkObj = this.state.drinks;
+    // TODO: try making simple loop that returns drink name and recipe
+    // in a single rendering
+    
     var namesList = this.state.names.map(function(name, index){
       //return <li key={index}>{name}</li>
       return (
@@ -61,14 +61,12 @@ class Results extends Component {
             name
           ),
           React.createElement(
-            Recipes, {name: name}
+            Recipes, 
+            {name: name, drinkObj: drinkObj}
           )
         )
       )
-
-          
     })
-    // TODO: render <Recipes /> for specific ingredients
     return (
       <div className="results">
         <h2>:: try one of these ::</h2>
