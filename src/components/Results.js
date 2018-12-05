@@ -1,15 +1,29 @@
 import React, { Component } from "react";
 import axios from "axios";
 
+function pullIngreds(obj) {
+  let ingredients = [];
+  for (let i = 0; i < obj.length; i++) {
+    ingredients.push(" " + obj[i]["Ingredient"]);
+  }
+  ingredients = ingredients.toString();
+  return ingredients
+}
+
 function DrinksList(props) {
   const drinks = props.drinks; //send Drinks
   const listItems = drinks.map((drink) =>
     <li key={drinks.indexOf(drink).toString()}>
-      {Object.values(drink)}
+      {drink.Name}
+      <ul>
+        <li id="ingreds">
+          {pullIngreds(drink.Recipe)}
+        </li>
+      </ul>
     </li>
   );
   return (
-    <ul>{listItems}</ul>
+    <ul className="results">{listItems}</ul>
   );
 }
 
