@@ -6,6 +6,7 @@ body {
 }
 h1, h2, p, ul, li {
 
+  list-style-type: none;
   font-family: 'Source Code Pro';
   font-weight: bold;
   color: #000;
@@ -53,7 +54,8 @@ footer {
   padding-top: 2em;
 }
 
-.recipes {
+#ingreds {
+  font-size: 80%;
   padding-left: 1em;
   font-style: italic;
 }
