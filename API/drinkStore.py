@@ -54,15 +54,14 @@ class DrinkBase:
             self.cursor.execute('SELECT amount FROM ingredients where \
                 name = ? AND ingredient = ?', (drink, i))
             amount = self.cursor.fetchall()
-            if int(amount[0]) == amount[0]:
-                amount = str(int(amount[0]))
-            else:
-                amount = str(amount[0])
+            amount = amount[0]           
             self.cursor.execute('SELECT unit FROM ingredients where name \
                  = ? AND ingredient = ?', (drink, i))
             unit = self.cursor.fetchall()
             unit = str(unit[0])
-            recipe.append(amount + ' ' + unit + ' ' + i)
+            recipe.append({'Ingredient': i, 'Amount': amount,'Unit':
+                unit})
+            
         recipeDict = {'Ingredients': recipe}
         return recipe
 
