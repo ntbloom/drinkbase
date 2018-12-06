@@ -1,6 +1,7 @@
 // Drinklist, list of drinks returned by search form, rendered in html
 
 import React, { Component } from "react";
+import Recipe from "./Recipe";
 
 function pullIngreds(obj) {
   let ingredients = [];
@@ -19,6 +20,7 @@ function DrinksList(props) {
       <ul>
         <li id="ingreds">
           {pullIngreds(drink.Recipe)}
+          <Recipe drinks={drinks} />
         </li>
       </ul>
     </li>
