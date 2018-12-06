@@ -31,22 +31,29 @@ class Drinklist extends Component {
     super(props);
     this.state = {
       drinks: {},
+      submitted: '',
     };
   }
   componentDidMount() {
-  
+    this.setState({drinks: this.props.drinks}); 
+    this.setState({submitted: true});
   }
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
- 
+      this.setState({drinks: this.props.drinks});
     }
   }
   render() {
-    return (
-      <div>
-        <DrinksList />
-      </div>
-    );
+    if (this.state.submitted === true) {
+      let drinks = this.state.drinks;
+      return (
+        <div>
+          <DrinksList drinks={drinks} />
+        </div>
+      );
+    } else {
+      return null
+    }
   }
 }
 
