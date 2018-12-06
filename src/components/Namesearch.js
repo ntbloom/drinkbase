@@ -1,7 +1,4 @@
-/* Namesearch
- * component for searching for drinks by name
- * Results component gets rendered here
- */
+// Namesearch, search for drinks by name, passes drinks to Results
 
 import React, { Component } from "react";
 import Results from "./Results";

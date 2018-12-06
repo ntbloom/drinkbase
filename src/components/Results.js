@@ -1,3 +1,5 @@
+// Results, makes api call and passes results to drinklist
+
 import React, { Component } from "react";
 import axios from "axios";
 import Drinklist from "./Drinklist";

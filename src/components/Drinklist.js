@@ -1,3 +1,5 @@
+// Drinklist, list of drinks returned by search form, rendered in html
+
 import React, { Component } from "react";
 
 function pullIngreds(obj) {
