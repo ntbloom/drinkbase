@@ -12,52 +12,42 @@ function pullIngreds(obj) {
   return ingredients
 }
 
-function DrinksList(props) {
-  const drinks = props.drinks; //send Drinks
-  const listItems = drinks.map((drink) =>
-    <li key={drinks.indexOf(drink).toString()}>
-      {drink.Name}
-      <ul>
-        <li id="ingreds">
-          {pullIngreds(drink.Recipe)}
-          <Recipe drinks={drinks} />
-        </li>
-      </ul>
-    </li>
-  );
-  return (
-    <ul className="results">{listItems}</ul>
-  );
-}
-
 class Drinklist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: {},
-      submitted: '',
+      drinks: this.props.drinks,
     };
+    this.printDrinks = this.printDrinks.bind(this);
   }
-  componentDidMount() {
-    this.setState({drinks: this.props.drinks}); 
-    this.setState({submitted: true});
+
+  printDrinks() {
+    let drinks = this.props.drinks;
+    let listItems = drinks.map((drink) =>
+      <li key={drinks.indexOf(drink).toString()}>
+        {drink.Name}
+        <ul>
+          <li id="ingreds">
+            {pullIngreds(drink.Recipe)}
+            <Recipe drinks={drinks} />
+          </li>
+        </ul>
+      </li>
+    );
+    return (
+      <ul className="results">{listItems}</ul>
+    );
   }
+
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
       this.setState({drinks: this.props.drinks});
     }
   }
   render() {
-    if (this.state.submitted === true) {
       let drinks = this.state.drinks;
-      return (
-        <div>
-          <DrinksList drinks={drinks} />
-        </div>
-      );
-    } else {
-      return null
-    }
+      console.log("drinks: ", drinks)
+      return this.printDrinks();
   }
 }
 
