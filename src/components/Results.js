@@ -1,31 +1,8 @@
+// Results, makes api call and passes results to drinklist
+
 import React, { Component } from "react";
 import axios from "axios";
-
-function pullIngreds(obj) {
-  let ingredients = [];
-  for (let i = 0; i < obj.length; i++) {
-    ingredients.push(" " + obj[i]["Ingredient"]);
-  }
-  ingredients = ingredients.toString();
-  return ingredients
-}
-
-function DrinksList(props) {
-  const drinks = props.drinks; //send Drinks
-  const listItems = drinks.map((drink) =>
-    <li key={drinks.indexOf(drink).toString()}>
-      {drink.Name}
-      <ul>
-        <li id="ingreds">
-          {pullIngreds(drink.Recipe)}
-        </li>
-      </ul>
-    </li>
-  );
-  return (
-    <ul className="results">{listItems}</ul>
-  );
-}
+import Drinklist from "./Drinklist";
 
 class Results extends Component {
   constructor(props) {
@@ -63,7 +40,7 @@ class Results extends Component {
       let drinks = this.state.drinks.Drinks;
       return (
         <div>
-          <DrinksList drinks={drinks} />
+          <Drinklist drinks={drinks} />
         </div>
       );
     } else {
