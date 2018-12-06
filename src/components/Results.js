@@ -8,7 +8,7 @@ class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: {},
+      drinks: this.props.drinks,
       submitted: '',
     };
     this.apiCall = this.apiCall.bind(this);
