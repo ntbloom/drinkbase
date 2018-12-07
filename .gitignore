@@ -20,6 +20,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 *.ico
+*.swo
+
 # python/back-end
 drinkEnv/
 __pycache__/
