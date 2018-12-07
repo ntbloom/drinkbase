@@ -23,7 +23,7 @@ class Results extends Component {
           let drinks = response.data;
           this.setState({drinks: drinks});
           this.setState({submitted: true});
-          console.log(this.state.drinks);
+          //console.log(this.state.drinks);
         }
       );
   }

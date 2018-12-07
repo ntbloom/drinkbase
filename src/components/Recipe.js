@@ -7,12 +7,8 @@ class Recipe extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: {},
+      drinks: this.props.drinks,
     };
-  }
-  componentDidMount() {
-    this.setState({drinks: this.props.drinks});
-
   }
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
@@ -22,7 +18,7 @@ class Recipe extends Component {
   render() {
     let drinks = this.state.drinks;
     return (
-      <p>sample rendered by Recipe.js</p>
+      <p>{this.props.drink} (rendered by Recipe.js)</p>
     );
   }
 }

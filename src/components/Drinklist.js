@@ -17,19 +17,24 @@ class Drinklist extends Component {
     super(props);
     this.state = {
       drinks: this.props.drinks,
+      noResults: '',
     };
     this.printDrinks = this.printDrinks.bind(this);
+    this.tryAgain = this.tryAgain.bind(this);
   }
 
   printDrinks() {
-    let drinks = this.props.drinks;
-    let listItems = drinks.map((drink) =>
+    const drinks = this.props.drinks;
+    const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
         <ul>
           <li id="ingreds">
             {pullIngreds(drink.Recipe)}
-            <Recipe drinks={drinks} />
+            <Recipe 
+              drinks={drinks}
+              drink={drink.Name}
+            />
           </li>
         </ul>
       </li>
@@ -39,15 +44,38 @@ class Drinklist extends Component {
     );
   }
 
+  tryAgain() {
+    const drinks = this.state.drinks;
+    if (this.state.drinks === undefined || this.state.drinks.length === 0) {
+      this.setState({noResults: true})
+    } else {
+      this.setState({noResults: false})
+    };
+  }
+  
+  componentDidMount() {
+    this.setState({drinks: this.props.drinks});
+    this.tryAgain();
+  }
+
   componentDidUpdate(prevProps) {
-    if (this.props.query !== prevProps.query) {
+    if (this.props.drinks !== prevProps.drinks) {
       this.setState({drinks: this.props.drinks});
+      this.tryAgain();
     }
   }
   render() {
-      let drinks = this.state.drinks;
-      console.log("drinks: ", drinks)
+    const drinks = this.props.drinks;
+    const noResults = this.state.noResults;
+    console.log("drinks: ", drinks);
+    console.log("noResults: ", noResults);
+    if (this.state.noResults != true) {
       return this.printDrinks();
+    } else {
+      return (
+        <p className="nada">:: no results, try again ::</p>
+      );
+    };
   }
 }
 
