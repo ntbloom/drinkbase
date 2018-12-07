@@ -29,10 +29,9 @@ class Drinklist extends Component {
     const showRecipe = this.state.showRecipe;
     const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
-        {drink.Name}
-        <ul id="ingreds">
+        {drink.Name}<span id="ingreds">{pullIngreds(drink.Recipe)}</span>
+        <ul>
           <li>
-            {pullIngreds(drink.Recipe)}
             <Recipe 
               drinks={drinks}
               drink={drink.Name}
