@@ -59,3 +59,9 @@ footer {
   padding-left: 1em;
   font-style: italic;
 }
+
+.hideshow {
+  font-size: 90%;
+  font-style: normal;
+  padding-left: 1em;
+}

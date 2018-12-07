@@ -18,25 +18,20 @@ class Drinklist extends Component {
     this.state = {
       drinks: this.props.drinks,
       noResults: '',
+      showRecipe: false,
     };
     this.printDrinks = this.printDrinks.bind(this);
     this.tryAgain = this.tryAgain.bind(this);
-    this.showRecipe = this.showRecipe.bind(this);
   }
   
-  showRecipe() {
-    
-  }
-
   printDrinks() {
     const drinks = this.props.drinks;
+    const showRecipe = this.state.showRecipe;
     const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
-        <ul>
-          <li 
-            id="ingreds"
-          >
+        <ul id="ingreds">
+          <li>
             {pullIngreds(drink.Recipe)}
             <Recipe 
               drinks={drinks}

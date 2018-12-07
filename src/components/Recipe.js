@@ -11,7 +11,15 @@ class Recipe extends Component {
     this.state = {
       drinks: this.props.drinks,
       drink: this.props.drink,
+      showRecipe: false,
     };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    this.setState(prevState => ({
+      showRecipe: !prevState.showRecipe
+    }));
   }
 
   componentDidUpdate(prevProps) {
@@ -20,9 +28,11 @@ class Recipe extends Component {
     }
   }
   render() {
-    let drinks = this.state.drinks;
+    const drinks = this.state.drinks;
     return (
-      <p>{this.props.drink} (rendered by Recipe.js)</p>
+      <p className="hideshow" onClick={this.handleClick}>
+       [{this.state.showRecipe ? '-' : '+'}]
+      </p>
     );
   }
 }
