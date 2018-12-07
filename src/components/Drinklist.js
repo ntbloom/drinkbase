@@ -30,14 +30,10 @@ class Drinklist extends Component {
     const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}<span id="ingreds">{pullIngreds(drink.Recipe)}</span>
-        <ul>
-          <li>
             <Recipe 
               drinks={drinks}
               drink={drink.Name}
             />
-          </li>
-        </ul>
       </li>
     );
     return (
