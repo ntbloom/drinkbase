@@ -21,6 +21,11 @@ class Drinklist extends Component {
     };
     this.printDrinks = this.printDrinks.bind(this);
     this.tryAgain = this.tryAgain.bind(this);
+    this.showRecipe = this.showRecipe.bind(this);
+  }
+  
+  showRecipe() {
+    
   }
 
   printDrinks() {
@@ -29,7 +34,9 @@ class Drinklist extends Component {
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
         <ul>
-          <li id="ingreds">
+          <li 
+            id="ingreds"
+          >
             {pullIngreds(drink.Recipe)}
             <Recipe 
               drinks={drinks}
@@ -45,8 +52,11 @@ class Drinklist extends Component {
   }
 
   tryAgain() {
+    // TODO: bug alert
+    // takes 2 form submissions to return no results, except on first
+    // render
     const drinks = this.state.drinks;
-    if (this.state.drinks === undefined || this.state.drinks.length === 0) {
+    if (drinks === undefined || drinks.length === 0) {
       this.setState({noResults: true})
     } else {
       this.setState({noResults: false})
@@ -59,7 +69,7 @@ class Drinklist extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.drinks !== prevProps.drinks) {
+    if (this.state.drinks !== prevProps.drinks) {
       this.setState({drinks: this.props.drinks});
       this.tryAgain();
     }
@@ -69,7 +79,7 @@ class Drinklist extends Component {
     const noResults = this.state.noResults;
     console.log("drinks: ", drinks);
     console.log("noResults: ", noResults);
-    if (this.state.noResults != true) {
+    if (this.state.noResults !== true) {
       return this.printDrinks();
     } else {
       return (
