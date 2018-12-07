@@ -29,10 +29,21 @@ class Recipe extends Component {
   }
   render() {
     const drinks = this.state.drinks;
+    const showRecipe = this.state.showRecipe;
     return (
-      <p className="hideshow" onClick={this.handleClick}>
-       [{this.state.showRecipe ? '-' : '+'}]
-      </p>
+      <div>
+        <p className="hideshow" onClick={this.handleClick}>
+         [{this.state.showRecipe ? '-' : '+'}]
+        </p>
+      <div>{showRecipe ? (
+        <p className="recipe">
+          this is where the recipe for {this.state.drink} will go
+        </p>
+        ) : (
+          null
+        )}
+      </div>
+    </div>
     );
   }
 }
