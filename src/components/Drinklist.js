@@ -23,17 +23,24 @@ class Drinklist extends Component {
     this.printDrinks = this.printDrinks.bind(this);
     this.tryAgain = this.tryAgain.bind(this);
   }
-  
+
   printDrinks() {
     const drinks = this.props.drinks;
     const showRecipe = this.state.showRecipe;
     const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
-        {drink.Name}<span id="ingreds">{pullIngreds(drink.Recipe)}</span>
-            <Recipe 
-              drinks={drinks}
-              drink={drink.Name}
-            />
+        {drink.Name}
+        <span 
+          id="ingreds"
+          onClick={this.handleClick}
+        >
+          {pullIngreds(drink.Recipe)}
+        </span>
+          <Recipe 
+            drinks={drinks}
+            drink={drink.Name}
+            showRecipe={showRecipe}
+          />
       </li>
     );
     return (
