@@ -21,13 +21,12 @@ class Drinklist extends Component {
       showRecipe: false,
     };
     this.printDrinks = this.printDrinks.bind(this);
-    this.tryAgain = this.tryAgain.bind(this);
   }
 
   printDrinks() {
     const drinks = this.props.drinks;
     const showRecipe = this.state.showRecipe;
-    const listItems = drinks.map((drink) =>
+      const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
         <span 
@@ -42,33 +41,19 @@ class Drinklist extends Component {
             showRecipe={showRecipe}
           />
       </li>
-    );
-    return (
-      <ul className="results">{listItems}</ul>
-    );
+      );
+      return (
+        <ul className="results">{listItems}</ul>
+      );
   }
 
-  tryAgain() {
-    // TODO: bug alert
-    // takes 2 form submissions to return no results, except on first
-    // render
-    const drinks = this.state.drinks;
-    if (drinks === undefined || drinks.length === 0) {
-      this.setState({noResults: true})
-    } else {
-      this.setState({noResults: false})
-    };
-  }
-  
   componentDidMount() {
     this.setState({drinks: this.props.drinks});
-    this.tryAgain();
   }
 
   componentDidUpdate(prevProps) {
     if (this.state.drinks !== prevProps.drinks) {
       this.setState({drinks: this.props.drinks});
-      this.tryAgain();
     }
   }
   render() {
@@ -76,13 +61,7 @@ class Drinklist extends Component {
     const noResults = this.state.noResults;
     console.log("drinks: ", drinks);
     console.log("noResults: ", noResults);
-    if (this.state.noResults !== true) {
       return this.printDrinks();
-    } else {
-      return (
-        <p className="nada">:: no results, try again ::</p>
-      );
-    };
   }
 }
 
