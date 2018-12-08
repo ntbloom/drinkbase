@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 # drinkStore.py
 
 '''defines DrinkBase class for performing drinkBase searches'''
