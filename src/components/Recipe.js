@@ -14,6 +14,15 @@ class Recipe extends Component {
       showRecipe: false,
     };
     this.handleClick = this.handleClick.bind(this);
+    this.printRecipe = this.printRecipe.bind(this);
+  }
+
+  printRecipe() {
+    const drink = this.state.drink;
+    const drinks = this.state.drinks;
+    const recipe = ["first item"];
+
+    return (<p>{recipe}</p>);
   }
 
   handleClick() {
@@ -25,6 +34,7 @@ class Recipe extends Component {
   componentDidUpdate(prevProps) {
     if (this.props.drink !== prevProps.drink) {
       this.setState({drink: this.props.drink});
+      this.setState({drinks: this.props.drink});
     }
   }
   render() {
@@ -36,9 +46,7 @@ class Recipe extends Component {
         className="recipe"
       >
         {showRecipe ? (
-        <p>
-          this is where the recipe for {this.state.drink} will go
-        </p>
+          <div>{this.printRecipe()}</div>
         ) : (
           <p class="hideshow">(show recipe)</p>
         )}
