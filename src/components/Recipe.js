@@ -40,7 +40,7 @@ class Recipe extends Component {
           this is where the recipe for {this.state.drink} will go
         </p>
         ) : (
-          <p>click to see the full recipe</p>
+          <p class="hideshow">(show recipe)</p>
         )}
       </div>
     );
