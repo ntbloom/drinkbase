@@ -31,7 +31,6 @@ class Drinklist extends Component {
         {drink.Name}
         <span 
           id="ingreds"
-          onClick={this.handleClick}
         >
           {pullIngreds(drink.Recipe)}
         </span>
