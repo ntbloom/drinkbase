@@ -26,3 +26,5 @@ yarn-error.log*
 drinkEnv/
 __pycache__/
 *.db
+*.csv
+*.~lock.*
