@@ -17,7 +17,6 @@ class Drinklist extends Component {
     super(props);
     this.state = {
       drinks: this.props.drinks,
-      noResults: '',
       showRecipe: false,
     };
     this.printDrinks = this.printDrinks.bind(this);
@@ -37,7 +36,6 @@ class Drinklist extends Component {
           <Recipe 
             drinks={drinks}
             drink={drink.Name}
-            showRecipe={showRecipe}
           />
       </li>
       );
@@ -57,10 +55,8 @@ class Drinklist extends Component {
   }
   render() {
     const drinks = this.props.drinks;
-    const noResults = this.state.noResults;
     console.log("drinks: ", drinks);
-    console.log("noResults: ", noResults);
-      return this.printDrinks();
+    return this.printDrinks();
   }
 }
 
