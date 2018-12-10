@@ -4,7 +4,7 @@
 '''python/flask script for running drinkBase back end'''
 
 from drinkStore import DrinkBase
-from flask import Flask, request, Response
+from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
 database = 'drinkBase.db'
@@ -36,6 +36,9 @@ def names():
     drinks = ds.sendRecipe(drinks)
     return drinks
 
+@app.errorhandler(404)
+def not_found(error):
+    return make_response(jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
     app.run(debug=True, use_reloader=False, port=5000)
