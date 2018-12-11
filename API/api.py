@@ -7,13 +7,14 @@ from drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
+import sys #TODO: remove for production
+
 database = 'drinkBase.db'
 ds = DrinkBase(database)
 
 app = Flask(__name__)
-CORS(app) #remove for production & configure in apache
+CORS(app) #TODO: remove for production & configure in apache
 
-#TODO: make api work with multiple ingredients
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 def ingreds():
@@ -21,11 +22,16 @@ def ingreds():
     excl = request.args.get('excl')
     drinks = ds.allDrinks
     if incl:
-        wanted = set(ds.ingSearch(incl))
-        drinks = drinks & wanted
+        incl = incl.split(',')
+        for i in incl:
+            tempSet = set(ds.ingSearch(i))
+            drinks = drinks & tempSet
     if excl:
-        unwanted = set(ds.ingSearch(excl))
-        drinks = drinks - unwanted
+        excl = excl.split(',')
+        for i in excl:
+            tempSet = set(ds.ingSearch(i))
+            drinks = drinks - tempSet
+
     drinks = ds.sendRecipe(drinks)
     return drinks 
 
