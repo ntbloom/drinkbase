@@ -23,7 +23,7 @@ class Recipe extends Component {
     console.log(drinks)
     const recipeArray = []
     let recipe = drinks.filter(function(d) {
-      return d.Name == drink})
+      return d.Name === drink})
     recipe = recipe[0].Recipe
     for (let i = 0; i < recipe.length; i++) {
       let amount = recipe[i].Amount;
@@ -62,7 +62,6 @@ class Recipe extends Component {
     }
   }
   render() {
-    const drinks = this.state.drinks;
     const showRecipe = this.state.showRecipe;
     return (
       <div 

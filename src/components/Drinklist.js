@@ -24,7 +24,6 @@ class Drinklist extends Component {
 
   printDrinks() {
     const drinks = this.props.drinks;
-    const showRecipe = this.state.showRecipe;
       const listItems = drinks.map((drink) =>
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
