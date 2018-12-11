@@ -4,9 +4,15 @@
  */
 
 import React, { Component } from "react";
+import Results from "./Results";
 
+const url = "http://localhost:5000/api/v1.0/ingreds/";
 
 class Ingredientsearch extends Component {
+  //TODO: call props and this.state
+  //TODO: create forms
+  //TODO: format api call
+
   render() {
     return (
       <div>
