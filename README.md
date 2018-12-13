@@ -54,13 +54,13 @@ Create virtual environment and install python dependencies
 cd ~/drinkbase/API/
 python3 -m venv drinkEnv
 source drinkEnv/bin/activate
-pip3 install flask Flask-Cors
+pip3 install flask Flask-Cors requests
 ```
 
 Run development server
 
 ```
-python3 main.py
+python3 api.py
 ```
 
 #### Troubleshooting Flask server
@@ -68,3 +68,5 @@ python3 main.py
 * ensure proper libraries installed:
   * Flask
   * Flask-Cors
+  * Requests
+* make sure localhost:5000 port is open
