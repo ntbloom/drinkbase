@@ -7,8 +7,6 @@ from drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
-import sys #TODO: remove for production
-
 database = 'drinkBase.db'
 ds = DrinkBase(database)
 
@@ -31,7 +29,7 @@ def ingreds():
         for i in excl:
             tempSet = set(ds.ingSearch(i))
             drinks = drinks - tempSet
-
+    drinks = sorted(list(drinks))
     drinks = ds.sendRecipe(drinks)
     return drinks 
 
