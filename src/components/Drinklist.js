@@ -42,11 +42,6 @@ class Drinklist extends Component {
         <ul className="results">{listItems}</ul>
       );
   }
-
-  componentDidMount() {
-    this.setState({drinks: this.props.drinks});
-  }
-
   componentDidUpdate(prevProps) {
     if (this.state.drinks !== prevProps.drinks) {
       this.setState({drinks: this.props.drinks});
