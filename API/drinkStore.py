@@ -6,8 +6,6 @@
 import sqlite3
 from flask import jsonify
 
-#TODO: make api work for multiple ingredients
-
 class DrinkBase:
     def __init__(self, database):
         self.database = database
@@ -78,23 +76,3 @@ class DrinkBase:
             drinkList.append(drinkDict)
         drinks = jsonify({'Drinks': drinkList})
         return drinks
-
-
-# for development/debugging
-# db = DrinkBase('drinkBase.db')
-
-## ingSearch
-#ryeDrinks = set(db.ingSearch('RYE'))
-#vermouthDrinks = set(db.ingSearch('VERMOUTH'))
-#drinks = ryeDrinks - vermouthDrinks
-#print('rye: ', ryeDrinks)
-#print('\nvermouth: ', vermouthDrinks)
-#print('\ndrinks: ', drinks)
-
-## nameSearch
-#frenchDrinks = db.nameSearch('french')
-#print(frenchDrinks)
-
-## getRecipe
-#martinez = db.getRecipe('Manhattan')
-#print(martinez)
