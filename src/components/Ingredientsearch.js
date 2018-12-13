@@ -46,7 +46,7 @@ class Ingredientsearch extends Component {
           </form>
           <div>
             <Results 
-              query={this.state.included} 
+              query={query} 
               url={url}
             />
           </div>

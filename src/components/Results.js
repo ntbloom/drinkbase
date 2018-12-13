@@ -17,6 +17,7 @@ class Results extends Component {
     // calls Python api
     let api = this.props.url;
     let url = api.concat(this.props.query);
+    console.log("url", url);
     axios.get(url)
       .then(
         response => {
