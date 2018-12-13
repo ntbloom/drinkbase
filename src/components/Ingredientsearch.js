@@ -33,17 +33,22 @@ class Ingredientsearch extends Component {
         <div className="namesearchMain">
           <div>
             <h2>SEARCH BY INGREDIENT</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              :: enter an ingredient to include ::
-              <input
-                type="text"
-                value={this.state.included}
-                onChange={this.handleChange}
-                placeholder=" ex: rye" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+            <p>
+              enter ingredient names to retrieve drinks containing only 
+              those ingredients. separate multiple ingredients with a
+              comma.
+            </p>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                :: enter an ingredient to include ::
+                <input
+                  type="text"
+                  value={this.state.included}
+                  onChange={this.handleChange}
+                  placeholder=" ex: rye" />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
           <div>
             <Results 
               query={query} 
@@ -58,17 +63,22 @@ class Ingredientsearch extends Component {
         <div className="namesearchMain">
           <div>
             <h2>SEARCH BY INGREDIENT</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              :: enter an ingredient to include ::
-              <input
-                type="text"
-                value={this.state.included}
-                onChange={this.handleChange}
-                placeholder=" ex: vermouth" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
+            <p>
+              enter ingredient names to retrieve drinks containing only 
+              those ingredients. separate multiple ingredients with a
+              comma.
+            </p>
+            <form onSubmit={this.handleSubmit}>
+              <label>
+                :: enter an ingredient to include ::
+                <input
+                  type="text"
+                  value={this.state.included}
+                  onChange={this.handleChange}
+                  placeholder=" ex: vermouth" />
+              </label>
+              <input type="submit" value="Submit" />
+            </form>
         </div>
       </div>
       );
