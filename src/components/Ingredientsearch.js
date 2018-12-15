@@ -20,10 +20,12 @@ class Ingredientsearch extends Component {
     
   }
   handleChange(event) {
-    this.setState({included: event.target.value});
+    this.setState({[event.target.name]: event.target.value});
+    console.log("name: ", event.target.name, "| value: ", event.target.value);
   }
   handleSubmit(event) {
     this.setState({submitted: true})
+    
     query = this.state.included;
     event.preventDefault(); 
   }
@@ -38,6 +40,9 @@ class Ingredientsearch extends Component {
               those ingredients. separate multiple ingredients with a
               comma.
             </p>
+            
+            
+            
             <form onSubmit={this.handleSubmit}>
               <label>
                 :: enter an ingredient to include ::
@@ -68,6 +73,25 @@ class Ingredientsearch extends Component {
               those ingredients. separate multiple ingredients with a
               comma.
             </p>
+            
+            <form 
+              onSubmit={this.handleSubmit} 
+              method="get" 
+              className="ingredientSearch">
+              <div>
+                <label for="included">:: enter ingredients to include :: </label>
+                <input type="text" name="included" onChange={this.handleChange}></input>
+              </div>
+              <div>
+                <label for="excluded">:: enter ingredients to exclude :: </label>
+                <input type="excluded" name="excluded" onChange={this.handleChange}></input>
+              </div>
+              <div>
+                <input type="submit" value="find drinks"></input>
+              </div>
+            </form>
+
+            {/*
             <form onSubmit={this.handleSubmit}>
               <label>
                 :: enter an ingredient to include ::
@@ -79,6 +103,8 @@ class Ingredientsearch extends Component {
               </label>
               <input type="submit" value="Submit" />
             </form>
+            */}
+
         </div>
       </div>
       );
