@@ -54,19 +54,21 @@ class Ingredientsearch extends Component {
               those ingredients. separate multiple ingredients with a
               comma.
             </p>
-            
-            
-            
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                :: enter an ingredient to include ::
-                <input
-                  type="text"
-                  value={this.state.included}
-                  onChange={this.handleChange}
-                  placeholder=" ex: rye" />
-              </label>
-              <input type="submit" value="Submit" />
+            <form 
+              onSubmit={this.handleSubmit} 
+              method="get" 
+              className="ingredientSearch">
+              <div>
+                <label>:: enter ingredients to include ::</label>
+                <input type="text" name="included" onChange={this.handleChange}></input>
+              </div>
+              <div>
+                <label>:: enter ingredients to exclude ::</label>
+                <input type="excluded" name="excluded" onChange={this.handleChange}></input>
+              </div>
+              <div>
+                <input type="submit" value="find drinks"></input>
+              </div>
             </form>
           <div>
             <Results 
@@ -87,7 +89,6 @@ class Ingredientsearch extends Component {
               those ingredients. separate multiple ingredients with a
               comma.
             </p>
-            
             <form 
               onSubmit={this.handleSubmit} 
               method="get" 
@@ -104,21 +105,6 @@ class Ingredientsearch extends Component {
                 <input type="submit" value="find drinks"></input>
               </div>
             </form>
-
-            {/*
-            <form onSubmit={this.handleSubmit}>
-              <label>
-                :: enter an ingredient to include ::
-                <input
-                  type="text"
-                  value={this.state.included}
-                  onChange={this.handleChange}
-                  placeholder=" ex: vermouth" />
-              </label>
-              <input type="submit" value="Submit" />
-            </form>
-            */}
-
         </div>
       </div>
       );
