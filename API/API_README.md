@@ -1,9 +1,18 @@
-### How to use the drinkbase API
+## How to use the drinkbase API
 
+### Ingredient Searches
 For ingredient searches, use:
 
-```http://[domain]/api/v1.0/ingreds/?incl=[query terms]&excl=[query terms]```
+incl = included ingredients</br>
+excl = excluded ingredients
 
-For name searches, use:
+```http://localhost:5000/api/v1.0/ingreds/?incl=[query terms]&excl=[query terms]```
 
-```http://[domain]/api/v1.0/names/?name=[query terms]```
+Separate multiple ingredients with a comma:</br>
+```http://localhost:5000/api/v1.0/ingreds/?incl=rye,vermouth&excl=bitters,lemon```
+
+### Name Searches
+For name searches, use:</br>
+name = name of the drink you're searching for
+
+```http://localhost:5000/api/v1.0/names/?name=[query terms]```
