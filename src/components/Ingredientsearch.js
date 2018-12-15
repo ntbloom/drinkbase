@@ -6,7 +6,7 @@
 import React, { Component } from "react";
 import Results from "./Results";
 
-const url = "http://localhost:5000/api/v1.0/ingreds/?incl=";
+const url = "http://localhost:5000/api/v1.0/ingreds/";
 let query = ""
 
 class Ingredientsearch extends Component {
@@ -14,6 +14,7 @@ class Ingredientsearch extends Component {
     super(props);
     this.state = {
       included: '',
+      excluded: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -21,12 +22,25 @@ class Ingredientsearch extends Component {
   }
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
-    console.log("name: ", event.target.name, "| value: ", event.target.value);
   }
   handleSubmit(event) {
     this.setState({submitted: true})
-    
-    query = this.state.included;
+    console.log("included; ", this.state.included, "| excluded: ", this.state.excluded)
+    let counter = 0;
+    if (this.state.included.length > 0) {
+      counter += 1;
+    }
+    if (this.state.excluded.length > 0) {
+      counter += 3;
+    }
+    if (counter === 1) { // only included ingredients
+      query = "?incl=" + this.state.included
+    } else if (counter === 3) { // only excluded ingredients
+      query = "?excl=" + this.state.excluded
+    } else if (counter === 4) { // included and excluded ingredients
+      query = "?incl=" + this.state.included + "&excl=" + this.state.excluded
+    }
+    console.log("counter: ", counter, "| query: ", query)
     event.preventDefault(); 
   }
   render() {
@@ -79,11 +93,11 @@ class Ingredientsearch extends Component {
               method="get" 
               className="ingredientSearch">
               <div>
-                <label for="included">:: enter ingredients to include :: </label>
+                <label>:: enter ingredients to include ::</label>
                 <input type="text" name="included" onChange={this.handleChange}></input>
               </div>
               <div>
-                <label for="excluded">:: enter ingredients to exclude :: </label>
+                <label>:: enter ingredients to exclude ::</label>
                 <input type="excluded" name="excluded" onChange={this.handleChange}></input>
               </div>
               <div>
