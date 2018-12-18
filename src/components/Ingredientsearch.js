@@ -7,7 +7,6 @@ import React, { Component } from "react";
 import Results from "./Results";
 
 const url = "http://localhost:5000/api/v1.0/ingreds/";
-let query = ""
 
 class Ingredientsearch extends Component {
   constructor(props) {
@@ -15,6 +14,7 @@ class Ingredientsearch extends Component {
     this.state = {
       included: '',
       excluded: '',
+      query: '',
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,9 +23,13 @@ class Ingredientsearch extends Component {
     this.setState({[event.target.name]: event.target.value});
   }
   handleSubmit(event) {
-    console.log("included; ", this.state.included, "| excluded: ", this.state.excluded)
+    this.setState({query:
+      "?incl=" + this.state.included + "&excl=" + this.state.excluded
+    });
+
+    //delete if working after a little while
     
-    
+    /*
     let counter = 0;
     if (this.state.included.length > 0) {
       counter += 1;
@@ -40,7 +44,9 @@ class Ingredientsearch extends Component {
     } else if (counter === 4) { // included and excluded ingredients
       query = "?incl=" + this.state.included + "&excl=" + this.state.excluded
     }
-    console.log("counter: ", counter, "| query: ", query)
+    */
+
+    console.log("query: ", this.state.query)
     event.preventDefault(); 
   }
   render() {
@@ -82,7 +88,7 @@ class Ingredientsearch extends Component {
             </form>
           <div>
             <Results 
-              query={query} 
+              query={this.state.query} 
               url={url}
             />
           </div>
