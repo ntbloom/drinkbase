@@ -84,5 +84,11 @@ class TestNameSearch(unittest.TestCase):
             ["Boulevardier", "Old Pal"]
             )
 
+    def test_edge_case_incl_blank_excl(self):
+        self.assertEqual(
+            api("ingreds/?incl=heering&excl="),
+            ["Blood & Sand"]
+            )
+
 if __name__ == "__main__":
     unittest.main()

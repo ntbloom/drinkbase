@@ -18,14 +18,14 @@ class Ingredientsearch extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-    
   }
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
   }
   handleSubmit(event) {
-    this.setState({submitted: true})
     console.log("included; ", this.state.included, "| excluded: ", this.state.excluded)
+    
+    
     let counter = 0;
     if (this.state.included.length > 0) {
       counter += 1;
@@ -44,7 +44,6 @@ class Ingredientsearch extends Component {
     event.preventDefault(); 
   }
   render() {
-    if (this.state.submitted === true) {
       return (
         <div className="namesearchMain">
           <div>
@@ -60,14 +59,25 @@ class Ingredientsearch extends Component {
               className="ingredientSearch">
               <div>
                 <label>:: enter ingredients to include ::</label>
-                <input type="text" name="included" onChange={this.handleChange}></input>
+                <input 
+                  type="text" 
+                  name="included" 
+                  onChange={this.handleChange}>
+                </input>
               </div>
               <div>
                 <label>:: enter ingredients to exclude ::</label>
-                <input type="excluded" name="excluded" onChange={this.handleChange}></input>
+                <input 
+                  type="excluded" 
+                  name="excluded" 
+                  onChange={this.handleChange}>
+                </input>
               </div>
               <div>
-                <input type="submit" value="find drinks"></input>
+                <input 
+                  type="submit" 
+                  value="find drinks">
+                </input>
               </div>
             </form>
           <div>
@@ -79,36 +89,6 @@ class Ingredientsearch extends Component {
         </div>
       </div>
       );
-    } else {
-      return (
-        <div className="namesearchMain">
-          <div>
-            <h2>SEARCH BY INGREDIENT</h2>
-            <p>
-              enter ingredient names to retrieve drinks containing only 
-              those ingredients. separate multiple ingredients with a
-              comma.
-            </p>
-            <form 
-              onSubmit={this.handleSubmit} 
-              method="get" 
-              className="ingredientSearch">
-              <div>
-                <label>:: enter ingredients to include ::</label>
-                <input type="text" name="included" onChange={this.handleChange}></input>
-              </div>
-              <div>
-                <label>:: enter ingredients to exclude ::</label>
-                <input type="excluded" name="excluded" onChange={this.handleChange}></input>
-              </div>
-              <div>
-                <input type="submit" value="find drinks"></input>
-              </div>
-            </form>
-        </div>
-      </div>
-      );
-    }
   }
 }
 

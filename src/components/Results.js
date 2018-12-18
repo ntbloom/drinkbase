@@ -4,24 +4,24 @@ import React, { Component } from "react";
 import axios from "axios";
 import Drinklist from "./Drinklist";
 
+let url = ''
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: this.props.drinks,
-      submitted: '',
+      drinks: '',
     };
     this.apiCall = this.apiCall.bind(this);
   }
   apiCall() {
     // calls Python api
     let api = this.props.url;
-    let url = api.concat(this.props.query);
+    url = api.concat(this.props.query);
     console.log("url", url);
     axios.get(url)
       .then(
         response => {
-          let drinks = response.data;
+          const drinks = response.data;
           this.setState({drinks: drinks});
           this.setState({submitted: true});
           //console.log(this.state.drinks);
@@ -29,6 +29,7 @@ class Results extends Component {
       );
   }
   componentDidMount() {
+    console.log("url: ", url);
     this.apiCall();
   }
   componentDidUpdate(prevProps) {
@@ -37,16 +38,17 @@ class Results extends Component {
     }
   }
   render() {
-    if (this.state.submitted === true) {
-      let drinks = this.state.drinks.Drinks;
+    console.log("drinks: ", this.state.drinks.Drinks);
+    console.log("query: ", this.props.query);
+    if (this.props.query !== '') {
       return (
         <div>
-          <Drinklist drinks={drinks} />
+          <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
       );
     } else {
       return null
-    }
+    };
   }
 }
 

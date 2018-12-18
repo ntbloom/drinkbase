@@ -3,7 +3,6 @@
 import React, { Component } from "react";
 import Results from "./Results";
 
-let query = "";
 const url = "http://localhost:5000/api/v1.0/names/?name=";
 
 class Namesearch extends Component {
@@ -11,6 +10,7 @@ class Namesearch extends Component {
     super(props);
     this.state = {
       value: '',
+      query: '',
       submitted: '',
     };
     this.handleChange = this.handleChange.bind(this);
@@ -20,56 +20,30 @@ class Namesearch extends Component {
     this.setState({value: event.target.value});
   }
   handleSubmit(event) {
-    this.setState({submitted: true})
-    query = this.state.value
+    this.setState({query: this.state.value});
     event.preventDefault(); 
   }
   render() {
-    if (this.state.submitted === true) {
-      return (
-        <div className="namesearchMain">
-          <div>
-            <h2>SEARCH BY DRINK NAME</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              :: enter the name of a drink ::
-              <input
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-                placeholder=" ex: martinez" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-          <div>
-            <Results 
-              query={query} 
-              url={url}
-            />
-          </div>
-        </div>
+    return (
+      <div className="namesearchMain">
+          <h2>SEARCH BY DRINK NAME</h2>
+        <form onSubmit={this.handleSubmit}>
+          <label>
+            :: enter the name of a drink ::
+            <input
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+              placeholder=" ex: martinez" />
+          </label>
+          <input type="submit" value="Submit" />
+        </form>
+          <Results 
+            query={this.state.value} 
+            url={url}
+          />
       </div>
-      );
-    } else {
-      return (
-        <div className="namesearchMain">
-          <div>
-            <h2>SEARCH BY DRINK NAME</h2>
-          <form onSubmit={this.handleSubmit}>
-            <label>
-              :: enter the name of a drink ::
-              <input
-                type="text"
-                value={this.state.value}
-                onChange={this.handleChange}
-                placeholder=" ex: martinez" />
-            </label>
-            <input type="submit" value="Submit" />
-          </form>
-        </div>
-      </div>
-      );
-    }
+    );
   }
 }
 
