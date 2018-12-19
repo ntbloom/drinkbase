@@ -48,6 +48,7 @@ class Results extends Component {
       );
     } else {
       return null
+      // eslint-disable-next-line
     };
   }
 }

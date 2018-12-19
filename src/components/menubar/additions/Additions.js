@@ -1,9 +1,8 @@
-/* About component
- * simple static html page
- */
+// Additions, add drinks to SQL database with html POST
 
 import React, { Component } from "react";
-import Ingredientadd from "./Ingredientadd";
+//import Ingredientadd from "./Ingredientadd";
+import Plusminus from "./Plusminus";
 
 class Additions extends Component {
   constructor(props) {
@@ -22,14 +21,12 @@ class Additions extends Component {
   }
   handleSubmit(event) {
     //TODO: populate drink as JSON object
-  
   }
-
 
   render() {
     return (
       <div>
-        <h2>SUGGEST A DRINK</h2>
+        <h2>ADD A DRINK TO THE DATABASE</h2>
         <div>
           <div>
             <form
@@ -38,21 +35,23 @@ class Additions extends Component {
               className="suggestForm">
               
               <div>
-                <label>:: enter the name of a drink :: </label>
+                <label>enter the name of a drink</label>
                 <div>
                   <input
                     type="text"
                     placeholder=" enter name of the drink"
-                    name="Name"
+                    name="name"
                     onChange={this.handleChange}
                   >
                   </input>
                 </div>
               </div>
-
-
-
             </form>
+              
+            <div>
+              <Plusminus name={this.state.name}/>
+            </div>
+            
           </div>
         </div>
       </div>

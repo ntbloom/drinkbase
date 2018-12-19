@@ -48,7 +48,6 @@ class Drinklist extends Component {
     }
   }
   render() {
-    const drinks = this.props.drinks;
     return this.printDrinks();
   }
 }

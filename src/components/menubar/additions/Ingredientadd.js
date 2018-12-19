@@ -12,7 +12,6 @@ class Ingredientadd extends Component {
       Unit: '',
     }
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
     this.setState({[event.target.name]: event.target.value});
@@ -23,14 +22,14 @@ class Ingredientadd extends Component {
         <div>
         <input
           type="text"
-          placeholder=" enter ingredient name"
+          placeholder=" ingredient name"
           name="Ingredient"
           onChange={this.handleChange}
         >
         </input>
         <input
           type="text"
-          placeholder=" enter amount in decimals"
+          placeholder=" amount (decimals only)"
           name="Amount"
           onChange={this.handleChange}
         >
@@ -42,6 +41,7 @@ class Ingredientadd extends Component {
           <option value="oz">oz</option>
           <option value="dashes">dashes</option>
           <option value="each">each</option>
+          <option value="garnish">garnish</option>
         </select>
       </div>
     );
