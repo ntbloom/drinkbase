@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from "react";
-import Results from "./Results";
+import Results from "./results/Results";
 
 const url = "http://localhost:5000/api/v1.0/ingreds/";
 

@@ -17,19 +17,19 @@ class Results extends Component {
     // calls Python api
     let api = this.props.url;
     url = api.concat(this.props.query);
-    console.log("url", url);
+    //console.log("url", url);
     axios.get(url)
       .then(
         response => {
           const drinks = response.data;
           this.setState({drinks: drinks});
           this.setState({submitted: true});
-          //console.log(this.state.drinks);
+          ////console.log(this.state.drinks);
         }
       );
   }
   componentDidMount() {
-    console.log("url: ", url);
+    //console.log("url: ", url);
     this.apiCall();
   }
   componentDidUpdate(prevProps) {
@@ -38,8 +38,8 @@ class Results extends Component {
     }
   }
   render() {
-    console.log("drinks: ", this.state.drinks.Drinks);
-    console.log("query: ", this.props.query);
+    //console.log("drinks: ", this.state.drinks.Drinks);
+    //console.log("query: ", this.props.query);
     if (this.props.query !== '') {
       return (
         <div>
