@@ -26,27 +26,7 @@ class Ingredientsearch extends Component {
     this.setState({query:
       "?incl=" + this.state.included + "&excl=" + this.state.excluded
     });
-
-    //delete if working after a little while
-    
-    /*
-    let counter = 0;
-    if (this.state.included.length > 0) {
-      counter += 1;
-    }
-    if (this.state.excluded.length > 0) {
-      counter += 3;
-    }
-    if (counter === 1) { // only included ingredients
-      query = "?incl=" + this.state.included
-    } else if (counter === 3) { // only excluded ingredients
-      query = "?excl=" + this.state.excluded
-    } else if (counter === 4) { // included and excluded ingredients
-      query = "?incl=" + this.state.included + "&excl=" + this.state.excluded
-    }
-    */
-
-    console.log("query: ", this.state.query)
+    //console.log("query: ", this.state.query)
     event.preventDefault(); 
   }
   render() {
@@ -68,7 +48,8 @@ class Ingredientsearch extends Component {
                 <input 
                   type="text" 
                   name="included" 
-                  onChange={this.handleChange}>
+                  onChange={this.handleChange}
+                >
                 </input>
               </div>
               <div>
@@ -76,13 +57,15 @@ class Ingredientsearch extends Component {
                 <input 
                   type="excluded" 
                   name="excluded" 
-                  onChange={this.handleChange}>
+                  onChange={this.handleChange}
+                >
                 </input>
               </div>
               <div>
                 <input 
                   type="submit" 
-                  value="find drinks">
+                  value="find drinks"
+                >
                 </input>
               </div>
             </form>
