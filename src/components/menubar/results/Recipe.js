@@ -51,16 +51,6 @@ class Recipe extends Component {
     }));
   }
   
-  // delete this later if everything is working
-  /*
-  componentDidUpdate(prevProps) {
-    if (this.props.drink !== prevProps.drink) {
-      this.setState({drink: this.props.drink});
-      this.setState({drinks: this.props.drink});
-    }
-  }
-  */
-
   render() {
     const showRecipe = this.state.showRecipe;
     return (
