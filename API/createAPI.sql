@@ -22,7 +22,9 @@ name blob
 style blob
 glass blob
 notes blob
+*/
 
 /* notes:
 chemistry.class = sweetener, juice, base,etc 
 prep.style = stirred, shaken, bubbly, built, eggs, etc.
+*/
