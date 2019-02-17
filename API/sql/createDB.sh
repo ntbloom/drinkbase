@@ -1,6 +1,7 @@
 #!/bin/bash
 ## createDB.sh -- automatically creates and populates database from CSV
 DESTDIR=.
+SOURCEDIR=./data
 
 if [ -e $DESTDIR/drinkBase.db ]
 then
@@ -14,7 +15,7 @@ else
   echo "created $DESTDIR/drinkBase.db"
 fi
 
-cat data/createTables.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
+cat $SOURCEDIR/createTables.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
 if [ -s error_log.txt ]
 then
   printf "ERROR: table creation failed, check error_log.txt for info\n"
@@ -24,7 +25,7 @@ else
   rm error_log.txt
   printf "Succesfully created tables in $DESTDIR/drinkBase.db\n"
 fi 
-cat data/importCSV.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
+cat $SOURCEDIR/importCSV.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
 if [ -s error_log.txt ]
 then
   printf "ERROR: CSV import failed, check error_log.txt for info\n"
