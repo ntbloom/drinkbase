@@ -1,4 +1,10 @@
-## How to use the drinkbase API
+## How to init SQLite database
+
+run createDB.sh script located in drinkBase/API/sql directory to
+automatically create and populate drinkBase.db file wth data from CSV
+files
+
+## How to query the drinkbase API
 
 ### Ingredient Searches
 For ingredient searches, use:
