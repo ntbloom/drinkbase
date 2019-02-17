@@ -4,9 +4,9 @@ Noah, do these things:
 
 ## build data thing that feeds drinkViz
 
-1) load the prep and chemistry tables into sqlite
+~~1) load the prep and chemistry tables into sqlite
     - rename your "ingredient" table to "recipe"
-    - rename chemistry.acid to chemistry.brightness (then quit being a dick)
+    - rename chemistry.acid to chemistry.brightness (then quit being a dick)~~
 
 2) rewrite the R script in python
     - at the end it writes out two csv's
