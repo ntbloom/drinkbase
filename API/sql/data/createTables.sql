@@ -1,5 +1,7 @@
 /* createAPI.sql -- creates SQL tables for drinkbase API */
 
+--TODO: add NOT NULL to everything once data are complete
+
 --recipes: quantity of ingredients in each drink
 DROP TABLE IF EXISTS recipes;
 CREATE TABLE recipes (
