@@ -35,9 +35,17 @@ class DrinkBase:
         data = {}
         
         #TODO: abv
+        abv = ""
+        data['ABV'] = abv
+
         #TODO: alcoholUnits
+        alcoholUnits = ""
+        data['AlcoholUnits'] = alcoholUnits
+
         #TODO: brightness
-        
+        brightness = ""
+        data['Brightness'] = brightness
+
         #garnish
         self.cursor.execute(
             'SELECT garnish FROM prep WHERE name = ?',\
@@ -53,8 +61,16 @@ class DrinkBase:
         data['Glass'] = glass[0]
 
         #TODO: ingredientString
+        ingredientString = ""
+        data['IngredientString'] = ingredientString
+
         #TODO: melt
+        melt = ""
+        data['Melt'] = melt
+        
         #TODO: volume
+        volume = ""
+        data['Volume'] = volume
 
         #style -- stirred, shaken, etc.
         self.cursor.execute(
