@@ -4,9 +4,11 @@ Noah, do these things:
 
 ## build data thing that feeds drinkViz
 
-~~1) load the prep and chemistry tables into sqlite
+(done)~~load the prep and chemistry tables into sqlite
     - rename your "ingredient" table to "recipe"
     - rename chemistry.acid to chemistry.brightness (then quit being a dick)~~
+
+**1) Seth to fill in missing gaps in ingredients csv file.  Looking for sweetness and brightness values for every possible ingredient. Double check all current zero values.  Ideally, only water should have values of 0 for sweetness and brightness.**
 
 2) rewrite the R script in python
     - at the end it writes out two csv's
