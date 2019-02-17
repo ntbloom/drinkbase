@@ -3,16 +3,24 @@
 DESTDIR=..
 SOURCEDIR=./data
 
+function yes_or_no {
+  while true; do
+    read -p "$* [y/n]: " yn
+    case $yn in
+      [Yy]*) return 0 ;;
+      [Nn]*) printf "Build failed, exiting...\n"; exit 1;;
+    esac
+  done
+}
+
+printf "Starting build script...\n\n"
 if [ -e $DESTDIR/drinkBase.db ]
 then
-  printf "ERROR: $DESTDIR/drinkBase.db already exists\n"
-  printf "Existing file must be manually deleted\n"
-  printf "Exiting script...\n"
-  
-  exit 1
+  RM_WARNING="drinkBase.db already exists, do you wish to overwrite?"
+  yes_or_no "$RM_WARNING"
 else
   touch $DESTDIR/drinkBase.db
-  echo "created $DESTDIR/drinkBase.db"
+  printf "created $DESTDIR/drinkBase.db"
 fi
 
 cat $SOURCEDIR/createTables.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
@@ -36,4 +44,4 @@ else
   printf "Succesfully imported data from CSVs into $DESTDIR/drinkBase.db\n"
 fi 
 
-printf "\n$DESTDIR/drinkBase.db ready for use\nExiting script...\n"
+printf "\n$DESTDIR/drinkBase.db ready for use\n\nExiting script...\n"
