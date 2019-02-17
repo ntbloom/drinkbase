@@ -18,8 +18,8 @@ CREATE TABLE ingredients (
   ingredient TEXT NOT NULL PRIMARY KEY,
   class TEXT NOT NULL,
   alcohol REAL NOT NULL,
-  sweetness REAL NOT NULL,
-  brightness REAL NOT NULL
+  sweetness REAL,
+  brightness REAL
 );
 
 --build: how to build the drink
