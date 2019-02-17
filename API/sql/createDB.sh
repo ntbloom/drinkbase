@@ -20,7 +20,12 @@ then
   yes_or_no "$RM_WARNING"
 fi
 touch $DESTDIR/drinkBase.db
-printf "created $DESTDIR/drinkBase.db"
+printf "created $DESTDIR/drinkBase.db\n"
+
+if [ -e error_log.txt ]
+then
+  rm error_log.txt
+fi
 
 cat $SOURCEDIR/createTables.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
 if [ -s error_log.txt ]

@@ -26,5 +26,6 @@ CREATE TABLE prep (
   name TEXT NOT NULL PRIMARY KEY,
   style TEXT,
   glass TEXT,
+  garnish TEXT,
   notes BLOB
 );
