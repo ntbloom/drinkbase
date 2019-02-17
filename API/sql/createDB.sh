@@ -1,6 +1,6 @@
 #!/bin/bash
 ## createDB.sh -- automatically creates and populates database from CSV
-DESTDIR=.
+DESTDIR=..
 SOURCEDIR=./data
 
 if [ -e $DESTDIR/drinkBase.db ]

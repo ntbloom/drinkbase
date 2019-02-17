@@ -17,7 +17,7 @@ class DrinkBase:
         # use self.cursor.fetchall() to actually run query
         self.cursor = dbConnect.cursor()
         self.cursor.execute(
-            'SELECT name FROM ingredients GROUP BY name')
+            'SELECT name FROM recipes GROUP BY name')
         
         # set of every drink named in the database
         self.allDrinks = set(sorted(self.cursor.fetchall()))
@@ -26,7 +26,7 @@ class DrinkBase:
         '''populates set of drinks that contain 'ingredient'
         variable'''
         self.cursor.execute(
-            'SELECT name FROM ingredients where ingredient \
+            'SELECT name FROM recipes where ingredient \
                     like ? GROUP BY name', ('%'+ingredient+'%',))
         drinks = self.cursor.fetchall()
         drinks = sorted(set(drinks))
@@ -35,7 +35,7 @@ class DrinkBase:
     def nameSearch(self, name):
         '''populates set of drinks whose name matches 'name' variable'''
         self.cursor.execute(
-            'SELECT name from ingredients where name like ? \
+            'SELECT name from recipes where name like ? \
                     GROUP BY name', ('%'+name+'%',))
         drinks = self.cursor.fetchall()
         drinks = sorted(set(drinks))
@@ -44,16 +44,16 @@ class DrinkBase:
     def getRecipe(self, drink):
         '''returns full recipe for 'drink' variable'''
         self.cursor.execute(
-            'SELECT ingredient from ingredients where name = ?', \
+            'SELECT ingredient from recipes where name = ?', \
                     (drink,))
         ingredients = self.cursor.fetchall()
         recipe = []
         for i in ingredients:
-            self.cursor.execute('SELECT amount FROM ingredients where \
+            self.cursor.execute('SELECT amount FROM recipes where \
                 name = ? AND ingredient = ?', (drink, i))
             amount = self.cursor.fetchall()
             amount = amount[0]           
-            self.cursor.execute('SELECT unit FROM ingredients where name \
+            self.cursor.execute('SELECT unit FROM recipes where name \
                  = ? AND ingredient = ?', (drink, i))
             unit = self.cursor.fetchall()
             unit = str(unit[0])
