@@ -18,10 +18,9 @@ if [ -e $DESTDIR/drinkBase.db ]
 then
   RM_WARNING="drinkBase.db already exists, do you wish to overwrite?"
   yes_or_no "$RM_WARNING"
-else
-  touch $DESTDIR/drinkBase.db
-  printf "created $DESTDIR/drinkBase.db"
 fi
+touch $DESTDIR/drinkBase.db
+printf "created $DESTDIR/drinkBase.db"
 
 cat $SOURCEDIR/createTables.sql | sqlite3 $DESTDIR/drinkBase.db 2> error_log.txt
 if [ -s error_log.txt ]
