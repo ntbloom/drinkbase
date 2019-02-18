@@ -20,27 +20,95 @@ class DrinkBase:
             'SELECT name FROM recipes GROUP BY name')
         self.allDrinks = set(sorted(self.cursor.fetchall()))
 
+    def convertUnits(self, drink, ingredient):
+        '''converts ingredient amount into ounces'''
+        self.cursor.execute(
+            'SELECT amount FROM recipes WHERE name = ? AND \
+                ingredient = ?', (drink, ingredient))
+        amount = self.cursor.fetchall()
+        amount = amount[0]
+        self.cursor.execute(
+            'SELECT unit FROM recipes WHERE name = ? AND \
+                ingredient = ?', (drink, ingredient))
+        unit = self.cursor.fetchall()
+        unit = unit[0]
+        '''
+        quick math refresher:
+            1 dash = 1/48 oz
+            1 oz = 1 oz (ha!)
+            1 rinse = 1/16 oz
+            1 tbl = 1/2 oz
+            1 tsp = 1/6 oz
+            estimating large egg white at 1 oz
+        '''
+        if unit == 'dash':
+            return amount/48
+        elif unit == 'oz':
+            return amount
+        elif unit == 'rinse':
+            return amount/16
+        elif unit == 'tbl':
+            return amount/2
+        elif unit == 'tsp':
+            return amount/6
+        elif unit == 'each' and ingredient == 'egg white':
+            return amount
+        else:
+            return 0
+
     def drinkData(self, drink, SQLcolumn):
         '''returns data for given drink as dictionary'''
+ 
         drinkDict = {}
-        variables = ['style', 'glass', 'garnish', 'notes']
-        for i in variables:
-            self.cursor.execute(
-                'SELECT ? FROM prep where name = ?', (i, (drink,)))
-            tempVar = self.cursor.fetchall()
-            print("\n", drinkDict, "\n")
-            drinkDict[i] = tempVar
+        drinkDict['Name'] = drink
+        
+        #SQL queries for each column
+        '''Note: SQLite prevents you from parametizing query terms to
+        prevent SQL injection attacks. Only variables following an equal
+        sign may be used dynamically'''
+        self.cursor.execute(
+            'SELECT garnish FROM prep WHERE name = ?', (drink,))
+        garnish = self.cursor.fetchall()
+        drinkDict['Garnish'] = garnish[0]
+        self.cursor.execute(
+            'SELECT glass FROM prep WHERE name = ?', (drink,))
+        glass = self.cursor.fetchall()
+        drinkDict['Glass'] = glass[0]
+        self.cursor.execute(
+            'SELECT notes FROM prep WHERE name = ?', (drink,))
+        notes = self.cursor.fetchall()
+        drinkDict['Notes'] = notes[0]
+        self.cursor.execute(
+            'SELECT style FROM prep WHERE name = ?', (drink,))
+        style = self.cursor.fetchall()
+        drinkDict['Style'] = style[0]
+        
         return drinkDict[SQLcolumn]
 
     def ingData(self, ingredient, SQLcolumn):
         '''returns data for given ingredient as dictionary'''
+        
         ingDict = {}
-        variables = ['class', 'ingAbv', 'sweetness', 'brightness']
-        for i in variables:
-            self.cursor.execute(
-                'SELECT ? FROM ingredients where ingredient = ?', (i,ingredient))
-            tempVar = self.cursor.fetchall()
-            ingDict[i] = tempVar
+        ingDict['Name'] = ingredient
+
+        #SQL queries for each column
+        self.cursor.execute(
+            'SELECT brightness FROM ingredients WHERE ingredient = ?',(ingredient,))
+        brightness = self.cursor.fetchall()
+        ingDict['Brightness'] = brightness[0]
+        self.cursor.execute(
+            'SELECT ingClass FROM ingredients WHERE ingredient = ?',(ingredient,))
+        ingClass = self.cursor.fetchall()
+        ingDict['IngClass'] = ingClass[0]
+        self.cursor.execute(
+            'SELECT ingAbv FROM ingredients WHERE ingredient = ?',(ingredient,))
+        ingAbv = self.cursor.fetchall()
+        ingDict['IngAbv'] = ingAbv[0]
+        self.cursor.execute(
+            'SELECT sweetness FROM ingredients WHERE ingredient = ?',(ingredient,))
+        sweetness = self.cursor.fetchall()
+        ingDict['Sweetness'] = sweetness[0]
+
         return ingDict[SQLcolumn]
 
     def ingSearch(self, ingredient):
@@ -70,8 +138,8 @@ class DrinkBase:
         data['Brightness'] = brightness
 
         #garnish
-        garnish = self.drinkData(drink, "garnish")
-        data['Garnish'] = garnish[0]
+        garnish = self.drinkData(drink, 'Garnish')
+        data['Garnish'] = garnish
 
         #glass
         self.cursor.execute(
@@ -155,5 +223,3 @@ class DrinkBase:
             drinkList.append(drinkDict)
         drinks = jsonify({'Drinks': drinkList})
         return drinks
-
-
