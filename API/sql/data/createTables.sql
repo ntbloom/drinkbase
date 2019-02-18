@@ -17,7 +17,7 @@ CREATE TABLE recipes (
 DROP TABLE IF EXISTS ingredients;
 CREATE TABLE ingredients (
   ingredient TEXT NOT NULL PRIMARY KEY,
-  class TEXT NOT NULL,
+  ingClass TEXT NOT NULL,
   ingAbv REAL NOT NULL,
   sweetness REAL,
   brightness REAL
