@@ -23,17 +23,48 @@ class DrinkBase:
 
     def calcABV(self, drink):
       '''returns alcohol by volume for 'drink' as a float'''
+      alcohol = self.calcAlcoholOz(drink)
+      volume = self.calcVolume(drink)
+      abv = alcohol / volume
+      return abv
+
+    def calcAlcoholOz(self, drink):
+      '''returns volume of alcohol in oz for 'drink' as a float'''
       ingredients = self.getIng(drink)
-      return 0
+      
+      alcoholOz = 0
+      for i in ingredients:
+          self.cursor.execute('SELECT ingAbv FROM ingredients \
+              where ingredient = ?', (i,))
+          abv = self.cursor.fetchall()
+          try:
+              abv = abv[0]
+          except: 
+              #for non-alcoholic ingredients
+              abv = 0
+          vol = self.ingVolume(drink, i)
+          units = abv * vol
+          alcoholOz += units
 
-
-    def calcAlcoholUnits(self, drink):
-      '''returns total units of alcohol for 'drink' as a float'''
-      return 0
+      return alcoholOz
 
     def calcBrightness(self, drink):
       '''returns brightness value for 'drink' as a float'''
-      return 0
+      ingredients = self.getIng(drink)
+      brightness = 0
+
+      for i in ingredients:
+          self.cursor.execute('SELECT brightness FROM ingredients \
+              WHERE ingredient = ?', (i,))
+          bright = self.cursor.fetchall()
+          vol = self.ingVolume(drink, i)
+          try:
+              bright = bright[0]
+              brightness += (bright * vol)
+          except:
+              brightness = 0
+
+      return brightness
 
     def calcMelt(self, drink):
       '''returns melt value for 'drink' as a float'''
@@ -41,43 +72,15 @@ class DrinkBase:
 
     def calcVolume(self, drink):
       '''returns total volume of drink as a float'''
-      return 0
+      ingredients = self.getIng(drink)
+      volume = 0
+      for i in ingredients:
+          vol = self.ingVolume(drink, i)
+          #TODO: add melt
+          volume += vol
+     
+      return volume
 
-    def convertUnits(self, drink, ingredient):
-        '''returns quantity of 'ingredient' in ounces as a float'''
-        self.cursor.execute(
-            'SELECT amount FROM recipes WHERE name = ? AND \
-                ingredient = ?', (drink, ingredient))
-        amount = self.cursor.fetchall()
-        amount = amount[0]
-        self.cursor.execute(
-            'SELECT unit FROM recipes WHERE name = ? AND \
-                ingredient = ?', (drink, ingredient))
-        unit = self.cursor.fetchall()
-        unit = unit[0]
-        '''
-        quick math refresher:
-            1 dash = 1/48 oz
-            1 oz = 1 oz (ha!)
-            1 rinse = 1/16 oz
-            1 tbl = 1/2 oz
-            1 tsp = 1/6 oz
-            estimating large egg white at 1 oz
-        '''
-        if unit == 'dash':
-            return amount/48
-        elif unit == 'oz':
-            return amount
-        elif unit == 'rinse':
-            return amount/16
-        elif unit == 'tbl':
-            return amount/2
-        elif unit == 'tsp':
-            return amount/6
-        elif unit == 'each' and ingredient == 'egg white':
-            return amount
-        else:
-            return 0
 
     def drinkData(self, drink, SQLcolumn):
         '''returns prep data for 'drink' as a dictionary'''
@@ -143,6 +146,41 @@ class DrinkBase:
         drinks = sorted(set(drinks))
         return drinks
 
+    def ingVolume(self, drink, ingredient):
+        '''returns quantity of 'ingredient' in 'drink' in oz as a float'''
+        self.cursor.execute(
+            'SELECT amount FROM recipes WHERE name = ? AND \
+                ingredient = ?', (drink, ingredient))
+        amount = self.cursor.fetchall()
+        amount = amount[0]
+        self.cursor.execute(
+            'SELECT unit FROM recipes WHERE name = ? AND \
+                ingredient = ?', (drink, ingredient))
+        unit = self.cursor.fetchall()
+        unit = unit[0]
+        '''
+        quick math refresher:
+            1 dash = 1/48 oz
+            1 oz = 1 oz (ha!)
+            1 rinse = 1/16 oz
+            1 tbl = 1/2 oz
+            1 tsp = 1/6 oz
+            estimating large egg white at 1 oz
+        '''
+        if unit == 'dash':
+            return amount/48
+        elif unit == 'oz':
+            return amount
+        elif unit == 'rinse':
+            return amount/16
+        elif unit == 'tbl':
+            return amount/2
+        elif unit == 'tsp':
+            return amount/6
+        elif unit == 'each' and ingredient == 'egg white':
+            return amount
+        else:
+            return 0
 
     def getIng(self, drink):
         '''returns ingredients in 'drink' as a list'''
@@ -187,7 +225,7 @@ class DrinkBase:
         abv = self.calcABV(drink)
         data['ABV'] = abv
         #alcoholUnits
-        alcoholUnits = self.calcAlcoholUnits(drink)
+        alcoholUnits = self.calcAlcoholOz(drink)
         data['AlcoholUnits'] = alcoholUnits
         #brightness
         brightness = self.calcBrightness(drink)

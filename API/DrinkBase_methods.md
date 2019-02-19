@@ -1,8 +1,8 @@
     def calcABV(self, drink):
       '''returns alcohol by volume for 'drink' as a float'''
 --
-    def calcAlcoholUnits(self, drink):
-      '''returns total units of alcohol for 'drink' as a float'''
+    def calcAlcoholOz(self, drink):
+      '''returns volume of alcohol in oz for 'drink' as a float'''
 --
     def calcBrightness(self, drink):
       '''returns brightness value for 'drink' as a float'''
@@ -13,9 +13,6 @@
     def calcVolume(self, drink):
       '''returns total volume of drink as a float'''
 --
-    def convertUnits(self, drink, ingredient):
-        '''returns quantity of 'ingredient' in ounces as a float'''
---
     def drinkData(self, drink, SQLcolumn):
         '''returns prep data for 'drink' as a dictionary'''
 --
@@ -24,6 +21,9 @@
 --
     def ingSearch(self, ingredient):
         '''returns drinks that contain 'ingredient' as a set'''
+--
+    def ingVolume(self, drink, ingredient):
+        '''returns quantity of 'ingredient' in 'drink' in oz as a float'''
 --
     def getIng(self, drink):
         '''returns ingredients in 'drink' as a list'''
