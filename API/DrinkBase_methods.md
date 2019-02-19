@@ -1,28 +1,41 @@
-### Methods Used in DrinkBase class, defined in drinkStore.py
+    def calcABV(self, drink):
+      '''returns alcohol by volume for 'drink' as a float'''
 --
-    def convertUnits(drink, ingredient):
-        '''converts ingredient amount into ounces'''
+    def calcAlcoholUnits(self, drink):
+      '''returns total units of alcohol for 'drink' as a float'''
 --
-    def drinkData(drink, SQLcolumn):
-        '''returns data for given drink as dictionary'''
+    def calcBrightness(self, drink):
+      '''returns brightness value for 'drink' as a float'''
 --
-    def ingData(ingredient, SQLcolumn):
-        '''returns data for given ingredient as dictionary'''
+    def calcMelt(self, drink):
+      '''returns melt value for 'drink' as a float'''
 --
-    def ingSearch(ingredient):
-        '''populates set of drinks that contain 'ingredient' variable'''
+    def calcVolume(self, drink):
+      '''returns total volume of drink as a float'''
 --
-    def getData(drink):
-        '''returns chemistry and build data for each drink as dictionary'''
+    def convertUnits(self, drink, ingredient):
+        '''returns quantity of 'ingredient' in ounces as a float'''
 --
-    def getIng(drink):
-        '''returns list of ingredients for a given drink'''
+    def drinkData(self, drink, SQLcolumn):
+        '''returns prep data for 'drink' as a dictionary'''
 --
-    def getRecipe(drink):
-        '''returns full recipe for 'drink' variable'''
+    def ingData(self, ingredient, SQLcolumn):
+        '''returns data for 'ingredient' as a dictionary'''
 --
-    def nameSearch(name):
-        '''populates set of drinks whose name matches 'name' variable'''
+    def ingSearch(self, ingredient):
+        '''returns drinks that contain 'ingredient' as a set'''
 --
-    def sendRecipe(drinks):
-        '''formats recipe list as JSON data for given list of drink
+    def getIng(self, drink):
+        '''returns ingredients in 'drink' as a list'''
+--
+    def getRecipe(self, drink):
+        '''returns full recipe for 'drink' as a dictionary'''
+--
+    def nameSearch(self, nameQuery):
+        '''returns drink names matching 'nameQuery' as set'''
+--
+    def sendData(self, drink):
+        '''returns API-ready data for 'drink' as a dictionary'''
+--
+    def sendRecipe(self, drinks):
+        '''returns full recipe for 'drinks' as JSON'''
