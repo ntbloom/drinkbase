@@ -22,64 +22,93 @@ class DrinkBase:
 
 
     def calcABV(self, drink):
-      '''returns alcohol by volume for 'drink' as a float'''
-      alcohol = self.calcAlcoholOz(drink)
-      volume = self.calcVolume(drink)
-      abv = alcohol / volume
-      return abv
+        '''returns alcohol by volume for 'drink' as a float'''
+        
+        alcohol = self.calcAlcoholOz(drink)
+        volume = self.calcVolume(drink)
+        abv = alcohol / volume
+        return abv
 
     def calcAlcoholOz(self, drink):
-      '''returns volume of alcohol in oz for 'drink' as a float'''
-      ingredients = self.getIng(drink)
-      
-      alcoholOz = 0
-      for i in ingredients:
-          self.cursor.execute('SELECT ingAbv FROM ingredients \
-              where ingredient = ?', (i,))
-          abv = self.cursor.fetchall()
-          try:
-              abv = abv[0]
-          except: 
-              #for non-alcoholic ingredients
-              abv = 0
-          vol = self.ingVolume(drink, i)
-          units = abv * vol
-          alcoholOz += units
+        '''returns volume of alcohol in oz for 'drink' as a float'''
+        
+        ingredients = self.getIng(drink)
 
-      return alcoholOz
+        alcoholOz = 0
+        for i in ingredients:
+            self.cursor.execute('SELECT ingAbv FROM ingredients \
+                where ingredient = ?', (i,))
+            abv = self.cursor.fetchall()
+            #TODO: remove when database is complete
+            try:
+                abv = abv[0]
+            except: 
+                abv = 0
+            vol = self.ingVolume(drink, i)
+            units = abv * vol
+            alcoholOz += units
+
+        return alcoholOz
 
     def calcBrightness(self, drink):
-      '''returns brightness value for 'drink' as a float'''
-      ingredients = self.getIng(drink)
-      brightness = 0
+        '''returns brightness value for 'drink' as a float'''
+        
+        ingredients = self.getIng(drink)
+        brightness = 0
 
-      for i in ingredients:
-          self.cursor.execute('SELECT brightness FROM ingredients \
-              WHERE ingredient = ?', (i,))
-          bright = self.cursor.fetchall()
-          vol = self.ingVolume(drink, i)
-          try:
-              bright = bright[0]
-              brightness += (bright * vol)
-          except:
-              brightness = 0
+        for i in ingredients:
+            self.cursor.execute('SELECT brightness FROM ingredients \
+                WHERE ingredient = ?', (i,))
+            bright = self.cursor.fetchall()
+            vol = self.ingVolume(drink, i)
+            try:
+                bright = bright[0]
+                brightness += (bright * vol)
+            except:
+                brightness = 0
 
-      return brightness
+        return brightness
 
     def calcMelt(self, drink):
-      '''returns melt value for 'drink' as a float'''
-      return 0
+        '''returns melt value for 'drink' as a float'''
+        
+        self.cursor.execute('SELECT style FROM prep \
+            WHERE name = ?', (drink,))
+        style = self.cursor.fetchall()
+        style = style[0]
+
+        melt = 0.0
+        if style == 'built':
+            melt =  0.2
+        elif style == 'stirred':
+            melt = 0.3
+        elif style == 'shaken':
+            melt = 0.35
+        elif style == 'bubbly':
+            melt = 0.1
+        elif style == 'fizz':
+            melt = 0.33
+        elif style == 'swizzle':
+            melt = 0.4
+        else:
+            melt = 0.28
+        
+        return melt
 
     def calcVolume(self, drink):
-      '''returns total volume of drink as a float'''
-      ingredients = self.getIng(drink)
-      volume = 0
-      for i in ingredients:
+        '''returns total volume of drink as a float'''
+        
+        ingredients = self.getIng(drink)
+        volume = 0
+        for i in ingredients:
           vol = self.ingVolume(drink, i)
-          #TODO: add melt
           volume += vol
-     
-      return volume
+        
+        #calculate melt
+        melt = self.calcMelt(drink)
+        volume += (volume * melt)
+
+        return volume
 
 
     def drinkData(self, drink, SQLcolumn):
@@ -139,6 +168,7 @@ class DrinkBase:
 
     def ingSearch(self, ingredient):
         '''returns drinks that contain 'ingredient' as a set'''
+        
         self.cursor.execute(
             'SELECT name FROM recipes where ingredient \
                     like ? GROUP BY name', ('%'+ingredient+'%',))
@@ -148,6 +178,7 @@ class DrinkBase:
 
     def ingVolume(self, drink, ingredient):
         '''returns quantity of 'ingredient' in 'drink' in oz as a float'''
+        
         self.cursor.execute(
             'SELECT amount FROM recipes WHERE name = ? AND \
                 ingredient = ?', (drink, ingredient))
@@ -184,6 +215,7 @@ class DrinkBase:
 
     def getIng(self, drink):
         '''returns ingredients in 'drink' as a list'''
+        
         self.cursor.execute(
             'SELECT ingredient FROM recipes WHERE name = ?', (drink,))
         ingredients = self.cursor.fetchall()
@@ -191,6 +223,7 @@ class DrinkBase:
 
     def getRecipe(self, drink):
         '''returns full recipe for 'drink' as a dictionary'''
+        
         ingredients = self.getIng(drink)
         recipe = []
         for i in ingredients:
@@ -210,6 +243,7 @@ class DrinkBase:
 
     def nameSearch(self, nameQuery):
         '''returns drink names matching 'nameQuery' as set'''
+        
         self.cursor.execute(
             'SELECT name from recipes where name like ? \
                     GROUP BY name', ('%'+nameQuery+'%',))
@@ -219,6 +253,7 @@ class DrinkBase:
 
     def sendData(self, drink):
         '''returns API-ready data for 'drink' as a dictionary'''
+        
         data = {}
 
         #abv
@@ -246,9 +281,6 @@ class DrinkBase:
             ingredientString += ingredients[i] + ' | '
         ingredientString += ingredients[-1]
         data['IngredientString'] = ingredientString
-        # melt
-        melt = self.calcMelt(drink)
-        data['Melt'] = melt
         #volume
         volume = self.calcVolume(drink)
         data['Volume'] = volume
@@ -262,6 +294,7 @@ class DrinkBase:
 
     def sendRecipe(self, drinks):
         '''returns full recipe for 'drinks' as JSON'''
+        
         drinkList = []
         for i in drinks:
             drinkDict = {}
