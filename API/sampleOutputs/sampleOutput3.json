@@ -1,0 +1,4029 @@
+{
+  "Drinks": [
+    {
+      "Data": {
+        "ABV": 0.17851851851851852, 
+        "AlcoholUnits": 0.90375, 
+        "Brightness": 0.045, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Cocchi Americano | creme de cacao | gin | lemon juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.30825, 
+        "Volume": 5.0625
+      }, 
+      "Name": "20th Century", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Cocchi Americano", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "creme de cacao", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.18173515981735164, 
+        "AlcoholUnits": 0.7462500000000001, 
+        "Brightness": 0.0105, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "Lillet Blanc | gin | orange bitters | orange juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.16425, 
+        "Volume": 4.106249999999999
+      }, 
+      "Name": "Abbey Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Lillet Blanc", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "orange juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3089150943396226, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | agave nectar | tequila reposado", 
+        "Style": "built", 
+        "Sweetness": 0.08333333333333333, 
+        "Volume": 2.6500000000000004
+      }, 
+      "Name": "Agave Old Fashioned", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "agave nectar", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "tequila reposado", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.14322916666666669, 
+        "AlcoholUnits": 0.55, 
+        "Brightness": 0.03, 
+        "Garnish": "lime wedge", 
+        "Glass": "", 
+        "IngredientString": "Champagne or sparkling wine | aged rum | honey simple syrup | lime juice", 
+        "Style": "", 
+        "Sweetness": 0.458, 
+        "Volume": 3.84
+      }, 
+      "Name": "Airmail", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "aged rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2455892255892256, 
+        "AlcoholUnits": 0.9117500000000001, 
+        "Brightness": 0.015, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Cointreau | cognac | lemon juice | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.28275, 
+        "Volume": 3.7125
+      }, 
+      "Name": "Alabazam", 
+      "Recipe": [
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3080451658433311, 
+        "AlcoholUnits": 0.9093750000000002, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "gin | orange bitters | yellow Chartreuse", 
+        "Style": "stirred", 
+        "Sweetness": 0.23399999999999999, 
+        "Volume": 2.952083333333333
+      }, 
+      "Name": "Alaska Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "yellow Chartreuse", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.06721804511278195, 
+        "AlcoholUnits": 0.447, 
+        "Brightness": 0.06425, 
+        "Garnish": "lemon slice", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | egg white | grenadine | heavy cream | lime juice | simple syrup | soda water", 
+        "Style": "fizz", 
+        "Sweetness": 0.29975, 
+        "Volume": 6.65
+      }, 
+      "Name": "Angostura Fizz", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "egg white", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "grenadine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "heavy cream", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "soda water", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12279375000000002, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "apple slice and cinnamon stick", 
+        "Glass": "mug", 
+        "IngredientString": "Angostura bitters | applejack | cinnamon tea | maple syrup", 
+        "Style": "hot", 
+        "Sweetness": 0.14583333333333331, 
+        "Volume": 6.666666666666666
+      }, 
+      "Name": "Apple Toddy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "applejack", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "cinnamon tea", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "maple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3089150943396227, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | applejack | maple syrup", 
+        "Style": "built", 
+        "Sweetness": 0.28583333333333333, 
+        "Volume": 2.6499999999999995
+      }, 
+      "Name": "Applejack Old Fashioned", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "applejack", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "maple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.168310322156476, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "gin | honey simple syrup | lavender bitters | lemon juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.012, 
+        "Volume": 4.753125
+      }, 
+      "Name": "Bee's Knees", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lavender bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2863129973474801, 
+        "AlcoholUnits": 1.1243750000000001, 
+        "Brightness": 0.006, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "gin | green Chartreuse | orange bitters | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.41000000000000003, 
+        "Volume": 3.9270833333333335
+      }, 
+      "Name": "Bijou", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "green Chartreuse", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1598086124401914, 
+        "AlcoholUnits": 0.835, 
+        "Brightness": 0.03, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Campari | Champagne or sparkling wine | gin | lemon juice | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3155, 
+        "Volume": 5.225
+      }, 
+      "Name": "Bitter French", 
+      "Recipe": [
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12564102564102564, 
+        "AlcoholUnits": 0.55125, 
+        "Brightness": 0.020999999999999998, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Cynar | lemon juice | orange bitters | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.364, 
+        "Volume": 4.3875
+      }, 
+      "Name": "Bitter Guiseppe", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Cynar", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 6.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2587482931269914, 
+        "AlcoholUnits": 1.1843125, 
+        "Brightness": 0.006, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Cointreau | cognac | dry vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.155, 
+        "Volume": 4.577083333333333
+      }, 
+      "Name": "Black Feather", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.23519494204425714, 
+        "AlcoholUnits": 0.9300000000000002, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "gin | orange bitters | sloe gin | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.27, 
+        "Volume": 3.954166666666667
+      }, 
+      "Name": "Blackthorn", 
+      "Recipe": [
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sloe gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.0355603448275862, 
+        "AlcoholUnits": 0.33, 
+        "Brightness": 0.039, 
+        "Garnish": "orange twist", 
+        "Glass": "", 
+        "IngredientString": "aperol | club soda | grapefruit juice | lemon juice", 
+        "Style": "", 
+        "Sweetness": 0.828, 
+        "Volume": 9.280000000000001
+      }, 
+      "Name": "Blonde Redhead", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "aperol", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "grapefruit juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1774485596707819, 
+        "AlcoholUnits": 0.539, 
+        "Brightness": 0.006, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "Cherry Heering | orange juice | scotch whisky", 
+        "Style": "shaken", 
+        "Sweetness": 0.093, 
+        "Volume": 3.0375
+      }, 
+      "Name": "Blood & Sand", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cherry Heering", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "orange juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "scotch whisky", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2664723174914258, 
+        "AlcoholUnits": 1.1330625, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Benedictine | Drambuie | blended scotch whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.25625, 
+        "Volume": 4.252083333333333
+      }, 
+      "Name": "Bobby Burns", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Drambuie", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "blended scotch whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.22912087912087914, 
+        "AlcoholUnits": 1.0425, 
+        "Brightness": 0.006, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Campari | rye whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.4, 
+        "Volume": 4.55
+      }, 
+      "Name": "Boulevardier", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12279375000000002, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "mug", 
+        "IngredientString": "Angostura bitters | boiling water | bourbon whiskey | simple syrup", 
+        "Style": "hot", 
+        "Sweetness": 0.1025, 
+        "Volume": 6.666666666666666
+      }, 
+      "Name": "Bourbon Toddy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "boiling water", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15656565656565657, 
+        "AlcoholUnits": 0.775, 
+        "Brightness": 0.03, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Champagne or sparkling wine | cognac | lemon juice | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3155, 
+        "Volume": 4.95
+      }, 
+      "Name": "Brandy 75", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.18233618233618235, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.007, 
+        "Garnish": "grated nutmeg", 
+        "Glass": "coupe", 
+        "IngredientString": "cognac | heavy cream | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.18375, 
+        "Volume": 4.3875
+      }, 
+      "Name": "Brandy Alexander", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "heavy cream", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.24615384615384617, 
+        "AlcoholUnits": 1.08, 
+        "Brightness": 0, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Luxardo Maraschino | cognac | lemon juice | orange curacao | sugar rim", 
+        "Style": "shaken", 
+        "Sweetness": 0, 
+        "Volume": 4.3875
+      }, 
+      "Name": "Brandy Crusta", 
+      "Recipe": [
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "orange curacao", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar rim", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2767613914747673, 
+        "AlcoholUnits": 1.1768125, 
+        "Brightness": 0.003, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Luxardo Maraschino | amaro | dry vermouth | rye whiskey", 
+        "Style": "stirred", 
+        "Sweetness": 0.1825, 
+        "Volume": 4.252083333333333
+      }, 
+      "Name": "Brooklyn", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "amaro", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.16931216931216933, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.024, 
+        "Garnish": "grapefruit twist", 
+        "Glass": "coupe", 
+        "IngredientString": "bourbon whiskey | grapefruit juice | honey simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.554, 
+        "Volume": 4.725
+      }, 
+      "Name": "Brown Derby", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "grapefruit juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2154882154882155, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0, 
+        "Garnish": "lime wedge", 
+        "Glass": "", 
+        "IngredientString": "cachaca | muddled lime wedges | simple syrup | sugar cube", 
+        "Style": "shaken", 
+        "Sweetness": 0.46125, 
+        "Volume": 3.7125
+      }, 
+      "Name": "Caipirinha", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cachaca", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 6.0, 
+          "Ingredient": "muddled lime wedges", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar cube", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.141873840445269, 
+        "AlcoholUnits": 0.7965625, 
+        "Brightness": 0, 
+        "Garnish": "lemon twist", 
+        "Glass": "flute", 
+        "IngredientString": "Angostura bitters | Champagne or sparkling wine | sugar cube", 
+        "Style": "bubbly", 
+        "Sweetness": 0.0, 
+        "Volume": 5.614583333333334
+      }, 
+      "Name": "Champagne Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 5.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 5.0, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar cube", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.21365079365079367, 
+        "AlcoholUnits": 1.093625, 
+        "Brightness": 0.045, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | cognac | green Chartreuse | lemon juice | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.4445, 
+        "Volume": 5.1187499999999995
+      }, 
+      "Name": "Champs-Elysees", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "green Chartreuse", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.27494444444444444, 
+        "AlcoholUnits": 0.9279375, 
+        "Brightness": 0.017499999999999998, 
+        "Garnish": "lime wedge", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | blackstrap rum | falernum | lime juice", 
+        "Style": "built", 
+        "Sweetness": 0.254, 
+        "Volume": 3.375
+      }, 
+      "Name": "Corn 'n' Oil", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "blackstrap rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "falernum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1850340136054422, 
+        "AlcoholUnits": 0.7650000000000001, 
+        "Brightness": 0.0495, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Cointreau | Lillet Blanc | absinthe | gin | lemon juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.27075000000000005, 
+        "Volume": 4.134375
+      }, 
+      "Name": "Corpse Reviver #2", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Lillet Blanc", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "absinthe", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.19047619047619052, 
+        "AlcoholUnits": 0.9000000000000001, 
+        "Brightness": 0.056999999999999995, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Cointreau | cranberry juice | lime juice | vodka", 
+        "Style": "shaken", 
+        "Sweetness": 0.29525, 
+        "Volume": 4.725
+      }, 
+      "Name": "Cosmopolitan", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "cranberry juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "vodka", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.14146005509641874, 
+        "AlcoholUnits": 0.641875, 
+        "Brightness": 0, 
+        "Garnish": "lemon twist", 
+        "Glass": "flute", 
+        "IngredientString": "Champagne or sparkling wine | Lillet Rouge | Peychaud's bitters | rhubarb bitters | sugar cube", 
+        "Style": "bubbly", 
+        "Sweetness": 0.0, 
+        "Volume": 4.5375
+      }, 
+      "Name": "Cricket Ball", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Lillet Rouge", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "rhubarb bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar cube", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.17857142857142858, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "lime wedge", 
+        "Glass": "", 
+        "IngredientString": "lime juice | simple syrup | white rum", 
+        "Style": "", 
+        "Sweetness": 0.47325, 
+        "Volume": 4.48
+      }, 
+      "Name": "Daiquiri", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "white rum", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.09876543209876544, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "lime wheel", 
+        "Glass": "", 
+        "IngredientString": "dark rum | ginger beer | lime juice", 
+        "Style": "built", 
+        "Sweetness": 0.012, 
+        "Volume": 8.1
+      }, 
+      "Name": "Dark & Stormy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "dark rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 4.0, 
+          "Ingredient": "ginger beer", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2943740573152338, 
+        "AlcoholUnits": 1.2198125, 
+        "Brightness": 0.003, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Benedictine | Peychaud's bitters | absinthe | rye whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.2025, 
+        "Volume": 4.14375
+      }, 
+      "Name": "De La Louisiane", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "absinthe", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.32552083333333337, 
+        "AlcoholUnits": 1.25, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "", 
+        "IngredientString": "apple brandy | rye whiskey | yellow Chartreuse", 
+        "Style": "", 
+        "Sweetness": 0.156, 
+        "Volume": 3.84
+      }, 
+      "Name": "Diamondback", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "apple brandy", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "yellow Chartreuse", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.31619492827868845, 
+        "AlcoholUnits": 1.0286875, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | Luxardo Maraschino | orange bitters | rye whiskey", 
+        "Style": "", 
+        "Sweetness": 0.175, 
+        "Volume": 3.253333333333334
+      }, 
+      "Name": "Fancy-Free", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.16867273351648351, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.045, 
+        "Garnish": "lemon wedge", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | gin | lemon juice | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.627, 
+        "Volume": 4.8533333333333335
+      }, 
+      "Name": "Fitzgerald", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15656565656565657, 
+        "AlcoholUnits": 0.775, 
+        "Brightness": 0.03, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Champagne or sparkling wine | gin | lemon juice | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3155, 
+        "Volume": 4.95
+      }, 
+      "Name": "French 75", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.17028985507246377, 
+        "AlcoholUnits": 1.175, 
+        "Brightness": 0.045, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Champagne or sparkling wine | bourbon whiskey | lemon juice | simple syrup", 
+        "Style": "built", 
+        "Sweetness": 0.3195, 
+        "Volume": 6.9
+      }, 
+      "Name": "French 95", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.22914714151827556, 
+        "AlcoholUnits": 1.01875, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "highball", 
+        "IngredientString": "Champagne or sparkling wine | Strega | gin | orange bitters | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.15375, 
+        "Volume": 4.445833333333333
+      }, 
+      "Name": "Gargoyle and Spire", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Strega", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.16931216931216933, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "lime wheel", 
+        "Glass": "coupe", 
+        "IngredientString": "gin | lime juice | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.47325, 
+        "Volume": 4.725
+      }, 
+      "Name": "Gimlet", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.13168724279835392, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "orange slice", 
+        "Glass": "", 
+        "IngredientString": "egg white | gin | lemon juice | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.47325, 
+        "Volume": 6.075
+      }, 
+      "Name": "Gin Fizz", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "egg white", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.17857142857142858, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.06, 
+        "Garnish": "lime wedge", 
+        "Glass": "", 
+        "IngredientString": "gin | lime juice | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.3235, 
+        "Volume": 4.48
+      }, 
+      "Name": "Gin Rickey", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.16931216931216933, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "none", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "bourbon whiskey | honey simple syrup | lemon juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.687, 
+        "Volume": 4.725
+      }, 
+      "Name": "Gold Rush", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.09765625, 
+        "AlcoholUnits": 0.25, 
+        "Brightness": 0, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "creme de menthe | heavy cream | muddled mint leaves", 
+        "Style": "", 
+        "Sweetness": 0, 
+        "Volume": 2.56
+      }, 
+      "Name": "Grasshopper", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "creme de menthe", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "heavy cream", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 8.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.23487179487179488, 
+        "AlcoholUnits": 1.145, 
+        "Brightness": 0.009000000000000001, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Fernet Branca | gin | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.26, 
+        "Volume": 4.875
+      }, 
+      "Name": "Hanky Panky", 
+      "Recipe": [
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Fernet Branca", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2040203562340967, 
+        "AlcoholUnits": 0.7516875000000001, 
+        "Brightness": 0.02, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | cognac | grenadine | lemon juice | sweet vermouth", 
+        "Style": "shaken", 
+        "Sweetness": 0.20066666666666666, 
+        "Volume": 3.684375
+      }, 
+      "Name": "Harvard Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "grenadine", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.18858195211786377, 
+        "AlcoholUnits": 0.9600000000000001, 
+        "Brightness": 0.0, 
+        "Garnish": "lime wheel", 
+        "Glass": "coupe", 
+        "IngredientString": "Luxardo Maraschino | grapefruit juice | lime juice | salt | white rum", 
+        "Style": "shaken", 
+        "Sweetness": 0.0, 
+        "Volume": 5.090624999999999
+      }, 
+      "Name": "Hemingway Daiquiri", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "grapefruit juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "salt", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "white rum", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.16931216931216933, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "lime wedge", 
+        "Glass": "coupe", 
+        "IngredientString": "honey simple syrup | lime juice | white rum", 
+        "Style": "shaken", 
+        "Sweetness": 0.687, 
+        "Volume": 4.725
+      }, 
+      "Name": "Honeysuckle", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "white rum", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.13029375, 
+        "AlcoholUnits": 0.868625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon slice", 
+        "Glass": "mug", 
+        "IngredientString": "Angostura bitters | boiling water | rye whiskey | simple syrup", 
+        "Style": "hot", 
+        "Sweetness": 0.1025, 
+        "Volume": 6.666666666666666
+      }, 
+      "Name": "Hot Toddy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "boiling water", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.29128615384615386, 
+        "AlcoholUnits": 0.9861249999999999, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | Luxardo Maraschino | absinthe | rye whiskey | simple syrup", 
+        "Style": "stirred", 
+        "Sweetness": 0.24125, 
+        "Volume": 3.3854166666666665
+      }, 
+      "Name": "Improved Whiskey Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "absinthe", 
+          "Unit": "rinse"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.24853658536585366, 
+        "AlcoholUnits": 0.8279375, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | cognac | orgeat", 
+        "Style": "stirred", 
+        "Sweetness": 0.4, 
+        "Volume": 3.33125
+      }, 
+      "Name": "Japanese Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "orgeat", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.25, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0, 
+        "Garnish": "strawberry slice", 
+        "Glass": "", 
+        "IngredientString": "apple brandy | maple syrup | muddled mint leaves", 
+        "Style": "", 
+        "Sweetness": 0, 
+        "Volume": 3.2
+      }, 
+      "Name": "Jersey Julep", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "apple brandy", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "maple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 10.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.20948616600790512, 
+        "AlcoholUnits": 1.325, 
+        "Brightness": 0.0, 
+        "Garnish": "lime wedge", 
+        "Glass": "", 
+        "IngredientString": "amaro | lemon juice | muddled strawberry | pink Champagne or sparkling wine | simple syrup | tequila blanco", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3075, 
+        "Volume": 6.325
+      }, 
+      "Name": "La Rosa", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "amaro", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "muddled strawberry", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "pink Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "tequila blanco", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.24454963235294117, 
+        "AlcoholUnits": 1.108625, 
+        "Brightness": 0.006, 
+        "Garnish": "orange twist", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | Campari | dry vermouth | reposado tequila | sweet vermouth", 
+        "Style": "", 
+        "Sweetness": 0.21500000000000002, 
+        "Volume": 4.533333333333333
+      }, 
+      "Name": "La Rosita", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "reposado tequila", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.23356321839080463, 
+        "AlcoholUnits": 0.9525000000000001, 
+        "Brightness": 0, 
+        "Garnish": "none", 
+        "Glass": "coupe", 
+        "IngredientString": "Luxardo Maraschino | gin | green Chartreuse | lime juice | salt", 
+        "Style": "shaken", 
+        "Sweetness": 0, 
+        "Volume": 4.078125
+      }, 
+      "Name": "Last Word", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "green Chartreuse", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "salt", 
+          "Unit": "dash"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2623697916666667, 
+        "AlcoholUnits": 1.0075, 
+        "Brightness": 0.003, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Campari | Cointreau | dry vermouth | gin", 
+        "Style": "", 
+        "Sweetness": 0.26, 
+        "Volume": 3.84
+      }, 
+      "Name": "Lucien Gaudin", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2734443168771527, 
+        "AlcoholUnits": 0.992375, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "brandied cherry", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | rye whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.12, 
+        "Volume": 3.6291666666666664
+      }, 
+      "Name": "Manhattan", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1917211328976035, 
+        "AlcoholUnits": 1.1, 
+        "Brightness": 0.0, 
+        "Garnish": "salt rim and lime wedge", 
+        "Glass": "coupe", 
+        "IngredientString": "Cointreau | agave nectar | lime juice | salt rim | tequila reposado", 
+        "Style": "shaken", 
+        "Sweetness": 0.0, 
+        "Volume": 5.7375
+      }, 
+      "Name": "Margarita", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "agave nectar", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "salt rim", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "tequila reposado", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.23771597633136102, 
+        "AlcoholUnits": 0.8369583333333335, 
+        "Brightness": 0.006, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Luxardo Maraschino | gin | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.21833333333333332, 
+        "Volume": 3.520833333333333
+      }, 
+      "Name": "Martinez", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Luxardo Maraschino", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.26825085742283195, 
+        "AlcoholUnits": 1.140625, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "dry vermouth | gin | orange bitters", 
+        "Style": "stirred", 
+        "Sweetness": 0.0225, 
+        "Volume": 4.252083333333333
+      }, 
+      "Name": "Martini", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2272727272727273, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.0, 
+        "Garnish": "mint bouquet", 
+        "Glass": "", 
+        "IngredientString": "bourbon whiskey | muddled mint leaves | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.46125, 
+        "Volume": 3.52
+      }, 
+      "Name": "Mint Julep", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 10.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15992673992673992, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "mint bouquet", 
+        "Glass": "highball", 
+        "IngredientString": "Angostura bitters | lime juice | muddled mint leaves | rum | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.46125, 
+        "Volume": 5.11875
+      }, 
+      "Name": "Mojito", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 6.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12121212121212123, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "club soda | ginger syrup | lime juice | vodka", 
+        "Style": "built", 
+        "Sweetness": 0.47325, 
+        "Volume": 6.6
+      }, 
+      "Name": "Moscow Mule", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "ginger syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "vodka", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.22361111111111112, 
+        "AlcoholUnits": 0.805, 
+        "Brightness": 0.006, 
+        "Garnish": "orange twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Campari | gin | sweet vermouth", 
+        "Style": "built", 
+        "Sweetness": 0.4, 
+        "Volume": 3.6
+      }, 
+      "Name": "Negroni", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3277830188679246, 
+        "AlcoholUnits": 0.868625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | rye whiskey | simple syrup", 
+        "Style": "built", 
+        "Sweetness": 0.1025, 
+        "Volume": 2.6499999999999995
+      }, 
+      "Name": "Old Fashioned", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.14429223744292236, 
+        "AlcoholUnits": 0.5266666666666666, 
+        "Brightness": 0.018000000000000002, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Peychaud's bitters | dry vermouth | orange bitters | sweet vermouth", 
+        "Style": "built", 
+        "Sweetness": 0.285, 
+        "Volume": 3.65
+      }, 
+      "Name": "Old Hickory", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2552197802197802, 
+        "AlcoholUnits": 1.16125, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Campari | dry vermouth | rye whiskey", 
+        "Style": "stirred", 
+        "Sweetness": 0.20249999999999999, 
+        "Volume": 4.55
+      }, 
+      "Name": "Old Pal", 
+      "Recipe": [
+        {
+          "Amount": 0.75, 
+          "Ingredient": "Campari", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.10256410256410257, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.069, 
+        "Garnish": "lime wheel", 
+        "Glass": "", 
+        "IngredientString": "club soda | grapefruit juice | lime juice | simple syrup | tequila blanco", 
+        "Style": "stirred", 
+        "Sweetness": 0.57725, 
+        "Volume": 7.8
+      }, 
+      "Name": "Paloma", 
+      "Recipe": [
+        {
+          "Amount": 1.5, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "grapefruit juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "tequila blanco", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.25174402250351613, 
+        "AlcoholUnits": 1.1186875, 
+        "Brightness": 0.03, 
+        "Garnish": "lime slice", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | gin | lime juice | orange bitters | orange curacao", 
+        "Style": "shaken", 
+        "Sweetness": 0.14300000000000002, 
+        "Volume": 4.4437500000000005
+      }, 
+      "Name": "Pegu Club", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "orange curacao", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.18615384615384617, 
+        "AlcoholUnits": 0.9075000000000001, 
+        "Brightness": 0.045, 
+        "Garnish": "fresh ginger slices", 
+        "Glass": "coupe", 
+        "IngredientString": "blended scotch whiskey | honey simple syrup | lemon juice | scotch whisky", 
+        "Style": "stirred", 
+        "Sweetness": 0.687, 
+        "Volume": 4.875
+      }, 
+      "Name": "Penicillin", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "blended scotch whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "honey simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "scotch whisky", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.19424229452054792, 
+        "AlcoholUnits": 0.75625, 
+        "Brightness": 0.003, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "amaro | dry vermouth | orange bitters | sloe gin", 
+        "Style": "", 
+        "Sweetness": 0.495, 
+        "Volume": 3.8933333333333335
+      }, 
+      "Name": "Ping-Pong Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "amaro", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "sloe gin", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3094821020563595, 
+        "AlcoholUnits": 0.8465625, 
+        "Brightness": 0.0, 
+        "Garnish": "none", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | gin", 
+        "Style": "stirred", 
+        "Sweetness": 0.0, 
+        "Volume": 2.7354166666666666
+      }, 
+      "Name": "Pink Gin", 
+      "Recipe": [
+        {
+          "Amount": 5.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15656565656565657, 
+        "AlcoholUnits": 0.775, 
+        "Brightness": 0.0, 
+        "Garnish": "lime slice", 
+        "Glass": "", 
+        "IngredientString": "Champagne or sparkling wine | lemon juice | muddled strawberry | pisco | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3075, 
+        "Volume": 4.95
+      }, 
+      "Name": "Pisco 75", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "muddled strawberry", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "pisco", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.13644041610876506, 
+        "AlcoholUnits": 0.8279375, 
+        "Brightness": 0.045, 
+        "Garnish": "lime slice", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | egg white | lime juice | pisco | simple syrup", 
+        "Style": "fizz", 
+        "Sweetness": 0.47325, 
+        "Volume": 6.068125
+      }, 
+      "Name": "Pisco Sour", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "egg white", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "pisco", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2589267418032787, 
+        "AlcoholUnits": 0.8423750000000001, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "orange twist", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | Benedictine | bourbon whiskey | sweet vermouth", 
+        "Style": "", 
+        "Sweetness": 0.18125, 
+        "Volume": 3.253333333333334
+      }, 
+      "Name": "Preakness", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.17282247340425533, 
+        "AlcoholUnits": 0.8664166666666667, 
+        "Brightness": 0, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | Peychaud's bitters | aged rum | lime juice | muddled mint leaves | simple syrup | sugar cube", 
+        "Style": "", 
+        "Sweetness": 0.46125, 
+        "Volume": 5.013333333333334
+      }, 
+      "Name": "Queen's Park Swizzle", 
+      "Recipe": [
+        {
+          "Amount": 4.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 4.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "aged rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 10.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar cube", 
+          "Unit": "each"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.07441283621424698, 
+        "AlcoholUnits": 0.6000000000000001, 
+        "Brightness": 0.0, 
+        "Garnish": "orange wheel", 
+        "Glass": "collins", 
+        "IngredientString": "Old Tom gin | egg white | heavy cream | lemon juice | lime juice | orange flower water | simple syrup | soda water", 
+        "Style": "fizz", 
+        "Sweetness": 0.3075, 
+        "Volume": 8.063125
+      }, 
+      "Name": "Ramos Gin Fizz", 
+      "Recipe": [
+        {
+          "Amount": 1.5, 
+          "Ingredient": "Old Tom gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "egg white", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "heavy cream", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "orange flower water", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "soda water", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2669620253164557, 
+        "AlcoholUnits": 1.142375, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | blended scotch whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.12, 
+        "Volume": 4.279166666666667
+      }, 
+      "Name": "Rob Roy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.5, 
+          "Ingredient": "blended scotch whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15656565656565657, 
+        "AlcoholUnits": 0.775, 
+        "Brightness": 0.03, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Champagne or sparkling wine | aged rum | lemon juice | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.3155, 
+        "Volume": 4.95
+      }, 
+      "Name": "Rum 75", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "aged rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3089150943396227, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | aged rum | simple syrup", 
+        "Style": "built", 
+        "Sweetness": 0.1025, 
+        "Volume": 2.6499999999999995
+      }, 
+      "Name": "Rum Old Fashioned", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "aged rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12279375000000002, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "mug", 
+        "IngredientString": "Angostura bitters | aged rum | boiling water | simple syrup", 
+        "Style": "hot", 
+        "Sweetness": 0.1025, 
+        "Volume": 6.666666666666666
+      }, 
+      "Name": "Rum Toddy", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "aged rum", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 3.0, 
+          "Ingredient": "boiling water", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3076923076923077, 
+        "AlcoholUnits": 1.0, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Drambuie | blended scotch whiskey", 
+        "Style": "stirred", 
+        "Sweetness": 0.15, 
+        "Volume": 3.25
+      }, 
+      "Name": "Rusty Nail", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Drambuie", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "blended scotch whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.216442721791559, 
+        "AlcoholUnits": 1.0470416666666666, 
+        "Brightness": 0.03, 
+        "Garnish": "lime twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | Peychaud's bitters | gin | lime juice | orange bitters | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.3155, 
+        "Volume": 4.8375
+      }, 
+      "Name": "Sawyer", 
+      "Recipe": [
+        {
+          "Amount": 14.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 7.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 7.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.294314381270903, 
+        "AlcoholUnits": 0.9166666666666666, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Peychaud's bitters | absinthe | rye whiskey | simple syrup", 
+        "Style": "stirred", 
+        "Sweetness": 0.15375, 
+        "Volume": 3.1145833333333335
+      }, 
+      "Name": "Sazerac", 
+      "Recipe": [
+        {
+          "Amount": 4.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "absinthe", 
+          "Unit": "rinse"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15141047783534828, 
+        "AlcoholUnits": 0.8218749999999999, 
+        "Brightness": 0.05325, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "dry vermouth | grenadine | lemon juice | orange bitters | rye whiskey", 
+        "Style": "shaken", 
+        "Sweetness": 0.387, 
+        "Volume": 5.4281250000000005
+      }, 
+      "Name": "Scofflaw Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "grenadine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.33155660377358487, 
+        "AlcoholUnits": 0.878625, 
+        "Brightness": 0.0, 
+        "Garnish": "none", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | honey | scotch whisky", 
+        "Style": "built", 
+        "Sweetness": 0.15, 
+        "Volume": 2.6500000000000004
+      }, 
+      "Name": "Scotch Old Fashioned", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "honey", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "scotch whisky", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.11197916666666667, 
+        "AlcoholUnits": 0.86, 
+        "Brightness": 0.03, 
+        "Garnish": "lemon twist", 
+        "Glass": "mug", 
+        "IngredientString": "boiling water | honey | lemon juice | scotch whisky", 
+        "Style": "hot", 
+        "Sweetness": 0.458, 
+        "Volume": 7.68
+      }, 
+      "Name": "Scotch Toddy", 
+      "Recipe": [
+        {
+          "Amount": 3.0, 
+          "Ingredient": "boiling water", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "honey", 
+          "Unit": "tbl"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "scotch whisky", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.24365134865134866, 
+        "AlcoholUnits": 1.0162291666666667, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Champagne or sparkling wine | Cointreau | Peychaud's bitters | bourbon whiskey", 
+        "Style": "bubbly", 
+        "Sweetness": 0.125, 
+        "Volume": 4.170833333333333
+      }, 
+      "Name": "Seelbach Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 7.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 7.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "bourbon whiskey", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.23703703703703707, 
+        "AlcoholUnits": 1.2000000000000002, 
+        "Brightness": 0.045, 
+        "Garnish": "sugared rim", 
+        "Glass": "coupe", 
+        "IngredientString": "Cointreau | cognac | lemon juice", 
+        "Style": "shaken", 
+        "Sweetness": 0.262, 
+        "Volume": 5.0625
+      }, 
+      "Name": "Sidecar", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Cointreau", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.19429390822784814, 
+        "AlcoholUnits": 0.818625, 
+        "Brightness": 0.0, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | gin | lime juice | muddled mint leaves | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.3075, 
+        "Volume": 4.213333333333333
+      }, 
+      "Name": "South Side", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 5.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.11163262795275591, 
+        "AlcoholUnits": 0.7561249999999999, 
+        "Brightness": 0.0, 
+        "Garnish": "strawberry slice", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | Benedictine | club soda | lemon juice | muddled strawberry | rye whiskey | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.46125, 
+        "Volume": 6.7733333333333325
+      }, 
+      "Name": "Southland Sipper", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "muddled strawberry", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.10774410774410775, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.0, 
+        "Garnish": "mint sprig", 
+        "Glass": "coupe", 
+        "IngredientString": "club soda | gin | lemon juice | muddled mint leaves | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.46125, 
+        "Volume": 7.425
+      }, 
+      "Name": "Southside Cocktail", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 8.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.12648221343873517, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.0, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "club soda | gin | lime juice | muddled cucumber wheel | muddled mint leaves | simple syrup", 
+        "Style": "bubbly", 
+        "Sweetness": 0.615, 
+        "Volume": 6.325
+      }, 
+      "Name": "Southside Fizz", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lime juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "muddled cucumber wheel", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 8.0, 
+          "Ingredient": "muddled mint leaves", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.27099609375000006, 
+        "AlcoholUnits": 0.925, 
+        "Brightness": 0.0, 
+        "Garnish": "mint sprig", 
+        "Glass": "", 
+        "IngredientString": "cognac | creme de menthe | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.1025, 
+        "Volume": 3.413333333333333
+      }, 
+      "Name": "Stinger", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "creme de menthe", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "simple syrup", 
+          "Unit": "tsp"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.17447916666666669, 
+        "AlcoholUnits": 0.67, 
+        "Brightness": 0.006, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "aperol | bianco vermouth | gin", 
+        "Style": "", 
+        "Sweetness": 0.37, 
+        "Volume": 3.84
+      }, 
+      "Name": "Summer Negroni", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "aperol", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "bianco vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2923591040462428, 
+        "AlcoholUnits": 1.3487500000000001, 
+        "Brightness": 0.006, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Campari | gin | green Chartreuse | orange bitters | sweet vermouth", 
+        "Style": "", 
+        "Sweetness": 0.42500000000000004, 
+        "Volume": 4.613333333333333
+      }, 
+      "Name": "Tailspin", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Campari", 
+          "Unit": "rinse"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "green Chartreuse", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.15656565656565657, 
+        "AlcoholUnits": 0.775, 
+        "Brightness": 0.03, 
+        "Garnish": "lime twist", 
+        "Glass": "", 
+        "IngredientString": "Champagne or sparkling wine | agave nectar | lemon juice | tequila blanco", 
+        "Style": "bubbly", 
+        "Sweetness": 0.258, 
+        "Volume": 4.95
+      }, 
+      "Name": "Tequila 75", 
+      "Recipe": [
+        {
+          "Amount": 2.5, 
+          "Ingredient": "Champagne or sparkling wine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "agave nectar", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "tequila blanco", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.13534757653061222, 
+        "AlcoholUnits": 0.5305624999999999, 
+        "Brightness": 0.009000000000000001, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Angostura bitters | dry vermouth | orange bitters | sherry", 
+        "Style": "", 
+        "Sweetness": 0.075, 
+        "Volume": 3.92
+      }, 
+      "Name": "The Bamboo", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "dry vermouth", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "sherry", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1769230769230769, 
+        "AlcoholUnits": 0.69, 
+        "Brightness": 0.012, 
+        "Garnish": "orange twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Fernet Branca | blood orange juice reduction | rye whiskey simple syrup", 
+        "Style": "stirred", 
+        "Sweetness": 0.8, 
+        "Volume": 3.9
+      }, 
+      "Name": "The Bitter Handshake", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Fernet Branca", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "blood orange juice reduction", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "rye whiskey simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.10774410774410775, 
+        "AlcoholUnits": 0.8, 
+        "Brightness": 0.045, 
+        "Garnish": "lemon slice", 
+        "Glass": "", 
+        "IngredientString": "club soda | gin | lemon juice | simple syrup", 
+        "Style": "shaken", 
+        "Sweetness": 0.47325, 
+        "Volume": 7.425
+      }, 
+      "Name": "Tom Collins", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "club soda", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2923959646910467, 
+        "AlcoholUnits": 0.966125, 
+        "Brightness": 0.0, 
+        "Garnish": "orange twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Fernet Branca | rye whiskey | simple syrup", 
+        "Style": "stirred", 
+        "Sweetness": 0.17375, 
+        "Volume": 3.3041666666666663
+      }, 
+      "Name": "Toronto", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Fernet Branca", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.19093782929399372, 
+        "AlcoholUnits": 0.7550000000000001, 
+        "Brightness": 0, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "Cynar | aquavit | dry sherry | peach bitters", 
+        "Style": "stirred", 
+        "Sweetness": 0, 
+        "Volume": 3.9541666666666666
+      }, 
+      "Name": "Trident", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Cynar", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "aquavit", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "dry sherry", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "peach bitters", 
+          "Unit": "dash"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.27911931818181823, 
+        "AlcoholUnits": 0.9825000000000002, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "", 
+        "IngredientString": "Cocchi Americano | gin | vodka", 
+        "Style": "", 
+        "Sweetness": 0.0, 
+        "Volume": 3.52
+      }, 
+      "Name": "Vesper", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "Cocchi Americano", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.5, 
+          "Ingredient": "gin", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "vodka", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.2694257112750264, 
+        "AlcoholUnits": 1.0653541666666668, 
+        "Brightness": 0.0045000000000000005, 
+        "Garnish": "lemon twist", 
+        "Glass": "old-fashioned", 
+        "IngredientString": "Angostura bitters | Benedictine | Peychaud's bitters | cognac | rye whiskey | sweet vermouth", 
+        "Style": "stirred", 
+        "Sweetness": 0.18125, 
+        "Volume": 3.9541666666666666
+      }, 
+      "Name": "Vieux Carre", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "Peychaud's bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "cognac", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "sweet vermouth", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.18110795454545453, 
+        "AlcoholUnits": 0.85, 
+        "Brightness": 0.0, 
+        "Garnish": "brandied cherry", 
+        "Glass": "", 
+        "IngredientString": "lemon juice | orange juice | pomegranate molasses | rye whiskey | simple syrup", 
+        "Style": "", 
+        "Sweetness": 0.3075, 
+        "Volume": 4.693333333333333
+      }, 
+      "Name": "Ward 8", 
+      "Recipe": [
+        {
+          "Amount": 0.5, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "orange juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "pomegranate molasses", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.5, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.1453871645939493, 
+        "AlcoholUnits": 0.85, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon slice", 
+        "Glass": "coupe", 
+        "IngredientString": "egg white | lemon juice | rye whiskey | salt | simple syrup", 
+        "Style": "fizz", 
+        "Sweetness": 0.46125, 
+        "Volume": 5.846458333333334
+      }, 
+      "Name": "Whiskey Sour", 
+      "Recipe": [
+        {
+          "Amount": 1.0, 
+          "Ingredient": "egg white", 
+          "Unit": "each"
+        }, 
+        {
+          "Amount": 0.625, 
+          "Ingredient": "lemon juice", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "rye whiskey", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "salt", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.75, 
+          "Ingredient": "simple syrup", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.3082849936948298, 
+        "AlcoholUnits": 1.0186250000000001, 
+        "Brightness": 0.0, 
+        "Garnish": "mint sprig", 
+        "Glass": "coupe", 
+        "IngredientString": "Angostura bitters | Benedictine | apple brandy | yellow Chartreuse", 
+        "Style": "stirred", 
+        "Sweetness": 0.078, 
+        "Volume": 3.3041666666666663
+      }, 
+      "Name": "Widow's Kiss", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "Angostura bitters", 
+          "Unit": "dash"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "Benedictine", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "apple brandy", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 0.25, 
+          "Ingredient": "yellow Chartreuse", 
+          "Unit": "oz"
+        }
+      ]
+    }, 
+    {
+      "Data": {
+        "ABV": 0.27601809954751133, 
+        "AlcoholUnits": 1.0166666666666666, 
+        "Brightness": 0.0, 
+        "Garnish": "lemon twist", 
+        "Glass": "coupe", 
+        "IngredientString": "St. Germain elderflower liqueur | orange bitters | reposado tequila | sugar", 
+        "Style": "stirred", 
+        "Sweetness": 0.23333333333333334, 
+        "Volume": 3.6833333333333327
+      }, 
+      "Name": "Zim Zala Bim", 
+      "Recipe": [
+        {
+          "Amount": 2.0, 
+          "Ingredient": "St. Germain elderflower liqueur", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "orange bitters", 
+          "Unit": "tsp"
+        }, 
+        {
+          "Amount": 2.0, 
+          "Ingredient": "reposado tequila", 
+          "Unit": "oz"
+        }, 
+        {
+          "Amount": 1.0, 
+          "Ingredient": "sugar", 
+          "Unit": "tsp"
+        }
+      ]
+    }
+  ]
+}
