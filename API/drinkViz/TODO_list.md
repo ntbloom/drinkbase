@@ -17,7 +17,7 @@ Noah, do these things:
 
 (done)~~3) make it so that, upon load, it builds the all_drinks json and feeds the whole thing to the site
 
-4) figure out the filtering thing
+(done)~~4) figure out the filtering thing
     - make it so that, every time you return drinks (from drink name or ingredient search) it returns something that I can use to filter the plot (i.e. dim the non-selected drinks)
 
 
