@@ -95,8 +95,28 @@ class DrinkBase:
         
         return melt
 
+    def calcSweetness(self, drink):
+        '''returns sweetness value of 'drink' as a float'''
+        
+        ingredients = self.getIng(drink)
+        sweetness = 0
+
+        for i in ingredients:
+            self.cursor.execute('SELECT sweetness FROM ingredients \
+                WHERE ingredient = ?', (i,))
+            sweet = self.cursor.fetchall()
+            print(i, sweet)
+            vol = self.ingVolume(drink, i)
+            try:
+                sweet = sweet[0]
+                sweetness += (sweet * vol)
+            except:
+                sweetness = 0
+
+        return sweetness
+
     def calcVolume(self, drink):
-        '''returns total volume of drink as a float'''
+        '''returns total volume of 'drink' as a float'''
         
         ingredients = self.getIng(drink)
         volume = 0
@@ -284,6 +304,9 @@ class DrinkBase:
         #volume
         volume = self.calcVolume(drink)
         data['Volume'] = volume
+        #sweetness
+        sweetness = self.calcSweetness(drink)
+        data['Sweetness'] = sweetness
         #style
         self.cursor.execute(
             'SELECT style FROM prep WHERE name = ?', (drink,))

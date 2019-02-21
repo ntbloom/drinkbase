@@ -1,17 +1,20 @@
     def calcABV(self, drink):
-      '''returns alcohol by volume for 'drink' as a float'''
+        '''returns alcohol by volume for 'drink' as a float'''
 --
     def calcAlcoholOz(self, drink):
-      '''returns volume of alcohol in oz for 'drink' as a float'''
+        '''returns volume of alcohol in oz for 'drink' as a float'''
 --
     def calcBrightness(self, drink):
-      '''returns brightness value for 'drink' as a float'''
+        '''returns brightness value for 'drink' as a float'''
 --
     def calcMelt(self, drink):
-      '''returns melt value for 'drink' as a float'''
+        '''returns melt value for 'drink' as a float'''
+--
+    def calcSweetness(self, drink):
+        '''returns sweetness value of 'drink' as a float'''
 --
     def calcVolume(self, drink):
-      '''returns total volume of drink as a float'''
+        '''returns total volume of 'drink' as a float'''
 --
     def drinkData(self, drink, SQLcolumn):
         '''returns prep data for 'drink' as a dictionary'''
