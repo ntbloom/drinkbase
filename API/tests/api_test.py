@@ -16,12 +16,24 @@ def api(url):
     return sorted(drinklist)
 
 # for drinkViz/data searches
-def drinkViz(drink, dataType):
-    additions = "names/?name=" + drink
-    r = requests.get(baseUrl + additions)
+abv = 'ABV'
+alc = 'AlcoholUnits'
+bri = 'Brightness'
+gar = 'Garnish'
+ing = 'IngredientString'
+sty = 'Style'
+swe = 'Sweetness'
+vol = 'Volume'
+def drinkViz(drink, keyword):
+    url = baseUrl + 'names/?name=' + drink
+    r = requests.get(url)
     drinks = r.json()["Drinks"]
-    #TODO: finish this
-    return
+    value = drinks[0]['Data'][keyword]
+    if keyword == ing or keyword == sty or keyword == gar:
+        value = value
+    else:
+        value = round(value, 3)
+    return value
 
 
     
@@ -93,9 +105,31 @@ class TestNameSearch(unittest.TestCase):
             ["Blood & Sand"]
             )
     #drinkViz tests
-    '''TODO: test
-        negroni volume
-        negroni 
+    def test_abv_(self):
+        self.assertEqual(drinkViz('Negroni', abv),.224)
+    
+    def test_alcohol_units(self):
+        self.assertEqual(drinkViz('Negroni', alc), 0.805)
+
+    def test_brightness(self):
+        self.assertEqual(drinkViz('Negroni', bri), 0.006)
+    
+    def test_garnish(self):
+        self.assertEqual(drinkViz('Negroni', gar), 'orange twist')
+
+    def test_ingredient_string(self):
+        self.assertEqual(drinkViz('Negroni', ing),
+            'Campari | gin | sweet vermouth')
+
+    def test_style(self):
+        self.assertEqual(drinkViz('Negroni', sty), 'built')
+
+    def test_sweetness(self):
+        self.assertEqual(drinkViz('Negroni', swe), 0.4)
+
+    def test_volume(self):
+        self.assertEqual(drinkViz('Negroni', vol), 3.6)
+    
 
 
 if __name__ == "__main__":
