@@ -105,7 +105,6 @@ class DrinkBase:
             self.cursor.execute('SELECT sweetness FROM ingredients \
                 WHERE ingredient = ?', (i,))
             sweet = self.cursor.fetchall()
-            print(i, sweet)
             vol = self.ingVolume(drink, i)
             try:
                 sweet = sweet[0]
