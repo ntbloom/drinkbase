@@ -3,7 +3,7 @@
 
 '''python/flask script for running drinkBase back end'''
 
-from drinkStore.drinkStore import DrinkBase
+from store.drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
