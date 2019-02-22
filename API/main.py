@@ -3,15 +3,14 @@
 
 '''python/flask script for running drinkBase back end'''
 
-from drinkStore import DrinkBase
+from drinkStore.drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
 #TODO: remove after refactor
 import time
 
-database = 'drinkBase.db'
-ds = DrinkBase(database)
+ds = DrinkBase('drinkBase.db')
 
 app = Flask(__name__)
 CORS(app) #TODO: remove for production & configure in apache

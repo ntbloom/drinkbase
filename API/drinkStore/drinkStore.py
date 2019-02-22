@@ -7,8 +7,7 @@ from flask import jsonify
 class DrinkBase:
     def __init__(self, database):
         self.database = database
-        dbConnect = sqlite3.connect(
-            self.database, check_same_thread=False)
+        dbConnect = sqlite3.connect(self.database, check_same_thread=False)
         dbConnect.row_factory = lambda cursor, row: row[0]
         
         # self.cursor can be used to define any SQL query
@@ -16,8 +15,7 @@ class DrinkBase:
         self.cursor = dbConnect.cursor()
         
         # set of every drink named in the database
-        self.cursor.execute(
-            'SELECT name FROM recipes GROUP BY name')
+        self.cursor.execute('SELECT name FROM recipes GROUP BY name')
         self.allDrinks = set(sorted(self.cursor.fetchall()))
 
 
