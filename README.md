@@ -60,7 +60,7 @@ pip3 install flask Flask-Cors requests
 Run development server
 
 ```
-python3 api.py
+python3 main.py
 ```
 
 #### Troubleshooting Flask server
