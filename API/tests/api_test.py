@@ -130,7 +130,33 @@ class TestNameSearch(unittest.TestCase):
     def test_volume(self):
         self.assertEqual(drinkViz('Negroni', vol), 3.6)
     
+    #TODO: write 
+    '''
+    def test_abv_(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', abv), '??')
+    
+    def test_alcohol_units(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', alc), '??')
 
+    def test_brightness(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', bri), '??')
+    
+    def test_garnish(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', gar), '??')
+
+    def test_ingredient_string(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', ing),
+            '??')
+
+    def test_style(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', sty), '??')
+
+    def test_sweetness(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', swe), '??')
+
+    def test_volume(self):
+        self.assertEqual(drinkViz('Ramos Gin Fizz', vol), '??')
+    '''
 
 if __name__ == "__main__":
     unittest.main()
