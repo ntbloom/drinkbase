@@ -21,6 +21,7 @@ yarn-debug.log*
 yarn-error.log*
 *.ico
 *.swo
+error_log.txt
 
 # python/back-end
 drinkEnv/
