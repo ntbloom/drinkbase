@@ -1,6 +1,6 @@
 /* importCSV.sql -- imports data from csv files */
 
 .mode csv
-.import ./data/prep.csv prep
-.import ./data/ingredients.csv ingredients
-.import ./data/recipes.csv recipes
+.import ./sql/data/prep.csv prep
+.import ./sql/data/ingredients.csv ingredients
+.import ./sql/data/recipes.csv recipes
