@@ -5,9 +5,6 @@
 - add bitters to ingredients list
 
 ### Python API
-- make each drink make 1 single calcVolume() and getIng() call
-- further refactor
-- remove try/except statements temporarily present for missing data values
 - consider coding a way to add new drinks via the browser
 
 ### Data collection
