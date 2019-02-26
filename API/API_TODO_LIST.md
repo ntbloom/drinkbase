@@ -1,9 +1,5 @@
 # drinkbase API TODO list
 
-### Data organization
-- move drinks with rims to prep.garnish
-- add bitters to ingredients list
-
 ### Python API
 - consider coding a way to add new drinks via the browser
 
