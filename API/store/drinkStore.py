@@ -24,10 +24,7 @@ class DrinkBase:
         self.cursor.execute('SELECT brightness FROM ingredients \
             WHERE ingredient = ?', (ingredient,))
         brightness = self.cursor.fetchall()
-        try:
-            return brightness[0]
-        except:
-            return 0
+        return brightness[0]
 
     def calcIngAbv(self, ingredient):
         '''returns ABV for 'ingredient' as a float'''
@@ -35,11 +32,7 @@ class DrinkBase:
         self.cursor.execute('SELECT ingAbv FROM ingredients \
             WHERE ingredient = ?', (ingredient,))
         abv = self.cursor.fetchall()
-        try:
-            abv = abv[0]
-        except:
-            abv = 0
-
+        abv = abv[0]
         return abv
 
     def calcMelt(self, drink):
@@ -74,10 +67,7 @@ class DrinkBase:
         self.cursor.execute('SELECT sweetness FROM ingredients \
             WHERE ingredient = ?', (ingredient,))
         sweetness = self.cursor.fetchall()
-        try:
-            sweetness = sweetness[0]
-        except:
-            sweetness = 0
+        sweetness = sweetness[0]
 
         return sweetness
 
@@ -221,9 +211,18 @@ class DrinkBase:
         bright = 0
         sweet = 0
         for i in ingredients:
-            alcohol += self.calcIngAbv(i)
-            bright += self.calcBrightness(i)
-            sweet += self.calcSweetness(i)
+            try:
+                alcohol += self.calcIngAbv(i)
+            except:
+                alcohol = 0
+            try:
+                bright += self.calcBrightness(i)
+            except:
+                bright = 0
+            try:
+                sweet += self.calcSweetness(i)
+            except:
+                sweet = 0
         data['AlcoholUnits'] = alcohol
         data['Brightness'] = bright
         data['Sweetness'] = sweet
