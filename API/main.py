@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-# api.py
-
-'''python/flask script for running drinkBase back end'''
+# api.py - python/flask script for running drinkBase back end
 
 from store.drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
@@ -14,6 +12,7 @@ CORS(app) #TODO: remove for production & configure in apache
 
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
+'''querying the database by ingredient'''
 def ingreds():
     incl = request.args.get('incl')
     excl = request.args.get('excl')
@@ -34,12 +33,11 @@ def ingreds():
     return drinks 
 
 @app.route('/api/v1.0/names/', methods=['GET'])
+'''querying the database by drink name'''
 def names():
-
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
     drinks = ds.sendRecipe(drinks)
-
     return drinks
 
 @app.errorhandler(404)
