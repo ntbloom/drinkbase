@@ -3,9 +3,9 @@ agave nectar,Sweetener,0,0.5,0
 aged rum,Spirit,0.4,0,0
 amaro,Liqueur,0.3,0.16,0
 aperol,Liqueur,0.11,0.24,0
-apple brandy,Spirit,0.4,,
+apple brandy,Spirit,0.4,,0
 applejack,Liqueur,0.4,0.07,0
-aquavit,Spirit,0.4,,
+aquavit,Spirit,0.4,,0
 Benedictine,Liqueur,0.4,0.245,0
 bianco vermouth,Vermouth,0.16,0.13,0.006
 blackstrap rum,Spirit,0.4,0,0
@@ -13,19 +13,19 @@ blended scotch whiskey,Spirit,0.4,0,0
 blood orange juice reduction,Juice,0,0.12,0.012
 boiling water,Other,0,0,0
 bourbon whiskey,Spirit,0.4,0,0
-cachaca,Spirit,0.4,,
+cachaca,Spirit,0.4,,0
 Campari,Liqueur,0.24,0.24,0
-Champagne or sparkling wine,Wine,0.15,,
-Cherry Heering,Spirit,0.218,,
-cinnamon tea,Other,0,,
+Champagne or sparkling wine,Wine,0.15,,0
+Cherry Heering,Spirit,0.218,,0
+cinnamon tea,Other,0,,0
 club soda,Soda,0,0,0
-Cocchi Americano,Wine,0.165,,
+Cocchi Americano,Wine,0.165,,0
 cognac,Spirit,0.4,0,0
 Cointreau,Liqueur,0.4,0.25,0
 cranberry juice,Juice,0,0.133,0.036
 creme de cacao,Liqueur,0.24,0.395,0
-creme de menthe,Liqueur,0.25,,
-Cynar,Liqueur,0.165,0.1,
+creme de menthe,Liqueur,0.25,,0
+Cynar,Liqueur,0.165,0.1,0
 dark rum,Spirit,0.4,0,0
 Drambuie,Liqueur,0.4,0.3,0
 dry sherry,Wine,0.19,0.03,0
@@ -34,7 +34,7 @@ egg white,Other,0,0,0
 falernum,Liqueur,0.2,0.5,0.005
 Fernet Branca,Liqueur,0.39,0.08,0
 gin,Spirit,0.4,0,0
-ginger beer,Soda,0,,
+ginger beer,Soda,0,,0
 ginger syrup,Sweetener,0,0.615,0
 grapefruit juice,Juice,0,0.104,0.024
 green Chartreuse,Liqueur,0.55,0.25,0
@@ -44,21 +44,21 @@ honey,Sweetener,0,0.9,0
 honey simple syrup,Sweetener,0,0.9,0
 lemon juice,Juice,0,0.016,0.06
 Lillet Blanc,Wine,0.17,0.095,0.006
-Lillet Rouge,Wine,0.17,,
+Lillet Rouge,Wine,0.17,,0
 lime juice,Juice,0,0.016,0.06
 Luxardo Maraschino,Liqueur,0.32,0.35,0
 maple syrup,Sweetener,0,0.875,0
-muddled cucumber wheel,Fruit,0,,
+muddled cucumber wheel,Fruit,0,,0
 muddled lime wedges,Fruit,0,0.016,0.06
-muddled strawberry,Fruit,0,,
+muddled strawberry,Fruit,0,,0
 Old Tom gin,Spirit,0.4,0.05,0
 orange curacao,Liqueur,0.4,0.18,0
-orange flower water,Other,0,,
+orange flower water,Other,0,,0
 orange juice,Juice,0,0.124,0.008
 orgeat,Sweetener,0,0.8,0
-pink Champagne or sparkling wine,Wine,0.15,,
+pink Champagne or sparkling wine,Wine,0.15,,0
 pisco,Spirit,0.4,0,0
-pomegranate molasses,Sweetener,0,,
+pomegranate molasses,Sweetener,0,,0
 reposado tequila,Spirit,0.4,0,0
 rum,Spirit,0.4,0,0
 rye whiskey,Spirit,0.425,0,0
@@ -68,10 +68,10 @@ sherry,Wine,0.16,0.02,0
 simple syrup,Sweetener,0,0.615,0
 sloe gin,Liqueur,0.25,0.2,0
 soda water,Other,0,0,0
-St. Germain elderflower liqueur,Liqueur,0.2,0.2,
-Strega,Liqueur,0.4,,
+St. Germain elderflower liqueur,Liqueur,0.2,0.2,0
+Strega,Liqueur,0.4,,0
 sugar,Sweetener,0,1,0
-sugar cube,Sweetener,0,1,
+sugar cube,Sweetener,0,1,0
 sweet vermouth,Vermouth,0.165,0.16,0.006
 tequila blanco,Spirit,0.4,0,0
 tequila reposado,Spirit,0.4,0,0

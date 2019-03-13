@@ -4,9 +4,8 @@
 
 ## Init the SQLite database
 
-run createDB.sh script located in ```drinkBase/API/sql/``` to
-automatically create and populate drinkBase.db file wth data from CSV
-files
+run createDB.sh script to automatically create and populate drinkBase.db file
+with data from CSV files
 
 </br>
 

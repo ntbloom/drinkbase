@@ -1,7 +1,7 @@
 #!/bin/bash
 ## createDB.sh -- automatically creates and populates database from CSV
-DESTDIR=../drinkStore
-SOURCEDIR=./data
+DESTDIR=.
+SOURCEDIR=./sql/
 
 function yes_or_no {
   while true; do

@@ -1,14 +1,9 @@
 #!/usr/bin/python3
-# api.py
+# api.py - python/flask script for running drinkBase back end
 
-'''python/flask script for running drinkBase back end'''
-
-from drinkStore.drinkStore import DrinkBase
+from store.drinkStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
-
-#TODO: remove after refactor
-import time
 
 ds = DrinkBase('drinkBase.db')
 
@@ -17,10 +12,8 @@ CORS(app) #TODO: remove for production & configure in apache
 
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
+'''querying the database by ingredient'''
 def ingreds():
-    #TODO: remove after refactor
-    a = time.time()
-    
     incl = request.args.get('incl')
     excl = request.args.get('excl')
     drinks = ds.allDrinks
@@ -36,29 +29,15 @@ def ingreds():
             drinks = drinks - tempSet
     drinks = sorted(list(drinks))
     drinks = ds.sendRecipe(drinks)
-    
-    #TODO: remove after refactor
-    b = time.time()
-    c = b - a
-    print('time to return ingreds:', c)
 
     return drinks 
 
 @app.route('/api/v1.0/names/', methods=['GET'])
+'''querying the database by drink name'''
 def names():
-
-    #TODO: remove after refactor
-    a = time.time()
-
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
     drinks = ds.sendRecipe(drinks)
-
-    #TODO: remove after refactor
-    b = time.time()
-    c = b - a
-    print('time to return names:', c)
-
     return drinks
 
 @app.errorhandler(404)

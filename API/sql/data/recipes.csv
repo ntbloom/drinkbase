@@ -86,7 +86,6 @@ Brandy 75,simple syrup,oz,0.5
 Brandy Alexander,cognac,oz,2
 Brandy Alexander,heavy cream,oz,1
 Brandy Alexander,simple syrup,oz,0.25
-Brandy Crusta,sugar rim,each,1
 Brandy Crusta,cognac,oz,2
 Brandy Crusta,lemon juice,oz,0.5
 Brandy Crusta,Luxardo Maraschino,oz,0.25
@@ -232,7 +231,6 @@ Lucien Gaudin,gin,oz,1.5
 Manhattan,Angostura bitters,dash,2
 Manhattan,rye whiskey,oz,2
 Manhattan,sweet vermouth,oz,0.75
-Margarita,salt rim,each,1
 Margarita,Cointreau,oz,0.75
 Margarita,lime juice,oz,1
 Margarita,agave nectar,oz,0.5
@@ -451,3 +449,5 @@ Zim Zala Bim,sugar,tsp,1
 Brown Derby,bourbon whiskey,oz,2
 Brown Derby,grapefruit juice,oz,1
 Brown Derby,honey simple syrup,oz,0.5
+The Frank O’Hara,gin,oz,2
+The Frank O’Hara,Strega,tsp,2
