@@ -17,6 +17,161 @@
     var prepDF;
     var theBoolPick = 'Can include ANY of';
     
+    var drinksJson = {
+              "Drinks": [
+                {
+                  "Data": {
+                    "ABV": 0.1598086124401914, 
+                    "AlcoholUnits": 0.835, 
+                    "Brightness": 0.03, 
+                    "Garnish": "lemon twist", 
+                    "Glass": "", 
+                    "IngredientString": "Campari | Champagne or sparkling wine | gin | lemon juice | simple syrup", 
+                    "Style": "bubbly", 
+                    "Sweetness": 0.3155, 
+                    "Volume": 5.225
+                  }, 
+                  "Name": "Bitter French", 
+                  "Recipe": [
+                    {
+                      "Amount": 0.25, 
+                      "Ingredient": "Campari", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 2.5, 
+                      "Ingredient": "Champagne or sparkling wine", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 1.0, 
+                      "Ingredient": "gin", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "lemon juice", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "simple syrup", 
+                      "Unit": "oz"
+                    }
+                  ]
+                }, 
+                {
+                  "Data": {
+                    "ABV": 0.31619492827868845, 
+                    "AlcoholUnits": 1.0286875, 
+                    "Brightness": 0.0, 
+                    "Garnish": "orange twist", 
+                    "Glass": "", 
+                    "IngredientString": "Angostura bitters | Luxardo Maraschino | orange bitters | rye whiskey", 
+                    "Style": "", 
+                    "Sweetness": 0.175, 
+                    "Volume": 3.253333333333334
+                  }, 
+                  "Name": "Fancy-Free", 
+                  "Recipe": [
+                    {
+                      "Amount": 1.0, 
+                      "Ingredient": "Angostura bitters", 
+                      "Unit": "dash"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "Luxardo Maraschino", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 1.0, 
+                      "Ingredient": "orange bitters", 
+                      "Unit": "dash"
+                    }, 
+                    {
+                      "Amount": 2.0, 
+                      "Ingredient": "rye whiskey", 
+                      "Unit": "oz"
+                    }
+                  ]
+                }, 
+                {
+                  "Data": {
+                    "ABV": 0.15656565656565657, 
+                    "AlcoholUnits": 0.775, 
+                    "Brightness": 0.03, 
+                    "Garnish": "lemon twist", 
+                    "Glass": "coupe", 
+                    "IngredientString": "Champagne or sparkling wine | gin | lemon juice | simple syrup", 
+                    "Style": "bubbly", 
+                    "Sweetness": 0.3155, 
+                    "Volume": 4.95
+                  }, 
+                  "Name": "French 75", 
+                  "Recipe": [
+                    {
+                      "Amount": 2.5, 
+                      "Ingredient": "Champagne or sparkling wine", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 1.0, 
+                      "Ingredient": "gin", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "lemon juice", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "simple syrup", 
+                      "Unit": "oz"
+                    }
+                  ]
+                }, 
+                {
+                  "Data": {
+                    "ABV": 0.17028985507246377, 
+                    "AlcoholUnits": 1.175, 
+                    "Brightness": 0.045, 
+                    "Garnish": "lemon twist", 
+                    "Glass": "coupe", 
+                    "IngredientString": "Champagne or sparkling wine | bourbon whiskey | lemon juice | simple syrup", 
+                    "Style": "built", 
+                    "Sweetness": 0.3195, 
+                    "Volume": 6.9
+                  }, 
+                  "Name": "French 95", 
+                  "Recipe": [
+                    {
+                      "Amount": 2.5, 
+                      "Ingredient": "Champagne or sparkling wine", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 2.0, 
+                      "Ingredient": "bourbon whiskey", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.75, 
+                      "Ingredient": "lemon juice", 
+                      "Unit": "oz"
+                    }, 
+                    {
+                      "Amount": 0.5, 
+                      "Ingredient": "simple syrup", 
+                      "Unit": "oz"
+                    }
+                  ]
+                }
+              ]
+            };
+
+    
     var theXPick = 'Sugar';
     var theYPick = 'Alcohol';
         
@@ -40,7 +195,7 @@
         console.log(theYPick);
     }
         
-    function getData() {
+    /*function getData() {
         //populate drink list
         d3.csv('data/all_drinks.csv', function(d) {
             drinksDF = d;
@@ -59,9 +214,22 @@
         d3.csv("data/prep.csv", function(d) {
             prepDF = d;
         });
+    }*/
+
+    function getData() {
+        //populate drink list
+        console.log(drinksJson.Drinks[0])
+        /*d3.json(drinksJson, function(d) {
+            drinksDF = d3.hierarchy(d);
+            console.log(drinksDF[0])
+            console.log(drinksDF.drinks[0])
+            
+        }); */
+        drawPlot();
     }
 
     // fill the drop down menu
+        /*
     function fillIngredients() {
 
         var inputText = document.getElementById('searchText').value;
@@ -73,13 +241,6 @@
                 .data(ingredientsDF.filter(function(d) {
                         return d.ingredient.toLowerCase().match(RegExp(inputText.toLowerCase()))
                     }))
-                /*.data(ingredientsDF.filter(function(d) { 
-                        //return RegExp(inputText).test(d.ingredient);
-                        //return d.ingredient.toLowerCase().indexOf(inputText.toLowerCase()) >= 0;
-                        //return d.ingredient.contains(inputText);
-                        return d.ingredient.match(/rye/)
-                        //return d.class == 'Spirit';
-                    }))*/
                 .enter()
                 .append("option")
                 .text(function(d) {
@@ -109,11 +270,7 @@
         pickCounter += 1
         var e = document.getElementById("ingredientDropDown");
         var thePick = e.options[e.selectedIndex].text
-        /*if (thePick == 'CLEAR') {
-            clearPicks();
-        } else {
-            thePicks.push(thePick)
-        }*/
+
         thePicks.push(thePick)
         //
         var pickSpan = d3.select("#ingredientDiv").selectAll("span")
@@ -153,7 +310,7 @@
         }
         //return boolReturn
     }
-    
+    */
         
     // draws the plot
     function drawPlot() {
@@ -200,61 +357,64 @@
         var theOffset = 0;
         
         var abvCirc = drinksSVG.selectAll("#abvCircle")
-                .data(drinksDF)
+                .data(drinksJson.Drinks)
                 .enter().append("circle")
                 .attr("id", "abvCircle")
-                .attr ("stroke-width", function(d) {
+                /*.attr ("stroke-width", function(d) {
                         if (checkPicks(d.ingredients)) {
                             return 0.75
                         } else {
                             return 0.2
                         }
-                    })
+                    })*/
                 .attr ("stroke", '#999')
-                //.attr ("cx",function(d) { return Math.max(30, (d.sugar * 6000));})
-                //.attr ("cy",function(d) { return Math.max(30, (630 - (d.alcohol * 1800)));})
-                //.attr ("cy",function(d) { return Math.max(50, (550 - (d.acid * 50000)));})
+                //.attr ("cx",function(d) { return Math.max(30, (d.Data.Sweetness * 6000));})
+                //.attr ("cy",function(d) { return Math.max(30, (630 - (d.Data.AlcoholUnits * 1800)));})
+                //.attr ("cy",function(d) { return Math.max(50, (550 - (d.Data.Brightness * 50000)));})
                 .attr ("cx",function(d) { 
                     if (theXPick == "Sugar") {
-                        return Math.min(Math.max(30, (d.sugar * 6500) - 25), 825);
+                        //return Math.min(Math.max(30, (d.Data.Sweetness * 6500) - 25), 825);
+                        return Math.min(Math.max(30, (d.Data.Sweetness * 2000) - 25), 825);
                     } else if (theXPick == "Alcohol") {
-                        return Math.max(30, (d.alcohol * 2500)); // ABV
-                        //return Math.max(30, (d.alcohol * d.oz * 500)); // content
+                        return Math.max(30, (d.Data.AlcoholUnits * 2500)); // ABV
+                        //return Math.max(30, (d.Data.AlcoholUnits * d.Data.Volume * 500)); // content
                     } else if (theXPick == "Acidity") {
-                        return Math.min(900, Math.max(50, (d.acid * 80000)));
+                        return Math.min(900, Math.max(50, (d.Data.Brightness * 80000)));
                     }
                 })
                 .attr ("cy",function(d) { 
                     if (theYPick == "Sugar") {
-                        return Math.max(30, (d.sugar * 6000));
+                        return Math.max(30, (d.Data.Sweetness * 6000));
                     } else if (theYPick == "Alcohol") {
-                        return Math.min(Math.max(30, (630 - (d.alcohol * 1800))), 570); // ABV
-                        //return Math.max(30, (630 - (d.alcohol * d.oz * 400))); //content
+                        //return Math.min(Math.max(30, (630 - (d.Data.AlcoholUnits * 1800))), 570);
+                        return Math.min(Math.max(30, (630 - (d.Data.AlcoholUnits * 400))), 570);// ABV
+                        //return Math.max(30, (630 - (d.Data.AlcoholUnits * d.Data.Volume * 400))); //content
                     } else if (theYPick == "Acidity") {
-                        return Math.max(50, (550 - (d.acid * 50000)));
+                        return Math.max(50, (550 - (d.Data.Brightness * 50000)));
                     }
                 })
-                .attr ("r",function(d) { return (d.oz * Math.min(d.oz, 3)) + 3; })
+                .attr ("r",function(d) { return (d.Data.Volume * Math.min(d.Data.Volume, 3)) + 3; })
                 .attr ("fill-opacity", function(d) {
-                        if (checkPicks(d.ingredients)) {
+                        /*if (checkPicks(d.ingredients)) {
                             return 0.85
                         } else {
                             return 0.1
-                        }
+                        }*/
+                        return 0.8
                     })
                 .attr("fill",function(d) { 
-                        if (d.style.includes("stirred")) {
+                        if (d.Data.Style.includes("stirred")) {
                             return "#a5693d";
-                        } else if (d.style.includes("bubbly")) {
+                        } else if (d.Data.Style.includes("bubbly")) {
                             return "#fcf5bf";
-                        } else if (d.style.includes("shaken")) {
+                        } else if (d.Data.Style.includes("shaken")) {
                             return "#100656";
                             //return "#240ccc";
-                        } else if (d.style.includes("fizz")) {
+                        } else if (d.Data.Style.includes("fizz")) {
                             return "#f4e381";
-                        } else if (d.style.includes("swizzle")) {
+                        } else if (d.Data.Style.includes("swizzle")) {
                             return "#f27552";
-                        }    else if (d.style.includes("built")) {
+                        }    else if (d.Data.Style.includes("built")) {
                             return "#b5390c";
                         } else {
                             return "#bbb";
@@ -268,8 +428,8 @@
                 .data(drinksDF)
                 .enter().append("circle")
                 .attr("id", "acidCircle")
-                .attr ("cx",function(d) { return Math.max(30, (d.sugar * 6000));})
-                .attr ("cy",function(d) { return Math.max(30, (630 - (d.alcohol * 1800)));})
+                .attr ("cx",function(d) { return Math.max(30, (d.Data.Sweetness * 6000));})
+                .attr ("cy",function(d) { return Math.max(30, (630 - (d.Data.AlcoholUnits * 1800)));})
                 .attr ("fill-opacity",0.001)
                 .attr ("opacity", function(d) {
                         if (d.selected == 1) {
@@ -280,7 +440,7 @@
                     })
                 .attr ("stroke-width", 1)
                 .attr ("stroke", '#444')
-                .attr ("r",function(d) { return (d.acid * 2000) + 3; });
+                .attr ("r",function(d) { return (d.Data.Brightness * 2000) + 3; });
                 .on("mouseover", function(d){
                     hoverText.transition().duration(200).style("opacity", .9);
                     hoverText.text(d.name)	
@@ -295,9 +455,9 @@
         .data(drinksDF)
             .enter().append("circle")
             .attr("id", "meltCircle")
-                .attr ("cx",function(d) { return Math.max(30, (d.sugar * 6000));})
-                .attr ("cy",function(d) { return Math.max(30, (630 - (d.alcohol * 1800)));})
-                .attr ("r",function(d) { return (d.oz * d.oz) + 3; })
+                .attr ("cx",function(d) { return Math.max(30, (d.Data.Sweetness * 6000));})
+                .attr ("cy",function(d) { return Math.max(30, (630 - (d.Data.AlcoholUnits * 1800)));})
+                .attr ("r",function(d) { return (d.Data.Volume * d.Data.Volume) + 3; })
                 .attr ("fill-opacity",0.0)
                 .attr ("opacity",0.25)
                 .attr ("stroke-width", function(d) { return d.melt * 10;})
@@ -313,19 +473,17 @@
         
         var circle = d3.select(this)
             .attr("fill-opacity",1)
-            .attr("stroke-width",1.5);/*
-            .style("stroke","yellow")
-            .style("stroke-width","3");*/
+            .attr("stroke-width",1.5);
         
         d3.select("#tooltip")
             .style("left", d3.event.pageX + 5 + "px")
             .style("top", d3.event.pageY - 30 + "px")
-            //.text(d.name)
+            //.text(d.Name)
             .style("visibility","visible");
         
-        d3.select("#drinkName").text(d.name);
-        d3.select("#drinkStyle").text(d.style);
-        d3.select("#drinkIngredients").text(d.ingredients);
+        d3.select("#drinkName").text(d.Name);
+        d3.select("#drinkStyle").text(d.Data.Style);
+        d3.select("#drinkIngredients").text(d.Data.IngredientString);
         
     }
 
@@ -333,21 +491,21 @@
         
         var circle = d3.select(this)
             .attr("fill-opacity", function(d) {
-                        if (checkPicks(d.ingredients)) {
+                        /*if (checkPicks(d.ingredients)) {
                             return 0.95
                         } else {
                             return 0.05
-                        }
+                        }*/
+                        return 0.95
                     })
             .attr ("stroke-width", function(d) {
-                        if (checkPicks(d.ingredients)) {
+                        /*if (checkPicks(d.ingredients)) {
                             return 0.75
                         } else {
                             return 0.2
-                        }
-                    });/*
-            .style("stroke","")
-            .style("stroke-width","");*/
+                        }*/
+                        return 0.75
+                    });
         
         d3.select("#tooltip")
             .style("visibility","hidden");
@@ -368,42 +526,44 @@
     }
     
     function fillRecipe(d) {
-        var thisName = d.name
+        var thisName = d.Name
+        console.log(thisName);
         d3.select("#recipeTitle").text(thisName).style("font-weight", "bold");
         
         d3.select("#recipeBox").selectAll('#recipeIng').remove();
         d3.select("#recipeBox").selectAll('#recipeBody').remove();
         
         var rec = d3.select("#recipeBox").selectAll("#recipeIng")
-                .data(recipeDF.filter(function(d) { return d.name == thisName }))
+                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName }))
                 .enter()
                 .append("div")
                 .attr('id', 'recipeIng')
                 .text(function(d) {
-                    return d.amount + ' ' + d.unit + ' ' + d.ingredient;
+                    return d.Recipe.Amount + ' ' + d.Recipe.Unit + ' ' + d.Recipe.Ingredient;
                 });
 
         var inst = d3.select("#recipeBox").selectAll("#recipeBody")
-                .data(prepDF.filter(function(d) { return d.name == thisName }))
+                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName }))
                 .enter()
                 .append("p")
                 .attr('id', 'recipeBody')
                 .text(function(d) {
                     var prepDirections = '';
                     // style
-                    if (d.notes.length > 0) {
+                    /*if (d.notes.length > 0) {
                         prepDirections += d.notes
-                    } else if (d.style.includes("stirred")) {
+                    } else */
+                    if (d.Data.Style.includes("stirred")) {
                         prepDirections += "Combine ingredients in mixing glass and stir with ice until cold, then strain into glass.";
-                    } else if (d.style.includes("bubbly")) {
+                    } else if (d.Data.Style.includes("bubbly")) {
                         prepDirections += "Stir all but bubbly with ice until cold. Strain and top with bubbly.";
-                    } else if (d.style.includes("shaken")) {
+                    } else if (d.Data.Style.includes("shaken")) {
                         prepDirections += "Combine ingredients in shaker and shake with ice until cold, then strain into glass.";
-                    } else if (d.style.includes("fizz")) {
+                    } else if (d.Data.Style.includes("fizz")) {
                         prepDirections += "Dry shake all ingredients (no ice) for 10 seconds. Then add ice and shake until cold. Strain into glass.";
-                    } else if (d.style.includes("built")) {
+                    } else if (d.Data.Style.includes("built")) {
                         prepDirections += "Build ingredients in serving glass, over ice. Stir and enjoy.";
-                    } else if (d.style.includes("hot")) {
+                    } else if (d.Data.Style.includes("hot")) {
                         prepDirections += "Combine all ingredients and serve hot.";
                     }
                     //glass
@@ -470,20 +630,6 @@
     
 </head>
 <body onload="setTimeout(getData,500)">
-    <div>
-        <span>Type an ingredient</span><span style="padding-left: 80px;">Select from the list:</span>
-    </div>
-    <div>
-        <input type=text id=searchText onchange="fillIngredients();">
-        <select id="ingredientDropDown" style="font-size: 12pt;" onchange="addToFilter();drawPlot()">
-        </select>
-    </div>
-    <div id="ingredientDiv">
-        <select id="boolPicker" style="font-size: 12pt;" onchange="switchBool();drawPlot()">
-          <option selected="selected">Can include ANY of</option>
-          <option>Must include ALL of</option>
-        </select>
-    </div>
     <!--<div class="axisPickers">
         <select style="position: relative; top: 643px; left: 430px; font-size: 8pt;" id="xPicker" onchange="switchX();drawPlot()">
           <option selected="selected">Sugar</option>
@@ -495,8 +641,7 @@
           <option selected="selected">Alcohol</option>
           <option>Acidity</option>
         </select>
-    </div>-->
-    <div onclick="clearPicks();" class="button big-btn">Clear picks</div>    
+    </div>--> 
     <h3 style="position: absolute; padding: 10px;">Drinks</h3>
     <div class='thePlot' onclick="showRecipe();">
         <svg class="bigPlot" id="theDrinks" width="925" height="630"></svg>
