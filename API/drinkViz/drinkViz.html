@@ -10,23 +10,20 @@
     
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script type="application/javascript">
-
-    /*var drinksDF;
-    var ingredientsDF;
-    var recipeDF;
-    var prepDF;
-    var theBoolPick = 'Can include ANY of';*/
+    
     var thePicks = ["Blood & Sand", "Penicillin", "Scotch Old Fashioned","Scotch Toddy"];
     
     var drinksJson;
     var drinksJsonPath = "data/SampleOutput3.json";
-    
-    var theXPick = 'Sugar';
-    var theYPick = 'Alcohol';
-        
+
     // for recipe on and off
     var showRecipeCounter = 0;
     
+    var theXPick = 'Sugar';
+    var theYPick = 'Alcohol';
+    
+    // we don't actually use these switch_() functions, but it's a cool idea I haven't implemented yet
+    /*
     function switchX() {
         var e = document.getElementById("xPicker");
         theXPick = e.options[e.selectedIndex].text;
@@ -37,103 +34,16 @@
         theYPick = e.options[e.selectedIndex].text;
         console.log(theYPick);
     }
+    */
 
     function getData() {
         //populate drink list
         d3.json(drinksJsonPath, function(d) {
-            //drinksJson = d3.hierarchy(d);
-            //console.log(d)
             drinksJson = d;
-            //console.log(drinksJson[0])
-            console.log(drinksJson.Drinks[0])
-            //
+            // draw the plot
             drawPlot();
         }); 
     }
-
-    // fill the drop down menu
-        /*
-    function fillIngredients() {
-
-        var inputText = document.getElementById('searchText').value;
-        
-        d3.select("#ingredientDropDown").selectAll("option").remove();
-        
-        var p = d3.select("#ingredientDropDown").selectAll("option")
-                //.data(ingredientsDF)
-                .data(ingredientsDF.filter(function(d) {
-                        return d.ingredient.toLowerCase().match(RegExp(inputText.toLowerCase()))
-                    }))
-                .enter()
-                .append("option")
-                .text(function(d) {
-                    return d.ingredient
-                });
-        
-        document.getElementById("ingredientDropDown").selectedIndex = -1;
-    }
-        
-    // filter the drop down menu
-    function searchTextFilter() {
-        return 'naw'
-    }
-    
-    // for filtering
-    var thePicks = []
-    var pickCounter = 0
-    
-    function clearPicks() {
-        thePicks = [];
-        d3.select("#ingredientDiv").selectAll("span").remove();
-        pickCounter = 0;
-        drawPlot();
-    }
-
-    function addToFilter() {
-        pickCounter += 1
-        var e = document.getElementById("ingredientDropDown");
-        var thePick = e.options[e.selectedIndex].text
-
-        thePicks.push(thePick)
-        //
-        var pickSpan = d3.select("#ingredientDiv").selectAll("span")
-            .data(thePicks)
-            .enter()
-            .append("span")
-            .text(function(d) {
-                if (pickCounter > 1) {
-                    if (theBoolPick == 'Can include ANY of') {
-                        return ' or ' + d
-                    } else {
-                        return ' & ' + d
-                    }
-                    
-                } else {
-                    return d
-                }
-            });
-        //
-        console.log(thePicks);
-        e.value = 'start'
-    }
-        
-    function checkPicks(ingredients) {
-        //ingredients = ingredients.split('|') //turn this on for exact matching
-        // return True False for whether ANY or ALL of thePicks are in ingredients
-        if (theBoolPick == 'Can include ANY of') {
-            var boolReturn = thePicks.some(function(v) { return ingredients.indexOf(v) >= 0; })
-        } else {
-            var boolReturn = thePicks.every(function(v) { return ingredients.indexOf(v) >= 0; })
-        }
-        // (reverse the boolean if thePicks is cleared)
-        if (thePicks.length > 0) {
-            return boolReturn
-        } else {
-            return !(boolReturn)
-        }
-        //return boolReturn
-    }
-    */
         
     // draws the plot
     function drawPlot() {
@@ -165,7 +75,6 @@
         
         drinksSVG.append("text")
                 .text("<- (less)        Alcohol        (more) ->")
-                //.text("<- (less)        Acidity        (more) ->")
                 .attr ("x",875)
                 .attr ("y",310)
                 .attr ("text-anchor", "middle")
@@ -195,13 +104,23 @@
                         if (thePicks.includes(d.Name)) {
                             return 0.8
                         } else {
-                            console.log(thePicks.includes(d.Name));
                             return 0.1
                         }
                     })
-                //.attr ("cx",function(d) { return Math.max(30, (d.Data.Sweetness * 6000));})
-                //.attr ("cy",function(d) { return Math.max(30, (630 - (d.Data.AlcoholUnits * 1800)));})
+                .attr ("cx",function(d) { 
+                    // trying to debug getting the spacing right
+                    //return Math.min(Math.max(30, (d.Data.Sweetness * 1200) - 25), 825);
+                    return Math.min(Math.max(30, (d.Data.Sweetness * 1600) - 25), 825);
+                    //return Math.min(Math.max(30, (d.Data.Sweetness * 2000) - 25), 825);
+                    //return Math.min(Math.max(30, (d.Data.Sweetness * 4000) - 25), 825);
+                })
+                .attr ("cy",function(d) { 
+                    return Math.min(Math.max(30, (630 - (d.Data.AlcoholUnits * 400))), 570);
+                })
                 //.attr ("cy",function(d) { return Math.max(50, (550 - (d.Data.Brightness * 50000)));})
+                
+                // same comment as above
+                /*
                 .attr ("cx",function(d) { 
                     if (theXPick == "Sugar") {
                         //return Math.min(Math.max(30, (d.Data.Sweetness * 6500) - 25), 825);
@@ -223,7 +142,7 @@
                     } else if (theYPick == "Acidity") {
                         return Math.max(50, (550 - (d.Data.Brightness * 50000)));
                     }
-                })
+                }) */
                 .attr ("r",function(d) { return (d.Data.Volume * Math.min(d.Data.Volume, 3)) + 3; })
                 .attr("fill",function(d) { 
                         if (d.Data.Style.includes("stirred")) {
