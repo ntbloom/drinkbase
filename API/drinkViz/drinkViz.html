@@ -25,12 +25,6 @@
         
     // for recipe on and off
     var showRecipeCounter = 0;
-        
-    function switchBool() {
-        var e = document.getElementById("boolPicker");
-        theBoolPick = e.options[e.selectedIndex].text;
-        console.log(theBoolPick);
-    }
     
     function switchX() {
         var e = document.getElementById("xPicker");
@@ -42,27 +36,6 @@
         theYPick = e.options[e.selectedIndex].text;
         console.log(theYPick);
     }
-        
-    /*function getData() {
-        //populate drink list
-        d3.csv('data/all_drinks.csv', function(d) {
-            drinksDF = d;
-            drawPlot();
-        });
-        //populate drop down
-        d3.csv("data/chemistry.csv", function(d) {
-            ingredientsDF = d;
-            fillIngredients();
-        });
-        //get recipes
-        d3.csv("data/recipe.csv", function(d) {
-            recipeDF = d;
-        });
-        //get prep
-        d3.csv("data/prep.csv", function(d) {
-            prepDF = d;
-        });
-    }*/
 
     function getData() {
         //populate drink list
@@ -383,12 +356,12 @@
         d3.select("#recipeBox").selectAll('#recipeBody').remove();
         
         var rec = d3.select("#recipeBox").selectAll("#recipeIng")
-                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName }))
+                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName })[0].Recipe)
                 .enter()
                 .append("div")
                 .attr('id', 'recipeIng')
                 .text(function(d) {
-                    return d.Recipe.Amount + ' ' + d.Recipe.Unit + ' ' + d.Recipe.Ingredient;
+                    return d.Amount + ' ' + d.Unit + ' ' + d.Ingredient;
                 });
 
         var inst = d3.select("#recipeBox").selectAll("#recipeBody")
@@ -416,7 +389,7 @@
                         prepDirections += "Combine all ingredients and serve hot.";
                     }
                     //glass
-                    prepDirections += ' Serve in ' + d.glass + ' glass.';
+                    prepDirections += ' Serve in a ' + d.Data.Glass + ' glass.';
                     //
                     return prepDirections;
                 });
