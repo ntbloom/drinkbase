@@ -109,6 +109,12 @@
                     })
                 .attr ("cx",function(d) { 
                     // trying to debug getting the spacing right
+                    if (Math.max(30, (d.Data.Sweetness * 4000) - 25) < 100) {
+                        console.log("TOO LOW: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+                    }
+                    if (Math.max(30, (d.Data.Sweetness * 4000) - 25) > 800) {
+                        console.log("TOO HIGH: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+                    }
                     //return Math.min(Math.max(30, (d.Data.Sweetness * 1200) - 25), 825);
                     return Math.min(Math.max(30, (d.Data.Sweetness * 1600) - 25), 825);
                     //return Math.min(Math.max(30, (d.Data.Sweetness * 2000) - 25), 825);
