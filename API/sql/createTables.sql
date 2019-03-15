@@ -29,5 +29,14 @@ CREATE TABLE prep (
   style TEXT,
   glass TEXT,
   garnish TEXT,
-  notes BLOB
+  notes BLOB,
+  FOREIGN KEY(style) REFERENCES style(style)
+);
+
+--style: characteristics of types of drinks
+DROP TABLE IF EXISTS style;
+CREATE TABLE style (
+  style TEXT NOT NULL PRIMARY KEY,
+  melt REAL NOT NULL,
+  description BLOB
 );
