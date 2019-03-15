@@ -210,6 +210,7 @@ class DrinkBase:
         alcohol = 0
         bright = 0
         sweet = 0
+        #TODO: mulitply these values by their amounts
         for i in ingredients:
             try:
                 alcohol += self.calcIngAbv(i)
