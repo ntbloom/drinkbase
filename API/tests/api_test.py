@@ -157,6 +157,31 @@ class TestNameSearch(unittest.TestCase):
     def test_volume(self):
         self.assertEqual(drinkViz('Ramos Gin Fizz', vol), '??')
     '''
+    
+    def test_abv_(self):
+        self.assertEqual(drinkViz('Margarita', abv), 0.192) 
+    
+    def test_alcohol_units(self):
+        self.assertEqual(drinkViz('Margarita', alc), 1.1)
+
+    def test_brightness(self):
+        self.assertEqual(drinkViz('Margarita', bri), 0.06)
+    
+    def test_garnish(self):
+        self.assertEqual(drinkViz('Margarita', gar), 'salt rim and lime wedge')
+
+    def test_ingredient_string(self):
+        self.assertEqual(drinkViz('Margarita', ing),
+            'Cointreau | lime juice | agave nectar | tequila reposado')
+
+    def test_style(self):
+        self.assertEqual(drinkViz('Margarita', sty), 'shaken')
+
+    def test_sweetness(self):
+        self.assertEqual(drinkViz('Margarita', swe), 0.4535)
+
+    def test_volume(self):
+        self.assertEqual(drinkViz('Margarita', vol), 5.737)
 
 if __name__ == "__main__":
     unittest.main()
