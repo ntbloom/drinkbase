@@ -10,10 +10,16 @@ then
   rm error_log.txt
 fi
 
-cat $SOURCEDIR/createTables.sql | psql -bq $DATABASE 2> error_log.txt
+# psql command
+dropdb --if-exists drinkbase
+createdb drinkbase
+
+# executes sql create table comments
+cat $SOURCEDIR/createDB.sql | psql -bq $DATABASE 2> error_log.txt
 if [ -s error_log.txt ]
 then
-  printf "POSSIBLE ERROR: check error_log.txt for further info\n\n"
+  printf "ERROR: DATABASE CREATION ABORTED\nCheck error_log.txt for further info\n\n"
+  dropdb --if-exists drinkbase
 else
   rm error_log.txt
   printf "Succesfully created tables for postgresql database \"$DATABASE\"\n\n"
