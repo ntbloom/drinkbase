@@ -2,11 +2,43 @@
 
 </br>
 
-## Init the SQLite database
+## Postgresql Back-end
 
-run createDB.sh script to automatically create and populate drinkBase.db file
-with data from CSV files
+### Init the database
 
+run createPGSQL.sh script to automatically create and populate database from csv
+
+### Manually query the database
+
+Switch to postgres in terminal, open interactive client:
+```
+sudo su - postgres
+psql    # opens interactive postgresql client
+```
+</br>
+
+Create local user in `psql` client (make sure username matches results of `whoami`):
+```
+CREATE ROLE [username] createdb; 
+SET client_min_messages = WARNING;  /* less verbose output, necessary for build scripts */
+\q    /* exits psql client */
+```
+</br>
+
+Exit postgres from bash:
+```
+exit
+```
+</br>
+
+Pipe sql scripts to `psql` to run manual queries:
+```
+psql drinkbase < sample_query.sql
+```
+Or launch interactive terminal:
+```
+psql drinkbase
+```
 </br>
 
 ## Query the API
