@@ -2,10 +2,10 @@
 
 </br>
 
-## Init the SQLite database
+## Init the Postgresql database
 
-run createDB.sh script to automatically create and populate drinkBase.db file
-with data from CSV files
+run createPGSQL.sh script to automatically create and populate postgres with 
+data from CSV files
 
 </br>
 
