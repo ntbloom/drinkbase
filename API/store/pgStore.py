@@ -8,7 +8,7 @@ class DrinkBase:
     def __init__(self, database):
         self.database = database
         self.connection = psycopg2.connect(
-                "dbname=" + self.database + "user=postgres") 
+                "dbname=" + self.database + " user=postgres") 
 
         # self.cursor can be used to define any SQL query
         # use self.cursor.fetchall() to actually run query
@@ -18,19 +18,82 @@ class DrinkBase:
         self.cursor.execute('SELECT name FROM recipes GROUP BY name')
         self.allDrinks = set(sorted(self.cursor.fetchall()))
 
-    def testQuery(self):
-        self.cursor.execute('SELECT * from recipes')
-        bigSelect = self.cursor.fetchall()
-        return bigSelect
-
-    def calcBrightness(self, ingredient):
-        '''returns brightness value for 'ingredient' as a float'''
-        
-        self.cursor.execute('SELECT brightness FROM ingredients \
-            WHERE ingredient = ?', (ingredient,))
-        brightness = self.cursor.fetchall()
+    def calcBrightness(self, drink):#TODO: convert all units to ounces
+        '''returns brightness value for 'drink' as a float'''
+        self.cursor.execute('''
+                SELECT SUM(ingredients.brightness * recipes.amount)
+                FROM ingredients
+                INNER JOIN 
+                    recipes ON ingredients.ingredient = recipes.ingredient
+                WHERE recipes.name = %s
+                GROUP BY recipes.name
+                ''',
+                (drink,))
+        brightness = self.cursor.fetchone()
         return brightness[0]
 
+    def calcSweetness(self, drink):#TODO: convert all units to ounces
+
+        '''returns sweetness value of 'drink' as a float'''
+        self.cursor.execute('''
+                SELECT SUM(ingredients.sweetness * recipes.amount)
+                FROM ingredients
+                INNER JOIN 
+                    recipes ON ingredients.ingredient = recipes.ingredient
+                WHERE recipes.name = %s
+                GROUP BY recipes.name
+                ''',
+                (drink,))
+        sweetness = self.cursor.fetchone()
+        return sweetness[0]
+
+    def calcAlcoholUnits(self, drink):#TODO: convert all units to ounces
+
+        '''returns alcohol value of 'drink' as a float'''
+        self.cursor.execute('''
+                SELECT SUM(ingredients.ingAbv * recipes.amount)
+                FROM ingredients
+                INNER JOIN 
+                    recipes ON ingredients.ingredient = recipes.ingredient
+                WHERE recipes.name = %s
+                GROUP BY recipes.name
+                ''',
+                (drink,))
+        alcoholUnits = self.cursor.fetchone()
+        return alcoholUnits[0]
+    
+    def getStyle(self, drink):
+        '''returns style of 'drink' as string'''
+        self.cursor.execute(
+                '''SELECT style FROM prep WHERE name = %s''',
+                (drink,))
+        style = self.cursor.fetchone()
+        return style[0]
+
+    def getGlass(self, drink):
+        '''returns glass of 'drink' as string'''
+        self.cursor.execute(
+                '''SELECT glass FROM prep WHERE name = %s''',
+                (drink,))
+        glass = self.cursor.fetchone()
+        return glass[0]
+
+    def getGarnish(self, drink):
+        '''returns garnish of 'drink' as string'''
+        self.cursor.execute(
+                '''SELECT garnish FROM prep WHERE name = %s''',
+                (drink,))
+        garnish = self.cursor.fetchone()
+        return garnish[0]
+
+
+
+
+
+
+
+
+    #TODO: rewrite for postgres
     def calcIngAbv(self, ingredient):
         '''returns ABV for 'ingredient' as a float'''
 
@@ -40,6 +103,7 @@ class DrinkBase:
         abv = abv[0]
         return abv
 
+    #TODO: rewrite for postgres
     def calcMelt(self, drink):
         '''returns melt value for 'drink' as a float'''
         
@@ -66,16 +130,7 @@ class DrinkBase:
         
         return melt
 
-    def calcSweetness(self, ingredient):
-        '''returns sweetness value of 'ingredient' as a float'''
-        
-        self.cursor.execute('SELECT sweetness FROM ingredients \
-            WHERE ingredient = ?', (ingredient,))
-        sweetness = self.cursor.fetchall()
-        sweetness = sweetness[0]
-
-        return sweetness
-
+    #TODO: rewrite for postgres
     def drinkData(self, drink, SQLcolumn):
         '''returns prep data for 'drink' as a dictionary'''
  
@@ -105,6 +160,7 @@ class DrinkBase:
         
         return drinkDict[SQLcolumn]
 
+    #TODO: rewrite for postgres
     def ingSearch(self, ingredient):
         '''returns drinks that contain 'ingredient' as a set'''
         
@@ -115,6 +171,7 @@ class DrinkBase:
         drinks = sorted(set(drinks))
         return drinks
 
+    #TODO: rewrite for postgres
     def ingVolume(self, drink, ingredient):
         '''returns quantity of 'ingredient' in 'drink' in oz as a float'''
         
@@ -152,6 +209,7 @@ class DrinkBase:
         else:
             return 0
 
+    #TODO: rewrite for postgres
     def getIng(self, drink):
         '''returns ingredients in 'drink' as a list'''
         
@@ -160,6 +218,7 @@ class DrinkBase:
         ingredients = self.cursor.fetchall()
         return ingredients
 
+    #TODO: rewrite for postgres
     def getRecipe(self, drink):
         '''returns full recipe for 'drink' as a dictionary'''
         
@@ -180,6 +239,7 @@ class DrinkBase:
         recipeDict = {'Ingredients': recipe}
         return recipe
 
+    #TODO: rewrite for postgres
     def nameSearch(self, nameQuery):
         '''returns drink names matching 'nameQuery' as set'''
         
@@ -190,6 +250,7 @@ class DrinkBase:
         drinks = sorted(set(drinks))
         return drinks
 
+    #TODO: rewrite for postgres
     def sendData(self, drink):
         '''returns API-ready data for 'drink' as a dictionary'''
         # define structure to be jsonified
@@ -262,6 +323,7 @@ class DrinkBase:
         
         return data
 
+    #TODO: rewrite for postgres
     def sendRecipe(self, drinks):
         '''returns full recipe for 'drinks' as JSON'''
         

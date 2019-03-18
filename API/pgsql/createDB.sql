@@ -5,6 +5,13 @@
 --transaction block for table creation and database population
 BEGIN;
 
+--units: conversion rates for unit to ounces
+DROP TABLE IF EXISTS units CASCADE;
+CREATE TABLE units (
+  unit VARCHAR(40) NOT NULL PRIMARY KEY,
+  conversion REAL
+);
+
 --style: characteristics of types of drinks
 DROP TABLE IF EXISTS style CASCADE;
 CREATE TABLE style (
@@ -43,13 +50,16 @@ CREATE TABLE recipes (
   amount REAL NOT NULL,
   PRIMARY KEY (name, ingredient),
   FOREIGN KEY (ingredient) REFERENCES ingredients (ingredient),
-  FOREIGN KEY (name) REFERENCES prep (name)
+  FOREIGN KEY (name) REFERENCES prep (name),
+  FOREIGN KEY (unit) REFERENCES units (unit)
 );
 --add the data from csv files
+\copy units FROM 'pgsql/data/units.csv' WITH (FORMAT csv, HEADER on);
 \copy style FROM 'pgsql/data/style.csv' WITH (FORMAT csv, HEADER on);
 \copy ingredients FROM 'pgsql/data/ingredients.csv' WITH (FORMAT csv, HEADER on);
 \copy prep FROM 'pgsql/data/prep.csv' WITH (FORMAT csv, HEADER on);
 \copy recipes FROM 'pgsql/data/recipes.csv' WITH (FORMAT csv, HEADER on);
+
 
 --commit the transaction block
 COMMIT;
