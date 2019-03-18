@@ -1,22 +1,27 @@
 #!/usr/bin/python3
-# drinkStore.py -- defines DrinkBase class for querying drinkBase.db
+# drinkStore.py -- defines DrinkBase class for querying postgresql database
 
-import sqlite3
+import psycopg2
 from flask import jsonify
 
 class DrinkBase:
     def __init__(self, database):
         self.database = database
-        dbConnect = sqlite3.connect(self.database, check_same_thread=False)
-        dbConnect.row_factory = lambda cursor, row: row[0]
-        
+        self.connection = psycopg2.connect(
+                "dbname=" + self.database + "user=postgres") 
+
         # self.cursor can be used to define any SQL query
         # use self.cursor.fetchall() to actually run query
-        self.cursor = dbConnect.cursor()
+        self.cursor = self.connection.cursor()
         
         # set of every drink named in the database
         self.cursor.execute('SELECT name FROM recipes GROUP BY name')
         self.allDrinks = set(sorted(self.cursor.fetchall()))
+
+    def testQuery(self):
+        self.cursor.execute('SELECT * from recipes')
+        bigSelect = self.cursor.fetchall()
+        return bigSelect
 
     def calcBrightness(self, ingredient):
         '''returns brightness value for 'ingredient' as a float'''
