@@ -6,10 +6,13 @@
 
 ### Init the database
 
+Install Postgresql on your box. If running on Mac, make sure `psql` command is
+installed and linked to your path.
+
 run createPGSQL.sh script to automatically create and populate database from
 csv
 
-### Manually query the database
+### Manually query the database (not necessary to run the app)
 
 Switch to postgres in terminal, open interactive client:
 ```
