@@ -15,6 +15,21 @@ print(db.getIng(drink))
 print(db.getRecipe(drink))
 print(db.nameSearch('fre'))
 print(db.getIngString(drink))
+print(db.ingSearch(ingredient))
 '''
 
-print(db.ingSearch(ingredient))
+#drinks = list of all drinks
+db.cursor.execute('''
+        SELECT DISTINCT name
+        FROM recipes
+        ;
+        ''')
+alldrinks = db.cursor.fetchall()
+drinks = []
+for i in alldrinks:
+    drinks.append(i[0])
+
+print(db.allDrinks)
+print("\n\n")
+print(db.ingSearch("rye"))
+

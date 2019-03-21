@@ -185,10 +185,10 @@ class TestNameSearch(unittest.TestCase):
 
 
     def test_abv(self):
-        self.assertEqual(drinkViz('Martinez', abv), 0.357) 
+        self.assertEqual(drinkViz('Martinez', abv), 0.238) 
     
     def test_alcohol_units(self):
-        self.assertEqual(drinkViz('Martinez', alc), 0.966)
+        self.assertEqual(drinkViz('Martinez', alc), 0.837)
 
     def test_brightness(self):
         self.assertEqual(drinkViz('Martinez', bri), 0.006)
@@ -198,7 +198,7 @@ class TestNameSearch(unittest.TestCase):
 
     def test_ingredient_string(self):
         self.assertEqual(drinkViz('Martinez', ing),
-            'Angostura bitters | gin | Luxardo Maraschino | sweet vermouth')
+            'Angostura bitters | Luxardo Maraschino | gin | sweet vermouth')
 
     def test_style(self):
         self.assertEqual(drinkViz('Martinez', sty), 'stirred')

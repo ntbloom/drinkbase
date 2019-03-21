@@ -15,8 +15,11 @@ class DrinkBase:
         self.cursor = self.connection.cursor()
         
         # set of every drink named in the database
-        self.cursor.execute('SELECT name FROM recipes GROUP BY name')
-        self.allDrinks = set(sorted(self.cursor.fetchall()))
+        self.cursor.execute('SELECT DISTINCT name FROM recipes')
+        temp = set()
+        for i in self.cursor:
+            temp.add(i[0])
+        self.allDrinks = set(sorted(temp))
 
     def calcBrightness(self, drink):
         '''returns brightness value for 'drink' as a float'''

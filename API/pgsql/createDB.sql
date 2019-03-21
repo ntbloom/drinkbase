@@ -34,7 +34,7 @@ CREATE TABLE ingredients (
 DROP TABLE IF EXISTS prep CASCADE; 
 CREATE TABLE prep (
   name VARCHAR(40) NOT NULL PRIMARY KEY,
-  style VARCHAR(40),
+  style VARCHAR(40) NOT NULL,
   glass VARCHAR(40),
   garnish VARCHAR(40),
   notes TEXT,
