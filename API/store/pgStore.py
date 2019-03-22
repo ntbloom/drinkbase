@@ -36,7 +36,10 @@ class DrinkBase:
             ''',
             (drink,))
         brightness = self.cursor.fetchone()
-        return brightness[0]
+        try:
+            return brightness[0]
+        except:
+            return 0
 
     def calcSweetness(self, drink):
 
@@ -54,7 +57,10 @@ class DrinkBase:
             ''',
             (drink,))
         sweetness = self.cursor.fetchone()
-        return sweetness[0]
+        try:
+            return sweetness[0]
+        except:
+            return 0
 
     def calcAlcoholUnits(self, drink):
 
@@ -72,7 +78,10 @@ class DrinkBase:
             GROUP BY recipes.name
             ''', (drink,))
         alcoholUnits = self.cursor.fetchone()
-        return alcoholUnits[0]
+        try:
+            return alcoholUnits[0]
+        except:
+            return 0
     
     def getStyle(self, drink):
         '''returns style of 'drink' as string'''
@@ -83,7 +92,10 @@ class DrinkBase:
             WHERE name = %s
             ''', (drink,))
         style = self.cursor.fetchone()
-        return style[0]
+        try:
+            return style[0]
+        except:
+            return 0
 
     def getGlass(self, drink):
         '''returns glass of 'drink' as string'''
@@ -94,7 +106,10 @@ class DrinkBase:
             WHERE name = %s
             ''', (drink,))
         glass = self.cursor.fetchone()
-        return glass[0]
+        try:
+            return glass[0]
+        except:
+            return 0
 
     def getGarnish(self, drink):
         '''returns garnish of 'drink' as string'''
@@ -105,7 +120,10 @@ class DrinkBase:
             WHERE name = %s
             ''', (drink,))
         garnish = self.cursor.fetchone()
-        return garnish[0]
+        try:
+            return garnish[0]
+        except:
+            return 0
 
     def calcVolume(self, drink):
         '''returns volume of 'drink' as float'''
@@ -121,7 +139,10 @@ class DrinkBase:
             GROUP BY recipes.name
             ''', (drink,))
         volume = self.cursor.fetchone()
-        return volume[0]
+        try:
+            return volume[0]
+        except:
+            return 0
 
     def getNotes(self, drink):
         '''returns notes for 'drink' as string'''
@@ -132,7 +153,10 @@ class DrinkBase:
             WHERE name = %s
             ''', (drink,))
         notes = self.cursor.fetchone()
-        return notes[0]
+        try:
+            return notes[0]
+        except:
+            return 0
 
     def ingSearch(self, ingredient):
         '''returns drinks that contain 'ingredient' as a set'''
