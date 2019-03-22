@@ -3,6 +3,7 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Drinklist from "./Drinklist";
+import Viz from "../Viz";
 
 let url = ''
 class Results extends Component {
@@ -42,6 +43,8 @@ class Results extends Component {
     //console.log("query: ", this.props.query);
     if (this.props.query !== '') {
       return (
+        <div>
+          <Viz drinksJson={this.state.drinks.Drinks} />
         <div>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
