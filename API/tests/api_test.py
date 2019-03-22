@@ -105,7 +105,7 @@ class TestNameSearch(unittest.TestCase):
             ["Blood & Sand"]
             )
     #drinkViz tests
-    def test_abv_(self):
+    def test_abv(self):
         self.assertEqual(drinkViz('Negroni', abv),.224)
     
     def test_alcohol_units(self):
@@ -157,6 +157,56 @@ class TestNameSearch(unittest.TestCase):
     def test_volume(self):
         self.assertEqual(drinkViz('Ramos Gin Fizz', vol), '??')
     '''
+    
+    def test_abv(self):
+        self.assertEqual(drinkViz('Margarita', abv), 0.192) 
+    
+    def test_alcohol_units(self):
+        self.assertEqual(drinkViz('Margarita', alc), 1.1)
 
+    def test_brightness(self):
+        self.assertEqual(drinkViz('Margarita', bri), 0.06)
+    
+    def test_garnish(self):
+        self.assertEqual(drinkViz('Margarita', gar), 'salt rim and lime wedge')
+
+    def test_ingredient_string(self):
+        self.assertEqual(drinkViz('Margarita', ing),
+            'Cointreau | lime juice | agave nectar | tequila reposado')
+
+    def test_style(self):
+        self.assertEqual(drinkViz('Margarita', sty), 'shaken')
+
+    def test_sweetness(self):
+        self.assertEqual(drinkViz('Margarita', swe), 0.454)
+
+    def test_volume(self):
+        self.assertEqual(drinkViz('Margarita', vol), 5.737)
+
+
+    def test_abv(self):
+        self.assertEqual(drinkViz('Martinez', abv), 0.238) 
+    
+    def test_alcohol_units(self):
+        self.assertEqual(drinkViz('Martinez', alc), 0.837)
+
+    def test_brightness(self):
+        self.assertEqual(drinkViz('Martinez', bri), 0.006)
+    
+    def test_garnish(self):
+        self.assertEqual(drinkViz('Martinez', gar), 'lemon twist')
+
+    def test_ingredient_string(self):
+        self.assertEqual(drinkViz('Martinez', ing),
+            'Angostura bitters | Luxardo Maraschino | gin | sweet vermouth')
+
+    def test_style(self):
+        self.assertEqual(drinkViz('Martinez', sty), 'stirred')
+
+    def test_sweetness(self):
+        self.assertEqual(drinkViz('Martinez', swe), 0.218)
+
+    def test_volume(self):
+        self.assertEqual(drinkViz('Martinez', vol), 3.521)
 if __name__ == "__main__":
     unittest.main()

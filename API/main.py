@@ -1,18 +1,18 @@
 #!/usr/bin/python3
 # api.py - python/flask script for running drinkBase back end
 
-from store.drinkStore import DrinkBase
+from store.pgStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
 from flask_cors import CORS
 
-ds = DrinkBase('drinkBase.db')
+ds = DrinkBase('drinkbase')
 
 app = Flask(__name__)
 CORS(app) #TODO: remove for production & configure in apache
 
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
-'''querying the database by ingredient'''
+#querying the database by ingredient
 def ingreds():
     incl = request.args.get('incl')
     excl = request.args.get('excl')
@@ -33,7 +33,7 @@ def ingreds():
     return drinks 
 
 @app.route('/api/v1.0/names/', methods=['GET'])
-'''querying the database by drink name'''
+#querying the database by drink name
 def names():
     name = request.args.get('name')
     drinks = ds.nameSearch(name)

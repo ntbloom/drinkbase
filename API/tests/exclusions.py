@@ -20,4 +20,4 @@ noGarnish = ["20th Century", "Agave Old Fashioned", "Airmail", "Alabazam", "Ango
 noJuiceBitters = ["Boulevardier", "Brandy Alexander", "Caipirinha",
         "Diamondback", "Grasshopper", "Hanky Panky", "Jersey Julep",
         "Lucien Gaudin", "Mint Julep", "Negroni", "Old Pal", 
-        "Rusty Nail", "Stinger", "Summer Negroni", "Vesper"]
+        "Rusty Nail", "Stinger", "Summer Negroni", "The Frank O’Hara", "Vesper"]
