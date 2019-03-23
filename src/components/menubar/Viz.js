@@ -136,8 +136,7 @@ class Drinkviz extends Component {
   render() {
     return (
       <div>
-        <svg>
-        </svg>
+        <svg className="bigPlot" id="theDrinks" width="925" height="630"></svg>
       </div>
     );
   }
