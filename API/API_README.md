@@ -4,29 +4,28 @@
 
 ## Postgresql Back-end
 
-### Init the database
+### Init the database (see postgresql.org/docs for further help)
 
-Install Postgresql on your box. If running on Mac, make sure `psql` command is
-installed and linked to your path.
+Install Postgresql on your box. User 'postgres' should be created
+automatically.
 
-run createPGSQL.sh script to automatically create and populate database from
-csv
+Packages needed on Fedora:
+postgresql postgresql-server postgresql-dev postgresql-contrib
 
-### Manually query the database (not necessary to run the app)
+Switch to user 'postgres' and initialize database:
 
-Switch to postgres in terminal, open interactive client:
 ```
 sudo su - postgres
+initdb
 psql    # opens interactive postgresql client
 ```
 </br>
 
 Create local user in `psql` client (make sure username matches results of
-`whoami`):
+`whoami` in terminal):
 ```
-CREATE ROLE [username] createdb; 
-SET client_min_messages = WARNING;  /* less verbose output, necessary for
-build scripts */
+CREATE ROLE [username] createdb login createdb;
+ALTER ROLE [username] SET client_min_messages = WARNING;
 \q    /* exits psql client */
 ```
 </br>
