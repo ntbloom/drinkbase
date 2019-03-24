@@ -13,28 +13,35 @@ class Drinkviz extends Component {
     // use state to define any variables that may change, 
     // use const for everything else
     this.state = {
-      drinksJson: {},
+      drinks : this.props.drinks,
       //need to change to dynamic value
-      thePicks: ["Blood & Sand", "Penicillin", "Scotch Old Fashioned","Scotch Toddy", "Bobby Burns", "Rob Roy", "Rusty Nail"],
+      picks: ["Blood & Sand", "Penicillin", "Scotch Old Fashioned","Scotch Toddy", "Bobby Burns", "Rob Roy", "Rusty Nail"],
     };
     // you need to bind your functions before declarations
     this.drawPlot = this.drawPlot.bind(this);
+    this.getData = this.getData.bind(this);
 
   }
   // gets called on first load
   componentDidMount() {
-    this.drawPlot();
+    this.getData();
   }
   
   // gets called whenever state changes, need to define for other variables
   componentDidUpdate(prevProps) {
     if (this.props.thePicks !== prevProps.thePicks) {
-      this.drawPlot();
+      this.getData();
     }
+  }
+  getData() {
+    d3.json(this.state.drinks, function(d) {
+      drinksJson = d;
+      thePicks = this.state.picks;
+      this.drawPlot();
+    });
   }
 
   drawPlot() {
-
     drinksSVG = d3.select('#theDrinks');
     
     drinksSVG.append("line")
@@ -77,11 +84,11 @@ class Drinkviz extends Component {
     var theOffset = 0;
     
     var abvCirc = drinksSVG.selectAll("#abvCircle")
-            .data(this.drinksJson.Drinks)
+            .data(drinksJson)
             .enter().append("circle")
             .attr("id", "abvCircle")
             .attr ("stroke-width", function(d) {
-                    if (this.thePicks.includes(d.Name)) {
+                    if (thePicks.includes(d.Name)) {
                         return 0.75
                     } else {
                         return 0.2
@@ -89,7 +96,7 @@ class Drinkviz extends Component {
                 })
             .attr ("stroke", '#999')
             .attr ("fill-opacity", function(d) {
-                    if (this.thePicks.includes(d.Name)) {
+                    if (thePicks.includes(d.Name)) {
                         return 0.8
                     } else {
                         return 0.1

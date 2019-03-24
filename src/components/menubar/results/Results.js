@@ -44,7 +44,7 @@ class Results extends Component {
     if (this.props.query !== '') {
       return (
         <div>
-          <Viz drinksJson={this.state.drinks.Drinks} />
+          <Viz drinks ={this.state.drinks} />
         <div>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
