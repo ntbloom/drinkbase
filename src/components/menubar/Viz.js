@@ -35,6 +35,7 @@ class Drinkviz extends Component {
   }
 
   drawPlot() {
+    const picks = this.state.picks;
     var drinksSVG = d3.select('#theDrinks');
     
     drinksSVG.append("line")
@@ -79,7 +80,7 @@ class Drinkviz extends Component {
       .enter().append("circle")
       .attr("id", "abvCircle")
       .attr ("stroke-width", function(d) {
-              if (this.state.picks.includes(d.Name)) {
+              if (picks.includes(d.Name)) {
                   return 0.75
               } else {
                   return 0.2
@@ -87,7 +88,7 @@ class Drinkviz extends Component {
           })
       .attr ("stroke", '#999')
       .attr ("fill-opacity", function(d) {
-              if (this.state.picks.includes(d.Name)) {
+              if (picks.includes(d.Name)) {
                   return 0.8
               } else {
                   return 0.1
