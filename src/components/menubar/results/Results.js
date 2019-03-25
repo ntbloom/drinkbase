@@ -45,7 +45,6 @@ class Results extends Component {
       return (
         <div>
           <Viz drinks ={this.state.drinks} />
-        <div>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
       );
