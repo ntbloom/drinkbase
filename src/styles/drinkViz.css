@@ -21,3 +21,20 @@ div.tooltip {
     border-style: double;
     text-align: center;
 }
+
+#viz {
+  position: absolute;
+  padding: 10px;
+}
+
+#drinkName {
+  font-weight: bold;
+}
+
+#drinkStyle {
+  font-size: 10pt;
+}
+
+#drinkIngredients {
+  font-size: 8pt;
+}
