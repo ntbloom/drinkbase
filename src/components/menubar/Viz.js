@@ -33,11 +33,8 @@ class Drinkviz extends Component {
   componentDidUpdate() {
       this.drawPlot();
   }
-  
-  drawPlot() {
-    const drinks = this.props.drinks
-    const picks = this.state.picks
 
+  drawPlot() {
     var drinksSVG = d3.select('#theDrinks');
     
     drinksSVG.append("line")
@@ -78,11 +75,11 @@ class Drinkviz extends Component {
     drinksSVG.selectAll("circle").remove()
 
     var abvCirc = drinksSVG.selectAll("#abvCircle")
-      .data(drinks.Drinks)
+      .data(this.props.drinks.Drinks)
       .enter().append("circle")
       .attr("id", "abvCircle")
       .attr ("stroke-width", function(d) {
-              if (picks.includes(d.Name)) {
+              if (this.state.picks.includes(d.Name)) {
                   return 0.75
               } else {
                   return 0.2
@@ -90,7 +87,7 @@ class Drinkviz extends Component {
           })
       .attr ("stroke", '#999')
       .attr ("fill-opacity", function(d) {
-              if (picks.includes(d.Name)) {
+              if (this.state.picks.includes(d.Name)) {
                   return 0.8
               } else {
                   return 0.1
@@ -155,14 +152,14 @@ class Drinkviz extends Component {
   unhighlight(d,i) {
     var circle = d3.select(this)
       .attr("fill-opacity", function(d) {
-        if (this.picks.includes(d.Name)) {
+        if (this.state.picks.includes(d.Name)) {
           return 0.95
         } else {
           return 0.05
         }
       })
       .attr ("stroke-width", function(d) {
-        if (this.picks.includes(d.Name)) {
+        if (this.state.picks.includes(d.Name)) {
           return 0.75
         } else {
           return 0.2
