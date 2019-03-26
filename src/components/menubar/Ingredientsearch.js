@@ -34,28 +34,23 @@ class Ingredientsearch extends Component {
         <div className="namesearchMain">
           <div>
             <h2>SEARCH BY INGREDIENT</h2>
-            <p>
-              enter ingredient names to retrieve drinks containing only 
-              those ingredients. separate multiple ingredients with a
-              comma.
-            </p>
             <form 
               onSubmit={this.handleSubmit} 
               method="get" 
               className="ingredientSearch">
               <div>
-                <label>:: enter ingredients to include ::</label>
                 <input 
                   type="text" 
+                  placeholder="included ingredients"
                   name="included" 
                   onChange={this.handleChange}
                 >
                 </input>
               </div>
               <div>
-                <label>:: enter ingredients to exclude ::</label>
                 <input 
                   type="excluded" 
+                  placeholder="excluded ingredients"
                   name="excluded" 
                   onChange={this.handleChange}
                 >

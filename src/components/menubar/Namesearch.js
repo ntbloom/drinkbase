@@ -14,29 +14,22 @@ class Namesearch extends Component {
       submitted: '',
     };
     this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
     this.setState({value: event.target.value});
-  }
-  handleSubmit(event) {
-    this.setState({query: this.state.value});
-    event.preventDefault(); 
   }
   render() {
     return (
       <div className="namesearchMain">
           <h2>SEARCH BY DRINK NAME</h2>
-        <form onSubmit={this.handleSubmit}>
+        <form>
           <label>
-            :: enter the name of a drink ::
             <input
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
-              placeholder=" ex: martinez" />
+              placeholder=" start typing to find drinks" />
           </label>
-          <input type="submit" value="Submit" />
         </form>
           <Results 
             query={this.state.value} 
