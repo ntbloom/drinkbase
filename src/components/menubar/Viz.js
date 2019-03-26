@@ -96,10 +96,10 @@ class Drinkviz extends Component {
       .attr ("cx",function(d) { 
           // TEMPORARY!!!!! trying to debug getting the spacing right
           if (Math.max(30, (d.Data.Sweetness * 4000) - 25) < 100) {
-              console.log("TOO LOW: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+            //console.log("TOO LOW: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
           }
           if (Math.max(30, (d.Data.Sweetness * 4000) - 25) > 800) {
-              console.log("TOO HIGH: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+            //console.log("TOO HIGH: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
           }
           // TEMPORARY!!! ^ trying to debug getting the spacing right
           return Math.min(Math.max(30, (d.Data.Sweetness * 1600) - 25), 825);
@@ -172,7 +172,7 @@ class Drinkviz extends Component {
     return (
       <div> 
         <h3 id="viz">Drinks</h3>
-        <div className='thePlot' onclick="this.showRecipe()">
+        <div className='thePlot' onClick="this.showRecipe()">
           <svg className="bigPlot" id="theDrinks" width="925" height="630"></svg>
         </div>
         <div id="tooltip" className="tooltip">
