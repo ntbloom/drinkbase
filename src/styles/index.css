@@ -57,6 +57,7 @@ footer {
 }
 
 #ingreds {
+  font-family: 'Source Code Pro';
   font-size: 80%;
   padding-left: 1em;
   font-style: italic;
@@ -70,6 +71,8 @@ footer {
 }
 
 .recipe {
+  padding-top: 0.25em;
   margin-left: 2em;
   font-size: 90%;
+  line-height: 0.50;
 }
