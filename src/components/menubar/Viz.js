@@ -73,7 +73,8 @@ class Drinkviz extends Component {
       .attr('transform', 'rotate(270 875 295)')
 
     drinksSVG.selectAll("circle").remove()
-
+    
+    // eslint-disable-next-line
     var abvCirc = drinksSVG.selectAll("#abvCircle")
       .data(this.props.drinks.Drinks)
       .enter().append("circle")
@@ -133,6 +134,7 @@ class Drinkviz extends Component {
   
   // the tooltip functions
   highlight(d,i) {
+    // eslint-disable-next-line
     var circle = d3.select(this)
       .attr("fill-opacity",1)
       .attr("stroke-width",1.5);
@@ -149,6 +151,7 @@ class Drinkviz extends Component {
   }
 
   unhighlight(d,i) {
+    // eslint-disable-next-line
     var circle = d3.select(this)
       .attr("fill-opacity", function(d) {
         if (this.state.picks.includes(d.Name)) {
