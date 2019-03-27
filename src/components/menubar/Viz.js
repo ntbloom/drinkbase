@@ -175,8 +175,13 @@ class Drinkviz extends Component {
     return (
       <div> 
         <h3 id="viz">Drinks</h3>
-        <div className='thePlot' onClick="this.showRecipe()">
-          <svg className="bigPlot" id="theDrinks" width="925" height="630"></svg>
+        <div className='thePlot'>
+          <svg 
+            className="bigPlot" 
+            id="theDrinks" 
+            width="925" 
+            height="630">
+          </svg>
         </div>
         <div id="tooltip" className="tooltip">
           <span id="drinkName"></span><br />  
