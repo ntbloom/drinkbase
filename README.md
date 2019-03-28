@@ -2,8 +2,8 @@
 <img src=http://ntbloom.com/static/images/drinkBaseWhite.png width=250>
 a cocktail-finding app built using a react frontend with python/flask backend
 
+---
 
-***
 <br/>
 
 ### Build instructions for React front-end
@@ -33,11 +33,12 @@ npm start
 
 #### Troubleshooting node server
 * make sure you have necessary dependencies (not hosted on repo):
-  * sqlite3 .db file
   * images
+* automatically update to latest js packages:
+```npm install ```
 
+---
 
-***
 <br/>
 
 ### Build instructions for Flask back-end
@@ -70,3 +71,4 @@ python3 main.py
   * Flask-Cors
   * Requests
 * make sure localhost:5000 port is open
+* see API/API_README for postgresql build instructions
