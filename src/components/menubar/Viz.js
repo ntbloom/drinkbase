@@ -4,7 +4,7 @@
 
 import React, { Component } from "react";
 import * as d3 from "d3";
-
+import axios from "axios";
 
 class Drinkviz extends Component {
   constructor(props) {
@@ -21,20 +21,40 @@ class Drinkviz extends Component {
     this.drawPlot = this.drawPlot.bind(this);
     this.highlight = this.highlight.bind(this);
     this.unhighlight = this.unhighlight.bind(this);
+    this.getAllDrinks = this.getAllDrinks.bind(this);
   }
-  
+
+  getAllDrinks() {
+    // gets all drinks plus data as object
+    axios.get("http://localhost:5000/api/v1.0/names/?name=")
+      .then(
+        response => {
+          this.setState({allDrinks: response.data});
+          this.setState({vizLoaded: true});
+      })
+      .catch(
+        error => {
+          console.log(error);
+      })
+  }
+
+
   // gets called on first load
   componentDidMount() {
-    this.drawPlot();
+    this.getAllDrinks();
+    if (this.state.vizLoaded) {
+      this.drawPlot();
+    }
   }
   
   // gets called whenever state changes, need to define for other variables
-  componentDidUpdate() {
+  componentDidUpdate() { 
       this.drawPlot();
   }
 
   drawPlot() {
     const picks = this.state.picks;
+    const allDrinks = this.state.allDrinks;
     var drinksSVG = d3.select('#theDrinks');
     
     drinksSVG.append("line")
@@ -76,7 +96,7 @@ class Drinkviz extends Component {
     
     // eslint-disable-next-line
     var abvCirc = drinksSVG.selectAll("#abvCircle")
-      .data(this.props.drinks.Drinks)
+      .data(allDrinks.Drinks)
       .enter().append("circle")
       .attr("id", "abvCircle")
       .attr ("stroke-width", function(d) {
@@ -172,29 +192,37 @@ class Drinkviz extends Component {
   }
 
   render() {
-    return (
-      <div> 
-        <h3 id="viz">Drinks</h3>
-        <div className='thePlot'>
-          <svg 
-            className="bigPlot" 
-            id="theDrinks" 
-            width="925" 
-            height="630">
-          </svg>
+    if (this.state.vizLoaded) {
+      return (
+        <div> 
+          <h3 id="viz">Drinks</h3>
+          <div className='thePlot'>
+            <svg 
+              className="bigPlot" 
+              id="theDrinks" 
+              width="925" 
+              height="630">
+            </svg>
+          </div>
+          <div id="tooltip" className="tooltip">
+            <span id="drinkName"></span><br />  
+            <span id="drinkStyle"></span> 
+            <span id="drinkIngredients"></span>
+          </div>
+          <div id="recipeBox">
+            <p id="recipeTitle">Click on a drink to see the recipe</p>
+            <p id="recipeIng"></p>
+            <p id="recipeBody"></p>
+          </div>
         </div>
-        <div id="tooltip" className="tooltip">
-          <span id="drinkName"></span><br />  
-          <span id="drinkStyle"></span> 
-          <span id="drinkIngredients"></span>
+      );
+    } else {
+      return (
+        <div>
+          <h3>loading...</h3>
         </div>
-        <div id="recipeBox">
-          <p id="recipeTitle">Click on a drink to see the recipe</p>
-          <p id="recipeIng"></p>
-          <p id="recipeBody"></p>
-        </div>
-      </div>
-    );
+      );
+    }
   }
 }
 
