@@ -26,8 +26,11 @@ class Results extends Component {
           this.setState({drinks: drinks});
           this.setState({submitted: true});
           ////console.log(this.state.drinks);
-        }
-      );
+        })
+      .catch(
+        error => {
+          console.log(error);
+        })
   }
   componentDidMount() {
     //console.log("url: ", url);
@@ -44,7 +47,7 @@ class Results extends Component {
     if (this.props.query !== '') {
       return (
         <div>
-          <Viz drinks={this.state.drinks} />
+          <Viz/>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
       );
