@@ -8,7 +8,7 @@ from flask_cors import CORS
 ds = DrinkBase('drinkbase')
 
 app = Flask(__name__)
-CORS(app) #TODO: remove for production & configure in apache
+#CORS(app) #TODO: remove for production & configure in apache
 
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
@@ -34,6 +34,14 @@ def ingreds():
 
 @app.route('/api/v1.0/names/', methods=['GET'])
 #querying the database by drink name
+def cors():
+    response = Response()
+    response.headers = {
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Credentials": "true"
+            }
+    return response
+
 def names():
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
