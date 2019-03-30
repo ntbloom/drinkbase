@@ -1,53 +1,62 @@
 // Results, makes api call and passes results to drinklist
 
 import React, { Component } from "react";
-import axios from "axios";
 import Drinklist from "./Drinklist";
 import Viz from "../Viz";
 
-let url = ''
+
+
 class Results extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      haveDrinks: false,
       drinks: '',
     };
     this.apiCall = this.apiCall.bind(this);
+    this.getDrinks = this.getDrinks.bind(this);
   }
-  apiCall() {
+  apiCall(url, stateVariable) {
+    // calls Flask API
+    fetch(url, {credentials: "include"})
+      .then(response => {
+        return response.json();
+      })
+      .then(drinks => {
+        return drinks; 
+      })
+      .then(stateful => {
+        this.setState({stateVariable: true});
+      })
+  }
+
+  getDrinks() {
     // calls Python api
-    let api = this.props.url;
-    url = api.concat(this.props.query);
-    //console.log("url", url);
-    axios.get(url)
-      .then(
-        response => {
-          const drinks = response.data;
-          this.setState({drinks: drinks});
-          this.setState({submitted: true});
-          ////console.log(this.state.drinks);
-        })
-      .catch(
-        error => {
-          console.log(error);
-        })
+    const api = this.props.url;
+    const url = api.concat(this.props.query);
+    const drinks = this.apiCall(url, "haveDrinks");
+    if (this.state.haveDrinks) {
+      this.setState({drinks: drinks});
+      this.setState({submitted: true});
+    }
   }
+
   componentDidMount() {
     //console.log("url: ", url);
-    this.apiCall();
+    this.getDrinks();
+    console.log("this.state.drinks:", this.state.drinks);
   }
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
-      this.apiCall();
+      this.getDrinks();
     }
   }
   render() {
     //console.log("drinks: ", this.state.drinks.Drinks);
     //console.log("query: ", this.props.query);
-    if (this.props.query !== '') {
+    if (this.state.submitted) {
       return (
         <div>
-          <Viz/>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
       );
