@@ -3,16 +3,22 @@
 
 from store.pgStore import DrinkBase
 from flask import Flask, request, Response, make_response, jsonify
-from flask_cors import CORS
 
 ds = DrinkBase('drinkbase')
-
 app = Flask(__name__)
-#CORS(app) #TODO: remove for production & configure in apache
+
 
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 #querying the database by ingredient
+def ingredcors():
+    response = Response()
+    response.headers = {
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Credentials": "true"
+            }
+    return response
+
 def ingreds():
     incl = request.args.get('incl')
     excl = request.args.get('excl')
@@ -34,7 +40,7 @@ def ingreds():
 
 @app.route('/api/v1.0/names/', methods=['GET'])
 #querying the database by drink name
-def cors():
+def namecors():
     response = Response()
     response.headers = {
             "Access-Control-Allow-Origin": "http://localhost:3000",
@@ -49,6 +55,7 @@ def names():
     return drinks
 
 @app.errorhandler(404)
+
 def not_found(error):
     return make_response(jsonify({"error": "Not found"}), 404)
 
