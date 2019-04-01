@@ -11,14 +11,6 @@ app = Flask(__name__)
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 #querying the database by ingredient
-def ingredcors():
-    response = Response()
-    response.headers = {
-            "Access-Control-Allow-Origin": "http://localhost:3000",
-            "Access-Control-Allow-Credentials": "true"
-            }
-    return response
-
 def ingreds():
     incl = request.args.get('incl')
     excl = request.args.get('excl')
@@ -40,19 +32,19 @@ def ingreds():
 
 @app.route('/api/v1.0/names/', methods=['GET'])
 #querying the database by drink name
-def namecors():
-    response = Response()
-    response.headers = {
-            "Access-Control-Allow-Origin": "http://localhost:3000",
-            "Access-Control-Allow-Credentials": "true"
-            }
-    return response
-
 def names():
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
     drinks = ds.sendRecipe(drinks)
     return drinks
+
+@app.after_request
+def make_cors(response):
+    response.headers = {
+            "Access-Control-Allow-Origin": "http://localhost:3000",
+            "Access-Control-Allow-Credentials": "true"
+            }
+    return response
 
 @app.errorhandler(404)
 
