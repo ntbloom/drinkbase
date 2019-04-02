@@ -20,13 +20,14 @@ class Results extends Component {
     let api = this.props.url;
     const url = api.concat(this.props.query);
     fetch(url, {credentials: "include"})
-      .then(response => {
-        return response;
-      })
-      .then(responseDrinks => {
-        this.setState({drinks: responseDrinks, received: true}); 
-      })
-  }
+      .then(
+        response => {
+          response.json()
+      .then(data => {
+        this.setState({drinks: data, received: true}); 
+        })
+      }
+    )}
 
   componentDidMount() {
     //console.log("url: ", url);
@@ -49,7 +50,6 @@ class Results extends Component {
       );
     } else {
       return null
-      // eslint-disable-next-line
     };
   }
 }
