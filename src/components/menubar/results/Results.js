@@ -23,8 +23,8 @@ class Results extends Component {
       .then(response => {
         return response;
       })
-      .then(drinks => {
-        this.setState({drinks: drinks, received: true}); 
+      .then(responseDrinks => {
+        this.setState({drinks: responseDrinks, received: true}); 
       })
   }
 
