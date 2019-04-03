@@ -2,9 +2,7 @@
 
 import React, { Component } from "react";
 import Drinklist from "./Drinklist";
-import Viz from "../Viz";
-
-
+import Viz from "./Viz";
 
 class Results extends Component {
   constructor(props) {
@@ -30,9 +28,7 @@ class Results extends Component {
     )}
 
   componentDidMount() {
-    //console.log("url: ", url);
     this.apiCall();
-    console.log("this.state.drinks:", this.state.drinks);
   }
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {

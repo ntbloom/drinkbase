@@ -4,7 +4,6 @@
 
 import React, { Component } from "react";
 import * as d3 from "d3";
-import axios from "axios";
 
 class Drinkviz extends Component {
   constructor(props) {
@@ -21,40 +20,21 @@ class Drinkviz extends Component {
     this.drawPlot = this.drawPlot.bind(this);
     this.highlight = this.highlight.bind(this);
     this.unhighlight = this.unhighlight.bind(this);
-    this.getAllDrinks = this.getAllDrinks.bind(this);
   }
-
-  getAllDrinks() {
-    // gets all drinks plus data as object
-    axios.get("http://localhost:5000/api/v1.0/names/?name=")
-      .then(
-        response => {
-          this.setState({allDrinks: response.data});
-          this.setState({vizLoaded: true});
-      })
-      .catch(
-        error => {
-          console.log(error);
-      })
-  }
-
 
   // gets called on first load
   componentDidMount() {
-    this.getAllDrinks();
-    if (this.state.vizLoaded) {
-      this.drawPlot();
-    }
+    this.drawPlot();
   }
   
   // gets called whenever state changes, need to define for other variables
   componentDidUpdate() { 
-      this.drawPlot();
+    this.drawPlot();
   }
 
   drawPlot() {
     const picks = this.state.picks;
-    const allDrinks = this.state.allDrinks;
+    const allDrinks = this.props.allDrinks;
     var drinksSVG = d3.select('#theDrinks');
     
     drinksSVG.append("line")
@@ -192,37 +172,29 @@ class Drinkviz extends Component {
   }
 
   render() {
-    if (this.state.vizLoaded) {
-      return (
-        <div> 
-          <h3 id="viz">Drinks</h3>
-          <div className='thePlot'>
-            <svg 
-              className="bigPlot" 
-              id="theDrinks" 
-              width="925" 
-              height="630">
-            </svg>
-          </div>
-          <div id="tooltip" className="tooltip">
-            <span id="drinkName"></span><br />  
-            <span id="drinkStyle"></span> 
-            <span id="drinkIngredients"></span>
-          </div>
-          <div id="recipeBox">
-            <p id="recipeTitle">Click on a drink to see the recipe</p>
-            <p id="recipeIng"></p>
-            <p id="recipeBody"></p>
-          </div>
+    return (
+      <div> 
+        <h3 id="viz">Drinks</h3>
+        <div className='thePlot'>
+          <svg 
+            className="bigPlot" 
+            id="theDrinks" 
+            width="925" 
+            height="630">
+          </svg>
         </div>
-      );
-    } else {
-      return (
-        <div>
-          <h3>loading...</h3>
+        <div id="tooltip" className="tooltip">
+          <span id="drinkName"></span><br />  
+          <span id="drinkStyle"></span> 
+          <span id="drinkIngredients"></span>
         </div>
-      );
-    }
+        <div id="recipeBox">
+          <p id="recipeTitle">Click on a drink to see the recipe</p>
+          <p id="recipeIng"></p>
+          <p id="recipeBody"></p>
+        </div>
+      </div>
+    );
   }
 }
 
