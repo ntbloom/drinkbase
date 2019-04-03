@@ -35,7 +35,6 @@ def ingreds():
 def names():
     try:
         name = request.args.get('name')
-        print("name api:", name)
         drinks = ds.nameSearch(name)
         drinks = ds.sendRecipe(drinks)
     except:
