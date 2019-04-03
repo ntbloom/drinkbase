@@ -9,6 +9,7 @@ class Results extends Component {
     super(props);
     this.state = {
       received: false, 
+      picks: []
     };
     this.apiCall = this.apiCall.bind(this);
   }
@@ -22,7 +23,12 @@ class Results extends Component {
         response => {
           response.json()
       .then(data => {
-        this.setState({drinks: data, received: true}); 
+        this.setState({drinks: data});
+        let picks = [];
+        for (var i=0; i<data.Drinks.length; i++) {
+          picks.push(data.Drinks[i].Name)
+        }
+        this.setState({picks: picks, received: true});
         })
       }
     )}
@@ -36,12 +42,17 @@ class Results extends Component {
     }
   }
   render() {
-    //console.log("drinks: ", this.state.drinks.Drinks);
-    //console.log("query: ", this.props.query);
     if (this.state.received) {
+      console.log(this.state.picks);
       return (
         <div>
-          <Drinklist drinks={this.state.drinks.Drinks} />
+          <Viz
+            allDrinks={this.props.allDrinks}
+            picks={this.state.picks}
+          />
+          <Drinklist 
+            drinks={this.state.drinks.Drinks} 
+          />
         </div>
       );
     } else {

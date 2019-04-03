@@ -12,8 +12,6 @@ class Drinkviz extends Component {
     // use state to define any variables that may change, 
     // use const for everything else
     this.state = {
-      //need to change to dynamic value
-      picks: ["Blood & Sand", "Penicillin", "Scotch Old Fashioned","Scotch Toddy", "Bobby Burns", "Rob Roy", "Rusty Nail"],
       showRecipeCounter: 0
     };
     // you need to bind your functions before declarations
@@ -33,7 +31,7 @@ class Drinkviz extends Component {
   }
 
   drawPlot() {
-    const picks = this.state.picks;
+    const picks = this.props.picks;
     const allDrinks = this.props.allDrinks;
     var drinksSVG = d3.select('#theDrinks');
     
