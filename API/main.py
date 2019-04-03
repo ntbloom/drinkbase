@@ -33,9 +33,13 @@ def ingreds():
 @app.route('/api/v1.0/names/', methods=['GET'])
 #querying the database by drink name
 def names():
-    name = request.args.get('name')
-    drinks = ds.nameSearch(name)
-    drinks = ds.sendRecipe(drinks)
+    try:
+        name = request.args.get('name')
+        print("name api:", name)
+        drinks = ds.nameSearch(name)
+        drinks = ds.sendRecipe(drinks)
+    except:
+        drinks = jsonify({'Drinks': []})
     return drinks
 
 @app.after_request
