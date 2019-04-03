@@ -24,9 +24,7 @@ class Main extends Component {
             height="125"
           />
           <ul className="header">
-            {/*
             <li><NavLink exact to="/Ingredientsearch">search by<br/>ingredient</NavLink></li>
-            */}
             <li><NavLink to="/Namesearch">search by<br/>drink name</NavLink></li>
           </ul>
           <div className="content">

@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from "react";
-import Results from "./results/Results";
+import Index from "./results/Index";
 
 const url = "http://localhost:5000/api/v1.0/ingreds/";
 
@@ -15,12 +15,13 @@ class Ingredientsearch extends Component {
       included: '',
       excluded: '',
       query: '',
+      submitted: false,
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState({[event.target.name]: event.target.value});
+    this.setState({[event.target.name]: event.target.value, submitted: true});
   }
   handleSubmit(event) {
     this.setState({query:
@@ -65,9 +66,10 @@ class Ingredientsearch extends Component {
               </div>
             </form>
           <div>
-            <Results 
+            <Index
               query={this.state.query} 
               url={url}
+              submitted={this.state.submitted}
             />
           </div>
         </div>

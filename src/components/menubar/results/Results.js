@@ -43,7 +43,6 @@ class Results extends Component {
   }
   render() {
     if (this.state.received) {
-      console.log(this.state.picks);
       return (
         <div>
           <Viz
