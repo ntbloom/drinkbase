@@ -55,7 +55,7 @@ Create virtual environment and install python dependencies
 cd ~/drinkbase/API/
 python3 -m venv drinkEnv
 source drinkEnv/bin/activate
-pip3 install flask requests
+pip3 install flask
 ```
 
 Run development server
