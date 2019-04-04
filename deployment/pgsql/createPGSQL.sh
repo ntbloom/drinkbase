@@ -1,9 +1,10 @@
 #!/bin/bash
 ## createDB.sh -- automatically creates and populates database from CSV
-SOURCEDIR=./pgsql/
+set -e
+SOURCEDIR=./
 DATABASE="drinkbase"
 
-printf "Starting build script...\n\n"
+printf "Building postgresql database...\n\n"
 
 if [ -e error_log.txt ]
 then
@@ -26,4 +27,5 @@ else
   printf "To access interactive terminal, enter \"psql $DATABASE\" in command prompt\n\n"
 fi 
 
-printf "Exiting script...\n"
+printf "Exiting postgresql build script...\n"
+

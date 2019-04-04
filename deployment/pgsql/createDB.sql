@@ -54,11 +54,11 @@ CREATE TABLE recipes (
   FOREIGN KEY (unit) REFERENCES units (unit)
 );
 --add the data from csv files
-\copy units FROM 'pgsql/data/units.csv' WITH (FORMAT csv, HEADER on);
-\copy style FROM 'pgsql/data/style.csv' WITH (FORMAT csv, HEADER on);
-\copy ingredients FROM 'pgsql/data/ingredients.csv' WITH (FORMAT csv, HEADER on);
-\copy prep FROM 'pgsql/data/prep.csv' WITH (FORMAT csv, HEADER on);
-\copy recipes FROM 'pgsql/data/recipes.csv' WITH (FORMAT csv, HEADER on);
+\copy units FROM 'data/units.csv' WITH (FORMAT csv, HEADER on);
+\copy style FROM 'data/style.csv' WITH (FORMAT csv, HEADER on);
+\copy ingredients FROM 'data/ingredients.csv' WITH (FORMAT csv, HEADER on);
+\copy prep FROM 'data/prep.csv' WITH (FORMAT csv, HEADER on);
+\copy recipes FROM 'data/recipes.csv' WITH (FORMAT csv, HEADER on);
 
 
 --commit the transaction block
