@@ -55,7 +55,7 @@ Create virtual environment and install python dependencies
 cd ~/drinkbase/API/
 python3 -m venv drinkEnv
 source drinkEnv/bin/activate
-pip3 install flask Flask-Cors requests
+pip3 install flask
 ```
 
 Run development server
@@ -68,7 +68,6 @@ python3 main.py
 * make sure virtual environment is activated
 * ensure proper libraries installed:
   * Flask
-  * Flask-Cors
   * Requests
 * make sure localhost:5000 port is open
 * see API/API_README for postgresql build instructions
