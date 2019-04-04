@@ -18,4 +18,4 @@ python3 -m venv $DESTDIR/$VENV
 source $DESTDIR/$VENV/bin/activate
 pip3 install -r $SOURCEDIR/requirements.txt
 
-printf "\nSuccess...\nExiting python3 venv build script...\n"
+printf "\nSuccess...\nExiting python3 venv build script...\n\n"

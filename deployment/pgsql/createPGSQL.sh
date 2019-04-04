@@ -1,7 +1,7 @@
 #!/bin/bash
 ## createDB.sh -- automatically creates and populates database from CSV
 set -e
-SOURCEDIR=./
+SOURCEDIR=./pgsql
 DATABASE="drinkbase"
 
 printf "Building postgresql database...\n\n"
@@ -16,7 +16,7 @@ dropdb --if-exists drinkbase
 createdb drinkbase
 
 # executes sql create table comments
-cat $SOURCEDIR/createDB.sql | psql -bq $DATABASE 2> error_log.txt
+cat $SOURCEDIR/createDB.sql 2>> error_log.txt | psql -bq $DATABASE 2>> error_log.txt
 if [ -s error_log.txt ]
 then
   printf "ERROR: DATABASE CREATION ABORTED\nCheck error_log.txt for further info\n\n"
@@ -27,5 +27,5 @@ else
   printf "To access interactive terminal, enter \"psql $DATABASE\" in command prompt\n\n"
 fi 
 
-printf "Exiting postgresql build script...\n"
+printf "Exiting postgresql build script...\n\n"
 

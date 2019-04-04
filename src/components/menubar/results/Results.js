@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 import Drinklist from "./Drinklist";
-//import Viz from "./Viz";
+import Viz from "./Viz";
 
 class Results extends Component {
   constructor(props) {
@@ -45,12 +45,10 @@ class Results extends Component {
     if (this.state.received) {
       return (
         <div>
-          {/*
           <Viz
             allDrinks={this.props.allDrinks}
             picks={this.state.picks}
           />
-          */}
           <Drinklist 
             drinks={this.state.drinks.Drinks} 
           />
