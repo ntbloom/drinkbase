@@ -22,5 +22,8 @@ curl
 - login as postgres
 - mkdir /usr/local/postgres, give ownership to postgres
 - initdb (located /usr/lib/postgresql...)
+- start database server
 - create role
+  CREATE ROLE debian LOGIN CREATEDB;
+  ALTER ROLE debian SET client_min_messages = WARNING;
 
