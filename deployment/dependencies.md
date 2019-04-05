@@ -1,3 +1,5 @@
+### dependencies.md -- notes for how to build drinkbase on debian
+
 # packages to install
 vim
 tmux
@@ -10,6 +12,8 @@ postgresql-server
 postgresql
 node (probably later version than available)
 apache -- find out which packages
+  - apache2
+  - libapache2-mod-wsgi-py3
 curl
 
 # things to do
@@ -27,3 +31,4 @@ curl
   CREATE ROLE debian LOGIN CREATEDB;
   ALTER ROLE debian SET client_min_messages = WARNING;
 
+# configure apache
