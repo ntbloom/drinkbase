@@ -32,3 +32,5 @@ curl
   ALTER ROLE debian SET client_min_messages = WARNING;
 
 # configure apache
+- put drinkbase.conf in sites-available
+- link to sites-enabled
