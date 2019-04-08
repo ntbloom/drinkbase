@@ -33,14 +33,14 @@ def ingreds():
 @app.route('/api/v1.0/names/', methods=['GET'])
 #querying the database by drink name
 def names():
-    try:
-        name = request.args.get('name')
-        drinks = ds.nameSearch(name)
-        drinks = ds.sendRecipe(drinks)
-    except:
-        drinks = jsonify({'Drinks': []})
+    name = request.args.get('name')
+    drinks = ds.nameSearch(name)
+    drinks = ds.sendRecipe(drinks)
     return drinks
 
+#CORS headers. Uncomment for local development.
+
+'''
 @app.after_request
 def make_cors(response):
     response.headers = {
@@ -48,6 +48,7 @@ def make_cors(response):
             "Access-Control-Allow-Credentials": "true"
             }
     return response
+'''
 
 @app.errorhandler(404)
 
@@ -55,4 +56,4 @@ def not_found(error):
     return make_response(jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
-    app.run(debug=True, use_reloader=False, port=5000)
+    app.run(debug=True, use_reloader=False)
