@@ -4,7 +4,7 @@ import unittest, requests
 from exclusions import noJuiceBitters
 
 
-baseUrl = "http://localhost/api/v1.0/"
+baseUrl = "http://localhost:5000/api/v1.0/"
 
 # for name and ingredient searches
 def api(url):
