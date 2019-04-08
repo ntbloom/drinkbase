@@ -33,4 +33,15 @@ curl
 
 # configure apache
 - put drinkbase.conf in sites-available
-- link to sites-enabled
+```
+sudo a2dissite 000-default.conf
+sudo a2ensite drinkbase.conf
+sudo systemctl start apache2
+```
+
+# install nodejs
+```
+sudo su -
+curl -sL https://deb.nodesource.com/setup_10.x | bash -
+apt-get install -y nodejs
+```
