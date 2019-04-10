@@ -15,6 +15,7 @@ apache -- find out which packages
   - apache2
   - libapache2-mod-wsgi-py3
 curl
+nginx
 
 # things to do
 - make ssh keys
@@ -45,3 +46,7 @@ sudo su -
 curl -sL https://deb.nodesource.com/setup_10.x | bash -
 apt-get install -y nodejs
 ```
+
+# nginx
+sudo ln -sf ~/drinkbase/build /var/www
+sudo ln -sf ~/drinkbase/deployment/nginx/default /etc/nginx/sites-available
