@@ -29,7 +29,10 @@ class Results extends Component {
           picks.push(data.Drinks[i].Name)
         }
         this.setState({picks: picks, received: true});
-        })
+      })
+      .catch(error => {
+        console.log("Fetch error in Results.js:", error);
+      })
       }
     )}
 

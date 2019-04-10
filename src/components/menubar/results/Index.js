@@ -22,6 +22,9 @@ class Index extends Component {
       .then(allDrinks => {
         this.setState({allDrinks: allDrinks, vizReady: true});
       })
+      .catch(error => {
+        console.log("Fetch error in Index.js:", error);
+      })
   }
 
   componentDidMount() {
