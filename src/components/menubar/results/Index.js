@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Results from "./Results";
 
-const nameUrl = "http://localhost:5000/api/v1.0/names/?name=";
+const nameUrl = "http://165.227.142.105:5000/api/v1.0/names/?name=";
 
 class Index extends Component {
   constructor(props) {
