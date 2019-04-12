@@ -48,10 +48,14 @@ class Results extends Component {
     if (this.state.received) {
       return (
         <div>
+          
+          {/*  UNCOMMENT WHEN DRINKVIZ IS WORKING
           <Viz
             allDrinks={this.props.allDrinks}
             picks={this.state.picks}
           />
+          */}
+
           <Drinklist 
             drinks={this.state.drinks.Drinks} 
           />
