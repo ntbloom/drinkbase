@@ -18,7 +18,7 @@ class Results extends Component {
     // calls Flask API
     let api = this.props.url;
     const url = api.concat(this.props.query);
-    fetch(url, {credentials: "include"})
+    fetch(url)
       .then(
         response => {
           response.json()

@@ -15,7 +15,7 @@ class Index extends Component {
 
   getAllDrinks() {
     //gets all drinks for Viz
-    fetch(nameUrl, {credentials: "include"})
+    fetch(nameUrl) 
       .then(response => {
         return response.json();
       })
