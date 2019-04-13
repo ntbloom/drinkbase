@@ -4,6 +4,7 @@
 
 import React, { Component } from "react";
 import Drinklist from "./Drinklist";
+// eslint-disable-next-line
 import Viz from "./Viz";
 
 class Results extends Component {
