@@ -1,7 +1,8 @@
+/** @format */
+
 // Recipe, list of drinks returned by search form, rendered in html
 
 import React, { Component } from "react";
-
 
 class Recipe extends Component {
   constructor(props) {
@@ -16,11 +17,12 @@ class Recipe extends Component {
   printRecipe() {
     const drink = this.props.drink;
     const drinks = this.props.drinks;
-    console.log(drinks)
-    const recipeArray = []
+    console.log(drinks);
+    const recipeArray = [];
     let recipe = drinks.filter(function(d) {
-      return d.Name === drink})
-    recipe = recipe[0].Recipe
+      return d.Name === drink;
+    });
+    recipe = recipe[0].Recipe;
     for (let i = 0; i < recipe.length; i++) {
       let amount = recipe[i].Amount;
       let unit = recipe[i].Unit;
@@ -29,35 +31,30 @@ class Recipe extends Component {
       if (ingredient > 1 && unit === "dash") {
         unit = "dashes";
       }
-      let fullIngred = ''
+      let fullIngred = "";
       if (unit === "each") {
-        fullIngred = amount + " " + ingredient; 
+        fullIngred = amount + " " + ingredient;
       } else {
         fullIngred = amount + " " + unit + " " + ingredient;
       }
-      recipeArray.push(fullIngred)
+      recipeArray.push(fullIngred);
     }
-    const fullRecipe = recipeArray.map((ingredient) =>
-      <p key={recipeArray.indexOf(ingredient).toString()}>
-        {ingredient}
-      </p>
-    );
-    return (<div>{fullRecipe}</div>);
+    const fullRecipe = recipeArray.map(ingredient => (
+      <p key={recipeArray.indexOf(ingredient).toString()}>{ingredient}</p>
+    ));
+    return <div>{fullRecipe}</div>;
   }
 
   handleClick() {
     this.setState(prevState => ({
-      showRecipe: !prevState.showRecipe
+      showRecipe: !prevState.showRecipe,
     }));
   }
-  
+
   render() {
     const showRecipe = this.state.showRecipe;
     return (
-      <div 
-        onClick={this.handleClick}
-        className="recipe"
-      >
+      <div onClick={this.handleClick} className="recipe">
         {showRecipe ? (
           <div>{this.printRecipe()}</div>
         ) : (

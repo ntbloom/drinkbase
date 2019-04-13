@@ -1,15 +1,20 @@
-@import url('drinkViz.css');
+/** @format */
+
+@import url("drinkViz.css");
 
 body {
-  font-family: 'Source Code Pro', monospace;
+  font-family: "Source Code Pro", monospace;
   background-color: #fff;
   padding: 20px;
   margin: 0;
 }
-h1, h2, p, ul, li {
-
+h1,
+h2,
+p,
+ul,
+li {
   list-style-type: none;
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
   font-weight: bold;
   color: #000;
 }
@@ -24,7 +29,7 @@ ul.header {
   padding: 0;
 }
 ul.header li a {
-  color: #FFF;
+  color: #fff;
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
@@ -46,7 +51,7 @@ ul.header li a {
 }
 
 footer {
-  font-family: 'Source Code Pro:300', monospace;
+  font-family: "Source Code Pro:300", monospace;
   font-size: 12px;
   margin-top: 12px;
   text-align: center;
@@ -57,7 +62,7 @@ footer {
 }
 
 #ingreds {
-  font-family: 'Source Code Pro';
+  font-family: "Source Code Pro";
   font-size: 80%;
   padding-left: 1em;
   font-style: italic;
@@ -74,5 +79,5 @@ footer {
   padding-top: 0.25em;
   margin-left: 2em;
   font-size: 90%;
-  line-height: 0.50;
+  line-height: 0.5;
 }

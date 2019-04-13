@@ -1,286 +1,331 @@
-<!doctype html>
+<!-- @format -->
+
+<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
+  <head>
+    <meta charset="UTF-8" />
     <title>drinkBase</title>
-    
+
     <script src="https://cdn.rawgit.com/eligrey/canvas-toBlob.js/f1a01896135ab378aa5c0118eadd81da55e698d8/canvas-toBlob.js"></script>
-	 <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
-	
-    
+    <script src="https://cdn.rawgit.com/eligrey/FileSaver.js/e9d941381475b5df8b7d7691013401e171014e89/FileSaver.min.js"></script>
+
     <script src="https://d3js.org/d3.v4.min.js" charset="utf-8"></script>
     <script type="application/javascript">
-    
-    // define variables to hold data
-    var thePicks;
-    var drinksJson;
+      // define variables to hold data
+      var thePicks;
+      var drinksJson;
 
-    // for recipe on and off
-    var showRecipeCounter = 0;
-    
-    // THIS SHOULD COME FROM API !!!!
-    function getData() {
+      // for recipe on and off
+      var showRecipeCounter = 0;
+
+      // THIS SHOULD COME FROM API !!!!
+      function getData() {
         //populate drink list
         d3.json("data/sampleOutput3.json", function(d) {
-            drinksJson = d;
-            thePicks = ["Blood & Sand", "Penicillin", "Scotch Old Fashioned","Scotch Toddy", "Bobby Burns", "Rob Roy", "Rusty Nail"];
-            // draw the plot
-            drawPlot();
-        }); 
-    }
-    // ^ !!!!!
-        
-    // draws the plot
-    function drawPlot() {
-        drinksSVG = d3.select('#theDrinks');
-        
-        drinksSVG.append("line")
-                    .attr("x1",200)
-                    .attr("x2",725)
-                    .attr("y1",300)
-                    .attr("y2",300)
-                    .attr("stroke","#888");
-        
-        drinksSVG.append("line")
-                    .attr("x1",462)
-                    .attr("x2",462)
-                    .attr("y1",45)
-                    .attr("y2",560)
-                    .attr("stroke","#888");
+          drinksJson = d;
+          thePicks = [
+            "Blood & Sand",
+            "Penicillin",
+            "Scotch Old Fashioned",
+            "Scotch Toddy",
+            "Bobby Burns",
+            "Rob Roy",
+            "Rusty Nail",
+          ];
+          // draw the plot
+          drawPlot();
+        });
+      }
+      // ^ !!!!!
 
-        drinksSVG.append("text")
-                .text("<- (less)        Sugar        (more) ->")
-                .attr ("x",462)
-                .attr ("y",615)
-                .attr ("text-anchor", "middle")
-                .attr ("alignment-baseline", "ideographic")
-                .style ("fill","#444")
-                .style ("font-size","13pt")
-                .attr ("opacity", 0.4);
-        
-        drinksSVG.append("text")
-                .text("<- (less)        Alcohol        (more) ->")
-                .attr ("x",875)
-                .attr ("y",310)
-                .attr ("text-anchor", "middle")
-                .attr ("alignment-baseline", "ideographic")
-                .style ("fill","#444")
-                .style ("font-size","13pt")
-                .attr ("opacity", 0.4)
-                .attr('transform', 'rotate(270 875 295)');
-        
-        drinksSVG.selectAll("circle").remove()
+      // draws the plot
+      function drawPlot() {
+        drinksSVG = d3.select("#theDrinks");
+
+        drinksSVG
+          .append("line")
+          .attr("x1", 200)
+          .attr("x2", 725)
+          .attr("y1", 300)
+          .attr("y2", 300)
+          .attr("stroke", "#888");
+
+        drinksSVG
+          .append("line")
+          .attr("x1", 462)
+          .attr("x2", 462)
+          .attr("y1", 45)
+          .attr("y2", 560)
+          .attr("stroke", "#888");
+
+        drinksSVG
+          .append("text")
+          .text("<- (less)        Sugar        (more) ->")
+          .attr("x", 462)
+          .attr("y", 615)
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "ideographic")
+          .style("fill", "#444")
+          .style("font-size", "13pt")
+          .attr("opacity", 0.4);
+
+        drinksSVG
+          .append("text")
+          .text("<- (less)        Alcohol        (more) ->")
+          .attr("x", 875)
+          .attr("y", 310)
+          .attr("text-anchor", "middle")
+          .attr("alignment-baseline", "ideographic")
+          .style("fill", "#444")
+          .style("font-size", "13pt")
+          .attr("opacity", 0.4)
+          .attr("transform", "rotate(270 875 295)");
+
+        drinksSVG.selectAll("circle").remove();
 
         var theOffset = 0;
-        
-        var abvCirc = drinksSVG.selectAll("#abvCircle")
-                .data(drinksJson.Drinks)
-                .enter().append("circle")
-                .attr("id", "abvCircle")
-                .attr ("stroke-width", function(d) {
-                        if (thePicks.includes(d.Name)) {
-                            return 0.75
-                        } else {
-                            return 0.2
-                        }
-                    })
-                .attr ("stroke", '#999')
-                .attr ("fill-opacity", function(d) {
-                        if (thePicks.includes(d.Name)) {
-                            return 0.8
-                        } else {
-                            return 0.1
-                        }
-                    })
-                .attr ("cx",function(d) { 
-                    // TEMPORARY!!!!! trying to debug getting the spacing right
-                    if (Math.max(30, (d.Data.Sweetness * 4000) - 25) < 100) {
-                        console.log("TOO LOW: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
-                    }
-                    if (Math.max(30, (d.Data.Sweetness * 4000) - 25) > 800) {
-                        console.log("TOO HIGH: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
-                    }
-                    // TEMPORARY!!! ^ trying to debug getting the spacing right
-                    return Math.min(Math.max(30, (d.Data.Sweetness * 1600) - 25), 825);
-                })
-                .attr ("cy",function(d) { 
-                    return Math.min(Math.max(30, (630 - (d.Data.AlcoholUnits * 400))), 570);
-                })
-                .attr ("r",function(d) { return (d.Data.Volume * Math.min(d.Data.Volume, 3)) + 3; })
-                .attr("fill",function(d) { 
-                        if (d.Data.Style.includes("stirred")) {
-                            return "#a5693d";
-                        } else if (d.Data.Style.includes("bubbly")) {
-                            return "#fcf5bf";
-                        } else if (d.Data.Style.includes("shaken")) {
-                            return "#100656";
-                            //return "#240ccc";
-                        } else if (d.Data.Style.includes("fizz")) {
-                            return "#f4e381";
-                        } else if (d.Data.Style.includes("swizzle")) {
-                            return "#f27552";
-                        }    else if (d.Data.Style.includes("built")) {
-                            return "#b5390c";
-                        } else {
-                            return "#bbb";
-                        }
-                    })
-                .on("mouseover", highlight)
-                .on("mouseout", unhighlight)
-                .on("click", fillRecipe);
-    }        
-        
-    // the tooltip functions
-        
-    function highlight(d,i) {
-        
-        var circle = d3.select(this)
-            .attr("fill-opacity",1)
-            .attr("stroke-width",1.5);
-        
+
+        var abvCirc = drinksSVG
+          .selectAll("#abvCircle")
+          .data(drinksJson.Drinks)
+          .enter()
+          .append("circle")
+          .attr("id", "abvCircle")
+          .attr("stroke-width", function(d) {
+            if (thePicks.includes(d.Name)) {
+              return 0.75;
+            } else {
+              return 0.2;
+            }
+          })
+          .attr("stroke", "#999")
+          .attr("fill-opacity", function(d) {
+            if (thePicks.includes(d.Name)) {
+              return 0.8;
+            } else {
+              return 0.1;
+            }
+          })
+          .attr("cx", function(d) {
+            // TEMPORARY!!!!! trying to debug getting the spacing right
+            if (Math.max(30, d.Data.Sweetness * 4000 - 25) < 100) {
+              console.log(
+                "TOO LOW: " +
+                  d.Name +
+                  " :: " +
+                  d.Data.Sweetness +
+                  " :: " +
+                  Math.max(30, d.Data.Sweetness * 4000 - 25),
+              );
+            }
+            if (Math.max(30, d.Data.Sweetness * 4000 - 25) > 800) {
+              console.log(
+                "TOO HIGH: " +
+                  d.Name +
+                  " :: " +
+                  d.Data.Sweetness +
+                  " :: " +
+                  Math.max(30, d.Data.Sweetness * 4000 - 25),
+              );
+            }
+            // TEMPORARY!!! ^ trying to debug getting the spacing right
+            return Math.min(Math.max(30, d.Data.Sweetness * 1600 - 25), 825);
+          })
+          .attr("cy", function(d) {
+            return Math.min(Math.max(30, 630 - d.Data.AlcoholUnits * 400), 570);
+          })
+          .attr("r", function(d) {
+            return d.Data.Volume * Math.min(d.Data.Volume, 3) + 3;
+          })
+          .attr("fill", function(d) {
+            if (d.Data.Style.includes("stirred")) {
+              return "#a5693d";
+            } else if (d.Data.Style.includes("bubbly")) {
+              return "#fcf5bf";
+            } else if (d.Data.Style.includes("shaken")) {
+              return "#100656";
+              //return "#240ccc";
+            } else if (d.Data.Style.includes("fizz")) {
+              return "#f4e381";
+            } else if (d.Data.Style.includes("swizzle")) {
+              return "#f27552";
+            } else if (d.Data.Style.includes("built")) {
+              return "#b5390c";
+            } else {
+              return "#bbb";
+            }
+          })
+          .on("mouseover", highlight)
+          .on("mouseout", unhighlight)
+          .on("click", fillRecipe);
+      }
+
+      // the tooltip functions
+
+      function highlight(d, i) {
+        var circle = d3
+          .select(this)
+          .attr("fill-opacity", 1)
+          .attr("stroke-width", 1.5);
+
         d3.select("#tooltip")
-            .style("left", d3.event.pageX + 5 + "px")
-            .style("top", d3.event.pageY - 30 + "px")
-            //.text(d.Name)
-            .style("visibility","visible");
-        
+          .style("left", d3.event.pageX + 5 + "px")
+          .style("top", d3.event.pageY - 30 + "px")
+          //.text(d.Name)
+          .style("visibility", "visible");
+
         d3.select("#drinkName").text(d.Name);
         d3.select("#drinkStyle").text(d.Data.Style);
         d3.select("#drinkIngredients").text(d.Data.IngredientString);
-        
-    }
+      }
 
-    function unhighlight(d,i) {
-        
-        var circle = d3.select(this)
-            .attr("fill-opacity", function(d) {
-                        if (thePicks.includes(d.Name)) {
-                            return 0.95
-                        } else {
-                            return 0.05
-                        }
-                    })
-            .attr ("stroke-width", function(d) {
-                        if (thePicks.includes(d.Name)) {
-                            return 0.75
-                        } else {
-                            return 0.2
-                        }
-                    });
-        
-        d3.select("#tooltip")
-            .style("visibility","hidden");
-    }
-    
-    // the recipe pop-up
-        
-    function showRecipe() {
+      function unhighlight(d, i) {
+        var circle = d3
+          .select(this)
+          .attr("fill-opacity", function(d) {
+            if (thePicks.includes(d.Name)) {
+              return 0.95;
+            } else {
+              return 0.05;
+            }
+          })
+          .attr("stroke-width", function(d) {
+            if (thePicks.includes(d.Name)) {
+              return 0.75;
+            } else {
+              return 0.2;
+            }
+          });
+
+        d3.select("#tooltip").style("visibility", "hidden");
+      }
+
+      // the recipe pop-up
+
+      function showRecipe() {
         showRecipeCounter += 1;
         if (showRecipeCounter % 2 == 1) {
-            d3.select("#recipeBox")
-                .style("visibility","visible");
+          d3.select("#recipeBox").style("visibility", "visible");
         } else {
-            d3.select("#recipeBox")
-                .style("visibility","hidden");
+          d3.select("#recipeBox").style("visibility", "hidden");
         }
-    }
-    
-    function fillRecipe(d) {
-        // function to create the recipe box that pops up when you click
-        var thisName = d.Name
-        console.log(thisName);
-        d3.select("#recipeTitle").text(thisName).style("font-weight", "bold");
-        
-        d3.select("#recipeBox").selectAll('#recipeIng').remove();
-        d3.select("#recipeBox").selectAll('#recipeBody').remove();
-        
-        var rec = d3.select("#recipeBox").selectAll("#recipeIng")
-                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName })[0].Recipe)
-                .enter()
-                .append("div")
-                .attr('id', 'recipeIng')
-                .text(function(d) {
-                    return d.Amount + ' ' + d.Unit + ' ' + d.Ingredient;
-                });
+      }
 
-        var inst = d3.select("#recipeBox").selectAll("#recipeBody")
-                .data(drinksJson.Drinks.filter(function(d) { return d.Name == thisName }))
-                .enter()
-                .append("p")
-                .attr('id', 'recipeBody')
-                .text(function(d) {
-                    var prepDirections = '';
-                    // style
-                    /*if (d.Notes.length > 0) {
+      function fillRecipe(d) {
+        // function to create the recipe box that pops up when you click
+        var thisName = d.Name;
+        console.log(thisName);
+        d3.select("#recipeTitle")
+          .text(thisName)
+          .style("font-weight", "bold");
+
+        d3.select("#recipeBox")
+          .selectAll("#recipeIng")
+          .remove();
+        d3.select("#recipeBox")
+          .selectAll("#recipeBody")
+          .remove();
+
+        var rec = d3
+          .select("#recipeBox")
+          .selectAll("#recipeIng")
+          .data(
+            drinksJson.Drinks.filter(function(d) {
+              return d.Name == thisName;
+            })[0].Recipe,
+          )
+          .enter()
+          .append("div")
+          .attr("id", "recipeIng")
+          .text(function(d) {
+            return d.Amount + " " + d.Unit + " " + d.Ingredient;
+          });
+
+        var inst = d3
+          .select("#recipeBox")
+          .selectAll("#recipeBody")
+          .data(
+            drinksJson.Drinks.filter(function(d) {
+              return d.Name == thisName;
+            }),
+          )
+          .enter()
+          .append("p")
+          .attr("id", "recipeBody")
+          .text(function(d) {
+            var prepDirections = "";
+            // style
+            /*if (d.Notes.length > 0) {
                         prepDirections += d.Notes
                     } else */
-                    if (d.Data.Style.includes("stirred")) {
-                        prepDirections += "Combine ingredients in mixing glass and stir with ice until cold, then strain into glass.";
-                    } else if (d.Data.Style.includes("bubbly")) {
-                        prepDirections += "Stir all but bubbly with ice until cold. Strain and top with bubbly.";
-                    } else if (d.Data.Style.includes("shaken")) {
-                        prepDirections += "Combine ingredients in shaker and shake with ice until cold, then strain into glass.";
-                    } else if (d.Data.Style.includes("fizz")) {
-                        prepDirections += "Dry shake all ingredients (no ice) for 10 seconds. Then add ice and shake until cold. Strain into glass.";
-                    } else if (d.Data.Style.includes("built")) {
-                        prepDirections += "Build ingredients in serving glass, over ice. Stir and enjoy.";
-                    } else if (d.Data.Style.includes("hot")) {
-                        prepDirections += "Combine all ingredients and serve hot.";
-                    }
-                    //glass
-                    prepDirections += ' Serve in a ' + d.Data.Glass + ' glass.';
-                    //
-                    return prepDirections;
-                });
-        
-    }
-        
+            if (d.Data.Style.includes("stirred")) {
+              prepDirections +=
+                "Combine ingredients in mixing glass and stir with ice until cold, then strain into glass.";
+            } else if (d.Data.Style.includes("bubbly")) {
+              prepDirections +=
+                "Stir all but bubbly with ice until cold. Strain and top with bubbly.";
+            } else if (d.Data.Style.includes("shaken")) {
+              prepDirections +=
+                "Combine ingredients in shaker and shake with ice until cold, then strain into glass.";
+            } else if (d.Data.Style.includes("fizz")) {
+              prepDirections +=
+                "Dry shake all ingredients (no ice) for 10 seconds. Then add ice and shake until cold. Strain into glass.";
+            } else if (d.Data.Style.includes("built")) {
+              prepDirections +=
+                "Build ingredients in serving glass, over ice. Stir and enjoy.";
+            } else if (d.Data.Style.includes("hot")) {
+              prepDirections += "Combine all ingredients and serve hot.";
+            }
+            //glass
+            prepDirections += " Serve in a " + d.Data.Glass + " glass.";
+            //
+            return prepDirections;
+          });
+      }
     </script>
-    
+
     <style>
-        
-        .bigPlot {
-            visibility: visible;
-            background-color: rgba(200, 200, 200, 0.2);
-        }
-        
-        *{font-family:"Trebuchet MS";}
-        
-        div.tooltip {	
-            position: absolute;			
-            pointer-events: none;			
-        }
-        
-        #recipeBox {
-            position: absolute;
-            top: 270px;
-            left: 325px;
-            width: 250px;
-            visibility: hidden;
-            padding: 3px 15px 5px 15px;
-            background-color: #ccc;
-            border-style: double;
-            text-align: center;
-        }
-        
+      .bigPlot {
+        visibility: visible;
+        background-color: rgba(200, 200, 200, 0.2);
+      }
+
+      * {
+        font-family: "Trebuchet MS";
+      }
+
+      div.tooltip {
+        position: absolute;
+        pointer-events: none;
+      }
+
+      #recipeBox {
+        position: absolute;
+        top: 270px;
+        left: 325px;
+        width: 250px;
+        visibility: hidden;
+        padding: 3px 15px 5px 15px;
+        background-color: #ccc;
+        border-style: double;
+        text-align: center;
+      }
     </style>
-    
-    
-</head>
-<body onload="setTimeout(getData,500)">
+  </head>
+  <body onload="setTimeout(getData,500)">
     <h3 style="position: absolute; padding: 10px;">Drinks</h3>
-    <div class='thePlot' onclick="showRecipe();">
-        <svg class="bigPlot" id="theDrinks" width="925" height="630"></svg>
+    <div class="thePlot" onclick="showRecipe();">
+      <svg class="bigPlot" id="theDrinks" width="925" height="630"></svg>
     </div>
     <div id="tooltip" class="tooltip">
-        <span id="drinkName" style="font-weight: bold"></span><br />  
-        <span id="drinkStyle" style="font-size: 10pt"></span> :
-        <span id="drinkIngredients" style="font-size: 8pt"></span>
+      <span id="drinkName" style="font-weight: bold"></span><br />
+      <span id="drinkStyle" style="font-size: 10pt"></span> :
+      <span id="drinkIngredients" style="font-size: 8pt"></span>
     </div>
     <div id="recipeBox">
-        <p id="recipeTitle">Click on a drink to see the recipe</p>
-        <p id="recipeIng"></p>
-        <p id="recipeBody"></p>
+      <p id="recipeTitle">Click on a drink to see the recipe</p>
+      <p id="recipeIng"></p>
+      <p id="recipeBody"></p>
     </div>
-</body>
+  </body>
 </html>

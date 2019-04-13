@@ -1,3 +1,7 @@
+/** @format */
+
+// Index.js -- serves results components
+
 import React, { Component } from "react";
 import Results from "./Results";
 
@@ -8,29 +12,29 @@ class Index extends Component {
     super(props);
     this.state = {
       vizReady: false,
-      allDrinks: {}
+      allDrinks: {},
     };
     this.getAllDrinks = this.getAllDrinks.bind(this);
   }
 
   getAllDrinks() {
     //gets all drinks for Viz
-    fetch(nameUrl) 
+    fetch(nameUrl)
       .then(response => {
         return response.json();
       })
       .then(allDrinks => {
-        this.setState({allDrinks: allDrinks, vizReady: true});
+        this.setState({ allDrinks: allDrinks, vizReady: true });
       })
       .catch(error => {
         console.log("Fetch error in Index.js:", error);
-      })
+      });
   }
 
   componentDidMount() {
     this.getAllDrinks();
   }
-    
+
   render() {
     if (this.props.submitted && this.state.vizReady) {
       return (

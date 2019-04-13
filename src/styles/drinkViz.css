@@ -1,25 +1,29 @@
+/** @format */
+
 .bigPlot {
-    visibility: visible;
-    background-color: rgba(200, 200, 200, 0.2);
+  visibility: visible;
+  background-color: rgba(200, 200, 200, 0.2);
 }
 
-*{font-family:"Source Code Pro";}
+* {
+  font-family: "Source Code Pro";
+}
 
-div.tooltip {	
-    position: absolute;			
-    pointer-events: none;			
+div.tooltip {
+  position: absolute;
+  pointer-events: none;
 }
 
 #recipeBox {
-    position: absolute;
-    top: 270px;
-    left: 325px;
-    width: 250px;
-    visibility: hidden;
-    padding: 3px 15px 5px 15px;
-    background-color: #ccc;
-    border-style: double;
-    text-align: center;
+  position: absolute;
+  top: 270px;
+  left: 325px;
+  width: 250px;
+  visibility: hidden;
+  padding: 3px 15px 5px 15px;
+  background-color: #ccc;
+  border-style: double;
+  text-align: center;
 }
 
 #viz {

@@ -1,3 +1,5 @@
+/** @format */
+
 // Drinklist, list of drinks returned by search form, rendered in html
 
 import React, { Component } from "react";
@@ -9,7 +11,7 @@ function pullIngreds(obj) {
     ingredients.push(" " + obj[i]["Ingredient"]);
   }
   ingredients = ingredients.toString();
-  return ingredients
+  return ingredients;
 }
 
 class Drinklist extends Component {
@@ -24,27 +26,18 @@ class Drinklist extends Component {
 
   printDrinks() {
     const drinks = this.props.drinks;
-      const listItems = drinks.map((drink) =>
+    const listItems = drinks.map(drink => (
       <li key={drinks.indexOf(drink).toString()}>
         {drink.Name}
-        <span 
-          id="ingreds"
-        >
-          {pullIngreds(drink.Recipe)}
-        </span>
-          <Recipe 
-            drinks={drinks}
-            drink={drink.Name}
-          />
+        <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
+        <Recipe drinks={drinks} drink={drink.Name} />
       </li>
-      );
-      return (
-        <ul className="results">{listItems}</ul>
-      );
+    ));
+    return <ul className="results">{listItems}</ul>;
   }
   componentDidUpdate(prevProps) {
     if (this.state.drinks !== prevProps.drinks) {
-      this.setState({drinks: this.props.drinks});
+      this.setState({ drinks: this.props.drinks });
     }
   }
   render() {
