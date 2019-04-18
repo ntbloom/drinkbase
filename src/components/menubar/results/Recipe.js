@@ -4,6 +4,31 @@
 
 import React, { Component } from "react";
 
+function fractionize(num) {
+  // convert decimal to fractions
+  if (num === 0.25) {
+    return "1/4";
+  } else if (num === 0.5) {
+    return "1/2";
+  } else if (num === 0.75) {
+    return "3/4";
+  } else if (num === 1.25) {
+    return "1 1/4";
+  } else if (num === 1.5) {
+    return "1 1/2";
+  } else if (num === 1.75) {
+    return "1 3/4";
+  } else if (num === 2.25) {
+    return "2 1/4";
+  } else if (num === 2.5) {
+    return "2 1/2";
+  } else if (num === 2.75) {
+    return "2 3/4";
+  } else {
+    return num;
+  }
+}
+
 class Recipe extends Component {
   constructor(props) {
     super(props);
@@ -17,18 +42,16 @@ class Recipe extends Component {
   printRecipe() {
     const drink = this.props.drink;
     const drinks = this.props.drinks;
-    console.log(drinks);
     const recipeArray = [];
     let recipe = drinks.filter(function(d) {
       return d.Name === drink;
     });
     recipe = recipe[0].Recipe;
     for (let i = 0; i < recipe.length; i++) {
-      let amount = recipe[i].Amount;
+      let amount = fractionize(recipe[i].Amount);
       let unit = recipe[i].Unit;
-      //TODO: convert to fractions
       let ingredient = recipe[i].Ingredient;
-      if (ingredient > 1 && unit === "dash") {
+      if (amount > 1 && unit === "dash") {
         unit = "dashes";
       }
       let fullIngred = "";
