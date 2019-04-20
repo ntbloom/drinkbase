@@ -59,6 +59,7 @@ footer {
 
 .results {
   padding-top: 2em;
+  padding-left: 0.1em;
 }
 
 #ingreds {
@@ -77,7 +78,7 @@ footer {
 
 .recipe {
   padding-top: 0.25em;
-  margin-left: 2em;
+  margin-left: 0.5em;
   font-size: 90%;
   line-height: 0.5;
 }
