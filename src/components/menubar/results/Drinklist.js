@@ -27,7 +27,7 @@ class Drinklist extends Component {
   printDrinks() {
     const drinks = this.props.drinks;
     const listItems = drinks.map(drink => (
-      <li key={drinks.indexOf(drink).toString()}>
+      <li id="drinkname" key={drinks.indexOf(drink).toString()}>
         {drink.Name}
         <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
         <Recipe drinks={drinks} drink={drink.Name} />

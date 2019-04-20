@@ -3,8 +3,10 @@
 @import url("drinkViz.css");
 
 body {
-  font-family: "Source Code Pro", monospace;
+  font-family: impact, sans-serif;
   background-color: #fff;
+  color: #4c4c4c;
+  font-weight: normal;
   padding: 20px;
   margin: 0;
 }
@@ -14,9 +16,6 @@ p,
 ul,
 li {
   list-style-type: none;
-  font-family: "Source Code Pro";
-  font-weight: bold;
-  color: #000;
 }
 ul.header li {
   display: inline;
@@ -36,7 +35,8 @@ ul.header li a {
   display: inline-block;
 }
 .content {
-  background-color: #a5693d;
+  background-color: white;
+  /*background-color: #a5693d;*/
   padding: 20px;
 }
 .content h2 {
@@ -51,7 +51,6 @@ ul.header li a {
 }
 
 footer {
-  font-family: "Source Code Pro:300", monospace;
   font-size: 12px;
   margin-top: 12px;
   text-align: center;
@@ -62,22 +61,27 @@ footer {
   padding-left: 0.1em;
 }
 
-#ingreds {
-  font-family: "Source Code Pro";
-  font-size: 80%;
-  padding-left: 1em;
-  font-style: italic;
-}
-
 .hideshow {
   margin: 0;
   padding-top: -2em;
   font-size: 75%;
   font-style: normal;
 }
-
+#drinkname {
+  color: #a5693d;
+  font-weight: bold;
+}
+#ingreds {
+  font-size: 80%;
+  color: #4d4d4d;
+  font-weight: normal;
+  padding-left: 1em;
+  font-style: italic;
+}
 .recipe {
   padding-top: 0.25em;
+  color: #4c4c4c;
+  font-weight: normal;
   margin-left: 0.5em;
   font-size: 90%;
   line-height: 0.5;

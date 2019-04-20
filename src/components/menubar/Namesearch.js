@@ -26,7 +26,6 @@ class Namesearch extends Component {
   render() {
     return (
       <div className="namesearchMain">
-        <h2>SEARCH BY DRINK NAME</h2>
         <form>
           <label>
             <input

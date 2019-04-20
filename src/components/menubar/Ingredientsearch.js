@@ -33,7 +33,6 @@ class Ingredientsearch extends Component {
     return (
       <div className="namesearchMain">
         <div>
-          <h2>SEARCH BY INGREDIENT</h2>
           <form
             onSubmit={this.handleSubmit}
             method="get"
