@@ -46,6 +46,7 @@ class Recipe extends Component {
     let recipe = drinks.filter(function(d) {
       return d.Name === drink;
     });
+    const garnish = <p>{recipe[0].Data.Garnish} garnish</p>;
     recipe = recipe[0].Recipe;
     for (let i = 0; i < recipe.length; i++) {
       let amount = fractionize(recipe[i].Amount);
@@ -65,7 +66,12 @@ class Recipe extends Component {
     const fullRecipe = recipeArray.map(ingredient => (
       <p key={recipeArray.indexOf(ingredient).toString()}>{ingredient}</p>
     ));
-    return <div>{fullRecipe}</div>;
+    return (
+      <div>
+        {fullRecipe}
+        {garnish}
+      </div>
+    );
   }
 
   handleClick() {
