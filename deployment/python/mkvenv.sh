@@ -4,8 +4,8 @@
 printf "Building python3 virtual environments...\n\n"
 
 set -e
-SOURCEDIR=./python/
-DESTDIR=../API/
+SOURCEDIR=./
+DESTDIR=../../API/
 VENV="drinkEnv"
 
 # check for existing venv, delete if necessary 
