@@ -79,7 +79,8 @@ footer {
   font-style: italic;
 }
 .recipe {
-  padding-top: 0.25em;
+  padding-top: 0em;
+  padding-bottom: 0.5em;
   color: #4c4c4c;
   font-weight: normal;
   margin-left: 0.5em;
