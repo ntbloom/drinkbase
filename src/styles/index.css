@@ -99,4 +99,6 @@ footer {
 form input {
   background-color: var(--form-bg-color);
   color: var(--form-text-color);
+  border-style: 1px solid;
+  border-radius: 2px;
 }
