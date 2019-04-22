@@ -2,10 +2,26 @@
 
 @import url("drinkViz.css");
 
+/* colors:
+ *  original charcoal: #4c4c4c
+ *  burnt orange: #a5693d
+ *  dark-mode charcoal: #303030
+ *  dark-mode egg-shell: #efeae5 
+ *  blue: #100656
+ */
+
+:root {
+  --main-bg-color: #fff;
+  --form-bg-color: #fff;
+  --form-text-color: #4c4c4c;
+  --main-text-color: #4c4c4c;
+  --main-accent-color: #a5693d;
+}
+
 body {
   font-family: impact, sans-serif;
-  background-color: #fff;
-  color: #4c4c4c;
+  background-color: var(--main-bg-color);
+  color: var(--main-text-color);
   font-weight: normal;
   padding: 20px;
   margin: 0;
@@ -20,7 +36,7 @@ ul.header {
   padding: 0;
 }
 ul.header li a {
-  color: #4c4c4c;
+  color: var(--main-text-color);
   font-weight: bold;
   text-decoration: none;
   padding: 20px;
@@ -28,7 +44,6 @@ ul.header li a {
   display: inline-block;
 }
 .content {
-  background-color: white;
   padding: 20px;
 }
 .content h2 {
@@ -40,7 +55,7 @@ ul.header li a {
 }
 .active {
   border-bottom-style: solid;
-  border-color: #a5693d;
+  border-color: var(--main-accent-color);
   border-width: 0.3em;
 }
 
@@ -62,12 +77,12 @@ footer {
   font-style: normal;
 }
 #drinkname {
-  color: #a5693d;
+  color: var(--main-accent-color);
   font-weight: bold;
 }
 #ingreds {
   font-size: 80%;
-  color: #4d4d4d;
+  color: var(--main-text-color);
   font-weight: normal;
   padding-left: 1em;
   font-style: italic;
@@ -75,9 +90,13 @@ footer {
 .recipe {
   padding-top: 0em;
   padding-bottom: 0.5em;
-  color: #4c4c4c;
+  color: var(--main-text-color);
   font-weight: normal;
   margin-left: 0.5em;
   font-size: 90%;
   line-height: 0.5;
+}
+form input {
+  background-color: var(--form-bg-color);
+  color: var(--form-text-color);
 }
