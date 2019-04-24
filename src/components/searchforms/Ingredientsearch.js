@@ -3,7 +3,7 @@
 // Ingredientsearch.js -- search for drinks by ingredient
 
 import React, { Component } from "react";
-import Index from "./results/Index";
+import Index from "../results/Index";
 
 const url = "http://165.227.142.105:5000/api/v1.0/ingreds/";
 
