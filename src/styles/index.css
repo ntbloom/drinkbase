@@ -89,4 +89,5 @@ form input {
   color: var(--form-text-color);
   border-style: 1px solid;
   border-radius: 2px;
+  font-size: 16px;
 }
