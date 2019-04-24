@@ -3,21 +3,18 @@
 // searchforms/Index.js -- conditionally renders Name/Ingredient search
 
 import React, { Component } from "react";
-import Index from "../results/Index";
 import Namesearch from "./Namesearch";
-import IngredientSearch from "./Ingredientsearch";
+import Ingredientsearch from "./Ingredientsearch";
 
 class Index extends Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
-    return (
-      <div>
-        <Namesearch />
-        <Ingredientsearch />
-      </div>
-    );
+    if (this.props.ingSearch === true) {
+      return <Ingredientsearch />;
+    } else if (this.props.nameSearch === true) {
+      return <Namesearch />;
+    } else {
+      return null;
+    }
   }
 }
 

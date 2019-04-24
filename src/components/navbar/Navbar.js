@@ -3,57 +3,49 @@
 // Main.js -- mainpage for loading drinkbase
 
 import React, { Component } from "react";
-import { Route, NavLink, HashRouter } from "react-router-dom";
-import Ingredientsearch from "../searchforms/Ingredientsearch";
-import Namesearch from "../searchforms/Namesearch";
+import Index from "../searchforms/Index";
 
 class Navbar extends Component {
   constructor(props) {
     super(props);
-    this.ingSearch = this.ingSearch.bind(this);
-    this.nameSearch = this.nameSearch.bind(this);
+    this.state = {
+      ingSearch: false,
+      nameSearch: false,
+    };
+    this.setIngSearch = this.setIngSearch.bind(this);
+    this.setNameSearch = this.setNameSearch.bind(this);
   }
-  ingSearch() {
+  setIngSearch() {
     this.setState({ ingSearch: true, nameSearch: false });
   }
-  nameSearch() {
+  setNameSearch() {
     this.setState({ nameSearch: true, ingSearch: false });
   }
 
   render() {
     return (
-      <HashRouter>
-        <div>
-          <button className="navbutton">
-            <NavLink exact to="/Ingredientsearch">
-              search by
-              <br />
-              ingredient
-            </NavLink>
-          </button>
-          <button className="navbutton">
-            <NavLink to="/Namesearch">
-              search by
-              <br />
-              drink name
-            </NavLink>
-          </button>
-          <div className="content">
-            <Route
-              exact
-              path="/Ingredientsearch"
-              component={Ingredientsearch}
-            />
-            <Route path="/Namesearch" component={Namesearch} />
-          </div>
-          {/*TODO: get this above the search terms but below the searchforms*/}
-          <img
-            src={require("../../images/drinkBaseWhite.png")}
-            alt="drinkBase"
-            height="125"
-          />
-        </div>
-      </HashRouter>
+      <div>
+        <button className="navbutton" onClick={this.setIngSearch}>
+          search by
+          <br />
+          ingredient
+        </button>
+        <button className="navbutton" onClick={this.setNameSearch}>
+          search by
+          <br />
+          drink name
+        </button>
+        {/*TODO: get this above the search terms but below the searchforms*/}
+        <img
+          src={require("../../images/drinkBaseWhite.png")}
+          alt="drinkBase"
+          height="125"
+        />
+        <Index
+          ingSearch={this.state.ingSearch}
+          nameSearch={this.state.nameSearch}
+        />
+      </div>
     );
   }
 }
