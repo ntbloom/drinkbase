@@ -44,6 +44,7 @@ class Navbar extends Component {
           </button>
         </div>
         <img
+          className="bigLogo"
           src={require("../../images/drinkBaseWhite.png")}
           alt="drinkBase"
           height="125"

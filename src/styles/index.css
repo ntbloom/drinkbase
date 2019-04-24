@@ -26,7 +26,6 @@ body {
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   font-weight: normal;
-  padding: 20px;
   margin: 0;
 }
 h2 {
@@ -51,7 +50,7 @@ footer {
 
 .results {
   padding-top: 2em;
-  padding-left: 0.1em;
+  padding-left: 0em;
 }
 
 .hideshow {
@@ -80,6 +79,11 @@ footer {
   font-size: 90%;
   line-height: 0.5;
 }
+
+.searchforms {
+  padding-left: 1em;
+}
+
 form input {
   background-color: var(--form-bg-color);
   color: var(--form-text-color);
