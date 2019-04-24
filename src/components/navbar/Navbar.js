@@ -25,17 +25,24 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <button className="navbutton" onClick={this.setIngSearch}>
-          search by
-          <br />
-          ingredient
-        </button>
-        <button className="navbutton" onClick={this.setNameSearch}>
-          search by
-          <br />
-          drink name
-        </button>
-        {/*TODO: get this above the search terms but below the searchforms*/}
+        <div className="navbar">
+          <img
+            id="smallLogo"
+            src={require("../../images/smallLogo.png")}
+            alt="drinkBase small logo"
+            height="25"
+          />
+          <button className="navbutton" onClick={this.setIngSearch}>
+            search by
+            <br />
+            ingredient
+          </button>
+          <button className="navbutton" onClick={this.setNameSearch}>
+            search by
+            <br />
+            drink name
+          </button>
+        </div>
         <img
           src={require("../../images/drinkBaseWhite.png")}
           alt="drinkBase"

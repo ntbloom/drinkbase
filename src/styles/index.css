@@ -1,6 +1,7 @@
 /** @format */
 
 @import url("drinkViz.css");
+@import url("navbar.css");
 
 /* colors:
  *  original charcoal: #4c4c4c
@@ -16,6 +17,8 @@
   --form-text-color: #4c4c4c;
   --main-text-color: #4c4c4c;
   --main-accent-color: #a5693d;
+  --navbar-bg-color: #4c4c4c;
+  --navbar-txt-color: #efeae5;
 }
 
 body {
@@ -26,15 +29,13 @@ body {
   padding: 20px;
   margin: 0;
 }
-.content {
-  padding: 20px;
-}
-.content h2 {
+h2 {
   padding: 0;
   margin: 0;
 }
-.content li {
+li {
   margin-bottom: 10px;
+  list-style-type: none;
 }
 .active {
   border-bottom-style: solid;
@@ -84,8 +85,4 @@ form input {
   color: var(--form-text-color);
   border-style: 1px solid;
   border-radius: 2px;
-}
-
-.navbutton {
-  border-style: none;
 }
