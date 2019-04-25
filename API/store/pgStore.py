@@ -232,6 +232,37 @@ class DrinkBase:
         for i in self.cursor:
             drinks.add(i[0])
         return sorted(drinks)
+    
+    def getBuild(self, drink):
+        '''returns how to build recipe as a string'''
+        # build and glass notes 
+        self.cursor.execute('''
+            SELECT 
+              (SELECT regexp_replace(
+                (SELECT style.description FROM style WHERE style.style = prep.style),
+                '@',
+                prep.glass))
+            FROM prep
+            INNER JOIN style on prep.style = style.style
+            WHERE prep.name = %s
+            ''', (drink,))
+        build = self.cursor.fetchone()
+        
+        # garnish notes
+        self.cursor.execute('''
+            SELECT 
+              CASE WHEN prep.garnish = 'none'
+                THEN ' No garnish.'
+              ELSE ' Garnish with ' || prep.garnish || '.'
+              END
+              FROM prep
+              WHERE prep.name = %s
+              ''', (drink,))
+        garnish = self.cursor.fetchone()
+        try:
+            return build[0] + garnish[0]
+        except:
+            return ""
 
     def sendData(self, drink):
         '''returns API-ready data for 'drink' as a dictionary'''
@@ -243,6 +274,7 @@ class DrinkBase:
         volume = self.calcVolume(drink)
         abv = alcohol/volume
         bright = self.calcBrightness(drink)
+        build = self.getBuild(drink)
         ingredientString = self.getIngString(drink)       
         garnish = self.getGarnish(drink)
         glass = self.getGlass(drink)
@@ -254,6 +286,7 @@ class DrinkBase:
         data['ABV'] = abv
         data['AlcoholUnits'] = alcohol
         data['Brightness'] = bright
+        data['Build'] = build
         data['IngredientString'] = ingredientString
         data['Garnish'] = garnish
         data['Glass'] = glass
