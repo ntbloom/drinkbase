@@ -31,7 +31,7 @@ class Ingredientsearch extends Component {
   }
   render() {
     return (
-      <div className="namesearchMain">
+      <div className="searchforms">
         <div>
           <form
             onSubmit={this.handleSubmit}

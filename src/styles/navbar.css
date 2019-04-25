@@ -14,11 +14,17 @@
 #smallLogo {
   padding: 1px;
   margin-left: 5px;
+  margin-top: 3px;
   background-color: var(--navbar-txt-color);
+}
+
+#bigLogo {
+  padding-left: 2em;
 }
 
 .navbutton {
   background-color: var(--navbar-header-color);
   color: var(--navbar-txt-color);
   border-style: none;
+  vertical-align: top;
 }

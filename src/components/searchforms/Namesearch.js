@@ -25,7 +25,7 @@ class Namesearch extends Component {
 
   render() {
     return (
-      <div className="namesearchMain">
+      <div className="searchforms">
         <form>
           <label>
             <input
