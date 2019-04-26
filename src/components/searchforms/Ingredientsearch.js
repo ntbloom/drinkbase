@@ -20,11 +20,12 @@ class Ingredientsearch extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value, submitted: true });
+    this.setState({ [event.target.name]: event.target.value });
   }
   handleSubmit(event) {
     this.setState({
       query: "?incl=" + this.state.included + "&excl=" + this.state.excluded,
+      submitted: true,
     });
     //console.log("query: ", this.state.query)
     event.preventDefault();
