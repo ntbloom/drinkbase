@@ -26,14 +26,18 @@ class Drinklist extends Component {
 
   printDrinks() {
     const drinks = this.props.drinks;
-    const listItems = drinks.map(drink => (
-      <li id="drinkname" key={drinks.indexOf(drink).toString()}>
-        {drink.Name}
-        <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
-        <Recipe drinks={drinks} drink={drink.Name} />
-      </li>
-    ));
-    return <ul className="results">{listItems}</ul>;
+    if (drinks.length === 0) {
+      return <p id="noResults">Sorry, no drinks match your results</p>;
+    } else {
+      const listItems = drinks.map(drink => (
+        <li id="drinkname" key={drinks.indexOf(drink).toString()}>
+          {drink.Name}
+          <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
+          <Recipe drinks={drinks} drink={drink.Name} />
+        </li>
+      ));
+      return <ul className="results">{listItems}</ul>;
+    }
   }
   componentDidUpdate(prevProps) {
     if (this.state.drinks !== prevProps.drinks) {
