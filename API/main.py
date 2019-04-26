@@ -16,12 +16,12 @@ def ingreds():
     excl = request.args.get('excl')
     drinks = ds.allDrinks
     if incl:
-        incl = incl.split(',')
+        incl = incl.split(', ')
         for i in incl:
             tempSet = set(ds.ingSearch(i))
             drinks = drinks & tempSet
     if excl:
-        excl = excl.split(',')
+        excl = excl.split(', ')
         for i in excl:
             tempSet = set(ds.ingSearch(i))
             drinks = drinks - tempSet
