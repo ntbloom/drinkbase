@@ -234,7 +234,7 @@ class DrinkBase:
         return sorted(drinks)
     
     def getBuild(self, drink):
-        '''returns how to build recipe as a string'''
+        '''returns how to build 'drink' as a string'''
         # build and glass notes 
         self.cursor.execute('''
             SELECT 
@@ -259,6 +259,7 @@ class DrinkBase:
               WHERE prep.name = %s
               ''', (drink,))
         garnish = self.cursor.fetchone()
+        print("build:", build, "\ngarnish:", garnish)
         try:
             return build[0] + garnish[0]
         except:
