@@ -18,6 +18,7 @@ class Ingredientsearch extends Component {
     };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.reset = this.reset.bind(this);
   }
   handleChange(event) {
     this.setState({ [event.target.name]: event.target.value });
@@ -30,6 +31,10 @@ class Ingredientsearch extends Component {
     //console.log("query: ", this.state.query)
     event.preventDefault();
   }
+  reset() {
+    this.setState({ submitted: false });
+  }
+
   render() {
     return (
       <div className="searchforms">
@@ -57,6 +62,7 @@ class Ingredientsearch extends Component {
             </div>
             <div>
               <input type="submit" value="find drinks" />
+              <input type="reset" value="start over" onClick={this.reset} />
             </div>
           </form>
           <div>
