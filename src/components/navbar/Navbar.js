@@ -42,6 +42,12 @@ class Navbar extends Component {
             <br />
             drink name
           </button>
+          <div className="navcheck">
+            <input type="checkbox" id="enableDark" />
+            <label for="enableDark">enable dark mode</label>
+            <input type="checkbox" id="enableViz" />
+            <label for="enableViz">enable drinkViz (experimental)</label>
+          </div>
         </div>
         <img
           className="bigLogo"

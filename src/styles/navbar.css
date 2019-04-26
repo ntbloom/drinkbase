@@ -24,7 +24,12 @@
 
 .navbutton {
   background-color: var(--navbar-header-color);
+  font-size: 12px;
   color: var(--navbar-txt-color);
   border-style: none;
   vertical-align: top;
+}
+
+.navcheck {
+  font-size: 12px;
 }
