@@ -259,7 +259,6 @@ class DrinkBase:
               WHERE prep.name = %s
               ''', (drink,))
         garnish = self.cursor.fetchone()
-        print("build:", build, "\ngarnish:", garnish)
         try:
             return build[0] + garnish[0]
         except:
