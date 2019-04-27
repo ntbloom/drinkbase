@@ -35,8 +35,8 @@ DROP TABLE IF EXISTS prep CASCADE;
 CREATE TABLE prep (
   name VARCHAR(40) NOT NULL PRIMARY KEY,
   style VARCHAR(40) NOT NULL,
-  glass VARCHAR(40),
-  garnish VARCHAR(40),
+  glass VARCHAR(40) NOT NULL,
+  garnish VARCHAR(40) NOT NULL,
   notes TEXT,
   FOREIGN KEY(style) REFERENCES style (style)
 );
