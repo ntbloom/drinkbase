@@ -22,6 +22,12 @@ Alabazam,simple syrup,oz,0.25
 Alaska Cocktail,orange bitters,dash,1
 Alaska Cocktail,gin,oz,1.5
 Alaska Cocktail,yellow Chartreuse,oz,0.75
+Americano,Campari,oz,1
+Americano,sweet vermouth,oz,1
+Americano,soda water,oz,2
+Americano in Benevento,Campari,oz,1.5
+Americano in Benevento,Strega,oz,0.5
+Americano in Benevento,ginger ale,oz,2
 Angostura Fizz,egg white,each,1
 Angostura Fizz,Angostura bitters,oz,1
 Angostura Fizz,grenadine,oz,0.25
@@ -96,10 +102,15 @@ Brooklyn,amaro,oz,0.5
 Brooklyn,dry vermouth,oz,0.5
 Brooklyn,Luxardo Maraschino,oz,0.25
 Brooklyn,rye whiskey,oz,2
+Brown Derby,bourbon whiskey,oz,2
+Brown Derby,grapefruit juice,oz,1
+Brown Derby,honey simple syrup,oz,0.5
 Caipirinha,sugar cube,each,1
 Caipirinha,muddled lime wedges,each,6
 Caipirinha,cachaca,oz,2
 Caipirinha,simple syrup,oz,0.75
+Campari Orange,cachaca,oz,2
+Campari Orange,orange juice,oz,6
 Champagne Cocktail,sugar cube,each,1
 Champagne Cocktail,Angostura bitters,dash,5
 Champagne Cocktail,Champagne or sparkling wine,oz,5
@@ -112,6 +123,12 @@ Corn 'n' Oil,Angostura bitters,dash,3
 Corn 'n' Oil,blackstrap rum,oz,2
 Corn 'n' Oil,falernum,oz,0.5
 Corn 'n' Oil,lime juice,oz,0.25
+Corpse Reviver #0824,Strega,oz,1.5
+Corpse Reviver #0824,Cocchi Americano,oz,1
+Corpse Reviver #0824,lemon juice,oz,1
+Corpse Reviver #0824,Angostura bitters,dash,3
+Corpse Reviver #0824,egg white,oz,0.5
+Corpse Reviver #0824,absinthe,rinse,1
 Corpse Reviver #2,absinthe,dash,3
 Corpse Reviver #2,Cointreau,oz,0.75
 Corpse Reviver #2,gin,oz,0.75
@@ -172,6 +189,11 @@ Gin Fizz,simple syrup,oz,0.75
 Gin Rickey,gin,oz,2
 Gin Rickey,lime juice,oz,1
 Gin Rickey,simple syrup,oz,0.5
+Ginger Witch,Strega,oz,1
+Ginger Witch,Jameson,oz,1
+Ginger Witch,lemon juice,oz,1
+Ginger Witch,ginger syrup,oz,0.75
+Ginger Witch,ginger ale,oz,2
 Gold Rush,bourbon whiskey,oz,2
 Gold Rush,honey simple syrup,oz,0.75
 Gold Rush,lemon juice,oz,0.75
@@ -203,6 +225,10 @@ Improved Whiskey Cocktail,Luxardo Maraschino,oz,0.25
 Improved Whiskey Cocktail,rye whiskey,oz,2
 Improved Whiskey Cocktail,simple syrup,oz,0.25
 Improved Whiskey Cocktail,absinthe,rinse,1
+Italian Dandy,Strega,oz,1.5
+Italian Dandy,sweet vermouth,oz,1.5
+Italian Dandy,orange curacao,tsp,2
+Italian Dandy,Angostura bitters,dash,2
 Japanese Cocktail,Angostura bitters,dash,3
 Japanese Cocktail,cognac,oz,2
 Japanese Cocktail,orgeat,oz,0.5
@@ -225,6 +251,8 @@ Last Word,green Chartreuse,oz,0.75
 Last Word,lime juice,oz,0.75
 Last Word,Luxardo Maraschino,oz,0.75
 Last Word,salt,dash,1
+Lillet Vive,Lillet Blanc,oz,3
+Lillet Vive,tonic water,oz,6
 Lucien Gaudin,Campari,oz,0.5
 Lucien Gaudin,Cointreau,oz,0.5
 Lucien Gaudin,dry vermouth,oz,0.5
@@ -243,6 +271,8 @@ Martinez,Luxardo Maraschino,tsp,1
 Martini,orange bitters,dash,1
 Martini,dry vermouth,oz,0.75
 Martini,gin,oz,2.5
+Mi To,Campari,oz,1
+Mi To,sweet vermouth,oz,1
 Mint Julep,muddled mint leaves,each,10
 Mint Julep,bourbon whiskey,oz,2
 Mint Julep,simple syrup,oz,0.75
@@ -258,6 +288,9 @@ Moscow Mule,vodka,oz,2
 Negroni,Campari,oz,1
 Negroni,gin,oz,1
 Negroni,sweet vermouth,oz,1
+Negroni Sbagliato,Campari,oz,1
+Negroni Sbagliato,sweet vermouth,oz,1
+Negroni Sbagliato,Champagne or sparkling wine,oz,1
 Old Fashioned,Angostura bitters,dash,2
 Old Fashioned,rye whiskey,oz,2
 Old Fashioned,simple syrup,tsp,1
@@ -363,6 +396,14 @@ Seelbach Cocktail,Cointreau,oz,0.5
 Sidecar,cognac,oz,2
 Sidecar,Cointreau,oz,1
 Sidecar,lemon juice,oz,0.75
+Singapore Sling,Cherry Heering,oz,0.5
+Singapore Sling,gin,oz,1
+Singapore Sling,pineapple juice,oz,4
+Singapore Sling,lime juice,oz,0.5
+Singapore Sling,Cointreau,oz,0.25
+Singapore Sling,Benedictine,oz,0.25
+Singapore Sling,grenadine,oz,0.5
+Singapore Sling,Angostura bitters,dash,4
 South Side,Angostura bitters,dash,2
 South Side,muddled mint leaves,each,5
 South Side,gin,oz,2
@@ -386,9 +427,15 @@ Southside Fizz,club soda,oz,2
 Southside Fizz,gin,oz,2
 Southside Fizz,lime juice,oz,0.75
 Southside Fizz,simple syrup,oz,1
+Stazione Strega,Strega,oz,1
+Stazione Strega,Fernet Branca,oz,1
+Stazione Strega,sweet vermouth,oz,1
 Stinger,cognac,oz,2
 Stinger,creme de menthe,oz,0.5
 Stinger,simple syrup,tsp,1
+Strega Mule,Strega,oz,1.5
+Strega Mule,lemon juice,oz,0.5
+Strega Mule,ginger beer,oz,5
 Summer Negroni,aperol,oz,1
 Summer Negroni,bianco vermouth,oz,1
 Summer Negroni,gin,oz,1
@@ -408,6 +455,8 @@ The Bamboo,sherry,oz,1.5
 The Bitter Handshake,blood orange juice reduction,oz,1
 The Bitter Handshake,Fernet Branca,oz,1
 The Bitter Handshake,rye whiskey simple syrup,oz,1
+The Frank O’Hara,gin,oz,2
+The Frank O’Hara,Strega,tsp,2
 Tom Collins,club soda,oz,2
 Tom Collins,gin,oz,2
 Tom Collins,lemon juice,oz,0.75
@@ -447,34 +496,3 @@ Zim Zala Bim,reposado tequila,oz,2
 Zim Zala Bim,orange bitters,tsp,2
 Zim Zala Bim,St. Germain elderflower liqueur,tsp,2
 Zim Zala Bim,sugar,tsp,1
-Brown Derby,bourbon whiskey,oz,2
-Brown Derby,grapefruit juice,oz,1
-Brown Derby,honey simple syrup,oz,0.5
-The Frank O’Hara,gin,oz,2
-The Frank O’Hara,Strega,tsp,2
-Lillet Vive,Lillet Blanc,oz,3
-Lillet Vive,tonic water,oz,6
-Corpse Reviver #0824,Strega,oz,1.5
-Corpse Reviver #0824,Cocchi Americano,oz,1
-Corpse Reviver #0824,lemon juice,oz,1
-Corpse Reviver #0824,Angostura bitters,dash,3
-Corpse Reviver #0824,egg white,oz,0.5
-Corpse Reviver #0824,absinthe,rinse,1
-Italian Dandy,Strega,oz,1.5
-Italian Dandy,sweet vermouth,oz,1.5
-Italian Dandy,orange curacao,tsp,2
-Italian Dandy,Angostura bitters,dash,2
-Stazione Strega,Strega,oz,1
-Stazione Strega,Fernet Branca,oz,1
-Stazione Strega,sweet vermouth,oz,1
-Ginger Witch,Strega,oz,1
-Ginger Witch,Jameson,oz,1
-Ginger Witch,lemon juice,oz,1
-Ginger Witch,ginger syrup,oz,0.75
-Ginger Witch,ginger ale,oz,2
-Americano in Benevento,Campari,oz,1.5
-Americano in Benevento,Strega,oz,0.5
-Americano in Benevento,ginger ale,oz,2
-Strega Mule,Strega,oz,1.5
-Strega Mule,lemon juice,oz,0.5
-Strega Mule,ginger beer,oz,5
