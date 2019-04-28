@@ -48,61 +48,61 @@ class TestNameSearch(unittest.TestCase):
     def test_multiple__responses2(self):
         self.assertEqual(
             api("names/?name=negroni"), 
-            ["Negroni", "Summer Negroni"]
+            ["Negroni", "Negroni Sbagliato", "Summer Negroni"]
             )
     # included tests
     def test_single_incl3(self):
         self.assertEqual(
             api("ingreds/?incl=heering"),
-            ["Blood & Sand"]
+            ["Blood & Sand", "Singapore Sling"]
             )
     def test_more_single_incl4(self):
         self.assertEqual(
             api("ingreds/?incl=cocchi"),
-            ["20th Century", "Vesper"]
+            ["20th Century", "Corpse Reviver #0824", "Vesper"]
             )
     def test_multiple_incl5(self):
         self.assertEqual(
-            api("ingreds/?incl=bourbon,grapefruit"),
+            api("ingreds/?incl=bourbon, grapefruit"),
             ["Brown Derby"]
             )
     def test_more_multiple_incl6(self):
         self.assertEqual(
-            api("ingreds/?incl=apple,mint"),
+            api("ingreds/?incl=apple, mint"),
             ["Jersey Julep"]
             )
     # excluded tests
     def test_multiple_excl8(self):
         self.assertEqual(
-            api("ingreds/?excl=juice,bitters"),
+            api("ingreds/?excl=juice, bitters"),
             noJuiceBitters
             )
     # excluded & included tests
     def test_single_incl_and_excl9(self):
         self.assertEqual(
             api("ingreds/?incl=fernet&excl=whiskey"),
-            ["Hanky Panky"]
+            ["Hanky Panky", "Stazione Strega"]
             )
     def test_multiple_incl_single_excl10(self):
         self.assertEqual(
-            api("ingreds/?incl=rye,vermouth&excl=bitters"),
+            api("ingreds/?incl=rye, vermouth&excl=bitters"),
             ["Boulevardier", "Old Pal"] 
             )
     def test_single_incl_multiple_excl11(self):
         self.assertEqual(
-            api("ingreds/?incl=grapefruit&excl=tequila,rum"),
+            api("ingreds/?incl=grapefruit&excl=tequila, rum"),
             ["Blonde Redhead", "Brown Derby"]
             )
     def test_multiple_incl_multiple_excl12(self):
         self.assertEqual(
-            api("ingreds/?incl=rye,vermouth&excl=bitters,juice"),
+            api("ingreds/?incl=rye, vermouth&excl=bitters, juice"),
             ["Boulevardier", "Old Pal"]
             )
 
     def test_edge_case_incl_blank_excl(self):
         self.assertEqual(
             api("ingreds/?incl=heering&excl="),
-            ["Blood & Sand"]
+            ["Blood & Sand", "Singapore Sling"]
             )
     #drinkViz tests
     def test_abv(self):
