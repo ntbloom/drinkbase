@@ -13,6 +13,9 @@ class Drinkviz extends Component {
     // use const for everything else
     this.state = {
       showRecipeCounter: 0,
+      width: 500,
+      aspectRatio: 0.681,
+      scale: 1,
     };
     // you need to bind your functions before declarations
     this.drawPlot = this.drawPlot.bind(this);
@@ -31,48 +34,52 @@ class Drinkviz extends Component {
   }
 
   drawPlot() {
+    // getting data, defining variables
     const picks = this.props.picks;
     const allDrinks = this.props.allDrinks;
-    var drinksSVG = d3.select("#theDrinks");
+    const drinksSVG = d3.select("#theDrinks");
+    const width = this.state.width * this.state.scale;
+    const height = this.state.width * this.state.aspectRatio * this.state.scale;
 
+    // drawing the gridlines and axes
     drinksSVG
       .append("line")
-      .attr("x1", 200)
-      .attr("x2", 725)
-      .attr("y1", 300)
-      .attr("y2", 300)
+      .attr("x1", width * 0.216)
+      .attr("x2", width * 0.784)
+      .attr("y1", height * 0.476)
+      .attr("y2", height * 0.476)
       .attr("stroke", "#888");
-
     drinksSVG
       .append("line")
-      .attr("x1", 462)
-      .attr("x2", 462)
-      .attr("y1", 45)
-      .attr("y2", 560)
+      .attr("x1", width * 0.499)
+      .attr("x2", width * 0.499)
+      .attr("y1", height * 0.071)
+      .attr("y2", height * 0.889)
       .attr("stroke", "#888");
-
     drinksSVG
       .append("text")
       .text("<- (less)        Sugar        (more) ->")
-      .attr("x", 462)
-      .attr("y", 615)
+      .attr("x", width * 0.499)
+      .attr("y", height * 0.976)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "#444")
       .style("font-size", "13pt")
       .attr("opacity", 0.4);
-
     drinksSVG
       .append("text")
       .text("<- (less)        Alcohol        (more) ->")
-      .attr("x", 875)
-      .attr("y", 310)
+      .attr("x", width * 0.946)
+      .attr("y", height * 0.492)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "#444")
       .style("font-size", "13pt")
       .attr("opacity", 0.4)
-      .attr("transform", "rotate(270 875 295)");
+      .attr(
+        "transform",
+        "rotate(270 ".concat(width * 0.946, " ", height * 0.468, ")"),
+      );
 
     drinksSVG.selectAll("circle").remove();
 
@@ -182,7 +189,14 @@ class Drinkviz extends Component {
       <div>
         <h3 id="viz">Drinks</h3>
         <div className="thePlot">
-          <svg className="bigPlot" id="theDrinks" width="925" height="630" />
+          <svg
+            className="bigPlot"
+            id="theDrinks"
+            width={this.state.width * this.state.scale}
+            height={
+              this.state.width * this.state.aspectRatio * this.state.scale
+            }
+          />
         </div>
         <div id="tooltip" className="tooltip">
           <span id="drinkName" />
