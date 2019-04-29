@@ -17,9 +17,17 @@ class Navbar extends Component {
   }
   setIngSearch() {
     this.setState({ ingSearch: true, nameSearch: false });
+    let element1 = document.getElementById("ingButton");
+    element1.style.borderBottom = "3px solid var(--main-accent-color)";
+    let element2 = document.getElementById("nameButton");
+    element2.style.borderBottom = "none";
   }
   setNameSearch() {
     this.setState({ nameSearch: true, ingSearch: false });
+    let element1 = document.getElementById("nameButton");
+    element1.style.borderBottom = "3px solid var(--main-accent-color)";
+    let element2 = document.getElementById("ingButton");
+    element2.style.borderBottom = "none";
   }
 
   render() {
@@ -32,24 +40,34 @@ class Navbar extends Component {
             alt="drinkBase small logo"
             height="25"
           />
-          <button className="navbutton" onClick={this.setIngSearch}>
+          <button
+            title="query the database by individual ingredients"
+            className="navbutton"
+            id="ingButton"
+            onClick={this.setIngSearch}
+          >
             search by
             <br />
             ingredient
           </button>
-          <button className="navbutton" onClick={this.setNameSearch}>
+          <button
+            title="query the database by drink name"
+            className="navbutton"
+            id="nameButton"
+            onClick={this.setNameSearch}
+          >
             search by
             <br />
             drink name
           </button>
           {/*
-          <div className="navcheck">
+          <input type="checkbox" id="enableViz" />
+          <label for="enableViz" id="vizCheck">
+            enable drinkViz (experimental)
+          </label>
             <input type="checkbox" id="enableDark" />
             <label for="enableDark">enable dark mode</label>
-            <input type="checkbox" id="enableViz" />
-            <label for="enableViz">enable drinkViz (experimental)</label>
-          </div>
-          */}
+            */}
         </div>
         <img
           className="bigLogo"

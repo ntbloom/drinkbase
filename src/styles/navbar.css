@@ -9,10 +9,12 @@
   padding-bottom: 1em;
   padding-left: 1em;
   opacity: 0.9;
+  font-size: 12px;
 }
 
 #smallLogo {
   padding: 1px;
+  margin-right: 2em;
   margin-left: 5px;
   margin-top: 3px;
   background-color: var(--navbar-txt-color);
@@ -28,8 +30,9 @@
   color: var(--navbar-txt-color);
   border-style: none;
   vertical-align: top;
+  margin-right: 2em;
 }
 
-.navcheck {
+.vizCheck {
   font-size: 12px;
 }
