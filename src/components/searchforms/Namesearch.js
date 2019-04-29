@@ -40,6 +40,7 @@ class Namesearch extends Component {
           query={this.state.value}
           url={url}
           submitted={this.state.submitted}
+          viz={this.props.viz}
         />
       </div>
     );

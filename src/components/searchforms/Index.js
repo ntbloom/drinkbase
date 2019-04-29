@@ -9,9 +9,9 @@ import Ingredientsearch from "./Ingredientsearch";
 class Index extends Component {
   render() {
     if (this.props.ingSearch === true) {
-      return <Ingredientsearch />;
+      return <Ingredientsearch viz={this.props.viz} />;
     } else if (this.props.nameSearch === true) {
-      return <Namesearch />;
+      return <Namesearch viz={this.props.viz} />;
     } else {
       return null;
     }

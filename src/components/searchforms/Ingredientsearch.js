@@ -70,6 +70,7 @@ class Ingredientsearch extends Component {
               query={this.state.query}
               url={url}
               submitted={this.state.submitted}
+              viz={this.props.viz}
             />
           </div>
         </div>

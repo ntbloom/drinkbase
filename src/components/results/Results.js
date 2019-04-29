@@ -47,12 +47,16 @@ class Results extends Component {
     }
   }
   render() {
-    if (this.state.received) {
+    if (this.state.received && this.props.viz) {
       return (
         <div>
-          {/*
           <Viz allDrinks={this.props.allDrinks} picks={this.state.picks} />
-          */}
+          <Drinklist drinks={this.state.drinks.Drinks} />
+        </div>
+      );
+    } else if (this.state.received) {
+      return (
+        <div>
           <Drinklist drinks={this.state.drinks.Drinks} />
         </div>
       );

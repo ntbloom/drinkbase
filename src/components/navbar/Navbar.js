@@ -11,23 +11,44 @@ class Navbar extends Component {
     this.state = {
       ingSearch: false,
       nameSearch: false,
+      viz: false,
     };
     this.setIngSearch = this.setIngSearch.bind(this);
     this.setNameSearch = this.setNameSearch.bind(this);
+    this.vizClick = this.vizClick.bind(this);
   }
   setIngSearch() {
+    // renders "Ingredient Search" page
     this.setState({ ingSearch: true, nameSearch: false });
     let element1 = document.getElementById("ingButton");
     element1.style.borderBottom = "3px solid var(--main-accent-color)";
     let element2 = document.getElementById("nameButton");
     element2.style.borderBottom = "none";
   }
+
   setNameSearch() {
+    // renders "Name Search" page
     this.setState({ nameSearch: true, ingSearch: false });
     let element1 = document.getElementById("nameButton");
     element1.style.borderBottom = "3px solid var(--main-accent-color)";
     let element2 = document.getElementById("ingButton");
     element2.style.borderBottom = "none";
+  }
+
+  vizClick() {
+    // toggles drinkViz on/off
+    let element = document.getElementById("vizButton");
+    if (this.state.viz) {
+      this.setState({ viz: false });
+      element.innerHTML = "enable drinkViz <br/> (experimental)";
+      element.style.borderBottom = "none";
+      console.log("viz:", this.state.viz);
+    } else {
+      this.setState({ viz: true });
+      element.innerHTML = "disable drinkViz <br/> (experimental)";
+      element.style.borderBottom = "3px solid var(--main-accent-color)";
+      console.log("viz:", this.state.viz);
+    }
   }
 
   render() {
@@ -60,14 +81,17 @@ class Navbar extends Component {
             <br />
             drink name
           </button>
-          {/*
-          <input type="checkbox" id="enableViz" />
-          <label for="enableViz" id="vizCheck">
-            enable drinkViz (experimental)
-          </label>
-            <input type="checkbox" id="enableDark" />
-            <label for="enableDark">enable dark mode</label>
-            */}
+
+          <button
+            title="enable visualization aid (experimental)"
+            className="navbutton"
+            id="vizButton"
+            onClick={this.vizClick}
+          >
+            enable drinkViz
+            <br />
+            (experimental)
+          </button>
         </div>
         <img
           className="bigLogo"
@@ -78,6 +102,7 @@ class Navbar extends Component {
         <Index
           ingSearch={this.state.ingSearch}
           nameSearch={this.state.nameSearch}
+          viz={this.state.viz}
         />
       </div>
     );

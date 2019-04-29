@@ -43,6 +43,7 @@ class Index extends Component {
             query={this.props.query}
             url={this.props.url}
             allDrinks={this.state.allDrinks}
+            viz={this.props.viz}
           />
         </div>
       );
