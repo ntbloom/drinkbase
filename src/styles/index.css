@@ -25,10 +25,11 @@
  *  burnt orange: #a5693d
  *  dark-mode charcoal: #303030
  *  dark-mode egg-shell: #efeae5 
- *  blue: #100656
+ *  complimentary blue: #100656
  */
 
 :root {
+  /* main text/logo/nav color scheme */
   --main-bg-color: #fff;
   --form-bg-color: #fff;
   --form-text-color: #4c4c4c;
@@ -36,6 +37,22 @@
   --main-accent-color: #a5693d;
   --navbar-bg-color: #4c4c4c;
   --navbar-txt-color: #efeae5;
+
+  /* drinkViz */
+  --vizLabels: #444;
+  --vizLines: #888;
+  --vizCircleOutline: #999;
+
+  /* drinkViz drink types */
+  --vizBubbly: #fcf5bf;
+  --vizShaken: #100656;
+  --vizFizz: #f4e381;
+  --vizSwizzle: #f27552;
+  --vizBuilt: #b5390c;
+  --vizDefault: #bbb;
+
+  /* drinkViz unused */
+  --vizAlternate: #240ccc;
 }
 
 body {

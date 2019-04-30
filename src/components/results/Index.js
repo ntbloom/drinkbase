@@ -36,7 +36,7 @@ class Index extends Component {
   }
 
   render() {
-    if (this.props.submitted && this.state.vizReady) {
+    if (this.state.vizReady) {
       return (
         <div>
           <Results

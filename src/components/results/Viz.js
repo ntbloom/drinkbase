@@ -13,8 +13,8 @@ class Drinkviz extends Component {
     // use const for everything else
     this.state = {
       showRecipeCounter: 0,
-      width: 500,
-      aspectRatio: 0.681,
+      width: 600,
+      aspectRatio: 2 / 3,
       scale: 1,
     };
     // you need to bind your functions before declarations
@@ -41,39 +41,43 @@ class Drinkviz extends Component {
     const width = this.state.width * this.state.scale;
     const height = this.state.width * this.state.aspectRatio * this.state.scale;
 
+    // for laying out data
+    const originX = width / 2;
+    const originY = height / 2;
+
     // drawing the gridlines and axes
-    drinksSVG
+    drinksSVG // x-axis
       .append("line")
-      .attr("x1", width * 0.216)
-      .attr("x2", width * 0.784)
-      .attr("y1", height * 0.476)
-      .attr("y2", height * 0.476)
-      .attr("stroke", "#888");
-    drinksSVG
+      .attr("x1", width * 0.2)
+      .attr("x2", width * 0.8)
+      .attr("y1", height * 0.5)
+      .attr("y2", height * 0.5)
+      .attr("stroke", "var(--vizLines)");
+    drinksSVG // y-axis
       .append("line")
-      .attr("x1", width * 0.499)
-      .attr("x2", width * 0.499)
-      .attr("y1", height * 0.071)
-      .attr("y2", height * 0.889)
-      .attr("stroke", "#888");
-    drinksSVG
+      .attr("x1", width * 0.5)
+      .attr("x2", width * 0.5)
+      .attr("y1", height * 0.1)
+      .attr("y2", height * 0.9)
+      .attr("stroke", "var(--vizLines)");
+    drinksSVG // x-axis label
       .append("text")
       .text("<- (less)        Sugar        (more) ->")
-      .attr("x", width * 0.499)
-      .attr("y", height * 0.976)
+      .attr("x", width * 0.5)
+      .attr("y", height * 0.95)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
-      .style("fill", "#444")
+      .style("fill", "var(--vizLabels)")
       .style("font-size", "100%")
       .attr("opacity", 0.4);
-    drinksSVG
+    drinksSVG // y-axis label
       .append("text")
       .text("<- (less)        Alcohol        (more) ->")
-      .attr("x", width * 0.946)
-      .attr("y", height * 0.492)
+      .attr("x", width * 0.95)
+      .attr("y", height * 0.5)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
-      .style("fill", "#444")
+      .style("fill", "var(--vizLabels)")
       .style("font-size", "100%")
       .attr("opacity", 0.4)
       .attr(
@@ -83,28 +87,35 @@ class Drinkviz extends Component {
 
     drinksSVG.selectAll("circle").remove();
 
-    // eslint-disable-next-line
-    var abvCirc = drinksSVG
+    // highlights drinks returned by search
+    drinksSVG
       .selectAll("#abvCircle")
       .data(allDrinks.Drinks)
       .enter()
       .append("circle")
       .attr("id", "abvCircle")
-      .attr("stroke-width", function(d) {
+
+      // circle outlines for selected drinks
+      .attr("stroke-width", d => {
         if (picks.includes(d.Name)) {
           return 0.75;
         } else {
           return 0.2;
         }
       })
-      .attr("stroke", "#999")
-      .attr("fill-opacity", function(d) {
+      // circle opacity
+      .attr("stroke", "var(--vizCircleOutline)")
+      .attr("fill-opacity", d => {
         if (picks.includes(d.Name)) {
           return 0.8;
         } else {
           return 0.1;
         }
       })
+
+      //TODO: map sweetness from 0 to 1 on x-axis
+      //TODO: map alcohol from 0.25 to 1.5 on y-axis
+
       .attr("cx", function(d) {
         // TEMPORARY!!!!! trying to debug getting the spacing right
         if (Math.max(30, d.Data.Sweetness * 4000 - 25) < 100) {
@@ -122,24 +133,27 @@ class Drinkviz extends Component {
       .attr("r", function(d) {
         return d.Data.Volume * Math.min(d.Data.Volume, 3) + 3;
       })
-      .attr("fill", function(d) {
+
+      // colors circles based on drink type
+      .attr("fill", d => {
         if (d.Data.Style.includes("stirred")) {
           return "#a5693d";
         } else if (d.Data.Style.includes("bubbly")) {
-          return "#fcf5bf";
+          return "var(--vizBubbly)";
         } else if (d.Data.Style.includes("shaken")) {
-          return "#100656";
+          return "var(--vizShaken)";
           //return "#240ccc";
         } else if (d.Data.Style.includes("fizz")) {
-          return "#f4e381";
+          return "var(--vizFizz)";
         } else if (d.Data.Style.includes("swizzle")) {
-          return "#f27552";
+          return "var(--vizSwizzle)";
         } else if (d.Data.Style.includes("built")) {
-          return "#b5390c";
+          return "var(--vizBuilt)";
         } else {
-          return "#bbb";
+          return "var(--vizDefault)";
         }
       });
+
     //.on("mouseover", this.highlight())
     //.on("mouseout", this.unhighlight())
   }
@@ -187,7 +201,6 @@ class Drinkviz extends Component {
   render() {
     return (
       <div>
-        <h3 id="viz">Drinks</h3>
         <div className="thePlot">
           <svg
             className="bigPlot"
