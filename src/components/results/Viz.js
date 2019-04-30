@@ -64,7 +64,7 @@ class Drinkviz extends Component {
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "#444")
-      .style("font-size", "13pt")
+      .style("font-size", "100%")
       .attr("opacity", 0.4);
     drinksSVG
       .append("text")
@@ -74,7 +74,7 @@ class Drinkviz extends Component {
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "#444")
-      .style("font-size", "13pt")
+      .style("font-size", "100%")
       .attr("opacity", 0.4)
       .attr(
         "transform",
