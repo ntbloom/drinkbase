@@ -1,4 +1,21 @@
-/** @format */
+/* @format */
+/* index.css -- sitewide stylesheets */
+
+@media (max-width: 900px) {
+  html,
+  .navbutton,
+  .results {
+    font-size: 16px;
+  }
+  #vizButton {
+    display: none;
+  }
+}
+@media (min-width: 901px) {
+  html {
+    font-size: 16px;
+  }
+}
 
 @import url("drinkViz.css");
 @import url("navbar.css");
@@ -43,9 +60,11 @@ li {
 }
 
 footer {
-  font-size: 12px;
+  font-size: 75%;
   margin-top: 12px;
   text-align: center;
+  padding-bottom: 2em;
+  color: var(--main-accent-color);
 }
 
 .results {
@@ -98,5 +117,5 @@ form input {
   color: var(--form-text-color);
   border-style: 1px solid;
   border-radius: 2px;
-  font-size: 16px;
+  font-size: 100%;
 }
