@@ -16,6 +16,13 @@ class Drinkviz extends Component {
       width: 600,
       aspectRatio: 2 / 3,
       scale: 1,
+      circSize: 2.5,
+
+      //TODO: make SQL calculate these values
+      maxSug: 0.82,
+      minSug: 0,
+      maxAlc: 1.5,
+      minAlc: 0.25,
     };
     // you need to bind your functions before declarations
     this.drawPlot = this.drawPlot.bind(this);
@@ -42,8 +49,6 @@ class Drinkviz extends Component {
     const height = this.state.width * this.state.aspectRatio * this.state.scale;
 
     // for laying out data
-    const originX = width / 2;
-    const originY = height / 2;
 
     // drawing the gridlines and axes
     drinksSVG // x-axis
@@ -88,7 +93,8 @@ class Drinkviz extends Component {
     drinksSVG.selectAll("circle").remove();
 
     // highlights drinks returned by search
-    drinksSVG
+    const abvCirc = drinksSVG;
+    abvCirc
       .selectAll("#abvCircle")
       .data(allDrinks.Drinks)
       .enter()
@@ -113,25 +119,37 @@ class Drinkviz extends Component {
         }
       })
 
-      //TODO: map sweetness from 0 to 1 on x-axis
-      //TODO: map alcohol from 0.25 to 1.5 on y-axis
+      // position circles on
+      .attr("cx", d => {
+        const xScale =
+          (this.state.maxSug - this.state.minSug) / this.state.maxSug;
+        const xBuffer = 0.1 * width;
 
-      .attr("cx", function(d) {
-        // TEMPORARY!!!!! trying to debug getting the spacing right
-        if (Math.max(30, d.Data.Sweetness * 4000 - 25) < 100) {
-          //console.log("TOO LOW: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+        let sweet = d.Data.Sweetness / this.state.maxSug;
+        if (sweet * xScale < 0.1 * width) {
+          sweet = sweet * xScale * width + xBuffer;
+        } else if (sweet * xScale > 0.9 * width) {
+          sweet = sweet * xScale * width - xBuffer;
+        } else {
+          sweet = sweet * xScale * width;
         }
-        if (Math.max(30, d.Data.Sweetness * 4000 - 25) > 800) {
-          //console.log("TOO HIGH: " + d.Name + " :: " + d.Data.Sweetness + " :: " + Math.max(30, (d.Data.Sweetness * 4000) - 25));
+        return sweet;
+      })
+      .attr("cy", d => {
+        const yScale =
+          (this.state.maxAlc - this.state.minAlc) / this.state.maxAlc;
+        let alcohol = d.Data.AlcoholUnits / this.state.maxAlc;
+        if (alcohol * yScale > 0.95 * height) {
+          alcohol = alcohol * yScale * height;
+        } else {
+          alcohol = alcohol * yScale * height;
         }
-        // TEMPORARY!!! ^ trying to debug getting the spacing right
-        return Math.min(Math.max(30, d.Data.Sweetness * 1600 - 25), 825);
+        return alcohol;
       })
-      .attr("cy", function(d) {
-        return Math.min(Math.max(30, 630 - d.Data.AlcoholUnits * 400), 570);
-      })
-      .attr("r", function(d) {
-        return d.Data.Volume * Math.min(d.Data.Volume, 3) + 3;
+      .attr("r", d => {
+        let volume = d.Data.Volume;
+        volume = volume * this.state.circSize;
+        return volume;
       })
 
       // colors circles based on drink type
