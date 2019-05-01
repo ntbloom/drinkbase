@@ -44,15 +44,14 @@
   --vizCircleOutline: #999;
 
   /* drinkViz drink types */
-  --vizBubbly: #fcf5bf;
-  --vizShaken: #100656;
-  --vizFizz: #f4e381;
-  --vizSwizzle: #f27552;
-  --vizBuilt: #b5390c;
-  --vizDefault: #bbb;
-
-  /* drinkViz unused */
-  --vizAlternate: #240ccc;
+  --vizBubbly: #fcf5bf; /* eggshell */
+  --vizShaken: #100656; /* dark blue */
+  --vizDoubleShake: #240ccc; /* light blue */
+  --vizFizz: #f4e381; /* custard */
+  --vizSwizzle: #f27552; /* orange */
+  --vizBuilt: #b5390c; /* red */
+  --vizDefault: #bbb; /* grey */
+  --vizHot: red;
 }
 
 body {

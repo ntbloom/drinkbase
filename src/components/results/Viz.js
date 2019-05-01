@@ -160,13 +160,16 @@ class Drinkviz extends Component {
           return "var(--vizBubbly)";
         } else if (d.Data.Style.includes("shaken")) {
           return "var(--vizShaken)";
-          //return "#240ccc";
+        } else if (d.Data.Style.includes("double shake")) {
+          return "var(--vizDoubleShake)";
         } else if (d.Data.Style.includes("fizz")) {
           return "var(--vizFizz)";
         } else if (d.Data.Style.includes("swizzle")) {
           return "var(--vizSwizzle)";
         } else if (d.Data.Style.includes("built")) {
           return "var(--vizBuilt)";
+        } else if (d.Data.Style.includes("hot")) {
+          return "var(--vizHot)";
         } else {
           return "var(--vizDefault)";
         }
