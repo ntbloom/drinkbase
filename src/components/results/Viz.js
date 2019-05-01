@@ -119,12 +119,11 @@ class Drinkviz extends Component {
         }
       })
 
-      // position circles on
+      // position circles on chart
       .attr("cx", d => {
         const xScale =
           (this.state.maxSug - this.state.minSug) / this.state.maxSug;
         const xBuffer = 0.1 * width;
-
         let sweet = d.Data.Sweetness / this.state.maxSug;
         if (sweet * xScale < 0.1 * width) {
           sweet = sweet * xScale * width + xBuffer;
@@ -173,17 +172,17 @@ class Drinkviz extends Component {
         } else {
           return "var(--vizDefault)";
         }
-      });
+      })
 
-    //.on("mouseover", this.highlight())
-    //.on("mouseout", this.unhighlight())
+      .on("mouseover", this.highlight)
+      .on("mouseout", this.unhighlight);
   }
 
   // the tooltip functions
   highlight(d, i) {
     // eslint-disable-next-line
     var circle = d3
-      .select(this)
+      .select("circle")
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
 
@@ -201,7 +200,7 @@ class Drinkviz extends Component {
   unhighlight(d, i) {
     // eslint-disable-next-line
     var circle = d3
-      .select(this)
+      .select(circle)
       .attr("fill-opacity", function(d) {
         if (this.state.picks.includes(d.Name)) {
           return 0.95;
