@@ -124,12 +124,13 @@ class Drinkviz extends Component {
       .attr("cx", d => {
         const xScale =
           (this.state.maxSug - this.state.minSug) / this.state.maxSug;
-        const xBuffer = 0.1 * width;
+        const leftBuffer = 0.15 * width;
+        const rightBuffer = 0.5 * width;
         let sweet = d.Data.Sweetness / this.state.maxSug;
         if (sweet * xScale < 0.1 * width) {
-          sweet = sweet * xScale * width + xBuffer;
+          sweet = sweet * xScale * width + leftBuffer;
         } else if (sweet * xScale > 0.9 * width) {
-          sweet = sweet * xScale * width - xBuffer;
+          sweet = sweet * xScale * width - rightBuffer;
         } else {
           sweet = sweet * xScale * width;
         }
@@ -139,11 +140,7 @@ class Drinkviz extends Component {
         const yScale =
           (this.state.maxAlc - this.state.minAlc) / this.state.maxAlc;
         let alcohol = d.Data.AlcoholUnits / this.state.maxAlc;
-        if (alcohol * yScale > 0.95 * height) {
-          alcohol = height - alcohol * yScale * height;
-        } else {
-          alcohol = height - alcohol * yScale * height;
-        }
+        alcohol = height - alcohol * yScale * height;
         return alcohol;
       })
       .attr("r", d => {
