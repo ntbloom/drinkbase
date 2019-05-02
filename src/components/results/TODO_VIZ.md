@@ -1,6 +1,7 @@
 ### TODO Lits for drinkViz
 
 - onclick functionality? brings up recipe? maybe time for major UX decisions
+- fix blue dot appearing after onhover
 - fix label pixelizations
 - fix more/less alcohol bug
 - pick color scheme for hot and double-shaken drinks
