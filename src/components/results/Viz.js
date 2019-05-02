@@ -54,15 +54,15 @@ class Drinkviz extends Component {
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
-      .attr("x1", width * 0.2)
-      .attr("x2", width * 0.8)
-      .attr("y1", height * 0.5)
-      .attr("y2", height * 0.5)
+      .attr("x1", width * 0.1)
+      .attr("x2", width * 0.9)
+      .attr("y1", height - 0.1 * height)
+      .attr("y2", height - 0.1 * height)
       .attr("stroke", "var(--vizLines)");
     drinksSVG // y-axis
       .append("line")
-      .attr("x1", width * 0.5)
-      .attr("x2", width * 0.5)
+      .attr("x1", 0.1 * width)
+      .attr("x2", 0.1 * width)
       .attr("y1", height * 0.1)
       .attr("y2", height * 0.9)
       .attr("stroke", "var(--vizLines)");
@@ -80,7 +80,7 @@ class Drinkviz extends Component {
       .append("text")
       .text("<- (less)        Alcohol        (more) ->")
       .attr("x", width * 0.95)
-      .attr("y", height * 0.5)
+      .attr("y", -325)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "var(--vizLabels)")
@@ -140,9 +140,9 @@ class Drinkviz extends Component {
           (this.state.maxAlc - this.state.minAlc) / this.state.maxAlc;
         let alcohol = d.Data.AlcoholUnits / this.state.maxAlc;
         if (alcohol * yScale > 0.95 * height) {
-          alcohol = alcohol * yScale * height;
+          alcohol = height - alcohol * yScale * height;
         } else {
-          alcohol = alcohol * yScale * height;
+          alcohol = height - alcohol * yScale * height;
         }
         return alcohol;
       })
