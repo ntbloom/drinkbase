@@ -42,6 +42,7 @@
   --vizLabels: #444;
   --vizLines: #888;
   --vizCircleOutline: #999;
+  --vizBg: #c8c8c820;
 
   /* drinkViz drink types */
   --vizBubbly: #fcf5bf; /* eggshell */

@@ -3,7 +3,7 @@
 
 .bigPlot {
   visibility: visible;
-  background-color: rgba(200, 200, 200, 0.2);
+  background-color: var(--vizBg);
 }
 
 * {
@@ -42,4 +42,13 @@ div.tooltip {
 
 #drinkIngredients {
   font-size: 8pt;
+}
+
+#tooltip {
+  padding: 0.1em;
+  background-color: var(--vizBg);
+}
+
+#drinkStyle {
+  padding-right: 0.3em;
 }
