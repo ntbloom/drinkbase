@@ -14,9 +14,9 @@ class Drinkviz extends Component {
     this.state = {
       showRecipeCounter: 0,
       width: 600,
-      aspectRatio: 2 / 3,
+      aspectRatio: 4 / 3,
       scale: 1,
-      circSize: 2.5,
+      circSize: 2,
 
       //TODO: make SQL calculate these values
       maxSug: 0.82,
@@ -46,7 +46,8 @@ class Drinkviz extends Component {
     const allDrinks = this.props.allDrinks;
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
-    const height = this.state.width * this.state.aspectRatio * this.state.scale;
+    const height =
+      (this.state.width / this.state.aspectRatio) * this.state.scale;
 
     // for laying out data
 
@@ -181,7 +182,7 @@ class Drinkviz extends Component {
   // the tooltip functions
   highlight(d, i) {
     // eslint-disable-next-line
-    var circle = d3
+    const circle = d3
       .select("circle")
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
@@ -199,7 +200,7 @@ class Drinkviz extends Component {
 
   unhighlight(d, i) {
     // eslint-disable-next-line
-    var circle = d3
+    const circle = d3
       .select(circle)
       .attr("fill-opacity", function(d) {
         if (this.state.picks.includes(d.Name)) {
@@ -227,7 +228,7 @@ class Drinkviz extends Component {
             id="theDrinks"
             width={this.state.width * this.state.scale}
             height={
-              this.state.width * this.state.aspectRatio * this.state.scale
+              (this.state.width / this.state.aspectRatio) * this.state.scale
             }
           />
         </div>
