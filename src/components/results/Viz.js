@@ -181,9 +181,9 @@ class Drinkviz extends Component {
 
   // the tooltip functions
   highlight(d, i) {
-    // eslint-disable-next-line
     const circle = d3
-      .select("circle")
+      // eslint-disable-next-line
+      .select(circle)
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
 
@@ -199,17 +199,17 @@ class Drinkviz extends Component {
   }
 
   unhighlight(d, i) {
-    // eslint-disable-next-line
     const circle = d3
+      // eslint-disable-next-line
       .select(circle)
-      .attr("fill-opacity", function(d) {
+      .attr("fill-opacity", d => {
         if (this.state.picks.includes(d.Name)) {
-          return 0.95;
+          return 0.98;
         } else {
-          return 0.05;
+          return 0.02;
         }
       })
-      .attr("stroke-width", function(d) {
+      .attr("stroke-width", d => {
         if (this.state.picks.includes(d.Name)) {
           return 0.75;
         } else {
