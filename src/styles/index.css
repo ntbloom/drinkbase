@@ -104,6 +104,7 @@ footer {
 #drinkname {
   color: var(--main-accent-color);
   font-weight: bold;
+  cursor: pointer;
 }
 #ingreds {
   font-size: 80%;
