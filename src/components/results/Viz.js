@@ -25,6 +25,7 @@ class Drinkviz extends Component {
       minAlc: 0.25,
     };
     // you need to bind your functions before declarations
+    this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
     this.highlight = this.highlight.bind(this);
     this.unhighlight = this.unhighlight.bind(this);
@@ -32,6 +33,7 @@ class Drinkviz extends Component {
 
   // gets called on first load
   componentDidMount() {
+    this.drawAxes();
     this.drawPlot();
   }
 
@@ -39,17 +41,11 @@ class Drinkviz extends Component {
   componentDidUpdate() {
     this.drawPlot();
   }
-
-  drawPlot() {
-    // getting data, defining variables
-    const picks = this.props.picks;
-    const allDrinks = this.props.allDrinks;
+  drawAxes() {
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
     const height =
       (this.state.width / this.state.aspectRatio) * this.state.scale;
-
-    // for laying out data
 
     // drawing the gridlines and axes
     drinksSVG // x-axis
@@ -90,6 +86,18 @@ class Drinkviz extends Component {
         "transform",
         "rotate(270 ".concat(width * 0.946, " ", height * 0.468, ")"),
       );
+  }
+
+  drawPlot() {
+    // getting data, defining variables
+    const picks = this.props.picks;
+    const allDrinks = this.props.allDrinks;
+    const drinksSVG = d3.select("#theDrinks");
+    const width = this.state.width * this.state.scale;
+    const height =
+      (this.state.width / this.state.aspectRatio) * this.state.scale;
+
+    // for laying out data
 
     drinksSVG.selectAll("circle").remove();
 
