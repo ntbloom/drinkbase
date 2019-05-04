@@ -500,72 +500,56 @@ Ode To Viceroy,blended scotch whiskey,oz,1.5
 Ode To Viceroy,falernum,oz,0.5
 Ode To Viceroy,lime juice,oz,0.5
 Ode To Viceroy,ginger syrup,oz,0.5
-Ode To Viceroy,lime wheel,garnish,1
-Montegomatica,overproof rum,oz,1.5
+Montegomatica,rum,oz,1.5
 Montegomatica,Fernet Branca,oz,1
 Montegomatica,falernum,oz,1
 Montegomatica,lime juice,oz,1
-Montegomatica,mint sprig,garnish,1
-Montegomatica,blackstrap rum,teaspoon,1
-Chartreuse Swizzle,Green Chartreuse,oz,1.5
+Montegomatica,blackstrap rum,tsp,1
+Chartreuse Swizzle,green Chartreuse,oz,1.5
 Chartreuse Swizzle,pineapple juice,oz,1
 Chartreuse Swizzle,lime juice,oz,0.75
 Chartreuse Swizzle,falernum,oz,0.5
-Chartreuse Swizzle,nutmeg,garnish,1
-Chartreuse Swizzle,mint sprig,garnish,1
-Landing Gear Fizz,Punt e Mes vermouth,oz,1
+Landing Gear Fizz,amaro,oz,1
 Landing Gear Fizz,falernum,oz,1
 Landing Gear Fizz,lime juice,oz,0.75
 Landing Gear Fizz,sherry,oz,0.5
-Landing Gear Fizz,lime wheel,garnish,1
-Landing Gear Fizz,mint sprig,garnish,1
 Jungle Bird,blackstrap rum,oz,1.5
 Jungle Bird,pineapple juice,oz,1.5
 Jungle Bird,Campari,oz,0.75
 Jungle Bird,lime juice,oz,0.5
 Jungle Bird,simple syrup,oz,0.5
-Jungle Bird,pineapple wedge,garnish,1
 Goslings Swizzle,aged rum,oz,1
 Goslings Swizzle,dark rum,oz,1
 Goslings Swizzle,orange juice,oz,1
 Goslings Swizzle,pineapple juice,oz,1
 Goslings Swizzle,falernum,oz,0.5
-Goslings Swizzle,Angostura bitters,dashes,3
-Goslings Swizzle,mint sprig,garnish,1
-Goslings Swizzle,orange peel,garnish,1
+Goslings Swizzle,Angostura bitters,dash,3
 Baker Street Swizzle,absinthe,oz,1.5
 Baker Street Swizzle,falernum,oz,0.75
 Baker Street Swizzle,Angostura bitters,oz,0.5
 Baker Street Swizzle,lemon juice,oz,0.5
-Baker Street Swizzle,mint leaves,each,7
-Baker Street Swizzle,mint sprig,garnish,1
+Baker Street Swizzle,muddled mint leaves,each,7
 Esplanade Swizzle,mezcal,oz,1
 Esplanade Swizzle,sherry,oz,1
 Esplanade Swizzle,lime juice,oz,0.75
 Esplanade Swizzle,falernum,oz,0.5
 Esplanade Swizzle,ginger syrup,oz,0.5
-Esplanade Swizzle,mint sprig,garnish,1
 Planter's Punch,dark rum,oz,1.5
 Planter's Punch,pineapple juice,oz,1
 Planter's Punch,lime juice,oz,0.5
 Planter's Punch,orange juice,oz,0.5
 Planter's Punch,simple syrup,oz,0.25
-Planter's Punch,pineapple wedge,garnish,1
-Planter's Punch,orange wheel,garnish,1
-Planter's Punch,mint sprig,garnish,1
 Cuba Kola,lime juice,oz,2
-Cuba Kola,overproof rum,oz,1.5
+Cuba Kola,rum,oz,1.5
 Cuba Kola,orange juice,oz,1
 Cuba Kola,dark rum,oz,1
-Cuba Kola,honey syrup,oz,0.75
+Cuba Kola,honey simple syrup,oz,0.75
 Cuba Kola,Angostura bitters,dash,1
-Cuba Kola,absinthe,dashes,6
-Cuba Kola,pineapple wedge,garnish,1
-Cuba Kola,cherry,garnish,1
+Cuba Kola,absinthe,dash,6
 100 Year-Old Cigar,aged rum,oz,1.75
 100 Year-Old Cigar,Cynar,oz,0.5
 100 Year-Old Cigar,Benedictine,oz,0.5
-100 Year-Old Cigar,Islay scotch whiskey,oz,0.25
+100 Year-Old Cigar,Islay Scotch whisky,oz,0.25
 100 Year-Old Cigar,Angostura bitters,dash,1
 100 Year-Old Cigar,absinthe,rinse,1
 Mai Tai,dark rum,oz,1
@@ -573,4 +557,3 @@ Mai Tai,aged rum,oz,1
 Mai Tai,lime juice,oz,1
 Mai Tai,orange curacao,oz,0.5
 Mai Tai,orgeat,oz,0.5
-Mai Tai,mint spring,garnish,1
