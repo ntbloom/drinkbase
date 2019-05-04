@@ -31,6 +31,9 @@ class Drinklist extends Component {
     } else {
       const listItems = drinks.map(drink => (
         <li id="drinkname" key={drinks.indexOf(drink).toString()}>
+          <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
+            <circle id="glass" cx="50%" cy="50%" r="7" fill="red" />
+          </svg>
           {drink.Name}
           <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
           <Recipe drinks={drinks} drink={drink.Name} />
