@@ -1,12 +1,12 @@
 /** @format */
 
-// searchforms/Index.js -- conditionally renders Name/Ingredient search
+// searchforms/IndexSearch.js -- conditionally renders Name/Ingredient search
 
 import React, { Component } from "react";
 import Namesearch from "./Namesearch";
 import Ingredientsearch from "./Ingredientsearch";
 
-class Index extends Component {
+class IndexSearch extends Component {
   render() {
     if (this.props.ingSearch === true) {
       return <Ingredientsearch viz={this.props.viz} />;
@@ -18,4 +18,4 @@ class Index extends Component {
   }
 }
 
-export default Index;
+export default IndexSearch;

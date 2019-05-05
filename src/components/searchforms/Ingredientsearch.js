@@ -3,7 +3,7 @@
 // Ingredientsearch.js -- search for drinks by ingredient
 
 import React, { Component } from "react";
-import Index from "../results/Index";
+import IndexResults from "../results/IndexResults";
 
 const url = "http://165.227.142.105:5000/api/v1.0/ingreds/";
 
@@ -66,7 +66,7 @@ class Ingredientsearch extends Component {
             </div>
           </form>
           <div>
-            <Index
+            <IndexResults
               query={this.state.query}
               url={url}
               submitted={this.state.submitted}

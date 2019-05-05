@@ -3,7 +3,7 @@
 // Namesearch, search for drinks by name, passes drinks to Results
 
 import React, { Component } from "react";
-import Index from "../results/Index";
+import IndexResults from "../results/IndexResults";
 
 const url = "http://165.227.142.105:5000/api/v1.0/names/?name=";
 
@@ -36,7 +36,7 @@ class Namesearch extends Component {
             />
           </label>
         </form>
-        <Index
+        <IndexResults
           query={this.state.value}
           url={url}
           submitted={this.state.submitted}

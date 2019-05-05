@@ -3,7 +3,7 @@
 // Main.js -- mainpage for loading drinkbase
 
 import React, { Component } from "react";
-import Index from "../searchforms/Index";
+import IndexSearch from "../searchforms/IndexSearch";
 
 class Navbar extends Component {
   constructor(props) {
@@ -99,7 +99,7 @@ class Navbar extends Component {
           alt="drinkBase"
           height="125"
         />
-        <Index
+        <IndexSearch
           ingSearch={this.state.ingSearch}
           nameSearch={this.state.nameSearch}
           viz={this.state.viz}
