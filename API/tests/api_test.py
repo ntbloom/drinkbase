@@ -81,7 +81,7 @@ class TestNameSearch(unittest.TestCase):
     def test_single_incl_and_excl9(self):
         self.assertEqual(
             api("ingreds/?incl=fernet&excl=whiskey"),
-            ["Hanky Panky", "Stazione Strega"]
+            ["Hanky Panky", "Montegomatica", "Stazione Strega"]
             )
     def test_multiple_incl_single_excl10(self):
         self.assertEqual(
