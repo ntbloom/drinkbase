@@ -302,7 +302,7 @@ class DrinkBase:
         return data
 
     def sendRecipe(self, drinks):
-        '''returns full recipe for 'drinks' as JSON'''
+        '''returns full dataset for list of 'drinks' as JSON'''
         
         drinkList = []
         for i in drinks:

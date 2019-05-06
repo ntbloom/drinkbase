@@ -7,10 +7,13 @@ from flask import Flask, request, make_response, jsonify
 ds = DrinkBase('drinkbase')
 app = Flask(__name__)
 
-@app.route('/api/v1.0/allDrinks', methods=['GET'])
-def allDrinks():
-    drinks = ds.sendAllDrinks()
-    return drinks
+@app.route('/api/v1.1/allDrinks/', methods=['GET'])
+def ingreds():
+    '''sends entire database as JSON'''
+    drinks = ds.allDrinks
+    drinkJSON = ds.sendRecipe(drinks)
+
+    return drinkJSON
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
 def ingreds():
