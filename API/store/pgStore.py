@@ -20,6 +20,10 @@ class DrinkBase:
         for i in self.cursor:
             temp.add(i[0])
         self.allDrinks = set(sorted(temp))
+    
+    def sendAllDrinks(self):
+        '''returns sorted list of all drink names'''
+        return self.allDrinks
 
     def calcBrightness(self, drink):
         '''returns brightness value for 'drink' as a float'''
@@ -298,7 +302,7 @@ class DrinkBase:
         return data
 
     def sendRecipe(self, drinks):
-        '''returns full recipe for 'drinks' as JSON'''
+        '''returns full dataset for list of 'drinks' as JSON'''
         
         drinkList = []
         for i in drinks:
