@@ -17,9 +17,15 @@ function pullIngreds(obj) {
 
 function getColor(drink) {
   // dynamically renders colors based on glass
+  const color = "black"; //TODO: change this
+  /*
   let style = drink.Data.Style;
   style = style.charAt(0).toUpperCase() + style.slice(1);
   const color = "var(--viz".concat(style);
+  //TODO: put back in printDrinks() 
+          <span id="ingreds">{pullIngreds(allDrinks.drink.Recipe)}</span>
+          <Recipe drinks={picks} drink={allDrinks.drink.Name} />
+  */
   return color;
 }
 
@@ -27,25 +33,25 @@ class Drinklist extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinks: this.props.drinks,
       showRecipe: false,
     };
     this.printDrinks = this.printDrinks.bind(this);
   }
 
   printDrinks() {
-    const drinks = this.props.drinks;
-    if (drinks.length === 0) {
+    // prints drink names with full recipes and other data
+    const allDrinks = this.props.allDrinks.Drinks;
+    const picks = this.props.picks.Names;
+
+    if (picks.length === 0) {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
-      const listItems = drinks.map(drink => (
-        <li id="drinkname" key={drinks.indexOf(drink).toString()}>
+      const listItems = picks.map(drink => (
+        <li id="drinkname" key={picks.indexOf(drink).toString()}>
           <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
             <circle id="glass" cx="50%" cy="50%" r="7" fill={getColor(drink)} />
           </svg>
-          {drink.Name}
-          <span id="ingreds">{pullIngreds(drink.Recipe)}</span>
-          <Recipe drinks={drinks} drink={drink.Name} />
+          {drink}
         </li>
       ));
       return <ul className="results">{listItems}</ul>;

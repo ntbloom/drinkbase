@@ -4,9 +4,8 @@
 
 import React, { Component } from "react";
 import Results from "./Results";
-import Loading from "../utilities/Loading";
 
-const nameUrl = "http://165.227.142.105:5000/api/v1.0/names/?name=";
+const allDrinksURL = "http://165.227.142.105:5000/api/v1.1/allDrinks/";
 
 class IndexResults extends Component {
   constructor(props) {
@@ -20,7 +19,7 @@ class IndexResults extends Component {
 
   getAllDrinks() {
     //gets all drinks for Viz
-    fetch(nameUrl)
+    fetch(allDrinksURL)
       .then(response => {
         return response.json();
       })
@@ -37,20 +36,16 @@ class IndexResults extends Component {
   }
 
   render() {
-    if (this.state.vizReady) {
-      return (
-        <div>
-          <Results
-            query={this.props.query}
-            url={this.props.url}
-            allDrinks={this.state.allDrinks}
-            viz={this.props.viz}
-          />
-        </div>
-      );
-    } else {
-      return <Loading />;
-    }
+    return (
+      <div>
+        <Results
+          query={this.props.query}
+          url={this.props.url}
+          allDrinks={this.state.allDrinks}
+          viz={this.props.viz}
+        />
+      </div>
+    );
   }
 }
 

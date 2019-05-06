@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import IndexResults from "../results/IndexResults";
 
-const url = "http://165.227.142.105:5000/api/v1.0/names/?name=";
+const url = "http://165.227.142.105:5000/api/v1.1/names/?name=";
 
 class Namesearch extends Component {
   constructor(props) {

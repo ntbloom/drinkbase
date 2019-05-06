@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import IndexResults from "../results/IndexResults";
 
-const url = "http://165.227.142.105:5000/api/v1.0/ingreds/";
+const url = "http://165.227.142.105:5000/api/v1.1/ingreds/";
 
 class Ingredientsearch extends Component {
   constructor(props) {
