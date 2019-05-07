@@ -24,7 +24,7 @@ function getColor(drink) {
   const color = "var(--viz".concat(style);
   //TODO: put back in printDrinks() 
           <span id="ingreds">{pullIngreds(allDrinks.drink.Recipe)}</span>
-          <Recipe drinks={picks} drink={allDrinks.drink.Name} />
+          <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
   */
   return color;
 }
@@ -40,7 +40,7 @@ class Drinklist extends Component {
 
   printDrinks() {
     // prints drink names with full recipes and other data
-    let allDrinks = this.props.allDrinks.Drinks;
+    const allDrinks = this.props.allDrinks.Drinks;
     const picks = this.props.picks.Names;
 
     if (picks.length === 0) {
@@ -53,7 +53,6 @@ class Drinklist extends Component {
           </svg>
           {drink}
           <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
-          <Recipe drinks={picks} drink={allDrinks[drink].Name} />
         </li>
       ));
       return <ul className="results">{listItems}</ul>;
