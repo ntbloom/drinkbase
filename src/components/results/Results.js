@@ -44,24 +44,20 @@ class Results extends Component {
     }
   }
   render() {
-    console.log("Results.js fetch response (picks):", this.state.picks);
+    //console.log("Results.js fetch response (picks):", this.state.picks);
+    const allDrinks = this.props.allDrinks;
+    const picks = this.state.picks;
     if (this.state.received && this.props.viz) {
       return (
         <div>
-          <Viz allDrinks={this.props.allDrinks} picks={this.state.picks} />
-          <Drinklist
-            allDrinks={this.props.allDrinks}
-            picks={this.state.picks}
-          />
+          <Viz allDrinks={allDrinks} picks={picks} />
+          <Drinklist allDrinks={allDrinks} picks={picks} />
         </div>
       );
     } else if (this.state.received) {
       return (
         <div>
-          <Drinklist
-            allDrinks={this.props.allDrinks}
-            picks={this.state.picks}
-          />
+          <Drinklist allDrinks={allDrinks} picks={picks} />
         </div>
       );
     } else {

@@ -40,7 +40,7 @@ class Drinklist extends Component {
 
   printDrinks() {
     // prints drink names with full recipes and other data
-    const allDrinks = this.props.allDrinks.Drinks;
+    let allDrinks = this.props.allDrinks.Drinks;
     const picks = this.props.picks.Names;
 
     if (picks.length === 0) {
@@ -52,6 +52,8 @@ class Drinklist extends Component {
             <circle id="glass" cx="50%" cy="50%" r="7" fill={getColor(drink)} />
           </svg>
           {drink}
+          <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
+          <Recipe drinks={picks} drink={allDrinks[drink].Name} />
         </li>
       ));
       return <ul className="results">{listItems}</ul>;
