@@ -24,7 +24,6 @@ function getColor(drink) {
   const color = "var(--viz".concat(style);
   //TODO: put back in printDrinks() 
           <span id="ingreds">{pullIngreds(allDrinks.drink.Recipe)}</span>
-          <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
   */
   return color;
 }
@@ -53,6 +52,7 @@ class Drinklist extends Component {
           </svg>
           {drink}
           <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
+          <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
         </li>
       ));
       return <ul className="results">{listItems}</ul>;
