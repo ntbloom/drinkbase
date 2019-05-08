@@ -55,7 +55,13 @@ class Drinklist extends Component {
           {drink}
           <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
           <div className="metrics">
-            <p>abv &#176;Bx drink units volume</p>
+            <p>
+              {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% alcohol by
+              volume |{" "}
+              {Math.round(allDrinks[drink].Data.Sweetness * 100, 1).toString()}%
+              sweet | {Math.round(allDrinks[drink].Data.Volume, 4).toString()}{" "}
+              ounces
+            </p>
           </div>
           <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
         </li>
