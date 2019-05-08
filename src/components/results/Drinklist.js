@@ -17,14 +17,10 @@ function pullIngreds(obj) {
 
 function getColor(drink) {
   // dynamically renders colors based on glass
-  const color = "black"; //TODO: change this
-  /*
   let style = drink.Data.Style;
   style = style.charAt(0).toUpperCase() + style.slice(1);
-  const color = "var(--viz".concat(style);
-  //TODO: put back in printDrinks() 
-          <span id="ingreds">{pullIngreds(allDrinks.drink.Recipe)}</span>
-  */
+  const color = "var(--viz".concat(style).concat(")");
+  console.log(color);
   return color;
 }
 
@@ -48,10 +44,19 @@ class Drinklist extends Component {
       const listItems = picks.map(drink => (
         <li id="drinkname" key={picks.indexOf(drink).toString()}>
           <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
-            <circle id="glass" cx="50%" cy="50%" r="7" fill={getColor(drink)} />
+            <circle
+              id="glass"
+              cx="50%"
+              cy="50%"
+              r="7"
+              fill={getColor(allDrinks[drink])}
+            />
           </svg>
           {drink}
           <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
+          <div className="metrics">
+            <p>abv &#176;Bx drink units volume</p>
+          </div>
           <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
         </li>
       ));
