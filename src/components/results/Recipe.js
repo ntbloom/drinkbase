@@ -88,7 +88,7 @@ class Recipe extends Component {
         {showRecipe ? (
           <div>{this.printRecipe()}</div>
         ) : (
-          <p className="hideshow">(show recipe)</p>
+          <p className="hideshow">(click to show full recipe)</p>
         )}
       </div>
     );

@@ -42,28 +42,38 @@ class Drinklist extends Component {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
       const listItems = picks.map(drink => (
-        <li id="drinkname" key={picks.indexOf(drink).toString()}>
-          <svg width="15" height="15" xmlns="http://www.w3.org/2000/svg">
-            <circle
-              id="glass"
-              cx="50%"
-              cy="50%"
-              r="7"
-              fill={getColor(allDrinks[drink])}
-            />
-          </svg>
-          {drink}
-          <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
-          <div className="metrics">
-            <p>
-              {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% alcohol by
-              volume |{" "}
-              {Math.round(allDrinks[drink].Data.Sweetness * 100, 1).toString()}%
-              sweet | {Math.round(allDrinks[drink].Data.Volume, 4).toString()}{" "}
-              ounces
-            </p>
+        <li key={picks.indexOf(drink).toString()}>
+          <div className="drinkWrapper">
+            <div className="glass">
+              <svg width="35" height="40" xmlns="http://www.w3.org/2000/svg">
+                <rect
+                  id="glass"
+                  width="100%"
+                  height="100%"
+                  rx="2"
+                  fill={getColor(allDrinks[drink])}
+                />
+              </svg>
+              <span id="glassStyle">{allDrinks[drink].Data.Style}</span>
+            </div>
+            <div className="nameData">
+              <span id="drinkName">{drink}</span>
+              <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
+              <div className="metrics">
+                <p>
+                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% alcohol by
+                  volume |{" "}
+                  {Math.round(
+                    allDrinks[drink].Data.Sweetness * 100,
+                    1,
+                  ).toString()}
+                  % sweet | {Math.ceil(allDrinks[drink].Data.Volume).toString()}{" "}
+                  ounces
+                </p>
+              </div>
+            </div>
+            <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
           </div>
-          <Recipe allDrinks={allDrinks} drink={allDrinks[drink]} />
         </li>
       ));
       return <ul className="results">{listItems}</ul>;

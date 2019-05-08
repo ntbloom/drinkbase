@@ -45,6 +45,7 @@
   --vizBg: #c8c8c820;
 
   /* drinkViz drink types */
+  --vizStirred: #a5693d; /* drinkBase orange */
   --vizBubbly: #fcf5bf; /* eggshell */
   --vizShaken: #100656; /* dark blue */
   --vizDoubleShake: #240ccc; /* light blue */
@@ -95,16 +96,28 @@ footer {
   font-weight: bold;
 }
 
-.hideshow {
-  margin: 0;
-  padding-top: -2em;
-  font-size: 75%;
-  font-style: normal;
-}
-#drinkname {
+/**/
+/**/
+/* where the drink name gets rendered on the screen */
+
+.drinkWrapper {
+  display: grid;
+  grid-template-columns: 6% 94%;
+  grid-template-rows: 50% 50%;
   color: var(--main-accent-color);
   font-weight: bold;
-  cursor: pointer;
+  padding-bottom: 2em;
+}
+.glass {
+}
+#glassStyle {
+  color: var(--main-text-color);
+  font-size: 70%;
+  font-weight: normal;
+  padding: 0em;
+}
+#drinkName {
+  font-size: 150%;
 }
 #ingreds {
   font-size: 80%;
@@ -113,18 +126,36 @@ footer {
   padding-left: 1em;
   font-style: italic;
 }
+.metrics {
+  color: var(--main-text-color);
+  font-weight: bold;
+  font-size: 80%;
+}
 .recipe {
   padding: 0;
+  grid-column: 2 /3;
   color: var(--main-text-color);
   font-weight: normal;
   margin: 0;
   margin-left: 0.5em;
   font-size: 90%;
   line-height: 0.5;
+  cursor: pointer;
 }
 #build {
   line-height: 1;
 }
+.hideshow {
+  margin: 0;
+  text-indent: 3em;
+  padding-top: -2em;
+  font-size: 75%;
+  font-style: normal;
+}
+
+/**/
+/**/
+/**/
 
 .searchforms {
   padding-left: 1em;
