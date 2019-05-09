@@ -19,6 +19,9 @@ function getColor(drink) {
   // dynamically renders colors based on glass
   let style = drink.Data.Style;
   style = style.charAt(0).toUpperCase() + style.slice(1);
+  if (style === "Double shake") {
+    style = "DoubleShake";
+  }
   const color = "var(--viz".concat(style).concat(")");
   console.log(color);
   return color;
@@ -31,6 +34,17 @@ class Drinklist extends Component {
       showRecipe: false,
     };
     this.printDrinks = this.printDrinks.bind(this);
+    this.displayStyle = this.displayStyle.bind(this);
+  }
+
+  displayStyle(drink, object) {
+    // returns html element with style name
+    const style = object[drink].Data.Style;
+    if (style === "double shake") {
+      return "egg white";
+    } else {
+      return style;
+    }
   }
 
   printDrinks() {
@@ -45,30 +59,36 @@ class Drinklist extends Component {
         <li key={picks.indexOf(drink).toString()}>
           <div className="drinkWrapper">
             <div className="glass">
-              <svg width="35" height="40" xmlns="http://www.w3.org/2000/svg">
+              <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                 <rect
                   id="glass"
-                  width="100%"
-                  height="100%"
+                  width="70%"
+                  height="80%"
                   rx="2"
                   fill={getColor(allDrinks[drink])}
                 />
               </svg>
-              <span id="glassStyle">{allDrinks[drink].Data.Style}</span>
             </div>
             <div className="nameData">
-              <span id="drinkName">{drink}</span>
-              <span id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</span>
+              <div id="drinkName">{drink}</div>
+              <div id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</div>
               <div className="metrics">
-                <p>
-                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% alcohol by
-                  volume |{" "}
+                <p id="ounces">
+                  {Math.ceil(allDrinks[drink].Data.Volume).toString()} ounces
+                </p>
+                <p id="pipe1">|</p>
+                <p id="drinkstyle">{this.displayStyle(drink, allDrinks)}</p>
+                <p id="pipe2">|</p>
+                <p id="abv">
+                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% abv
+                </p>
+                <p id="pipe3">|</p>
+                <p id="sweet">
                   {Math.round(
                     allDrinks[drink].Data.Sweetness * 100,
                     1,
                   ).toString()}
-                  % sweet | {Math.ceil(allDrinks[drink].Data.Volume).toString()}{" "}
-                  ounces
+                  % sweet
                 </p>
               </div>
             </div>
