@@ -73,17 +73,11 @@ class Drinklist extends Component {
               <div id="drinkName">{drink}</div>
               <div id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</div>
               <div className="metrics">
-                <p id="ounces">
-                  {Math.ceil(allDrinks[drink].Data.Volume).toString()} ounces
-                </p>
-                <p id="pipe1">|</p>
-                <p id="drinkstyle">{this.displayStyle(drink, allDrinks)}</p>
-                <p id="pipe2">|</p>
-                <p id="abv">
-                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% abv
-                </p>
-                <p id="pipe3">|</p>
-                <p id="sweet">
+                <p>
+                  {Math.ceil(allDrinks[drink].Data.Volume).toString()} ounces |
+                  {"  "}
+                  {this.displayStyle(drink, allDrinks)} |{"  "}
+                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% abv |{"  "}
                   {Math.round(
                     allDrinks[drink].Data.Sweetness * 100,
                     1,
