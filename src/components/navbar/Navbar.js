@@ -42,12 +42,10 @@ class Navbar extends Component {
       this.setState({ viz: false });
       element.innerHTML = "enable drinkViz <br/> (experimental)";
       element.style.borderBottom = "none";
-      console.log("viz:", this.state.viz);
     } else {
       this.setState({ viz: true });
       element.innerHTML = "disable drinkViz <br/> (experimental)";
       element.style.borderBottom = "3px solid var(--main-accent-color)";
-      console.log("viz:", this.state.viz);
     }
   }
 

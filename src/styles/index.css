@@ -1,7 +1,17 @@
 /* @format */
 /* index.css -- sitewide stylesheets */
 
+/* global imports */
+@import url("drinkViz.css");
+@import url("navbar.css");
+@import url("displayDrinks.css");
+@import url("spinner.css");
+
+/* media queries */
+
+/*for screens large enough to see drinkViz*/
 @media (max-width: 900px) {
+  @import url("vizGrid.css");
   html,
   .navbutton,
   .results {
@@ -11,15 +21,14 @@
     display: none;
   }
 }
+/* for mobile devices and smaller screens */
 @media (min-width: 901px) {
+  @import url("smallScreenResults.css");
   html {
     font-size: 16px;
   }
 }
 
-@import url("drinkViz.css");
-@import url("navbar.css");
-@import url("displayDrinks.css");
 /* colors:
  *  original charcoal: #4c4c4c
  *  burnt orange: #a5693d
@@ -27,6 +36,8 @@
  *  dark-mode egg-shell: #efeae5 
  *  complimentary blue: #100656
  */
+
+/* global variables, mostly colors */
 
 :root {
   /* main text/logo/nav color scheme */
@@ -55,6 +66,8 @@
   --vizDefault: #bbb; /* grey */
   --vizHot: red;
 }
+
+/* general styles */
 
 body {
   font-family: sans-serif;
@@ -85,10 +98,6 @@ footer {
   color: var(--main-accent-color);
 }
 
-.results {
-  padding-top: 2em;
-  padding-left: 0em;
-}
 #noResults {
   color: var(--main-accent-color);
   margin-left: 2em;
@@ -106,50 +115,4 @@ form input {
   border-style: 1px solid;
   border-radius: 2px;
   font-size: 100%;
-}
-
-/* Spinner Animations */
-
-#flute1 {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 1em;
-  bottom: 1em;
-  left: 1em;
-  right: 1em;
-  animation-duration: 1s;
-  animation-name: clinkR;
-  animation-iteration-count: infinite;
-}
-#flute2 {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  top: 1em;
-  bottom: 1em;
-  left: 0em;
-  animation-duration: 1s;
-  animation-name: clinkL;
-  animation-iteration-count: infinite;
-}
-@keyframes clinkR {
-  0% {
-    transform: rotate(0);
-  }
-  15% {
-    transform: rotate(20deg);
-  }
-}
-@keyframes clinkL {
-  0% {
-    transform: rotate(0);
-  }
-  15% {
-    transform: rotate(-20deg);
-  }
-}
-#loading {
-  position: absolute;
-  left: 7em;
 }

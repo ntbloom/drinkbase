@@ -53,7 +53,7 @@ class IndexResults extends Component {
 
   render() {
     return (
-      <div>
+      <div className="resultsWrapper">
         <Results
           query={this.props.query}
           url={this.props.url}
