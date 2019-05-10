@@ -23,7 +23,6 @@ function getColor(drink) {
     style = "DoubleShake";
   }
   const color = "var(--viz".concat(style).concat(")");
-  console.log(color);
   return color;
 }
 
