@@ -92,6 +92,8 @@ class Drinkviz extends Component {
     // getting data, defining variables
     const picks = this.props.picks;
     const allDrinks = this.props.allDrinks;
+    console.log(picks);
+    console.log(allDrinks);
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
     const height =
