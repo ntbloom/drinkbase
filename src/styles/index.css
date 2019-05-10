@@ -67,6 +67,23 @@
   --vizHot: red;
 }
 
+/* grid layout for results */
+.resultsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.results {
+  grid-column: 1 / 2;
+  grid-row: 1 / 1;
+}
+.drinkViz {
+  position: sticky;
+  top: 10%;
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
+}
+
 /* general styles */
 
 body {

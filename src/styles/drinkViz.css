@@ -6,13 +6,13 @@
   background-color: var(--vizBg);
 }
 
-* {
-  font-family: sans-serif;
-}
-
 div.tooltip {
   position: absolute;
   pointer-events: none;
+}
+
+text {
+  font-family: monospace;
 }
 
 #recipeBox {
