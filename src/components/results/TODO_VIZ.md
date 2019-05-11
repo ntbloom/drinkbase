@@ -2,11 +2,9 @@
 
 - onclick functionality? brings up recipe? maybe time for major UX decisions
 
-- put color bullet point (or img of glass type) to left of recipes
+- change color blocks to glasses
 
 - pick color scheme for hot and double-shaken drinks
-
-- make recipes to left of drinkViz
 
 - make shaker loader animation while drinkViz loads
 
