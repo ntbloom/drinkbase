@@ -47,7 +47,6 @@ class Results extends Component {
     //console.log("Results.js fetch response (picks):", this.state.picks);
     const allVizDrinks = this.props.allDrinks;
     const drinkList = this.props.drinkList;
-    console.log(drinkList);
     const picks = this.state.picks;
     if (this.state.received && this.props.viz) {
       return (

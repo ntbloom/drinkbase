@@ -49,7 +49,6 @@ class Drinklist extends Component {
   printDrinks() {
     // prints drink names with full recipes and other data
     const allDrinks = this.props.drinkList;
-    console.log(allDrinks);
     const picks = this.props.picks.Names;
 
     if (picks.length === 0) {

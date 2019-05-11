@@ -5,6 +5,22 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 
+function cleanID(name) {
+  // removes spaces & special chars for dynamic css-friendly IDs
+  const reAmp = /&/gi;
+  const reSpace = / /gi;
+  const reApos = /'/gi;
+  const reNum = /\d/gi;
+  const reHash = /#/gi;
+  const id = name
+    .replace(reAmp, "")
+    .replace(reSpace, "")
+    .replace(reApos, "")
+    .replace(reNum, "")
+    .replace(reHash, "");
+  return id;
+}
+
 class Drinkviz extends Component {
   constructor(props) {
     super(props);
@@ -92,8 +108,6 @@ class Drinkviz extends Component {
     // getting data, defining variables
     const picks = this.props.picks.Names;
     const allDrinks = this.props.allDrinks;
-    console.log(picks);
-    console.log(allDrinks);
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
     const height =
@@ -110,7 +124,10 @@ class Drinkviz extends Component {
       .data(allDrinks.Drinks)
       .enter()
       .append("circle")
-      .attr("id", "abvCircle")
+      .attr("id", d => {
+        const name = cleanID(d.Name);
+        return name;
+      })
 
       // circle outlines for selected drinks
       .attr("stroke-width", d => {
@@ -124,7 +141,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizCircleOutline)")
       .attr("fill-opacity", d => {
         if (picks.includes(d.Name)) {
-          return 0.8;
+          return 0.7;
         } else {
           return 0.1;
         }
@@ -188,9 +205,9 @@ class Drinkviz extends Component {
 
   // the tooltip functions
   highlight(d, i) {
+    // eslint-disable-next-line
     const circle = d3
-      // eslint-disable-next-line
-      .select(circle)
+      .select("#".concat(cleanID(d.Name)))
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
 
@@ -206,19 +223,20 @@ class Drinkviz extends Component {
   }
 
   unhighlight(d, i) {
+    const picks = this.props.picks.Names;
+    // eslint-disable-next-line
     const circle = d3
-      // eslint-disable-next-line
-      .select(circle)
+      .select("#".concat(cleanID(d.Name)))
       .attr("fill-opacity", d => {
-        if (this.state.picks.includes(d.Name)) {
-          return 0.98;
+        if (picks.includes(d.Name)) {
+          return 0.7;
         } else {
           return 0.02;
         }
       })
       .attr("stroke-width", d => {
-        if (this.state.picks.includes(d.Name)) {
-          return 0.75;
+        if (picks.includes(d.Name)) {
+          return 0.7;
         } else {
           return 0.2;
         }
