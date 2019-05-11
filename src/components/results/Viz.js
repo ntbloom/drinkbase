@@ -90,10 +90,10 @@ class Drinkviz extends Component {
 
   drawPlot() {
     // getting data, defining variables
-    const picks = this.props.picks;
+    const picks = this.props.picks.Names;
     const allDrinks = this.props.allDrinks;
-    //console.log(picks);
-    //console.log(allDrinks);
+    console.log(picks);
+    console.log(allDrinks);
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
     const height =

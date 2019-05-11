@@ -51,7 +51,7 @@ class Results extends Component {
       return (
         <div className="resultsWrapper">
           <Viz allDrinks={allDrinks} picks={picks} />
-          <Drinklist allDrinks={allDrinks} picks={picks} />
+          {/*<Drinklist allDrinks={allDrinks} picks={picks} />*/}
         </div>
       );
     } else if (this.state.received) {

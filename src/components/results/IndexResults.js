@@ -24,21 +24,8 @@ class IndexResults extends Component {
         return response.json();
       })
       .then(data => {
-        // put all data into cleaner JSON
-        const d = data.Drinks;
-        let allDrinks = {};
-        for (let i = 0; i < d.length; i++) {
-          let tempObj = {};
-          const name = d[i].Name;
-          const data = d[i].Data;
-          const recipe = d[i].Recipe;
-
-          tempObj["Data"] = data;
-          tempObj["Recipe"] = recipe;
-          allDrinks[name] = tempObj;
-        }
         this.setState({
-          allDrinks: { Drinks: allDrinks },
+          allDrinks: data,
           vizReady: true,
         });
       })
