@@ -45,19 +45,21 @@ class Results extends Component {
   }
   render() {
     //console.log("Results.js fetch response (picks):", this.state.picks);
-    const allDrinks = this.props.allDrinks;
+    const allVizDrinks = this.props.allDrinks;
+    const drinkList = this.props.drinkList;
+    console.log(drinkList);
     const picks = this.state.picks;
     if (this.state.received && this.props.viz) {
       return (
         <div className="resultsWrapper">
-          <Viz allDrinks={allDrinks} picks={picks} />
-          {/*<Drinklist allDrinks={allDrinks} picks={picks} />*/}
+          <Viz allDrinks={allVizDrinks} picks={picks} />
+          <Drinklist drinkList={drinkList} picks={picks} />
         </div>
       );
     } else if (this.state.received) {
       return (
         <div className="resultsWrapper">
-          <Drinklist allDrinks={allDrinks} picks={picks} />
+          <Drinklist drinkList={drinkList} picks={picks} />
         </div>
       );
     } else {
