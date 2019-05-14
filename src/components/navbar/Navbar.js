@@ -3,7 +3,7 @@
 // Main.js -- mainpage for loading drinkbase
 
 import React, { Component } from "react";
-import Index from "../searchforms/Index";
+import IndexSearch from "../searchforms/IndexSearch";
 
 class Navbar extends Component {
   constructor(props) {
@@ -42,12 +42,10 @@ class Navbar extends Component {
       this.setState({ viz: false });
       element.innerHTML = "enable drinkViz <br/> (experimental)";
       element.style.borderBottom = "none";
-      console.log("viz:", this.state.viz);
     } else {
       this.setState({ viz: true });
       element.innerHTML = "disable drinkViz <br/> (experimental)";
       element.style.borderBottom = "3px solid var(--main-accent-color)";
-      console.log("viz:", this.state.viz);
     }
   }
 
@@ -82,6 +80,7 @@ class Navbar extends Component {
             drink name
           </button>
 
+          {/*
           <button
             title="enable visualization aid (experimental)"
             className="navbutton"
@@ -92,6 +91,7 @@ class Navbar extends Component {
             <br />
             (experimental)
           </button>
+          */}
         </div>
         <img
           className="bigLogo"
@@ -99,7 +99,7 @@ class Navbar extends Component {
           alt="drinkBase"
           height="125"
         />
-        <Index
+        <IndexSearch
           ingSearch={this.state.ingSearch}
           nameSearch={this.state.nameSearch}
           viz={this.state.viz}

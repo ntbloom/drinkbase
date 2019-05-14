@@ -1,0 +1,46 @@
+/* @format */
+/* spinner.css -- stylesheets for loading spinner */
+
+#flute1 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 1em;
+  bottom: 1em;
+  left: 1em;
+  right: 1em;
+  animation-duration: 1s;
+  animation-name: clinkR;
+  animation-iteration-count: infinite;
+}
+#flute2 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 1em;
+  bottom: 1em;
+  left: 0em;
+  animation-duration: 1s;
+  animation-name: clinkL;
+  animation-iteration-count: infinite;
+}
+@keyframes clinkR {
+  0% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(20deg);
+  }
+}
+@keyframes clinkL {
+  0% {
+    transform: rotate(0);
+  }
+  15% {
+    transform: rotate(-20deg);
+  }
+}
+#loading {
+  position: absolute;
+  left: 7em;
+}

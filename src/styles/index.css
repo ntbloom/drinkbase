@@ -1,7 +1,17 @@
 /* @format */
 /* index.css -- sitewide stylesheets */
 
+/* global imports */
+@import url("drinkViz.css");
+@import url("navbar.css");
+@import url("displayDrinks.css");
+@import url("spinner.css");
+
+/* media queries */
+
+/*for screens large enough to see drinkViz*/
 @media (max-width: 900px) {
+  @import url("vizGrid.css");
   html,
   .navbutton,
   .results {
@@ -10,15 +20,17 @@
   #vizButton {
     display: none;
   }
+  #glass {
+    display: none;
+  }
 }
+/* for mobile devices and smaller screens */
 @media (min-width: 901px) {
+  @import url("smallScreenResults.css");
   html {
     font-size: 16px;
   }
 }
-
-@import url("drinkViz.css");
-@import url("navbar.css");
 
 /* colors:
  *  original charcoal: #4c4c4c
@@ -27,6 +39,8 @@
  *  dark-mode egg-shell: #efeae5 
  *  complimentary blue: #100656
  */
+
+/* global variables, mostly colors */
 
 :root {
   /* main text/logo/nav color scheme */
@@ -45,6 +59,7 @@
   --vizBg: #c8c8c820;
 
   /* drinkViz drink types */
+  --vizStirred: #a5693d; /* drinkBase orange */
   --vizBubbly: #fcf5bf; /* eggshell */
   --vizShaken: #100656; /* dark blue */
   --vizDoubleShake: #240ccc; /* light blue */
@@ -55,8 +70,27 @@
   --vizHot: red;
 }
 
+/* grid layout for results */
+.resultsWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+.results {
+  grid-column: 1 / 3;
+  grid-row: 1 / 1;
+}
+.drinkViz {
+  position: sticky;
+  top: 10%;
+  grid-column: 2 / 3;
+  grid-row: 1 / 1;
+}
+
+/* general styles */
+
 body {
-  font-family: impact, sans-serif;
+  font-family: sans-serif;
   background-color: var(--main-bg-color);
   color: var(--main-text-color);
   font-weight: normal;
@@ -84,46 +118,11 @@ footer {
   color: var(--main-accent-color);
 }
 
-.results {
-  padding-top: 2em;
-  padding-left: 0em;
-}
 #noResults {
   color: var(--main-accent-color);
   margin-left: 2em;
   font-size: 125%;
   font-weight: bold;
-}
-
-.hideshow {
-  margin: 0;
-  padding-top: -2em;
-  font-size: 75%;
-  font-style: normal;
-}
-#drinkname {
-  color: var(--main-accent-color);
-  font-weight: bold;
-  cursor: pointer;
-}
-#ingreds {
-  font-size: 80%;
-  color: var(--main-text-color);
-  font-weight: normal;
-  padding-left: 1em;
-  font-style: italic;
-}
-.recipe {
-  padding: 0;
-  color: var(--main-text-color);
-  font-weight: normal;
-  margin: 0;
-  margin-left: 0.5em;
-  font-size: 90%;
-  line-height: 0.5;
-}
-#build {
-  line-height: 1;
 }
 
 .searchforms {
@@ -136,8 +135,4 @@ form input {
   border-style: 1px solid;
   border-radius: 2px;
   font-size: 100%;
-}
-
-#glasss {
-  margin: 0;
 }

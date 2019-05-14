@@ -41,14 +41,11 @@ class Recipe extends Component {
 
   printRecipe() {
     const drink = this.props.drink;
-    const drinks = this.props.drinks;
     const recipeArray = [];
-    let recipe = drinks.filter(function(d) {
-      return d.Name === drink;
-    });
-    const garnish = <p>{recipe[0].Data.Garnish} garnish</p>;
-    const build = <p id="build">{recipe[0].Data.Build}</p>;
-    recipe = recipe[0].Recipe;
+    let recipe = drink.Recipe;
+    const garnish = <p>{drink.Data.Garnish} garnish</p>;
+    const build = <p id="build">{drink.Data.Build}</p>;
+
     for (let i = 0; i < recipe.length; i++) {
       let amount = fractionize(recipe[i].Amount);
       let unit = recipe[i].Unit;
@@ -90,7 +87,7 @@ class Recipe extends Component {
         {showRecipe ? (
           <div>{this.printRecipe()}</div>
         ) : (
-          <p className="hideshow">(show recipe)</p>
+          <p className="hideshow">(click to show full recipe)</p>
         )}
       </div>
     );

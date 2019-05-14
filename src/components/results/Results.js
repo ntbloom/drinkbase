@@ -4,7 +4,6 @@
 
 import React, { Component } from "react";
 import Drinklist from "./Drinklist";
-// eslint-disable-next-line
 import Viz from "./Viz";
 
 class Results extends Component {
@@ -25,12 +24,7 @@ class Results extends Component {
       response
         .json()
         .then(data => {
-          this.setState({ drinks: data });
-          let picks = [];
-          for (var i = 0; i < data.Drinks.length; i++) {
-            picks.push(data.Drinks[i].Name);
-          }
-          this.setState({ picks: picks, received: true });
+          this.setState({ picks: data, received: true });
         })
         .catch(error => {
           console.log("Fetch error in Results.js:", error);
@@ -39,7 +33,9 @@ class Results extends Component {
   }
 
   componentDidMount() {
-    this.apiCall();
+    if (this.state.received) {
+      this.apiCall();
+    }
   }
   componentDidUpdate(prevProps) {
     if (this.props.query !== prevProps.query) {
@@ -47,17 +43,21 @@ class Results extends Component {
     }
   }
   render() {
+    //console.log("Results.js fetch response (picks):", this.state.picks);
+    const allVizDrinks = this.props.allDrinks;
+    const drinkList = this.props.drinkList;
+    const picks = this.state.picks;
     if (this.state.received && this.props.viz) {
       return (
-        <div>
-          <Viz allDrinks={this.props.allDrinks} picks={this.state.picks} />
-          <Drinklist drinks={this.state.drinks.Drinks} />
+        <div className="resultsWrapper">
+          <Viz allDrinks={allVizDrinks} picks={picks} />
+          <Drinklist drinkList={drinkList} picks={picks} />
         </div>
       );
     } else if (this.state.received) {
       return (
-        <div>
-          <Drinklist drinks={this.state.drinks.Drinks} />
+        <div className="resultsWrapper">
+          <Drinklist drinkList={drinkList} picks={picks} />
         </div>
       );
     } else {

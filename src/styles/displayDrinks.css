@@ -1,0 +1,56 @@
+/* @format */
+/* displayDrinks.css -- displaying drink names and data on the screen*/
+
+.drinkWrapper {
+  display: grid;
+  grid-template-columns: 6% 94%;
+  grid-template-rows: auto;
+  color: var(--main-accent-color);
+  font-weight: bold;
+  padding-bottom: 2em;
+}
+.glass {
+}
+#drinkName {
+  font-size: 150%;
+}
+#ingreds {
+  font-size: 80%;
+  color: var(--main-text-color);
+  font-weight: normal;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  font-style: italic;
+}
+.metrics {
+  color: var(--main-text-color);
+  font-weight: bold;
+  font-size: 80%;
+  padding-left: 1em;
+}
+
+.recipe {
+  padding: 0;
+  grid-column: 2 / 3;
+  color: var(--main-text-color);
+  font-weight: normal;
+  margin: 0;
+  margin-left: 0.5em;
+  font-size: 90%;
+  line-height: 0.5;
+  cursor: pointer;
+}
+#build {
+  line-height: 1;
+}
+.hideshow {
+  margin: 0;
+  text-indent: 3em;
+  padding-top: -2em;
+  font-size: 75%;
+  font-style: normal;
+}
+
+.nameData {
+  padding-right: 1em;
+}
