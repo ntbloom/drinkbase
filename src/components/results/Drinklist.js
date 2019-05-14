@@ -92,7 +92,7 @@ class Drinklist extends Component {
           </div>
         </li>
       ));
-      return <ul className="results">{listItems}</ul>;
+      return <ul id="results">{listItems}</ul>;
     }
   }
   componentDidUpdate(prevProps) {

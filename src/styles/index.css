@@ -76,11 +76,12 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
-.results {
-  grid-column: 1 / 2;
+#results {
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row: 1 / 1;
 }
-.drinkViz {
+#drinkViz {
   position: sticky;
   top: 10%;
   grid-column: 2 / 3;

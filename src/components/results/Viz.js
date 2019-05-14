@@ -247,7 +247,7 @@ class Drinkviz extends Component {
   render() {
     return (
       <div>
-        <div className="drinkViz">
+        <div id="drinkViz">
           <svg
             className="bigPlot"
             id="theDrinks"
