@@ -5,7 +5,6 @@
 import React, { Component } from "react";
 import Drinklist from "./Drinklist";
 import Viz from "./Viz";
-import Loading from "../utilities/Loading";
 
 class Results extends Component {
   constructor(props) {
@@ -62,7 +61,7 @@ class Results extends Component {
         </div>
       );
     } else {
-      return <Loading />;
+      return null;
     }
   }
 }

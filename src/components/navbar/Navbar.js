@@ -10,8 +10,8 @@ class Navbar extends Component {
     super(props);
     this.state = {
       ingSearch: false,
-      nameSearch: true,
-      viz: true,
+      nameSearch: false,
+      viz: false,
     };
     this.setIngSearch = this.setIngSearch.bind(this);
     this.setNameSearch = this.setNameSearch.bind(this);
@@ -80,6 +80,7 @@ class Navbar extends Component {
             drink name
           </button>
 
+          {/*
           <button
             title="enable visualization aid (experimental)"
             className="navbutton"
@@ -90,6 +91,7 @@ class Navbar extends Component {
             <br />
             (experimental)
           </button>
+          */}
         </div>
         <img
           className="bigLogo"

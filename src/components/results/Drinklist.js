@@ -74,14 +74,17 @@ class Drinklist extends Component {
               <div className="metrics">
                 <p>
                   {Math.ceil(allDrinks[drink].Data.Volume).toString()} ounces |
-                  {"  "}
-                  {this.displayStyle(drink, allDrinks)} |{"  "}
-                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% abv |{"  "}
+                  {"    "}
+                  {this.displayStyle(drink, allDrinks)} |{"    "}
+                  {Math.round(allDrinks[drink].Data.ABV * 100, 1)}% abv
+                  {/* 
+                  |{"  "}
                   {Math.round(
                     allDrinks[drink].Data.Sweetness * 100,
                     1,
                   ).toString()}
-                  % sweet
+                  % sweet*
+                  */}
                 </p>
               </div>
             </div>

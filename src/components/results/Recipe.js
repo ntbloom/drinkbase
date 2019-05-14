@@ -41,7 +41,6 @@ class Recipe extends Component {
 
   printRecipe() {
     const drink = this.props.drink;
-    console.log("drink:", drink);
     const recipeArray = [];
     let recipe = drink.Recipe;
     const garnish = <p>{drink.Data.Garnish} garnish</p>;
