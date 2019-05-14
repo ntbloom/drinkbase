@@ -41,6 +41,7 @@ class Drinkviz extends Component {
       minAlc: 0.25,
     };
     // you need to bind your functions before declarations
+    this.calcAxes = this.calcAxes.bind(this);
     this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
     this.highlight = this.highlight.bind(this);
@@ -49,6 +50,7 @@ class Drinkviz extends Component {
 
   // gets called on first load
   componentDidMount() {
+    this.calcAxes();
     this.drawAxes();
     this.drawPlot();
   }
@@ -57,6 +59,27 @@ class Drinkviz extends Component {
   componentDidUpdate() {
     this.drawPlot();
   }
+  calcAxes() {
+    // sends min and max sugar and alcohol values to setState for graph axes
+    const drinks = this.props.allDrinks.Drinks;
+    const sug = [];
+    const alc = [];
+    for (let i = 0; i < drinks.length; i++) {
+      sug.push(drinks[i].Data.Sweetness);
+      alc.push(drinks[i].Data.AlcoholUnits);
+    }
+    sug.sort();
+    alc.sort();
+    console.log(sug[0]);
+    this.setState({
+      minSug: sug[0],
+      maxSug: sug[sug.length - 1],
+      minAlc: alc[0],
+      maxAlc: alc[alc.length - 1],
+    });
+    console.log(this.state);
+  }
+
   drawAxes() {
     const drinksSVG = d3.select("#theDrinks");
     const width = this.state.width * this.state.scale;
