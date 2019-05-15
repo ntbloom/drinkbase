@@ -33,14 +33,8 @@ class Drinkviz extends Component {
       aspectRatio: 4 / 3,
       scale: 1,
       circSize: 2,
-
-      //TODO: make SQL calculate these values
-      maxSug: 0.82,
-      minSug: 0,
-      maxAlc: 1.5,
-      minAlc: 0.25,
     };
-    // you need to bind your functions before declarations
+    // bind functions to component
     this.calcAxes = this.calcAxes.bind(this);
     this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
@@ -85,7 +79,8 @@ class Drinkviz extends Component {
     const width = this.state.width * this.state.scale;
     const height =
       (this.state.width / this.state.aspectRatio) * this.state.scale;
-
+    console.log("width:", width);
+    console.log("height:", height);
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
@@ -103,7 +98,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizLines)");
     drinksSVG // x-axis label
       .append("text")
-      .text("<- (less)        Sugar        (more) ->")
+      .text("Sugar")
       .attr("x", width * 0.5)
       .attr("y", height * 0.95)
       .attr("text-anchor", "middle")
@@ -113,7 +108,7 @@ class Drinkviz extends Component {
       .attr("opacity", 0.4);
     drinksSVG // y-axis label
       .append("text")
-      .text("<- (less)        Alcohol        (more) ->")
+      .text("Alcohol")
       .attr("x", width * 0.95)
       .attr("y", -325)
       .attr("text-anchor", "middle")
