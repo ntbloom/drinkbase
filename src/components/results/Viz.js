@@ -218,25 +218,28 @@ class Drinkviz extends Component {
       })
 
       .on("mouseover", this.highlight)
-      .on("mouseout", this.unhighlight);
+    .on("mouseout", this.unhighlight);
   }
 
   // the tooltip functions
   highlight(d, i) {
+    const id = document.getElementById(cleanID(d.Name));
+    const fill = window.getComputedStyle(id).fill;
     // eslint-disable-next-line
     const circle = d3
-      .select("#".concat(cleanID(d.Name)))
+      .select(id)
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
       .style("left", d3.event.pageX + 5 + "px")
       .style("top", d3.event.pageY - 30 + "px")
-      //.text(d.Name)
+    //.text(d.Name)
+      .style("background-color", fill)
       .style("visibility", "visible");
 
     d3.select("#drinkName").text(d.Name);
-    d3.select("#drinkStyle").text(d.Data.Style);
+    //d3.select("#drinkStyle").text(d.Data.Style);
     d3.select("#drinkIngredients").text(d.Data.IngredientString);
   }
 
