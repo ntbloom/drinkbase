@@ -69,7 +69,13 @@ class Drinklist extends Component {
               </svg>
             </div>
             <div className="nameData">
-              <div id="drinkName">{drink}</div>
+              <div
+                id="drinkName"
+                onMouseOver={console.log("hovering over", drink)}
+                onMouseLeave={console.log("leaving", drink)}
+              >
+                {drink}
+              </div>
               <div id="ingreds">{pullIngreds(allDrinks[drink].Recipe)}</div>
               <div className="metrics">
                 <p>

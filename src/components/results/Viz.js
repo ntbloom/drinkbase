@@ -87,7 +87,6 @@ class Drinkviz extends Component {
       minAlc: alc[0],
       maxAlc: alc[alc.length - 1],
     });
-    console.log(this.state);
   }
 
   drawAxes() {
@@ -241,6 +240,8 @@ class Drinkviz extends Component {
   highlight(d, i) {
     const id = document.getElementById(cleanID(d.Name));
     const fill = window.getComputedStyle(id).fill;
+    const width = this.state.width * this.state.scale;
+    const height = this.state.height * this.state.scale;
     // eslint-disable-next-line
     const circle = d3
       .select(id)
@@ -248,12 +249,8 @@ class Drinkviz extends Component {
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
-      /*
       .style("left", d3.event.pageX + 5 + "px")
       .style("top", d3.event.pageY - 100 + "px")
-      */
-      .style("left", "920px")
-      .style("top", "226px")
     //.text(d.Name)
     //     .style("background-color", fill)
       .style("visibility", "visible");
