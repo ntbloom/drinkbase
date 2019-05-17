@@ -7,6 +7,22 @@ import * as d3 from "d3";
 
 function cleanID(name) {
   // removes spaces & special chars for dynamic css-friendly IDs
+  const nums = {
+    1: "One",
+    2: "Two",
+    3: "Three",
+    4: "Four",
+    5: "Five",
+    6: "Six",
+    7: "Seven",
+    8: "Eight",
+    9: "Nine",
+    0: "Zero"
+  }
+  for (let i=0; i<10; i++) {
+    const re = new RegExp(i);
+    name = name.replace(re, nums[i]);
+  }
   const reAmp = /&/gi;
   const reSpace = / /gi;
   const reApos = /'/gi;
@@ -159,7 +175,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizCircleOutline)")
       .attr("fill-opacity", d => {
         if (picks.includes(d.Name)) {
-          return 0.7;
+          return 0.5;
         } else {
           return 0.1;
         }
@@ -218,7 +234,7 @@ class Drinkviz extends Component {
       })
 
       .on("mouseover", this.highlight)
-    .on("mouseout", this.unhighlight);
+      .on("mouseout", this.unhighlight);
   }
 
   // the tooltip functions
@@ -232,10 +248,14 @@ class Drinkviz extends Component {
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
+      /*
       .style("left", d3.event.pageX + 5 + "px")
-      .style("top", d3.event.pageY - 30 + "px")
+      .style("top", d3.event.pageY - 100 + "px")
+      */
+      .style("left", "920px")
+      .style("top", "226px")
     //.text(d.Name)
-      .style("background-color", fill)
+    //     .style("background-color", fill)
       .style("visibility", "visible");
 
     d3.select("#drinkName").text(d.Name);
