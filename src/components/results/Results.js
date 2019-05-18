@@ -3,7 +3,7 @@
 // Results, makes api call and passes results to drinklist
 
 import React, { Component } from "react";
-import Drinklist from "./Drinklist";
+import Info from "./Info";
 import Viz from "./Viz";
 
 class Results extends Component {
@@ -51,13 +51,13 @@ class Results extends Component {
       return (
         <div className="resultsWrapper">
           <Viz allDrinks={allVizDrinks} picks={picks} />
-          <Drinklist drinkList={drinkList} picks={picks} />
+          <Info drinkList={drinkList} picks={picks} />
         </div>
       );
     } else if (this.state.received) {
       return (
         <div className="resultsWrapper">
-          <Drinklist drinkList={drinkList} picks={picks} />
+          <Info drinkList={drinkList} picks={picks} />
         </div>
       );
     } else {
