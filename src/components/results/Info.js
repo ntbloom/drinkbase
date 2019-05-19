@@ -16,7 +16,7 @@ class Info extends Component {
 
   printDrinks() {
     // prints drink names with full recipes and other data
-    //const allDrinks = this.props.drinkList;
+    // const allDrinks = this.props.drinkList;
     const picks = this.props.picks.Names;
     if (picks.length === 0) {
       return <p id="noResults">Sorry, no drinks match your results</p>;

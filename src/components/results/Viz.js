@@ -17,9 +17,9 @@ function cleanID(name) {
     7: "Seven",
     8: "Eight",
     9: "Nine",
-    0: "Zero"
-  }
-  for (let i=0; i<10; i++) {
+    0: "Zero",
+  };
+  for (let i = 0; i < 10; i++) {
     const re = new RegExp(i);
     name = name.replace(re, nums[i]);
   }
@@ -248,8 +248,8 @@ class Drinkviz extends Component {
     d3.select("#tooltip")
       .style("left", d3.event.pageX + 5 + "px")
       .style("top", d3.event.pageY - 100 + "px")
-    //.text(d.Name)
-    //     .style("background-color", fill)
+      //.text(d.Name)
+      //     .style("background-color", fill)
       .style("visibility", "visible");
 
     d3.select("#drinkName").text(d.Name);
@@ -282,7 +282,7 @@ class Drinkviz extends Component {
   render() {
     return (
       <div>
-        <div> 
+        <div>
           <svg
             className="bigPlot"
             id="theDrinks"

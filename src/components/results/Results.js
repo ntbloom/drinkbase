@@ -54,7 +54,7 @@ class Results extends Component {
             <Viz allDrinks={allVizDrinks} picks={picks} />
           </div>
           <div id="results">
-          <Info drinkList={drinkList} picks={picks} />
+            <Info drinkList={drinkList} picks={picks} />
           </div>
         </div>
       );
