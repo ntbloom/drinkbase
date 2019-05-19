@@ -50,14 +50,20 @@ class Results extends Component {
     if (this.state.received && this.props.viz) {
       return (
         <div className="resultsWrapper">
-          <Viz allDrinks={allVizDrinks} picks={picks} />
+          <div id="drinkViz">
+            <Viz allDrinks={allVizDrinks} picks={picks} />
+          </div>
+          <div id="results">
           <Info drinkList={drinkList} picks={picks} />
+          </div>
         </div>
       );
     } else if (this.state.received) {
       return (
         <div className="resultsWrapper">
-          <Info drinkList={drinkList} picks={picks} />
+          <div id="justInfo">
+            <Info drinkList={drinkList} picks={picks} />
+          </div>
         </div>
       );
     } else {

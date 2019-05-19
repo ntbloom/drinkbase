@@ -80,7 +80,6 @@ class Drinkviz extends Component {
     }
     sug.sort();
     alc.sort();
-    console.log(sug[0]);
     this.setState({
       minSug: sug[0],
       maxSug: sug[sug.length - 1],
@@ -94,8 +93,6 @@ class Drinkviz extends Component {
     const width = this.state.width * this.state.scale;
     const height =
       (this.state.width / this.state.aspectRatio) * this.state.scale;
-    console.log("width:", width);
-    console.log("height:", height);
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
@@ -285,7 +282,7 @@ class Drinkviz extends Component {
   render() {
     return (
       <div>
-        <div id="drinkViz">
+        <div> 
           <svg
             className="bigPlot"
             id="theDrinks"

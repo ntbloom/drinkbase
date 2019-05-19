@@ -49,7 +49,6 @@ class Navbar extends Component {
           drinkList: drinkList,
           vizReady: true,
         });
-        console.log("fetch is ready");
       })
       .catch(error => {
         console.log("Fetch error in IndexResults.js:", error);
