@@ -7,6 +7,22 @@ import * as d3 from "d3";
 
 function cleanID(name) {
   // removes spaces & special chars for dynamic css-friendly IDs
+  const nums = {
+    1: "One",
+    2: "Two",
+    3: "Three",
+    4: "Four",
+    5: "Five",
+    6: "Six",
+    7: "Seven",
+    8: "Eight",
+    9: "Nine",
+    0: "Zero"
+  }
+  for (let i=0; i<10; i++) {
+    const re = new RegExp(i);
+    name = name.replace(re, nums[i]);
+  }
   const reAmp = /&/gi;
   const reSpace = / /gi;
   const reApos = /'/gi;
@@ -33,14 +49,8 @@ class Drinkviz extends Component {
       aspectRatio: 4 / 3,
       scale: 1,
       circSize: 2,
-
-      //TODO: make SQL calculate these values
-      maxSug: 0.82,
-      minSug: 0,
-      maxAlc: 1.5,
-      minAlc: 0.25,
     };
-    // you need to bind your functions before declarations
+    // bind functions to component
     this.calcAxes = this.calcAxes.bind(this);
     this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
@@ -77,7 +87,6 @@ class Drinkviz extends Component {
       minAlc: alc[0],
       maxAlc: alc[alc.length - 1],
     });
-    console.log(this.state);
   }
 
   drawAxes() {
@@ -85,7 +94,8 @@ class Drinkviz extends Component {
     const width = this.state.width * this.state.scale;
     const height =
       (this.state.width / this.state.aspectRatio) * this.state.scale;
-
+    console.log("width:", width);
+    console.log("height:", height);
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
@@ -103,7 +113,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizLines)");
     drinksSVG // x-axis label
       .append("text")
-      .text("<- (less)        Sugar        (more) ->")
+      .text("Sugar")
       .attr("x", width * 0.5)
       .attr("y", height * 0.95)
       .attr("text-anchor", "middle")
@@ -113,7 +123,7 @@ class Drinkviz extends Component {
       .attr("opacity", 0.4);
     drinksSVG // y-axis label
       .append("text")
-      .text("<- (less)        Alcohol        (more) ->")
+      .text("Alcohol")
       .attr("x", width * 0.95)
       .attr("y", -325)
       .attr("text-anchor", "middle")
@@ -164,7 +174,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizCircleOutline)")
       .attr("fill-opacity", d => {
         if (picks.includes(d.Name)) {
-          return 0.7;
+          return 0.5;
         } else {
           return 0.1;
         }
@@ -228,20 +238,25 @@ class Drinkviz extends Component {
 
   // the tooltip functions
   highlight(d, i) {
+    const id = document.getElementById(cleanID(d.Name));
+    const fill = window.getComputedStyle(id).fill;
+    const width = this.state.width * this.state.scale;
+    const height = this.state.height * this.state.scale;
     // eslint-disable-next-line
     const circle = d3
-      .select("#".concat(cleanID(d.Name)))
+      .select(id)
       .attr("fill-opacity", 1)
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
       .style("left", d3.event.pageX + 5 + "px")
-      .style("top", d3.event.pageY - 30 + "px")
-      //.text(d.Name)
+      .style("top", d3.event.pageY - 100 + "px")
+    //.text(d.Name)
+    //     .style("background-color", fill)
       .style("visibility", "visible");
 
     d3.select("#drinkName").text(d.Name);
-    d3.select("#drinkStyle").text(d.Data.Style);
+    //d3.select("#drinkStyle").text(d.Data.Style);
     d3.select("#drinkIngredients").text(d.Data.IngredientString);
   }
 

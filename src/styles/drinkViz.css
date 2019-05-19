@@ -46,7 +46,9 @@ text {
 
 #tooltip {
   padding: 0.1em;
-  background-color: var(--vizBg);
+  /*
+  background-color: var(--vizBubbly);
+  */
 }
 
 #drinkStyle {
