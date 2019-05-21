@@ -4,6 +4,7 @@
 
 import React, { Component } from "react";
 import Recipe from "./Recipe";
+import { cleanID } from "./Viz";
 
 function pullIngreds(obj) {
   // converts ingredient object into an array
@@ -23,6 +24,7 @@ class Drink extends Component {
     };
     this.displayStyle = this.displayStyle.bind(this);
     this.getColor = this.getColor.bind(this);
+    this.accentViz = this.accentViz.bind(this);
   }
 
   getColor() {
@@ -37,6 +39,7 @@ class Drink extends Component {
     const color = "var(--viz".concat(style).concat(")");
     return color;
   }
+
   displayStyle() {
     // returns html element with style name
     const drink = this.props.name;
@@ -49,11 +52,18 @@ class Drink extends Component {
     }
   }
 
+  accentViz(bool) {
+    // accents viz elements on mouseover or click
+    const circle = document.getElementById(cleanID(this.props.name));
+    circle.style.strokeWidth = "4";
+    circle.style.fillOpacity = "1";
+  }
+
   render() {
     const name = this.props.name;
     const allDrinks = this.props.allDrinks;
     return (
-      <div className="drinkWrapper">
+      <div className="drinkWrapper" onMouseEnter={this.accentViz}>
         <div className="glass">
           <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
             <rect

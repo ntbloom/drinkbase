@@ -5,7 +5,7 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 
-function cleanID(name) {
+export function cleanID(name) {
   // removes spaces & special chars for dynamic css-friendly IDs
   const nums = {
     1: "One",
@@ -246,7 +246,7 @@ class Drinkviz extends Component {
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
-      .style("left", d3.event.pageX + 5 + "px")
+      .style("left", 100)
       .style("top", d3.event.pageY - 100 + "px")
       //.text(d.Name)
       //     .style("background-color", fill)
