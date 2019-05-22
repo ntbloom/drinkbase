@@ -23,17 +23,8 @@ export function cleanID(name) {
     const re = new RegExp(i);
     name = name.replace(re, nums[i]);
   }
-  const reAmp = /&/gi;
-  const reSpace = / /gi;
-  const reApos = /'/gi;
-  const reNum = /\d/gi;
-  const reHash = /#/gi;
-  const id = name
-    .replace(reAmp, "")
-    .replace(reSpace, "")
-    .replace(reApos, "")
-    .replace(reNum, "")
-    .replace(reHash, "");
+  // removes special chars
+  const id = name.replace(/[^\w]/gi, "");
   return id;
 }
 
