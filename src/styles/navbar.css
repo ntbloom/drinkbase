@@ -31,3 +31,8 @@
   vertical-align: top;
   margin-right: 2em;
 }
+
+.navbutton:hover {
+  color: var(--main-accent-color);
+  cursor: pointer;
+}

@@ -4,10 +4,36 @@
 
 import React, { Component } from "react";
 
+function interim(name) {
+  // interim function while I figure out routing
+  const string = name.concat(
+    " not working yet but I'm glad you thought I was capable enough that you tried clicking it anyway.",
+  );
+  window.alert(string);
+}
+
 class Welcome extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+
+    this.clickIng = this.clickIng.bind(this);
+    this.clickName = this.clickName.bind(this);
+    this.clickRand = this.clickRand.bind(this);
+  }
+  clickIng() {
+    //click handler for ingredient button
+
+    interim("Ingredient search");
+  }
+
+  clickName() {
+    // click handler for name button
+    interim("Name search");
+  }
+
+  clickRand() {
+    // click handler for random button
+    interim("Random drink finder");
   }
 
   render() {
@@ -19,10 +45,21 @@ class Welcome extends Component {
           alt="drinkBase"
           height="125"
         />
-        <h1>Welcome to drinkBase, click a button below to get started</h1>
-        <button>Show me drinks that match what's in my bar</button>
-        <button>I want to find a recipe for a drink I already know</button>
-        <button>Uggh, too many choices. You pick one</button>
+        <div className="welcome">
+          <button type="button" id="welcomeIng" onClick={this.clickIng}>
+            Show me drinks that
+            <br /> match what's in my bar
+          </button>
+          <button type="button" id="welcomeName" onClick={this.clickName}>
+            I want to find a recipe for
+            <br /> a drink I already know
+          </button>
+          <button type="button" id="welcomeRand" onClick={this.clickRand}>
+            Uggh, can <i>you </i>just
+            <br />
+            pick one?
+          </button>
+        </div>
       </div>
     );
   }

@@ -1,0 +1,27 @@
+/* @format */
+
+.welcome button {
+  height: 10em;
+  width: 15em;
+  font-size: 1em;
+  margin: 0.5em;
+  background-color: var(--main-bg-color);
+  border-color: var(--main-accent-color);
+  border-radius: 10px;
+  transition-duration: 0.2s;
+}
+
+#welcomeIng {
+  margin-left: 1em;
+}
+
+.welcome button:hover {
+  color: var(--main-bg-color);
+  background-color: var(--main-accent-color);
+  cursor: pointer;
+}
+
+.welcome h2 {
+  text-align: left;
+  padding: 1em;
+}
