@@ -48,13 +48,17 @@ class Drink extends Component {
 
   getOrigStyle() {
     // stores original styles for drink circles before mouse events
-    const circle = document.getElementById(cleanID(this.props.name));
-    const origStrokeWidth = circle.style.strokeWidth;
-    const origFillOpacity = circle.style.fillOpacity;
-    this.setState({
-      origStrokeWidth: origStrokeWidth,
-      origFillOpacity: origFillOpacity,
-    });
+    if (this.props.viz) {
+      const circle = document.getElementById(cleanID(this.props.name));
+      const origStrokeWidth = circle.style.strokeWidth;
+      const origFillOpacity = circle.style.fillOpacity;
+      this.setState({
+        origStrokeWidth: origStrokeWidth,
+        origFillOpacity: origFillOpacity,
+      });
+    } else {
+      return null;
+    }
   }
 
   displayStyle() {
@@ -71,23 +75,27 @@ class Drink extends Component {
 
   accentViz() {
     // accents viz elements on mouseover or click
-    const circle = document.getElementById(cleanID(this.props.name));
-    let bool = 2;
-    if (this.state.hover) {
-      this.setState({ hover: false });
-      bool = 0;
+    if (this.props.viz) {
+      const circle = document.getElementById(cleanID(this.props.name));
+      let bool = 2;
+      if (this.state.hover) {
+        this.setState({ hover: false });
+        bool = 0;
+      } else {
+        this.setState({
+          hover: true,
+        });
+        bool = 1;
+      }
+      if (bool === 1) {
+        circle.style.strokeWidth = "4";
+        circle.style.fillOpacity = "1";
+      } else {
+        circle.style.strokeWidth = this.state.origStrokeWidth;
+        circle.style.fillOpacity = this.state.origFillOpacity;
+      }
     } else {
-      this.setState({
-        hover: true,
-      });
-      bool = 1;
-    }
-    if (bool === 1) {
-      circle.style.strokeWidth = "4";
-      circle.style.fillOpacity = "1";
-    } else {
-      circle.style.strokeWidth = this.state.origStrokeWidth;
-      circle.style.fillOpacity = this.state.origFillOpacity;
+      return null;
     }
   }
 
