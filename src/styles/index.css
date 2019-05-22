@@ -73,23 +73,24 @@
 /* grid layout for results */
 .resultsWrapper {
   display: grid;
+  position: sticky;
+  top: 0;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr;
 }
-#results {  /* only used when Viz enabled */
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row: 1 / 1;
+#results {
+  /* only used when Viz enabled */
+  grid-column: 2 / 3;
+  grid-row: 1;
   padding-top: 1em;
 }
-#justInfo { /* used when Viz disabled */
+#justInfo {
+  /* used when Viz disabled */
   grid-column: 1 / 3;
 }
 #drinkViz {
-  position: sticky;
-  top: 10%;
-  grid-column: 2 / 3;
-  grid-row: 1 / 1;
+  grid-column: 1 / 1;
+  grid-row: 1;
   padding-top: 1em;
   padding-right: 1em;
 }
