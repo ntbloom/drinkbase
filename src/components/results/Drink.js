@@ -21,10 +21,16 @@ class Drink extends Component {
     super(props);
     this.state = {
       showRecipe: false,
+      hover: false,
     };
     this.displayStyle = this.displayStyle.bind(this);
     this.getColor = this.getColor.bind(this);
+    this.getOrigStyle = this.getOrigStyle.bind(this);
     this.accentViz = this.accentViz.bind(this);
+  }
+
+  componentDidMount() {
+    this.getOrigStyle();
   }
 
   getColor() {
@@ -40,6 +46,17 @@ class Drink extends Component {
     return color;
   }
 
+  getOrigStyle() {
+    // stores original styles for drink circles before mouse events
+    const circle = document.getElementById(cleanID(this.props.name));
+    const origStrokeWidth = circle.style.strokeWidth;
+    const origFillOpacity = circle.style.fillOpacity;
+    this.setState({
+      origStrokeWidth: origStrokeWidth,
+      origFillOpacity: origFillOpacity,
+    });
+  }
+
   displayStyle() {
     // returns html element with style name
     const drink = this.props.name;
@@ -52,18 +69,37 @@ class Drink extends Component {
     }
   }
 
-  accentViz(bool) {
+  accentViz() {
     // accents viz elements on mouseover or click
     const circle = document.getElementById(cleanID(this.props.name));
-    circle.style.strokeWidth = "4";
-    circle.style.fillOpacity = "1";
+    let bool = 2;
+    if (this.state.hover) {
+      this.setState({ hover: false });
+      bool = 0;
+    } else {
+      this.setState({
+        hover: true,
+      });
+      bool = 1;
+    }
+    if (bool === 1) {
+      circle.style.strokeWidth = "4";
+      circle.style.fillOpacity = "1";
+    } else {
+      circle.style.strokeWidth = this.state.origStrokeWidth;
+      circle.style.fillOpacity = this.state.origFillOpacity;
+    }
   }
 
   render() {
     const name = this.props.name;
     const allDrinks = this.props.allDrinks;
     return (
-      <div className="drinkWrapper" onMouseEnter={this.accentViz}>
+      <div
+        className="drinkWrapper"
+        onMouseEnter={this.accentViz}
+        onMouseLeave={this.accentViz}
+      >
         <div className="glass">
           <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
             <rect
