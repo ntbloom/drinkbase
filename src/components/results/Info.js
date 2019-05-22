@@ -22,7 +22,12 @@ class Info extends Component {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
       const pickNames = picks.map(drink => (
-        <Drink key={drink} name={drink} allDrinks={this.props.drinkList} />
+        <Drink
+          key={drink}
+          name={drink}
+          allDrinks={this.props.drinkList}
+          viz={this.props.viz}
+        />
       ));
       return <div>{pickNames}</div>;
     }

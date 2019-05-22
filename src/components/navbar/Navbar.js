@@ -12,8 +12,8 @@ class Navbar extends Component {
     super(props);
     this.state = {
       ingSearch: false,
-      nameSearch: true,
-      viz: true,
+      nameSearch: false,
+      viz: false,
     };
     this.setIngSearch = this.setIngSearch.bind(this);
     this.setNameSearch = this.setNameSearch.bind(this);
@@ -128,12 +128,6 @@ class Navbar extends Component {
             (experimental)
           </button>
         </nav>
-        <img
-          className="bigLogo"
-          src={require("../../images/drinkBaseWhite.png")}
-          alt="drinkBase"
-          height="125"
-        />
         <IndexSearch
           allDrinks={this.state.allDrinks}
           drinkList={this.state.drinkList}

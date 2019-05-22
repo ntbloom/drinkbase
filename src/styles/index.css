@@ -72,6 +72,7 @@
 
 /* grid layout for results */
 .resultsWrapper {
+  padding-top: 1em;
   display: grid;
   position: sticky;
   top: 0;

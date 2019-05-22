@@ -54,7 +54,7 @@ class Results extends Component {
             <Viz allDrinks={allVizDrinks} picks={picks} />
           </div>
           <div id="results">
-            <Info drinkList={drinkList} picks={picks} />
+            <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </div>
       );
@@ -62,7 +62,7 @@ class Results extends Component {
       return (
         <div className="resultsWrapper">
           <div id="justInfo">
-            <Info drinkList={drinkList} picks={picks} />
+            <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </div>
       );

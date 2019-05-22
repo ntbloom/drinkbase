@@ -26,13 +26,16 @@ class Namesearch extends Component {
   render() {
     return (
       <div className="searchforms">
+        <p>
+          <i>Hint: start typing drink names</i>
+        </p>
         <form>
           <label>
             <input
               type="text"
               value={this.state.value}
               onChange={this.handleChange}
-              placeholder=" start typing to find drinks"
+              placeholder=" drink name"
             />
           </label>
         </form>
