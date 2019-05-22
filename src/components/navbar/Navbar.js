@@ -22,7 +22,7 @@ class Navbar extends Component {
   }
 
   componentDidMount() {
-    this.getAllDrinks()
+    this.getAllDrinks();
   }
 
   getAllDrinks() {
@@ -90,7 +90,7 @@ class Navbar extends Component {
   render() {
     return (
       <div>
-        <div className="navbar">
+        <nav className="navbar">
           <img
             id="smallLogo"
             src={require("../../images/smallLogo.png")}
@@ -127,7 +127,7 @@ class Navbar extends Component {
             <br />
             (experimental)
           </button>
-        </div>
+        </nav>
         <img
           className="bigLogo"
           src={require("../../images/drinkBaseWhite.png")}
