@@ -67,8 +67,17 @@ class Ingredientsearch extends Component {
               />
             </div>
             <div>
-              <input type="submit" value="find drinks" />
-              <input type="reset" value="start over" onClick={this.reset} />
+              <input
+                className="searchbuttons"
+                type="submit"
+                value="find drinks"
+              />
+              <input
+                className="searchbuttons"
+                type="reset"
+                value="start over"
+                onClick={this.reset}
+              />
             </div>
           </form>
           <div>
