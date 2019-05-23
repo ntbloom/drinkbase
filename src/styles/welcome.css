@@ -1,6 +1,8 @@
 /* @format */
 
 .welcome button {
+  font-family: var(--primary-fontfam);
+  color: var(--main-text-color);
   height: 10em;
   width: 15em;
   font-size: 1em;
