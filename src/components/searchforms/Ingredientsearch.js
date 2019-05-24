@@ -37,19 +37,15 @@ class Ingredientsearch extends Component {
 
   render() {
     return (
-      <div className="searchforms">
-        <div>
+      <div className="indexSearch">
+        <div className="searchForms">
           <p>
             <i>
               Hint: enter ingredients into forms below. Separate multiple
               entries with a comma
             </i>
           </p>
-          <form
-            onSubmit={this.handleSubmit}
-            method="get"
-            className="ingredientSearch"
-          >
+          <form onSubmit={this.handleSubmit} method="get">
             <div>
               <input
                 type="text"
@@ -80,18 +76,16 @@ class Ingredientsearch extends Component {
               />
             </div>
           </form>
-          <div>
-            <Results
-              query={this.state.query}
-              url={url}
-              submitted={this.state.submitted}
-              viz={this.props.viz}
-              allDrinks={this.props.allDrinks}
-              drinkList={this.props.drinkList}
-              vizReady={this.props.vizReady}
-            />
-          </div>
         </div>
+        <Results
+          query={this.state.query}
+          url={url}
+          submitted={this.state.submitted}
+          viz={this.props.viz}
+          allDrinks={this.props.allDrinks}
+          drinkList={this.props.drinkList}
+          vizReady={this.props.vizReady}
+        />
       </div>
     );
   }

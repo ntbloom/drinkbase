@@ -12,8 +12,8 @@ class Navbar extends Component {
     super(props);
     this.state = {
       ingSearch: false,
-      nameSearch: false,
-      viz: false,
+      nameSearch: true,
+      viz: true,
     };
     this.setIngSearch = this.setIngSearch.bind(this);
     this.setNameSearch = this.setNameSearch.bind(this);

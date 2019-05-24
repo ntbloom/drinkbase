@@ -49,22 +49,22 @@ class Results extends Component {
     const picks = this.state.picks;
     if (this.state.received && this.props.viz) {
       return (
-        <div className="resultsWrapper">
+        <>
           <div id="drinkViz">
             <Viz allDrinks={allVizDrinks} picks={picks} />
           </div>
           <div id="results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
-        </div>
+        </>
       );
     } else if (this.state.received) {
       return (
-        <div className="resultsWrapper">
+        <>
           <div id="justInfo">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
-        </div>
+        </>
       );
     } else {
       return null;

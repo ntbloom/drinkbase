@@ -25,20 +25,22 @@ class Namesearch extends Component {
 
   render() {
     return (
-      <div className="searchforms">
-        <p>
-          <i>Hint: start typing drink names</i>
-        </p>
-        <form>
-          <label>
-            <input
-              type="text"
-              value={this.state.value}
-              onChange={this.handleChange}
-              placeholder=" drink name"
-            />
-          </label>
-        </form>
+      <div className="indexSearch">
+        <div className="searchForms">
+          <p>
+            <i>Hint: start typing drink names</i>
+          </p>
+          <form>
+            <label>
+              <input
+                type="text"
+                value={this.state.value}
+                onChange={this.handleChange}
+                placeholder=" drink name"
+              />
+            </label>
+          </form>
+        </div>
         <Results
           query={this.state.value}
           url={url}
