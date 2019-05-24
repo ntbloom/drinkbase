@@ -38,7 +38,7 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <img
           className="bigLogo"
           src={require("../../images/drinkBaseWhite.png")}
@@ -60,7 +60,7 @@ class Welcome extends Component {
             pick one?
           </button>
         </div>
-      </div>
+      </>
     );
   }
 }

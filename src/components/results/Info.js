@@ -29,7 +29,7 @@ class Info extends Component {
           viz={this.props.viz}
         />
       ));
-      return <div>{pickNames}</div>;
+      return <>{pickNames}</>;
     }
   }
   componentDidUpdate(prevProps) {

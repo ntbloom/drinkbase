@@ -272,8 +272,8 @@ class Drinkviz extends Component {
 
   render() {
     return (
-      <div>
-        <div>
+      <>
+        <>
           <svg
             className="bigPlot"
             id="theDrinks"
@@ -282,7 +282,7 @@ class Drinkviz extends Component {
               (this.state.width / this.state.aspectRatio) * this.state.scale
             }
           />
-        </div>
+        </>
         <div id="tooltip" className="tooltip">
           <span id="drinkName" />
           <br />
@@ -294,7 +294,7 @@ class Drinkviz extends Component {
           <p id="recipeIng" />
           <p id="recipeBody" />
         </div>
-      </div>
+      </>
     );
   }
 }

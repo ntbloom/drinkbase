@@ -89,7 +89,7 @@ class Navbar extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <nav className="navbar">
           <img
             id="smallLogo"
@@ -136,7 +136,7 @@ class Navbar extends Component {
           nameSearch={this.state.nameSearch}
           viz={this.state.viz}
         />
-      </div>
+      </>
     );
   }
 }
