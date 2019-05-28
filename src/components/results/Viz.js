@@ -294,11 +294,6 @@ class Drinkviz extends Component {
           <span id="drinkStyle" />
           <span id="drinkIngredients" />
         </div>
-        <div id="recipeBox">
-          <p id="recipeTitle">Click on a drink to see the recipe</p>
-          <p id="recipeIng" />
-          <p id="recipeBody" />
-        </div>
       </>
     );
   }
