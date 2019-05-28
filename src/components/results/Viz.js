@@ -4,6 +4,7 @@
 
 import React, { Component } from "react";
 import * as d3 from "d3";
+import Ingviz from "./Ingviz";
 
 export function cleanID(name) {
   // removes spaces & special chars for dynamic css-friendly IDs
@@ -47,6 +48,7 @@ class Drinkviz extends Component {
     this.drawPlot = this.drawPlot.bind(this);
     this.highlight = this.highlight.bind(this);
     this.unhighlight = this.unhighlight.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   // gets called on first load
@@ -231,7 +233,8 @@ class Drinkviz extends Component {
       })
 
       .on("mouseover", this.highlight)
-      .on("mouseout", this.unhighlight);
+      .on("mouseout", this.unhighlight)
+      .on("click", this.handleClick);
   }
 
   // the tooltip functions
@@ -277,6 +280,13 @@ class Drinkviz extends Component {
     d3.select("#tooltip").style("visibility", "hidden");
   }
 
+  handleClick(d, i) {
+    const ingviz = document.getElementById("Ingviz");
+    ingviz.style.display = "block";
+    const name = d.Name;
+    this.setState({ nameclick: name });
+  }
+
   render() {
     return (
       <>
@@ -294,6 +304,12 @@ class Drinkviz extends Component {
           <span id="drinkStyle" />
           <span id="drinkIngredients" />
         </div>
+        <Ingviz
+          allDrinks={this.props.allDrinks}
+          name={this.state.nameclick}
+          width={this.state.width}
+          height={this.state.width / this.state.aspectRatio}
+        />
       </>
     );
   }
