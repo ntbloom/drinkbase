@@ -115,8 +115,8 @@ class Drinkviz extends Component {
     drinksSVG // x-axis label
       .append("text")
       .text("Sugar")
-      .attr("x", width * 0.5)
-      .attr("y", height * 0.95)
+      .attr("x", width * 0.5) // needs adjustment
+      .attr("y", height * 0.98) // needs adjustment
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "var(--vizLabels)")
