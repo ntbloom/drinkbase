@@ -38,7 +38,6 @@ class Drinkviz extends Component {
       showRecipeCounter: 0,
       width: window.innerWidth * 0.4,
       aspectRatio: 4 / 3,
-      scale: 1,
       circSize: (window.innerWidth * 0.4) / 300,
     };
     // bind functions to component
@@ -94,9 +93,8 @@ class Drinkviz extends Component {
 
   drawAxes() {
     const drinksSVG = d3.select("#theDrinks");
-    const width = this.state.width * this.state.scale;
-    const height =
-      (this.state.width / this.state.aspectRatio) * this.state.scale;
+    const width = this.state.width;
+    const height = this.state.width / this.state.aspectRatio;
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
@@ -143,9 +141,8 @@ class Drinkviz extends Component {
     const picks = this.props.picks.Names;
     const allDrinks = this.props.allDrinks;
     const drinksSVG = d3.select("#theDrinks");
-    const width = this.state.width * this.state.scale;
-    const height =
-      (this.state.width / this.state.aspectRatio) * this.state.scale;
+    const width = this.state.width;
+    const height = this.state.width / this.state.aspectRatio;
 
     // for laying out data
 
@@ -287,10 +284,8 @@ class Drinkviz extends Component {
           <svg
             className="bigPlot"
             id="theDrinks"
-            width={this.state.width * this.state.scale}
-            height={
-              (this.state.width / this.state.aspectRatio) * this.state.scale
-            }
+            width={this.state.width}
+            height={this.state.width / this.state.aspectRatio}
           />
         </>
         <div id="tooltip" className="tooltip">
