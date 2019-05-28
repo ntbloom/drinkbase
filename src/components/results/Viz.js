@@ -36,10 +36,10 @@ class Drinkviz extends Component {
     // use const for everything else
     this.state = {
       showRecipeCounter: 0,
-      width: 600,
+      width: window.innerWidth * 0.4,
       aspectRatio: 4 / 3,
       scale: 1,
-      circSize: 2,
+      circSize: (window.innerWidth * 0.4) / 200,
     };
     // bind functions to component
     this.calcAxes = this.calcAxes.bind(this);
@@ -51,6 +51,8 @@ class Drinkviz extends Component {
 
   // gets called on first load
   componentDidMount() {
+    console.log("this.state.width:", this.state.width);
+    console.log("this.state.circSize:", this.state.circSize);
     this.calcAxes();
     this.drawAxes();
     this.drawPlot();
@@ -58,6 +60,7 @@ class Drinkviz extends Component {
 
   // gets called whenever state changes, need to define for other variables
   componentDidUpdate() {
+    this.drawAxes();
     this.drawPlot();
   }
   calcAxes() {
@@ -113,7 +116,7 @@ class Drinkviz extends Component {
       .append("text")
       .text("Alcohol")
       .attr("x", width * 0.95)
-      .attr("y", -325)
+      .attr("y", -height / 1.4)
       .attr("text-anchor", "middle")
       .attr("alignment-baseline", "ideographic")
       .style("fill", "var(--vizLabels)")
