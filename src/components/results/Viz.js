@@ -39,9 +39,10 @@ class Drinkviz extends Component {
       width: window.innerWidth * 0.4,
       aspectRatio: 4 / 3,
       scale: 1,
-      circSize: (window.innerWidth * 0.4) / 200,
+      circSize: (window.innerWidth * 0.4) / 300,
     };
     // bind functions to component
+    this.getViewport = this.getViewport.bind(this);
     this.calcAxes = this.calcAxes.bind(this);
     this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
@@ -51,6 +52,7 @@ class Drinkviz extends Component {
 
   // gets called on first load
   componentDidMount() {
+    //this.getViewport();
     console.log("this.state.width:", this.state.width);
     console.log("this.state.circSize:", this.state.circSize);
     this.calcAxes();
@@ -60,9 +62,17 @@ class Drinkviz extends Component {
 
   // gets called whenever state changes, need to define for other variables
   componentDidUpdate() {
-    this.drawAxes();
     this.drawPlot();
   }
+
+  getViewport() {
+    // sends width and circleSize variables to state
+    const width = window.innerWidth * 0.4; // might tweak to get closer to 0.5
+    const circSize = width / 200;
+    this.setState({ width: width });
+    this.setState({ circSize: circSize });
+  }
+
   calcAxes() {
     // sends min and max sugar and alcohol values to setState for graph axes
     const drinks = this.props.allDrinks.Drinks;
@@ -240,8 +250,8 @@ class Drinkviz extends Component {
       .attr("stroke-width", 1.5);
 
     d3.select("#tooltip")
-      .style("left", 100)
-      .style("top", d3.event.pageY - 100 + "px")
+      .style("left", 25 + "px")
+      .style("top", -25 + "px")
       //.text(d.Name)
       //     .style("background-color", fill)
       .style("visibility", "visible");

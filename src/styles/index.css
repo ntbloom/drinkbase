@@ -112,7 +112,7 @@
 }
 #drinkViz {
   position: fixed;
-  top: 15em;
+  top: 17em;
   grid-column: 1 / 2;
   grid-row: 1 / 3;
   padding-top: 1em;
