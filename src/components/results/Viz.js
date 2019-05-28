@@ -240,9 +240,6 @@ class Drinkviz extends Component {
   // the tooltip functions
   highlight(d, i) {
     const id = document.getElementById(cleanID(d.Name));
-    const fill = window.getComputedStyle(id).fill;
-    const width = this.state.width * this.state.scale;
-    const height = this.state.height * this.state.scale;
     // eslint-disable-next-line
     const circle = d3
       .select(id)
