@@ -231,8 +231,9 @@ class Drinkviz extends Component {
       })
 
       .on("mouseover", this.highlight)
-      .on("mouseout", this.unhighlight)
-      .on("click", this.handleClick);
+      .on("mouseout", this.unhighlight);
+    //TODO: enable click events to render <Ingviz/>
+    //.on("click", this.handleClick);
   }
 
   // the tooltip functions
@@ -305,7 +306,9 @@ class Drinkviz extends Component {
           <span id="drinkStyle" />
           <span id="drinkIngredients" />
         </div>
-        <Ingviz
+        {/*TODO: populate this component
+      
+      <Ingviz
           allDrinks={this.props.allDrinks}
           name={this.state.nameclick}
           width={window.innerWidth * this.state.widthFactor}
@@ -314,6 +317,7 @@ class Drinkviz extends Component {
             this.state.aspectRatio
           }
         />
+        */}
       </>
     );
   }
