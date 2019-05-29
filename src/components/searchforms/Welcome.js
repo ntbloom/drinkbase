@@ -3,6 +3,8 @@
 // Welcome.js -- First page you see when you get here
 
 import React, { Component } from "react";
+import { Route } from "react-router-dom";
+import Ingredientsearch from "./Ingredientsearch";
 
 function interim(name) {
   // interim function while I figure out routing
@@ -20,9 +22,9 @@ class Welcome extends Component {
     this.clickName = this.clickName.bind(this);
     this.clickRand = this.clickRand.bind(this);
   }
+
   clickIng() {
     //click handler for ingredient button
-
     interim("Ingredient search");
   }
 
@@ -51,13 +53,13 @@ class Welcome extends Component {
             <br /> match what's in my bar
           </button>
           <button type="button" id="welcomeName" onClick={this.clickName}>
-            I want to find a recipe for
-            <br /> a drink I already know
+            Let me search
+            <br /> by drink names
           </button>
           <button type="button" id="welcomeRand" onClick={this.clickRand}>
             Uggh, can <i>you </i>just
             <br />
-            pick one?
+            pick a drink?
           </button>
         </div>
       </>
