@@ -37,12 +37,11 @@ class Drinkviz extends Component {
     // use const for everything else
     this.state = {
       showRecipeCounter: 0,
-      width: window.innerWidth * 0.4,
+      widthFactor: 0.4,
       aspectRatio: 4 / 3,
-      circSize: (window.innerWidth * 0.4) / 300,
+      circSizeFactor: 0.4 / 300,
     };
     // bind functions to component
-    this.getViewport = this.getViewport.bind(this);
     this.calcAxes = this.calcAxes.bind(this);
     this.drawAxes = this.drawAxes.bind(this);
     this.drawPlot = this.drawPlot.bind(this);
@@ -53,9 +52,6 @@ class Drinkviz extends Component {
 
   // gets called on first load
   componentDidMount() {
-    //this.getViewport();
-    console.log("this.state.width:", this.state.width);
-    console.log("this.state.circSize:", this.state.circSize);
     this.calcAxes();
     this.drawAxes();
     this.drawPlot();
@@ -63,15 +59,8 @@ class Drinkviz extends Component {
 
   // gets called whenever state changes, need to define for other variables
   componentDidUpdate() {
+    this.drawAxes();
     this.drawPlot();
-  }
-
-  getViewport() {
-    // sends width and circleSize variables to state
-    const width = window.innerWidth * 0.4; // might tweak to get closer to 0.5
-    const circSize = width / 200;
-    this.setState({ width: width });
-    this.setState({ circSize: circSize });
   }
 
   calcAxes() {
@@ -94,12 +83,20 @@ class Drinkviz extends Component {
   }
 
   drawAxes() {
+    // puts gridlines on plot
     const drinksSVG = d3.select("#theDrinks");
-    const width = this.state.width;
-    const height = this.state.width / this.state.aspectRatio;
+    const width = window.innerWidth * this.state.widthFactor;
+    const height =
+      (window.innerWidth * this.state.widthFactor) / this.state.aspectRatio;
+
+    // deleting old lines
+    drinksSVG.selectAll("line").remove();
+    drinksSVG.selectAll("text").remove();
+
     // drawing the gridlines and axes
     drinksSVG // x-axis
       .append("line")
+      .attr("className", "axis")
       .attr("x1", width * 0.1)
       .attr("x2", width * 0.9)
       .attr("y1", height - 0.1 * height)
@@ -143,8 +140,9 @@ class Drinkviz extends Component {
     const picks = this.props.picks.Names;
     const allDrinks = this.props.allDrinks;
     const drinksSVG = d3.select("#theDrinks");
-    const width = this.state.width;
-    const height = this.state.width / this.state.aspectRatio;
+    const width = window.innerWidth * this.state.widthFactor;
+    const height =
+      (window.innerWidth * this.state.widthFactor) / this.state.aspectRatio;
 
     // for laying out data
 
@@ -205,7 +203,7 @@ class Drinkviz extends Component {
       })
       .attr("r", d => {
         let volume = d.Data.Volume;
-        volume = volume * this.state.circSize;
+        volume = volume * window.innerWidth * this.state.circSizeFactor;
         return volume;
       })
 
@@ -294,8 +292,11 @@ class Drinkviz extends Component {
           <svg
             className="bigPlot"
             id="theDrinks"
-            width={this.state.width}
-            height={this.state.width / this.state.aspectRatio}
+            width={window.innerWidth * this.state.widthFactor}
+            height={
+              (window.innerWidth * this.state.widthFactor) /
+              this.state.aspectRatio
+            }
           />
         </>
         <div id="tooltip" className="tooltip">
@@ -307,8 +308,11 @@ class Drinkviz extends Component {
         <Ingviz
           allDrinks={this.props.allDrinks}
           name={this.state.nameclick}
-          width={this.state.width}
-          height={this.state.width / this.state.aspectRatio}
+          width={window.innerWidth * this.state.widthFactor}
+          height={
+            (window.innerWidth * this.state.widthFactor) /
+            this.state.aspectRatio
+          }
         />
       </>
     );
