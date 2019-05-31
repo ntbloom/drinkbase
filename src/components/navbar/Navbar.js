@@ -8,6 +8,22 @@ import Welcome from "../searchforms/Welcome";
 import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
 
+export function setIngSearch() {
+  // styles ingredient search button when active
+  let element1 = document.getElementById("ingButton");
+  element1.style.borderBottom = "3px solid var(--main-accent-color)";
+  let element2 = document.getElementById("nameButton");
+  element2.style.borderBottom = "none";
+}
+
+export function setNameSearch() {
+  // styles name search button when active
+  let element1 = document.getElementById("nameButton");
+  element1.style.borderBottom = "3px solid var(--main-accent-color)";
+  let element2 = document.getElementById("ingButton");
+  element2.style.borderBottom = "none";
+}
+
 const allDrinksURL = "http://165.227.142.105:5000/api/v1.1/allDrinks/";
 
 class Navbar extends Component {
@@ -16,8 +32,6 @@ class Navbar extends Component {
     this.state = {
       viz: false,
     };
-    this.setIngSearch = this.setIngSearch.bind(this);
-    this.setNameSearch = this.setNameSearch.bind(this);
     this.vizClick = this.vizClick.bind(this);
     this.getAllDrinks = this.getAllDrinks.bind(this);
   }
@@ -56,22 +70,6 @@ class Navbar extends Component {
       });
   }
 
-  setIngSearch() {
-    // styles ingredient search button when active
-    let element1 = document.getElementById("ingButton");
-    element1.style.borderBottom = "3px solid var(--main-accent-color)";
-    let element2 = document.getElementById("nameButton");
-    element2.style.borderBottom = "none";
-  }
-
-  setNameSearch() {
-    // styles name search button when active
-    let element1 = document.getElementById("nameButton");
-    element1.style.borderBottom = "3px solid var(--main-accent-color)";
-    let element2 = document.getElementById("ingButton");
-    element2.style.borderBottom = "none";
-  }
-
   vizClick() {
     // toggles drinkViz on/off and styles button accordingly
     let element = document.getElementById("vizButton");
@@ -106,7 +104,7 @@ class Navbar extends Component {
                 title="query the database by individual ingredients"
                 className="navbutton"
                 id="ingButton"
-                onClick={this.setIngSearch}
+                onClick={setIngSearch}
               >
                 <Link to="/ingredientsearch">
                   search by
@@ -118,7 +116,7 @@ class Navbar extends Component {
                 title="query the database by drink name"
                 className="navbutton"
                 id="nameButton"
-                onClick={this.setNameSearch}
+                onClick={setNameSearch}
               >
                 <Link to="/namesearch">
                   search by
