@@ -181,3 +181,8 @@ form input {
   background-color: var(--main-accent-color);
   cursor: pointer;
 }
+
+a:visited {
+  color: inherit;
+  text-decoration: inherit;
+}
