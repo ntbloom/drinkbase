@@ -182,7 +182,7 @@ form input {
   cursor: pointer;
 }
 
-a:visited {
+a {
   color: inherit;
   text-decoration: inherit;
 }
