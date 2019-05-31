@@ -4,7 +4,7 @@
 
 import React, { Component } from "react";
 import { BrowserRouter, Route, Link } from "react-router-dom";
-import Welcome from "./Welcome";
+import Welcome from "../searchforms/Welcome";
 import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
 
@@ -92,12 +92,16 @@ class Navbar extends Component {
         <BrowserRouter>
           <div>
             <nav className="navbar">
-              <img
-                id="smallLogo"
-                src={require("../../images/smallLogo.png")}
-                alt="drinkBase small logo"
-                height="25"
-              />
+              <div>
+                <Link to="/drinkbase">
+                  <img
+                    id="smallLogo"
+                    src={require("../../images/smallLogo.png")}
+                    alt="drinkBase small logo"
+                    height="25"
+                  />
+                </Link>
+              </div>
               <button
                 title="query the database by individual ingredients"
                 className="navbutton"
@@ -133,6 +137,18 @@ class Navbar extends Component {
                 (experimental)
               </button>
             </nav>
+            <Route
+              path="/drinkbase"
+              render={props => (
+                <Welcome
+                  {...props}
+                  viz={this.state.viz}
+                  allDrinks={this.state.allDrinks}
+                  drinkList={this.state.drinkList}
+                  vizReady={this.state.vizReady}
+                />
+              )}
+            />
             <Route
               path="/ingredientsearch"
               render={props => (
