@@ -3,6 +3,7 @@
 
 .navbar {
   position: sticky;
+  display: flex;
   top: 0px;
   background-color: var(--navbar-bg-color);
   color: var(--navbar-txt-color);
@@ -12,12 +13,17 @@
   opacity: 0.9;
 }
 
-#smallLogo {
+#smallLogoDiv {
   padding: 1px;
   margin-right: 2em;
   margin-left: 5px;
   margin-top: 3px;
   background-color: var(--navbar-txt-color);
+}
+#smallLogo {
+  position: relative;
+  padding: 0.1em;
+  vertical-align: bottom;
 }
 
 #bigLogo {

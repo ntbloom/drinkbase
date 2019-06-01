@@ -90,7 +90,7 @@ class Navbar extends Component {
         <BrowserRouter>
           <div>
             <nav className="navbar">
-              <div>
+              <div id="smallLogoDiv">
                 <Link to="/drinkbase">
                   <img
                     id="smallLogo"
