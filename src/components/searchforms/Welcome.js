@@ -55,16 +55,16 @@ class Welcome extends Component {
 
   render() {
     return (
-      <div id="welcomewrapper">
-        <BrowserRouter>
-          <div>
-            <div className="welcome">
-              <img
-                className="bigLogo"
-                src={require("../../images/drinkBaseWhite.png")}
-                alt="drinkBase"
-                height="125"
-              />
+      <BrowserRouter>
+        <div>
+          <div id="welcome">
+            <img
+              id="bigLogo"
+              src={require("../../images/drinkBaseWhite.png")}
+              alt="drinkBase"
+              height="125"
+            />
+            <div id="buttonWrapper">
               <button type="button" id="welcomeIng" onClick={this.clickIng}>
                 <Link to="/ingredientsearch">
                   Show me drinks that
@@ -83,33 +83,33 @@ class Welcome extends Component {
                 pick a drink?
               </button>
             </div>
-            <Route
-              path="/ingredientsearch"
-              render={props => (
-                <Ingredientsearch
-                  {...props}
-                  viz={this.props.viz}
-                  allDrinks={this.props.allDrinks}
-                  drinkList={this.props.drinkList}
-                  vizReady={this.props.vizReady}
-                />
-              )}
-            />
-            <Route
-              path="/namesearch"
-              render={props => (
-                <Namesearch
-                  {...props}
-                  viz={this.props.viz}
-                  allDrinks={this.props.allDrinks}
-                  drinkList={this.props.drinkList}
-                  vizReady={this.props.vizReady}
-                />
-              )}
-            />
           </div>
-        </BrowserRouter>
-      </div>
+          <Route
+            path="/ingredientsearch"
+            render={props => (
+              <Ingredientsearch
+                {...props}
+                viz={this.props.viz}
+                allDrinks={this.props.allDrinks}
+                drinkList={this.props.drinkList}
+                vizReady={this.props.vizReady}
+              />
+            )}
+          />
+          <Route
+            path="/namesearch"
+            render={props => (
+              <Namesearch
+                {...props}
+                viz={this.props.viz}
+                allDrinks={this.props.allDrinks}
+                drinkList={this.props.drinkList}
+                vizReady={this.props.vizReady}
+              />
+            )}
+          />
+        </div>
+      </BrowserRouter>
     );
   }
 }

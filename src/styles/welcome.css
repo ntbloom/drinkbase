@@ -1,6 +1,18 @@
 /* @format */
 
-.welcome button {
+#welcome {
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+#bigLogo {
+  grid-row: 1 / 2;
+}
+
+#buttonWrapper {
+}
+
+#welcome button {
   font-family: var(--primary-fontfam);
   color: var(--main-text-color);
   height: 10em;
@@ -17,13 +29,8 @@
   margin-left: 1em;
 }
 
-.welcome button:hover {
+#welcome button:hover {
   color: var(--main-bg-color);
   background-color: var(--main-accent-color);
   cursor: pointer;
-}
-
-.welcome h2 {
-  text-align: left;
-  padding: 1em;
 }
