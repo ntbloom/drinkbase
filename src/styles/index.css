@@ -9,7 +9,7 @@
 @import url("welcome.css");
 
 /* font imports */
-@import url("https://fonts.googleapis.com/css?family=Roboto+Mono&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 
 /* media queries */
 
@@ -56,7 +56,7 @@
   --navbar-txt-color: #efeae5;
 
   /* fonts */
-  --primary-fontfam: "Roboto Mono", monospace;
+  --primary-fontfam: "Roboto", sans-serif;
   --secondary-fontfam: sans-serif;
 
   /* drinkViz */
@@ -115,8 +115,7 @@
 }
 #justInfo {
   /* used when Viz disabled */
-  position: relative;
-  top: 8em;
+  padding-top: 1em;
   grid-column: 1 / 3;
 }
 #drinkViz {
