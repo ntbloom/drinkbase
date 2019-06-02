@@ -15,7 +15,6 @@
 
 /*for screens large enough to see drinkViz*/
 @media (max-width: 900px) {
-  @import url("vizGrid.css");
   html,
   .navbutton,
   .results {

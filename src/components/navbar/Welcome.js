@@ -3,17 +3,12 @@
 // Welcome.js -- First page you see when you get here
 
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
+import { BrowserRouter, Route } from "react-router-dom";
 import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
-import { setIngSearch, setNameSearch } from "./Navbar";
 import Buttons from "./Buttons";
 
 class Welcome extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
       <BrowserRouter>

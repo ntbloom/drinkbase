@@ -3,9 +3,7 @@
 // Buttons.js -- navbuttons for Welcome.js
 
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link, Redirect } from "react-router-dom";
-import Ingredientsearch from "../searchforms/Ingredientsearch";
-import Namesearch from "../searchforms/Namesearch";
+import { Link } from "react-router-dom";
 import { setIngSearch, setNameSearch } from "./Navbar";
 
 class Buttons extends Component {

@@ -54,3 +54,8 @@ text {
 #drinkStyle {
   padding-right: 0.3em;
 }
+
+.results {
+  padding-top: 1em;
+  padding-left: 0em;
+}
