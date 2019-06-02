@@ -102,6 +102,9 @@ class Drink extends Component {
   render() {
     const name = this.props.name;
     const allDrinks = this.props.allDrinks;
+    const drinkType = {
+      color: this.getColor(),
+    };
     return (
       <div
         className="drinkWrapper"
@@ -109,7 +112,7 @@ class Drink extends Component {
         onMouseLeave={this.accentViz}
       >
         <div className="glass">
-          <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+          {/*<svg width="30" height="30" xmlns="http://www.w3.org/2000/svg">
             <rect
               id="glass"
               width="70%"
@@ -118,6 +121,7 @@ class Drink extends Component {
               fill={this.getColor()}
             />
           </svg>
+          */}
         </div>
         <div className="nameData">
           <div>{name}</div>
@@ -126,7 +130,7 @@ class Drink extends Component {
             <p>
               {Math.ceil(allDrinks[name].Data.Volume).toString()} ounces |
               {"    "}
-              {this.displayStyle()} |{"    "}
+              <span style={drinkType}>{this.displayStyle()}</span> |{"    "}
               {Math.round(allDrinks[name].Data.ABV * 100, 1)}% abv
               {/* 
                   |{"  "}
