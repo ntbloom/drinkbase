@@ -88,7 +88,7 @@ class Navbar extends Component {
     return (
       <>
         <BrowserRouter>
-          <div>
+          <>
             <nav className="navbar">
               <div id="smallLogoDiv">
                 <Link to="/drinkbase">
@@ -171,7 +171,7 @@ class Navbar extends Component {
                 />
               )}
             />
-          </div>
+          </>
         </BrowserRouter>
       </>
     );

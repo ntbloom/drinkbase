@@ -6,7 +6,11 @@ import React, { Component } from "react";
 import Navbar from "./navbar/Navbar";
 class Main extends Component {
   render() {
-    return <Navbar />;
+    return (
+      <div className="siteWrapper">
+        <Navbar />
+      </div>
+    );
   }
 }
 
