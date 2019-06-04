@@ -65,11 +65,13 @@ class Buttons extends Component {
               <br /> by drink names
             </Link>
           </button>
+          {/*
           <button type="button" id="welcomeRand" onClick={this.clickRand}>
             Uggh, can <i>you </i>just
             <br />
             pick a drink?
           </button>
+          */}
         </div>
       </div>
     );
