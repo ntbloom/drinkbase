@@ -80,7 +80,7 @@ class Navbar extends Component {
     } else {
       this.setState({ viz: true });
       element.innerHTML = "disable drinkViz <br/> (experimental)";
-      element.style.borderBottom = "3px solid var(--main-accent-color)";
+      element.style.borderBottom = "1px solid var(--main-accent-color)";
     }
   }
 
@@ -96,7 +96,7 @@ class Navbar extends Component {
                     id="smallLogo"
                     src={require("../../images/smallLogo.png")}
                     alt="drinkBase small logo"
-                    height="25"
+                    height="30"
                   />
                 </Link>
               </div>

@@ -23,8 +23,11 @@
 }
 #smallLogo {
   position: relative;
-  padding: 0.1em;
   vertical-align: bottom;
+  padding-top: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 3px;
 }
 
 #bigLogo {
