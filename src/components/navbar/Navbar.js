@@ -3,7 +3,7 @@
 // Main.js -- mainpage for loading drinkbase
 
 import React, { Component } from "react";
-import { BrowserRouter, Route, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Link } from "react-router-dom";
 import Welcome from "./Welcome";
 import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
@@ -135,6 +135,7 @@ class Navbar extends Component {
                 (experimental)
               </button>
             </nav>
+            <Route path="/" render={() => <Redirect to="/drinkbase" />} />
             <Route
               path="/drinkbase"
               render={props => (
