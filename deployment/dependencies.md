@@ -30,6 +30,7 @@ man-db
 # configure postgres
 - login as postgres
 - mkdir /usr/local/postgres, give ownership to postgres
+- make symlink of pg_hba.conf to postgres directory
 - initdb (located /usr/lib/postgresql...)
 - start database server
 - create role
