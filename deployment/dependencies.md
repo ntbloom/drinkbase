@@ -6,9 +6,10 @@ tmux
 git
 python3-pip
 python3-venv
+postgresql
 postgresql-client
 postgresql-doc
-postgresql
+postgresql-server-dev-all
 curl
 apache2
 libapache2-mod-wsgi-py3
@@ -32,6 +33,7 @@ man-db
 - mkdir /usr/local/postgres, give ownership to postgres
 - initdb (located /usr/lib/postgresql...)
 - start database server
+- update pg_hba.conf to set authentication method to "trust"
 - create role
   CREATE ROLE debian LOGIN CREATEDB;
   ALTER ROLE debian SET client_min_messages = WARNING;
