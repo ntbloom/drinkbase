@@ -1,6 +1,6 @@
 ### dependencies.md -- notes for how to build drinkbase on debian
 
-# packages to install
+# packages to install with apt-get
 vim
 tmux
 git
@@ -8,14 +8,18 @@ python3-pip
 python3-venv
 postgresql-client
 postgresql-doc
-postgresql-server
 postgresql
-node (probably later version than available)
-apache -- find out which packages
-  - apache2
-  - libapache2-mod-wsgi-py3
 curl
+apache2
+libapache2-mod-wsgi-py3
 nginx
+certbot
+python-certbot-apache
+python-certbot-nginx
+## additional dev dependencies
+locate
+man-db
+
 
 # things to do
 - make ssh keys
