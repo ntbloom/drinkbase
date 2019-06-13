@@ -93,15 +93,15 @@ Version 1.2 - third iteration of API
     same as second iteration but cleaner URLS for "api.ntbloom.com/"
 '''
 
-@app.route('drinkbase/v1.2/allDrinks/', methods=['GET'])
-def allDrinks():
+@app.route('/drinkbase/v1.2/allDrinks/', methods=['GET'])
+def getAllDrinks():
     '''sends entire database as JSON'''
     drinks = ds.allDrinks
     drinkJSON = ds.sendRecipe(drinks)
     return drinkJSON
 
-@app.route('drinkbase/v1.2/ingreds/', methods=['GET'])
-def ingred():
+@app.route('/drinkbase/v1.2/ingreds/', methods=['GET'])
+def getIngred():
     '''querying the database by ingredient'''
     incl = request.args.get('incl')
     excl = request.args.get('excl')
@@ -121,8 +121,8 @@ def ingred():
     return drinks
 
 
-@app.route('drinkbase/v1.2/names/', methods=['GET'])
-def name():
+@app.route('/drinkbase/v1.2/names/', methods=['GET'])
+def getName():
     '''querying the database by drink name'''
     name = request.args.get('name')
     drinks = ds.nameSearch(name)
