@@ -10,14 +10,7 @@ app = Flask(__name__)
 
 ''' 
 Version 1.0 - first attempt at the API
-
-Methods:
-    ingreds()
-        -queries the database by ingredient
-        -returns full data set with each call
-    names()
-        -queries the database by name
-        -returns full data set with each call
+probably ready to delete
 '''
 
 @app.route('/api/v1.0/ingreds/', methods=['GET'])
@@ -55,18 +48,7 @@ Version 1.1 - second iteration of API
     -sends full dataset at the outset
     -limits data transfer on each API call
     -simpler queries can ultimately be replaced by front-end
-
-Methods:
-    allDrinks()
-        -sends entire SQL database as single JSON object
-    ingred()
-        -sends simple list of drinks w/ matching ingredients
-    name()
-        -sends simple list of drinks matching name regex
-
-
 '''
-
 
 @app.route('/api/v1.1/allDrinks/', methods=['GET'])
 def allDrinks():
@@ -97,6 +79,49 @@ def ingred():
 
 
 @app.route('/api/v1.1/names/', methods=['GET'])
+def name():
+    '''querying the database by drink name'''
+    name = request.args.get('name')
+    drinks = ds.nameSearch(name)
+    drinksJSON = jsonify({'Names': drinks})
+    
+    return drinksJSON
+
+
+'''
+Version 1.2 - third iteration of API
+    same as second iteration but cleaner URLS for "api.ntbloom.com/"
+'''
+
+@app.route('drinkbase/v1.2/allDrinks/', methods=['GET'])
+def allDrinks():
+    '''sends entire database as JSON'''
+    drinks = ds.allDrinks
+    drinkJSON = ds.sendRecipe(drinks)
+    return drinkJSON
+
+@app.route('drinkbase/v1.2/ingreds/', methods=['GET'])
+def ingred():
+    '''querying the database by ingredient'''
+    incl = request.args.get('incl')
+    excl = request.args.get('excl')
+    drinks = ds.allDrinks
+    if incl:
+        incl = incl.split(', ')
+        for i in incl:
+            tempSet = set(ds.ingSearch(i))
+            drinks = drinks & tempSet
+    if excl:
+        excl = excl.split(', ')
+        for i in excl:
+            tempSet = set(ds.ingSearch(i))
+            drinks = drinks - tempSet
+    drinks = jsonify({'Names': sorted(list(drinks))})
+
+    return drinks
+
+
+@app.route('drinkbase/v1.2/names/', methods=['GET'])
 def name():
     '''querying the database by drink name'''
     name = request.args.get('name')
