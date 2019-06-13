@@ -9,7 +9,7 @@ import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
 import { ipAddress } from "../../ipAddress";
 
-const allDrinksURL = ipAddress.concat("api/v1.1/allDrinks/");
+const allDrinksURL = ipAddress.concat("allDrinks/");
 
 export function setIngSearch() {
   // styles ingredient search button when active

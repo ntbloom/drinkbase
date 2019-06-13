@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import Results from "../results/Results";
 import { ipAddress } from "../../ipAddress";
 
-const url = ipAddress.concat("api/v1.1/names/?name=");
+const url = ipAddress.concat("names/?name=");
 
 class Namesearch extends Component {
   constructor(props) {

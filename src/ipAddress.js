@@ -2,4 +2,4 @@
 
 // ipAddress -- update this file to change IP address for backend API queries
 
-export const ipAddress = "http://api.ntbloom.com/";
+export const ipAddress = "http://api.ntbloom.com/drinkbase/v1.2/";
