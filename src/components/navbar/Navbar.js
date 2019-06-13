@@ -7,6 +7,9 @@ import { BrowserRouter, Route, Redirect, Link } from "react-router-dom";
 import Welcome from "./Welcome";
 import Ingredientsearch from "../searchforms/Ingredientsearch";
 import Namesearch from "../searchforms/Namesearch";
+import { ipAddress } from "../../ipAddress";
+
+const allDrinksURL = ipAddress.concat("api/v1.1/allDrinks/");
 
 export function setIngSearch() {
   // styles ingredient search button when active
@@ -23,8 +26,6 @@ export function setNameSearch() {
   let element2 = document.getElementById("ingButton");
   element2.style.borderBottom = "none";
 }
-
-const allDrinksURL = "http://165.227.142.105:5000/api/v1.1/allDrinks/";
 
 class Navbar extends Component {
   constructor(props) {
