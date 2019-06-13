@@ -3,14 +3,11 @@
 # TODO: fix apache configs to make HTTPS requests work for full site
 
 server {
-	listen 80 ;
-	listen [::]:80 ;
 
 	root /var/www/drinkbase/build/;
 
   index index.html index.htm;
-    server_name ntbloom.com; # managed by Certbot
-
+  server_name ntbloom.com; # managed by Certbot
 
 	location / {
     
@@ -24,5 +21,20 @@ server {
     ssl_certificate_key /etc/letsencrypt/live/ntbloom.com/privkey.pem; # managed by Certbot
     include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
     ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem; # managed by Certbot
+
+
+}
+
+server {
+    if ($host = ntbloom.com) {
+        return 301 https://$host$request_uri;
+    } # managed by Certbot
+
+
+	listen 80 ;
+	listen [::]:80 ;
+  server_name ntbloom.com;
+    return 404; # managed by Certbot
+
 
 }
