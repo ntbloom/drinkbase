@@ -4,8 +4,9 @@
 
 import React, { Component } from "react";
 import Results from "../results/Results";
+import { ipAddress } from "../../ipAddress";
 
-const url = "http://165.227.142.105:5000/api/v1.1/names/?name=";
+const url = ipAddress.concat("names/?name=");
 
 class Namesearch extends Component {
   constructor(props) {
