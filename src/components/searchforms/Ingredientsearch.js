@@ -43,6 +43,7 @@ class Ingredientsearch extends Component {
           <p>
             <i>
               Hint: enter ingredients into forms below to filter results.
+              <br />
               Separate multiple entries with a comma
             </i>
           </p>

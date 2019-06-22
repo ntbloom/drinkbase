@@ -16,22 +16,13 @@ class Info extends Component {
 
   printDrinks() {
     // prints drink names with full recipes and other data
-    // const allDrinks = this.props.drinkList;
-    const picks = this.props.picks.Names;
+    let picks = this.props.picks.Names;
     const drinkList = this.props.drinkList;
     if (picks === undefined) {
-      const allDrinks = Object.keys(drinkList)
-        .sort()
-        .map(drink => (
-          <Drink
-            key={drink}
-            name={drink}
-            allDrinks={drinkList}
-            viz={this.props.viz}
-          />
-        ));
-      return <>{allDrinks}</>;
-    } else if (picks.length === 0) {
+      picks = Object.keys(drinkList).sort();
+    }
+
+    if (picks.length === 0) {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
       const pickNames = picks.map(drink => (
