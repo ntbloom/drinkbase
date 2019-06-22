@@ -51,7 +51,7 @@ class Results extends Component {
       return (
         <>
           <div id="drinkViz">
-            <Viz allDrinks={allVizDrinks} picks={picks} />
+            <Viz allDrinks={allVizDrinks} picks={picks} drinkList={drinkList} />
           </div>
           <div id="results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />

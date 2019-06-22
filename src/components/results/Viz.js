@@ -138,7 +138,13 @@ class Drinkviz extends Component {
 
   drawPlot() {
     // getting data, defining variables
-    const picks = this.props.picks.Names;
+
+    // on first load
+    let picks = this.props.picks.Names;
+    if (picks === undefined) {
+      picks = Object.keys(this.props.drinkList);
+    }
+
     const allDrinks = this.props.allDrinks;
     const drinksSVG = d3.select("#theDrinks");
     const width = window.innerWidth * this.state.widthFactor;
@@ -259,7 +265,10 @@ class Drinkviz extends Component {
   }
 
   unhighlight(d, i) {
-    const picks = this.props.picks.Names;
+    let picks = this.props.picks.Names;
+    if (picks === undefined) {
+      picks = Object.keys(this.props.drinkList);
+    }
     // eslint-disable-next-line
     const circle = d3
       .select("#".concat(cleanID(d.Name)))
