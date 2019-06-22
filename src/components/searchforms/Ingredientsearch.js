@@ -42,8 +42,8 @@ class Ingredientsearch extends Component {
         <div className="searchForms">
           <p>
             <i>
-              Hint: enter ingredients into forms below. Separate multiple
-              entries with a comma
+              Hint: enter ingredients into forms below to filter results.
+              Separate multiple entries with a comma
             </i>
           </p>
           <form onSubmit={this.handleSubmit} method="get">

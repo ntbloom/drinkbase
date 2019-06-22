@@ -18,14 +18,27 @@ class Info extends Component {
     // prints drink names with full recipes and other data
     // const allDrinks = this.props.drinkList;
     const picks = this.props.picks.Names;
-    if (picks.length === 0) {
+    const drinkList = this.props.drinkList;
+    if (picks === undefined) {
+      const allDrinks = Object.keys(drinkList)
+        .sort()
+        .map(drink => (
+          <Drink
+            key={drink}
+            name={drink}
+            allDrinks={drinkList}
+            viz={this.props.viz}
+          />
+        ));
+      return <>{allDrinks}</>;
+    } else if (picks.length === 0) {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
       const pickNames = picks.map(drink => (
         <Drink
           key={drink}
           name={drink}
-          allDrinks={this.props.drinkList}
+          allDrinks={drinkList}
           viz={this.props.viz}
         />
       ));

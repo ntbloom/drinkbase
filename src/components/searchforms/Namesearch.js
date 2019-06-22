@@ -29,7 +29,7 @@ class Namesearch extends Component {
       <div className="indexSearch">
         <div className="searchForms">
           <p>
-            <i>Hint: start typing drink names</i>
+            <i>Hint: start typing drink names to filter results</i>
           </p>
           <form>
             <label>

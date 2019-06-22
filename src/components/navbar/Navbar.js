@@ -108,7 +108,7 @@ class Navbar extends Component {
                 onClick={setIngSearch}
               >
                 <Link to="/ingredientsearch">
-                  search by
+                  filter by
                   <br />
                   ingredient
                 </Link>
@@ -120,7 +120,7 @@ class Navbar extends Component {
                 onClick={setNameSearch}
               >
                 <Link to="/namesearch">
-                  search by
+                  filter by
                   <br />
                   drink name
                 </Link>
