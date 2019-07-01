@@ -88,18 +88,6 @@
   grid-row: 1 / 2;
 }
 
-.indexSearch {
-  grid-row: 2 / 3;
-  top: 1em;
-  padding-left: 1em;
-  padding-top: 1em;
-  display: grid;
-  position: relative;
-  top: 0;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
-}
-
 .searchForms {
   position: relative;
   padding: 1em;
@@ -195,4 +183,47 @@ form input {
 a {
   color: inherit;
   text-decoration: inherit;
+}
+
+.indexSearch {
+  grid-row: 2 / 3;
+  top: 1em;
+  padding-left: 1em;
+  padding-top: 1em;
+  display: grid;
+  position: relative;
+  top: 0;
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: auto auto;
+}
+/*
+#noviz {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-row: auto;
+}
+
+#yesviz {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-row: auto;
+}
+*/
+#nv_results {
+  grid-column: 1 / 3;
+  padding-right: 1em;
+  padding-top: 1em;
+}
+
+#yv_results {
+  grid-column: 1 / 2;
+}
+
+#yv_viz {
+  position: absolute;
+  grid-column: 2 / 3;
+  grid-row: 1 / 3;
+}
+#theDrinks {
+  position: fixed;
 }

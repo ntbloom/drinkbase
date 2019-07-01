@@ -50,10 +50,10 @@ class Results extends Component {
     if (this.props.allDrinks && this.props.viz) {
       return (
         <>
-          <div id="drinkViz">
+          <div id="yv_viz">
             <Viz allDrinks={allVizDrinks} picks={picks} drinkList={drinkList} />
           </div>
-          <div id="results">
+          <div id="yv_results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </>
@@ -61,7 +61,7 @@ class Results extends Component {
     } else if (this.props.allDrinks) {
       return (
         <>
-          <div id="justInfo">
+          <div id="nv_results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </>
