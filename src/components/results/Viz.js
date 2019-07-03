@@ -111,7 +111,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizLines)");
     drinksSVG // x-axis label
       .append("text")
-      .text("Total Sugar")
+      .text("Total Sugar*")
       .attr("x", width * 0.5) // needs adjustment
       .attr("y", height * 0.98) // needs adjustment
       .attr("text-anchor", "middle")
@@ -308,6 +308,11 @@ class Drinkviz extends Component {
     const stirred = {
       color: "var(--vizStirred)",
     };
+    const temp = {
+      fontFamily: "var(--primary-fontfam)",
+      fontSize: "10px",
+      paddingLeft: "5em",
+    };
     return (
       <>
         <div id="vizWrapper">
@@ -327,6 +332,10 @@ class Drinkviz extends Component {
             }
           />
           <div id="legend" />
+          <p id="temp" style={temp}>
+            *note: some sugar values are either estimated or completely ommitted
+            and may not reflect actual sugar content of certain drinks
+          </p>
         </div>
       </>
     );
