@@ -305,9 +305,6 @@ class Drinkviz extends Component {
     const chartStyle = {
       paddingLeft: "1em",
     };
-    const stirred = {
-      color: "var(--vizStirred)",
-    };
     const temp = {
       fontFamily: "var(--primary-fontfam)",
       fontSize: "10px",
@@ -336,6 +333,7 @@ class Drinkviz extends Component {
             *note: some sugar values are either estimated or completely ommitted
             and may not reflect actual sugar content of certain drinks
           </p>
+          {/*TODO: create legend for the chart here */}
         </div>
       </>
     );
