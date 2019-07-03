@@ -305,9 +305,6 @@ class Drinkviz extends Component {
     const chartStyle = {
       paddingLeft: "1em",
     };
-    const stirred = {
-      color: "var(--vizStirred)",
-    };
     return (
       <>
         <div id="vizWrapper">
@@ -327,6 +324,7 @@ class Drinkviz extends Component {
             }
           />
           <div id="legend" />
+          {/*TODO: create legend for the chart here */}
         </div>
       </>
     );
