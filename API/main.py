@@ -146,4 +146,4 @@ def not_found():
     return make_response(jsonify({"error": "Not found"}), 404)
 
 if __name__ == '__main__':
-    app.run(debug=False, use_reloader=False)
+    app.run(debug=False, use_reloader=True)
