@@ -76,12 +76,12 @@ class Navbar extends Component {
     let element = document.getElementById("vizButton");
     if (this.state.viz) {
       this.setState({ viz: false });
-      element.innerHTML = "enable drinkViz <br/> (experimental)";
+      element.innerHTML = "enable <br/> drinkViz";
       element.style.borderBottom = "none";
     } else {
       this.setState({ viz: true });
-      element.innerHTML = "disable drinkViz <br/> (experimental)";
-      element.style.borderBottom = "1px solid var(--main-accent-color)";
+      element.innerHTML = "disable <br/> drinkViz";
+      element.style.borderBottom = "medium solid var(--main-accent-color)";
     }
   }
 
@@ -108,7 +108,7 @@ class Navbar extends Component {
                 onClick={setIngSearch}
               >
                 <Link to="/ingredientsearch">
-                  search by
+                  filter by
                   <br />
                   ingredient
                 </Link>
@@ -120,20 +120,19 @@ class Navbar extends Component {
                 onClick={setNameSearch}
               >
                 <Link to="/namesearch">
-                  search by
+                  filter by
                   <br />
                   drink name
                 </Link>
               </button>
               <button
-                title="enable visualization aid (experimental)"
+                title="enable visualization aid"
                 className="navbutton"
                 id="vizButton"
                 onClick={this.vizClick}
               >
-                enable drinkViz
-                <br />
-                (experimental)
+                enable <br />
+                drinkViz
               </button>
             </nav>
             <Route path="/" render={() => <Redirect to="/drinkbase" />} />

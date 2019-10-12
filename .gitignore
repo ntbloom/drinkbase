@@ -22,6 +22,7 @@ yarn-error.log*
 *.ico
 *.swo
 error_log.txt
+*.pdf
 
 # python/back-end
 drinkEnv/

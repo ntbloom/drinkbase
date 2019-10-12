@@ -16,8 +16,12 @@ class Info extends Component {
 
   printDrinks() {
     // prints drink names with full recipes and other data
-    // const allDrinks = this.props.drinkList;
-    const picks = this.props.picks.Names;
+    let picks = this.props.picks.Names;
+    const drinkList = this.props.drinkList;
+    if (picks === undefined) {
+      picks = Object.keys(drinkList).sort();
+    }
+
     if (picks.length === 0) {
       return <p id="noResults">Sorry, no drinks match your results</p>;
     } else {
@@ -25,7 +29,7 @@ class Info extends Component {
         <Drink
           key={drink}
           name={drink}
-          allDrinks={this.props.drinkList}
+          allDrinks={drinkList}
           viz={this.props.viz}
         />
       ));

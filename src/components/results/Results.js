@@ -47,21 +47,21 @@ class Results extends Component {
     const allVizDrinks = this.props.allDrinks;
     const drinkList = this.props.drinkList;
     const picks = this.state.picks;
-    if (this.state.received && this.props.viz) {
+    if (this.props.allDrinks && this.props.viz) {
       return (
         <>
-          <div id="drinkViz">
-            <Viz allDrinks={allVizDrinks} picks={picks} />
+          <div id="yv_viz">
+            <Viz allDrinks={allVizDrinks} picks={picks} drinkList={drinkList} />
           </div>
-          <div id="results">
+          <div id="yv_results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </>
       );
-    } else if (this.state.received) {
+    } else if (this.props.allDrinks) {
       return (
         <>
-          <div id="justInfo">
+          <div id="nv_results">
             <Info drinkList={drinkList} picks={picks} viz={this.props.viz} />
           </div>
         </>

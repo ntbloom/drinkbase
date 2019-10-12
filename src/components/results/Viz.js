@@ -5,7 +5,6 @@
 import React, { Component } from "react";
 import * as d3 from "d3";
 //eslint-disable-next-line
-import Ingviz from "./Ingviz";
 
 export function cleanID(name) {
   // removes spaces & special chars for dynamic css-friendly IDs
@@ -38,7 +37,7 @@ class Drinkviz extends Component {
     // use const for everything else
     this.state = {
       showRecipeCounter: 0,
-      widthFactor: 0.4,
+      widthFactor: 0.5,
       aspectRatio: 4 / 3,
       circSizeFactor: 0.4 / 300,
     };
@@ -85,7 +84,7 @@ class Drinkviz extends Component {
 
   drawAxes() {
     // puts gridlines on plot
-    const drinksSVG = d3.select("#theDrinks");
+    const drinksSVG = d3.select("#chart");
     const width = window.innerWidth * this.state.widthFactor;
     const height =
       (window.innerWidth * this.state.widthFactor) / this.state.aspectRatio;
@@ -112,7 +111,7 @@ class Drinkviz extends Component {
       .attr("stroke", "var(--vizLines)");
     drinksSVG // x-axis label
       .append("text")
-      .text("Sugar")
+      .text("Total Sugar*")
       .attr("x", width * 0.5) // needs adjustment
       .attr("y", height * 0.98) // needs adjustment
       .attr("text-anchor", "middle")
@@ -122,7 +121,7 @@ class Drinkviz extends Component {
       .attr("opacity", 0.4);
     drinksSVG // y-axis label
       .append("text")
-      .text("Alcohol")
+      .text("Total Alcohol")
       .attr("x", width * 0.95)
       .attr("y", -height / 1.4)
       .attr("text-anchor", "middle")
@@ -138,9 +137,15 @@ class Drinkviz extends Component {
 
   drawPlot() {
     // getting data, defining variables
-    const picks = this.props.picks.Names;
+
+    // on first load
+    let picks = this.props.picks.Names;
+    if (picks === undefined) {
+      picks = Object.keys(this.props.drinkList);
+    }
+
     const allDrinks = this.props.allDrinks;
-    const drinksSVG = d3.select("#theDrinks");
+    const drinksSVG = d3.select("#chart");
     const width = window.innerWidth * this.state.widthFactor;
     const height =
       (window.innerWidth * this.state.widthFactor) / this.state.aspectRatio;
@@ -259,7 +264,10 @@ class Drinkviz extends Component {
   }
 
   unhighlight(d, i) {
-    const picks = this.props.picks.Names;
+    let picks = this.props.picks.Names;
+    if (picks === undefined) {
+      picks = Object.keys(this.props.drinkList);
+    }
     // eslint-disable-next-line
     const circle = d3
       .select("#".concat(cleanID(d.Name)))
@@ -288,37 +296,45 @@ class Drinkviz extends Component {
   }
 
   render() {
+    // style rules
+    const tooltipStyle = {
+      fontFamily: "var(--primary-fontfam)",
+      fontSize: "12px",
+      paddingLeft: "2em",
+    };
+    const chartStyle = {
+      paddingLeft: "1em",
+    };
+    const temp = {
+      fontFamily: "var(--primary-fontfam)",
+      fontSize: "10px",
+      paddingLeft: "5em",
+    };
     return (
       <>
-        <>
+        <div id="vizWrapper">
+          <div id="tooltip" className="tooltip" style={tooltipStyle}>
+            <span id="drinkName" />
+            <br />
+            <span id="drinkStyle" />
+            <span id="drinkIngredients" />
+          </div>
           <svg
-            className="bigPlot"
-            id="theDrinks"
+            id="chart"
+            style={chartStyle}
             width={window.innerWidth * this.state.widthFactor}
             height={
               (window.innerWidth * this.state.widthFactor) /
               this.state.aspectRatio
             }
           />
-        </>
-        <div id="tooltip" className="tooltip">
-          <span id="drinkName" />
-          <br />
-          <span id="drinkStyle" />
-          <span id="drinkIngredients" />
+          <div id="legend" />
+          <p id="temp" style={temp}>
+            *note: some sugar values are either estimated or completely ommitted
+            and may not reflect actual sugar content of certain drinks
+          </p>
+          {/*TODO: create legend for the chart here */}
         </div>
-        {/*TODO: populate this component
-      
-      <Ingviz
-          allDrinks={this.props.allDrinks}
-          name={this.state.nameclick}
-          width={window.innerWidth * this.state.widthFactor}
-          height={
-            (window.innerWidth * this.state.widthFactor) /
-            this.state.aspectRatio
-          }
-        />
-        */}
       </>
     );
   }
