@@ -13,7 +13,7 @@ learn Python, and in the process developed into a fully functioning web app.
 
 All cocktails are hosted in a cloud-based Postgresql database where recipes can
 be queried by the individual ingredients they do or don't contain, as well as
-the drink names themselves. This website is an efficient way to quikly find
+the drink names themselves. This app is an efficient way to quickly find
 high-quality cocktails based on what ingredients you may or may not have at your
 disposal.
 
