@@ -1,4 +1,5 @@
-<img src=http://ntbloom.com/static/media/drinkBaseWhite.9345f238.png width=500>
+# drinkBase
+
 a cocktail-finding app built using a react frontend with python/flask backend
 
 ---
