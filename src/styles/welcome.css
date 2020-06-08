@@ -6,6 +6,8 @@
 }
 
 #bigLogo {
+  padding-top: 1em;
+  padding-bottom: 1em;
   grid-row: 1 / 2;
 }
 
