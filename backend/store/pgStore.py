@@ -4,30 +4,36 @@
 import psycopg2
 from flask import jsonify
 
+
 class DrinkBase:
     def __init__(self, database):
         self.database = database
         self.connection = psycopg2.connect(
-                "dbname=" + self.database + " user=postgres") 
+            host="localhost",
+            dbname=self.database,
+            user="postgres",
+            password="password",
+        )
 
         # self.cursor can be used to define any SQL query
         # use self.cursor.fetchall() to actually run query
         self.cursor = self.connection.cursor()
-        
+
         # set of every drink named in the database
-        self.cursor.execute('SELECT DISTINCT name FROM recipes')
+        self.cursor.execute("SELECT DISTINCT name FROM recipes")
         temp = set()
         for i in self.cursor:
             temp.add(i[0])
         self.allDrinks = set(sorted(temp))
-    
+
     def sendAllDrinks(self):
-        '''returns sorted list of all drink names'''
+        """returns sorted list of all drink names"""
         return self.allDrinks
 
     def calcBrightness(self, drink):
-        '''returns brightness value for 'drink' as a float'''
-        self.cursor.execute('''
+        """returns brightness value for 'drink' as a float"""
+        self.cursor.execute(
+            """
             SELECT 
                 SUM(recipes.amount * units.conversion *
                 ingredients.brightness)
@@ -37,8 +43,9 @@ class DrinkBase:
                 ingredients.ingredient
             WHERE recipes.name = %s
             GROUP BY recipes.name
-            ''',
-            (drink,))
+            """,
+            (drink,),
+        )
         brightness = self.cursor.fetchone()
         try:
             return brightness[0]
@@ -47,8 +54,9 @@ class DrinkBase:
 
     def calcSweetness(self, drink):
 
-        '''returns sweetness value of 'drink' as a float'''
-        self.cursor.execute('''
+        """returns sweetness value of 'drink' as a float"""
+        self.cursor.execute(
+            """
             SELECT 
                 SUM(recipes.amount * units.conversion *
                 ingredients.sweetness)
@@ -58,8 +66,9 @@ class DrinkBase:
                 ingredients.ingredient
             WHERE recipes.name = %s
             GROUP BY recipes.name
-            ''',
-            (drink,))
+            """,
+            (drink,),
+        )
         sweetness = self.cursor.fetchone()
         try:
             return sweetness[0]
@@ -68,9 +77,9 @@ class DrinkBase:
 
     def calcAlcoholUnits(self, drink):
 
-        '''returns alcohol value of 'drink' as a float'''
+        """returns alcohol value of 'drink' as a float"""
         self.cursor.execute(
-            '''
+            """
             SELECT 
                 SUM(recipes.amount * units.conversion *
                     ingredients.ingAbv)
@@ -80,21 +89,25 @@ class DrinkBase:
                 ingredients.ingredient
             WHERE recipes.name = %s
             GROUP BY recipes.name
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         alcoholUnits = self.cursor.fetchone()
         try:
             return alcoholUnits[0]
         except:
             return 0
-    
+
     def getStyle(self, drink):
-        '''returns style of 'drink' as string'''
+        """returns style of 'drink' as string"""
         self.cursor.execute(
-            '''
+            """
             SELECT style 
             FROM prep 
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         style = self.cursor.fetchone()
         try:
             return style[0]
@@ -102,13 +115,15 @@ class DrinkBase:
             return 0
 
     def getGlass(self, drink):
-        '''returns glass of 'drink' as string'''
+        """returns glass of 'drink' as string"""
         self.cursor.execute(
-            '''
+            """
             SELECT glass 
             FROM prep 
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         glass = self.cursor.fetchone()
         try:
             return glass[0]
@@ -116,13 +131,15 @@ class DrinkBase:
             return 0
 
     def getGarnish(self, drink):
-        '''returns garnish of 'drink' as string'''
+        """returns garnish of 'drink' as string"""
         self.cursor.execute(
-            '''
+            """
             SELECT garnish 
             FROM prep 
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         garnish = self.cursor.fetchone()
         try:
             return garnish[0]
@@ -130,9 +147,9 @@ class DrinkBase:
             return 0
 
     def calcVolume(self, drink):
-        '''returns volume of 'drink' as float'''
+        """returns volume of 'drink' as float"""
         self.cursor.execute(
-            '''
+            """
             SELECT 
                 SUM (recipes.amount * units.conversion * (1.0 + style.melt))
             FROM recipes
@@ -141,7 +158,9 @@ class DrinkBase:
             INNER JOIN style ON prep.style = style.style
             WHERE recipes.name = %s
             GROUP BY recipes.name
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         volume = self.cursor.fetchone()
         try:
             return volume[0]
@@ -149,13 +168,15 @@ class DrinkBase:
             return 0
 
     def getNotes(self, drink):
-        '''returns notes for 'drink' as string'''
+        """returns notes for 'drink' as string"""
         self.cursor.execute(
-            '''
+            """
             SELECT notes 
             FROM prep 
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         notes = self.cursor.fetchone()
         try:
             return notes[0]
@@ -163,84 +184,100 @@ class DrinkBase:
             return 0
 
     def ingSearch(self, ingredient):
-        '''returns drinks that contain 'ingredient' as a set'''
+        """returns drinks that contain 'ingredient' as a set"""
         self.cursor.execute(
-            '''
+            """
             SELECT DISTINCT name 
             FROM recipes 
             WHERE LOWER(ingredient) LIKE %s
-            ''', ("%"+ingredient.lower()+"%",))
+            """,
+            ("%" + ingredient.lower() + "%",),
+        )
         drinks = set()
         for i in self.cursor:
             drinks.add(i[0])
         return sorted(drinks)
 
     def getIngString(self, drink):
-        '''returns ingredients in 'drink' as formatted string for API'''
-        self.cursor.execute('''
+        """returns ingredients in 'drink' as formatted string for API"""
+        self.cursor.execute(
+            """
             SELECT ingredient 
             FROM recipes 
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         ingredients = []
         for i in self.cursor:
             ingredients.append(i[0])
-        ingredients.sort() 
+        ingredients.sort()
         ingredientString = ""
-        for i in range(len(ingredients)-1):
-            ingredientString += ingredients[i] + ' | '
+        for i in range(len(ingredients) - 1):
+            ingredientString += ingredients[i] + " | "
         ingredientString += ingredients[-1]
 
         return ingredientString
 
-
     def getRecipe(self, drink):
-        '''returns full recipe for 'drink' as a dictionary'''
-        self.cursor.execute('''
+        """returns full recipe for 'drink' as a dictionary"""
+        self.cursor.execute(
+            """
             SELECT ingredient
             FROM recipes
             WHERE name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         ingredients = []
         for i in self.cursor:
             ingredients.append(i[0])
         recipe = []
         for i in ingredients:
-            self.cursor.execute('''
+            self.cursor.execute(
+                """
                 SELECT amount 
                 FROM recipes
                 WHERE name = %s AND ingredient = %s
-                ''', (drink, i))
+                """,
+                (drink, i),
+            )
             amount = self.cursor.fetchone()
-            amount = amount[0]           
-            self.cursor.execute('''
+            amount = amount[0]
+            self.cursor.execute(
+                """
                 SELECT unit 
                 FROM recipes 
                 WHERE name = %s AND ingredient = %s
-                ''', (drink, i))
+                """,
+                (drink, i),
+            )
             unit = self.cursor.fetchone()
             unit = str(unit[0])
-            recipe.append({'Ingredient': i, 'Amount': amount,'Unit':
-                unit})
-        recipeDict = {'Ingredients': recipe}
+            recipe.append({"Ingredient": i, "Amount": amount, "Unit": unit})
+        recipeDict = {"Ingredients": recipe}
         return recipe
 
     def nameSearch(self, nameQuery):
-        '''returns drink names matching 'nameQuery' as set'''
-        self.cursor.execute('''
+        """returns drink names matching 'nameQuery' as set"""
+        self.cursor.execute(
+            """
             SELECT DISTINCT name 
             FROM recipes 
             WHERE LOWER(name) LIKE %s
-            ''', ('%'+nameQuery.lower()+'%',))
+            """,
+            ("%" + nameQuery.lower() + "%",),
+        )
         drinks = set()
         for i in self.cursor:
             drinks.add(i[0])
         return sorted(drinks)
-    
+
     def getBuild(self, drink):
-        '''returns how to build 'drink' as a string'''
-        # build and glass notes 
-        self.cursor.execute('''
+        """returns how to build 'drink' as a string"""
+        # build and glass notes
+        self.cursor.execute(
+            """
             SELECT 
               (SELECT regexp_replace(
                 (SELECT style.description FROM style WHERE style.style = prep.style),
@@ -249,11 +286,14 @@ class DrinkBase:
             FROM prep
             INNER JOIN style on prep.style = style.style
             WHERE prep.name = %s
-            ''', (drink,))
+            """,
+            (drink,),
+        )
         build = self.cursor.fetchone()
-        
+
         # garnish notes
-        self.cursor.execute('''
+        self.cursor.execute(
+            """
             SELECT 
               CASE WHEN prep.garnish = 'none'
                 THEN ' No garnish.'
@@ -261,7 +301,9 @@ class DrinkBase:
               END
               FROM prep
               WHERE prep.name = %s
-              ''', (drink,))
+              """,
+            (drink,),
+        )
         garnish = self.cursor.fetchone()
         try:
             return build[0] + garnish[0]
@@ -269,17 +311,17 @@ class DrinkBase:
             return ""
 
     def sendData(self, drink):
-        '''returns API-ready data for 'drink' as a dictionary'''
+        """returns API-ready data for 'drink' as a dictionary"""
         # define structure to be jsonified
         data = {}
-        
+
         # results for each drink
         alcohol = self.calcAlcoholUnits(drink)
         volume = self.calcVolume(drink)
-        abv = alcohol/volume
+        abv = alcohol / volume
         bright = self.calcBrightness(drink)
         build = self.getBuild(drink)
-        ingredientString = self.getIngString(drink)       
+        ingredientString = self.getIngString(drink)
         garnish = self.getGarnish(drink)
         glass = self.getGlass(drink)
         notes = self.getNotes(drink)
@@ -287,32 +329,32 @@ class DrinkBase:
         sweet = self.calcSweetness(drink)
 
         # add values to dictionary
-        data['ABV'] = abv
-        data['AlcoholUnits'] = alcohol
-        data['Brightness'] = bright
-        data['Build'] = build
-        data['IngredientString'] = ingredientString
-        data['Garnish'] = garnish
-        data['Glass'] = glass
-        data['Notes'] = notes
-        data['Style'] = style
-        data['Sweetness'] = sweet
-        data['Volume'] = volume
+        data["ABV"] = abv
+        data["AlcoholUnits"] = alcohol
+        data["Brightness"] = bright
+        data["Build"] = build
+        data["IngredientString"] = ingredientString
+        data["Garnish"] = garnish
+        data["Glass"] = glass
+        data["Notes"] = notes
+        data["Style"] = style
+        data["Sweetness"] = sweet
+        data["Volume"] = volume
 
         return data
 
     def sendRecipe(self, drinks):
-        '''returns full dataset for list of 'drinks' as JSON'''
-        
+        """returns full dataset for list of 'drinks' as JSON"""
+
         drinkList = []
         for i in drinks:
             drinkDict = {}
             recipe = self.getRecipe(i)
             data = self.sendData(i)
-            recipeDict = {'Recipe': recipe}
-            drinkDict['Name'] = i
-            drinkDict['Recipe'] = recipe
-            drinkDict['Data'] = data
+            recipeDict = {"Recipe": recipe}
+            drinkDict["Name"] = i
+            drinkDict["Recipe"] = recipe
+            drinkDict["Data"] = data
             drinkList.append(drinkDict)
-        drinks = jsonify({'Drinks': drinkList})
+        drinks = jsonify({"Drinks": drinkList})
         return drinks

@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "drinkbase"
+version = "0.1.0"
+description = "flask/postgres cocktail backend rest API"
+authors = ["ntbloom <user@localhost>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+psycopg2-binary = "^2.8.6"
+Flask = "^2.0.0"
+requests = "^2.25.1"
+
+[tool.poetry.dev-dependencies]
+black = "^21.5b1"
+flake8 = "^3.9.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
