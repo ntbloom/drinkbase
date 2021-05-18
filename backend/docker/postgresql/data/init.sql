@@ -54,11 +54,12 @@ CREATE TABLE recipes (
   FOREIGN KEY (unit) REFERENCES units (unit)
 );
 --add the data from csv files
-\copy units FROM './units.csv' WITH (FORMAT csv, HEADER on);
-\copy style FROM './style.csv' WITH (FORMAT csv, HEADER on);
-\copy ingredients FROM './ingredients.csv' WITH (FORMAT csv, HEADER on);
-\copy prep FROM './prep.csv' WITH (FORMAT csv, HEADER on);
-\copy recipes FROM './recipes.csv' WITH (FORMAT csv, HEADER on);
+SELECT 2+2;
+\copy units FROM '/docker-entrypoint-initdb.d/units.csv' WITH (FORMAT csv, HEADER on);
+\copy style FROM '/docker-entrypoint-initdb.d/style.csv' WITH (FORMAT csv, HEADER on);
+\copy ingredients FROM '/docker-entrypoint-initdb.d/ingredients.csv' WITH (FORMAT csv, HEADER on);
+\copy prep FROM '/docker-entrypoint-initdb.d/prep.csv' WITH (FORMAT csv, HEADER on);
+\copy recipes FROM '/docker-entrypoint-initdb.d/recipes.csv' WITH (FORMAT csv, HEADER on);
 
 
 --commit the transaction block
