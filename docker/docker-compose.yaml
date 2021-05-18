@@ -15,7 +15,9 @@ services:
       context: ./api
     volumes:
       - "./api/conf/ports.conf:/etc/apache2/ports.conf"
+      - "./api/conf/apache2.conf:/etc/apache2/apache2.conf"
       - "./api/conf/drinkbase.conf:/etc/apache2/sites-available/drinkbase.conf"
+      - "../backend/src/:/home/debian/drinkbase/"
     tty: true
     ports:
       - 8080:80
