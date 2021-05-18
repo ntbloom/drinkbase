@@ -1,13 +1,9 @@
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+node_modules/
 
-# testing
-/coverage
 
 # production
-/build
+build/
 
 # misc
 *.swp
@@ -25,7 +21,6 @@ error_log.txt
 *.pdf
 
 # python/back-end
-drinkEnv/
 __pycache__/
 *.db
 *.~lock.*

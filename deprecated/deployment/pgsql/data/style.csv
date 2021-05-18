@@ -1,0 +1,10 @@
+style,melt,description
+built,0.2,Pour ingredients over ice into a @ glass. Stir gently. 
+stirred,0.3,Pour ingredients into shaker or mixing glass. Fill to the brim with ice and stir gently for 15 seconds. Strain with your favorite cocktail strainer into a pre-chilled @ glass.
+shaken,0.35,Add all ingredients to shaker. Fill to the brim with ice and shake vigorously for 30 seconds. Double-strain with cocktail strainer and fine-mesh strainer into a pre-chilled @ glass.
+bubbly,0.1,Shake all ingredients except bubbly with ice in a cocktail shaker. Double-strain with cocktail strainer and fine-mesh strainer into a pre-chilled @ glass. Top with bubbly.
+fizz,0.33,"Dry-shake all ingredients except the soda in a cocktail shaker for 30 seconds. Fill to the brim with ice, shake for an additional 15 seconds. Strain into pre-chilled @ glass and top with soda."
+swizzle,0.4,Pour all ingredients except garnishes into a @ glass over crushed ice. Swizzle until frost appears on glass and then top with more crushed ice.
+default,0.28,No build instructions for this drink yet. Consider contributing to this project to fix it.
+hot,0,Pour normal ingredients into a pre-warmed mug. Top with boiling water and stir gently.
+double shake,0.35,Dry shake all ingredients without ice for 30 seconds. Fill to the brim with ice and shake for additional 15 seconds. Double-strain with cocktail strainer and fine-mesh strainer into a pre-chilled @ glass.
