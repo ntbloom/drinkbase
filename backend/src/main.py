@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """ api.py - python/flask script for running drinkBase back end"""
 
-from store.pgStore import DrinkBase
+from drinkbase import DrinkBase
 from flask import Flask, request, make_response, jsonify
 
 ds = DrinkBase("drinkbase")
