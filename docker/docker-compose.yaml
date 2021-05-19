@@ -1,6 +1,8 @@
 version: '3.1'
 
 services:
+  
+  # postgresql
   database:
     image: postgres:13
     environment:
@@ -10,14 +12,12 @@ services:
       - "./postgresql/data:/docker-entrypoint-initdb.d"
     ports: 
       - 5432:5432
+
+  # flask-apache
   api:
     build:
-      context: ./api
-    volumes:
-      - "./api/conf/ports.conf:/etc/apache2/ports.conf"
-      - "./api/conf/apache2.conf:/etc/apache2/apache2.conf"
-      - "./api/conf/drinkbase.conf:/etc/apache2/sites-available/drinkbase.conf"
-      - "../backend/src/:/home/debian/drinkbase/"
+      context: ../
+      dockerfile: ./docker/api/Dockerfile
     tty: true
     ports:
       - 8080:80
