@@ -20,4 +20,5 @@ services:
       dockerfile: ./docker/api/Dockerfile
     tty: true
     ports:
-      - 8080:80
+      # change to 8080 later
+      - 80:80
