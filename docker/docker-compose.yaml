@@ -7,10 +7,15 @@ services:
       context: ../
       dockerfile: ./docker/api/Dockerfile
     network_mode: "host"
+    tty: true
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
     depends_on:
-      - database
+      - db 
 
-  database:
+  db:
     image: postgres:13
     environment:
       POSTGRES_PASSWORD: password

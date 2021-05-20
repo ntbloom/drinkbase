@@ -1,1 +1,4 @@
 *.swp
+.git
+*.md
+__pycache__
