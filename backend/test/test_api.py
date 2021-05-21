@@ -7,15 +7,14 @@ from typing import List, Union
 
 BASE_URL = "http://localhost:8080/api/v1.0/"
 
-# for drinkViz/data searches
-abv = "ABV"
-alc = "AlcoholUnits"
-bri = "Brightness"
-gar = "Garnish"
-ing = "IngredientString"
-sty = "Style"
-swe = "Sweetness"
-vol = "Volume"
+ABV = "ABV"
+ALC = "AlcoholUnits"
+BRI = "Brightness"
+GAR = "Garnish"
+ING = "IngredientString"
+STY = "Style"
+SWE = "Sweetness"
+VOL = "Volume"
 
 NO_JUICE_BITTERS = [
     "Americano",
@@ -61,7 +60,7 @@ class TestDrinkBase:
         r = requests.get(url)
         drinks = r.json()["Drinks"]
         value = drinks[0]["Data"][keyword]
-        if keyword == ing or keyword == sty or keyword == gar:
+        if keyword == ING or keyword == STY or keyword == GAR:
             value = value
         else:
             value = round(value, 3)
@@ -103,39 +102,39 @@ class TestDrinkBase:
     @pytest.mark.parametrize(
         "name,param,expected_value",
         [
-            ("Negroni", abv, 0.224),
-            ("Negroni", abv, 0.224),
-            ("Negroni", alc, 0.805),
-            ("Negroni", bri, 0.006),
-            ("Negroni", gar, "orange twist"),
-            ("Negroni", ing, "Campari | gin | sweet vermouth"),
-            ("Negroni", sty, "built"),
-            ("Negroni", swe, 0.4),
-            ("Negroni", vol, 3.6),
-            ("Margarita", abv, 0.192),
-            ("Margarita", alc, 1.1),
-            ("Margarita", bri, 0.06),
-            ("Margarita", gar, "salt rim and lime wedge"),
+            ("Negroni", ABV, 0.224),
+            ("Negroni", ABV, 0.224),
+            ("Negroni", ALC, 0.805),
+            ("Negroni", BRI, 0.006),
+            ("Negroni", GAR, "orange twist"),
+            ("Negroni", ING, "Campari | gin | sweet vermouth"),
+            ("Negroni", STY, "built"),
+            ("Negroni", SWE, 0.4),
+            ("Negroni", VOL, 3.6),
+            ("Margarita", ABV, 0.192),
+            ("Margarita", ALC, 1.1),
+            ("Margarita", BRI, 0.06),
+            ("Margarita", GAR, "salt rim and lime wedge"),
             (
                 "Margarita",
-                ing,
+                ING,
                 "Cointreau | agave nectar | lime juice | tequila reposado",
             ),
-            ("Margarita", sty, "shaken"),
-            ("Margarita", swe, 0.454),
-            ("Margarita", vol, 5.737),
-            ("Martinez", abv, 0.238),
-            ("Martinez", alc, 0.837),
-            ("Martinez", bri, 0.006),
-            ("Martinez", gar, "lemon twist"),
+            ("Margarita", STY, "shaken"),
+            ("Margarita", SWE, 0.454),
+            ("Margarita", VOL, 5.737),
+            ("Martinez", ABV, 0.238),
+            ("Martinez", ALC, 0.837),
+            ("Martinez", BRI, 0.006),
+            ("Martinez", GAR, "lemon twist"),
             (
                 "Martinez",
-                ing,
+                ING,
                 "Angostura bitters | Luxardo Maraschino | gin | sweet vermouth",
             ),
-            ("Martinez", sty, "stirred"),
-            ("Martinez", swe, 0.218),
-            ("Martinez", vol, 3.521),
+            ("Martinez", STY, "stirred"),
+            ("Martinez", SWE, 0.218),
+            ("Martinez", VOL, 3.521),
         ],
     )
     def test_api_values(self, name: str, param: str, expected_value: Union[float, str]):
