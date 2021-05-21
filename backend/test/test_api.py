@@ -5,7 +5,7 @@ import pytest
 from typing import List, Union
 
 
-BASE_URL = "http://localhost:8080/api/v1.0/"
+BASE_URL = "http://localhost:8080/drinkbase/v1.2/"
 
 ABV = "ABV"
 ALC = "AlcoholUnits"
@@ -47,18 +47,14 @@ class TestDrinkBase:
     def _check_api_names(url: str) -> List[str]:
         """Test the API endpoint"""
         r = requests.get(BASE_URL + url)
-        drinks = r.json()["Drinks"]
-        drinklist = []
-        for i in drinks:
-            drinklist.append(i["Name"])
-        return sorted(drinklist)
+        return sorted(r.json()["Names"])
 
     @staticmethod
     def _check_api_values(drink: str, keyword: str) -> Union[float, str]:
 
         url = BASE_URL + "names/?name=" + drink
         r = requests.get(url)
-        drinks = r.json()["Drinks"]
+        drinks = r.json()["Names"]
         value = drinks[0]["Data"][keyword]
         if keyword == ING or keyword == STY or keyword == GAR:
             value = value
