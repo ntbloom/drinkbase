@@ -49,19 +49,6 @@ class TestDrinkBase:
         r = requests.get(BASE_URL + url)
         return sorted(r.json()["Names"])
 
-    @staticmethod
-    def _check_api_values(drink: str, keyword: str) -> Union[float, str]:
-
-        url = BASE_URL + "names/?name=" + drink
-        r = requests.get(url)
-        drinks = r.json()["Names"]
-        value = drinks[0]["Data"][keyword]
-        if keyword == ING or keyword == STY or keyword == GAR:
-            value = value
-        else:
-            value = round(value, 3)
-        return value
-
     @pytest.mark.parametrize(
         "api_args,expected_names",
         [
@@ -95,44 +82,20 @@ class TestDrinkBase:
         """Do we get the proper drink names for each query?"""
         assert self._check_api_names(api_args) == expected_names
 
-    @pytest.mark.parametrize(
-        "name,param,expected_value",
-        [
-            ("Negroni", ABV, 0.224),
-            ("Negroni", ABV, 0.224),
-            ("Negroni", ALC, 0.805),
-            ("Negroni", BRI, 0.006),
-            ("Negroni", GAR, "orange twist"),
-            ("Negroni", ING, "Campari | gin | sweet vermouth"),
-            ("Negroni", STY, "built"),
-            ("Negroni", SWE, 0.4),
-            ("Negroni", VOL, 3.6),
-            ("Margarita", ABV, 0.192),
-            ("Margarita", ALC, 1.1),
-            ("Margarita", BRI, 0.06),
-            ("Margarita", GAR, "salt rim and lime wedge"),
-            (
-                "Margarita",
-                ING,
-                "Cointreau | agave nectar | lime juice | tequila reposado",
-            ),
-            ("Margarita", STY, "shaken"),
-            ("Margarita", SWE, 0.454),
-            ("Margarita", VOL, 5.737),
-            ("Martinez", ABV, 0.238),
-            ("Martinez", ALC, 0.837),
-            ("Martinez", BRI, 0.006),
-            ("Martinez", GAR, "lemon twist"),
-            (
-                "Martinez",
-                ING,
-                "Angostura bitters | Luxardo Maraschino | gin | sweet vermouth",
-            ),
-            ("Martinez", STY, "stirred"),
-            ("Martinez", SWE, 0.218),
-            ("Martinez", VOL, 3.521),
-        ],
-    )
-    def test_api_values(self, name: str, param: str, expected_value: Union[float, str]):
-        """Do we get the right results for various queries?"""
-        assert self._check_api_values(name, param) == expected_value
+    def test_api_values(self):
+        """Do we do the right data crunching? Use Negroni as an example. Also verifies parameters are all there"""
+        url = BASE_URL + "allDrinks"
+        drinks = requests.get(url).json()["Drinks"]
+
+        # brute force search just to make sure we're doing math correctly
+        for entry in drinks:
+            if entry["Name"] == "Negroni":
+                data = entry["Data"]
+                assert round(data[ABV], 3) == 0.224
+                assert round(data[ALC], 3) == 0.805
+                assert round(data[BRI], 3) == 0.006
+                assert round(data[SWE], 3) == 0.4
+                assert round(data[VOL], 3) == 3.6
+                assert data[GAR] == "orange twist"
+                assert data[ING] == "Campari | gin | sweet vermouth"
+                assert data[STY] == "built"
