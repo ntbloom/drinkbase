@@ -1,5 +1,3 @@
-""" api.py - python/flask script for running drinkBase back end"""
-
 from drinkbase import DrinkBase
 from flask import Flask, request, make_response, jsonify, Response
 

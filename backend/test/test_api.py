@@ -5,7 +5,7 @@ import pytest
 from typing import List
 
 
-BASE_URL = "http://localhost:5000/drinkbase/v1.2/"
+BASE_URL = "http://localhost:8080/drinkbase/v1.2/"
 
 ABV = "ABV"
 ALC = "AlcoholUnits"
