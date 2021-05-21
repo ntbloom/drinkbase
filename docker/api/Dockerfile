@@ -15,4 +15,8 @@ RUN poetry install
 # TODO: find out how to do this more elegantly than waiting 10 seconds
 # TODO: find out how to show logging
 WORKDIR /home/debian/src
-CMD sleep 10 && poetry run gunicorn -w 4 -b localhost:8080 main:app --access-logfile /var/log/gunicorn.log
+CMD sleep 10 && \
+  poetry run gunicorn \
+  -w 4 \
+  -b localhost:8080 main:app \
+  --access-logfile /var/log/gunicorn.log \

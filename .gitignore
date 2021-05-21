@@ -19,6 +19,7 @@ yarn-error.log*
 *.swo
 error_log.txt
 *.pdf
+.idea/
 
 # python/back-end
 __pycache__/

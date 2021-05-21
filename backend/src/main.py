@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """ api.py - python/flask script for running drinkBase back end"""
 
 from drinkbase import DrinkBase
