@@ -8,10 +8,6 @@ services:
       dockerfile: ./docker/api/Dockerfile
     network_mode: "host"
     tty: true
-    deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
     depends_on:
       - db 
 
@@ -21,5 +17,5 @@ services:
       POSTGRES_PASSWORD: password
       POSTGRES_DB: drinkbase
     volumes:
-      - "./postgresql/data:/docker-entrypoint-initdb.d"
+      - "./database/data:/docker-entrypoint-initdb.d"
     network_mode: "host"
