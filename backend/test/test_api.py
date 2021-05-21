@@ -2,10 +2,10 @@
 
 import requests
 import pytest
-from typing import List, Union
+from typing import List
 
 
-BASE_URL = "http://localhost:8080/drinkbase/v1.2/"
+BASE_URL = "http://localhost:5000/drinkbase/v1.2/"
 
 ABV = "ABV"
 ALC = "AlcoholUnits"
@@ -40,6 +40,11 @@ NO_JUICE_BITTERS = [
     "The Frank O’Hara",
     "Vesper",
 ]
+
+
+@pytest.fixture(scope="class", autouse=True)
+def run_dev_server():
+    pass
 
 
 class TestDrinkBase:
