@@ -20,3 +20,16 @@ services:
       - "./database/data:/docker-entrypoint-initdb.d"
     network_mode: "host"
 
+  frontend:
+    image: nginx:1.19
+    #build:
+    #  context: ../
+    #  dockerfile: ./docker/frontend/Dockerfile
+    volumes:
+      - "../frontend/build:/drinkbase"
+      - "./frontend/scripts:/docker-entrypoint.d"
+    network_mode: "host"
+    tty: true
+    depends_on:
+      - db
+      - api
