@@ -7,12 +7,12 @@ authors = ["ntbloom <user@localhost>"]
 [tool.poetry.dependencies]
 python = "^3.9"
 psycopg2-binary = "^2.8.6"
-Flask = "^2.0.0"
+Flask = "^2.0.1"
 requests = "^2.25.1"
 gunicorn = "^20.1.0"
 
 [tool.poetry.dev-dependencies]
-black = "^21.5b1"
+black = "^21.5b2"
 flake8 = "^3.9.2"
 pytest = "^6.2.4"
 
