@@ -75,14 +75,12 @@ print_messages()
 
 # run the script
 install_apt_packages
-
 if [ ! -x /usr/bin/docker ]; then
 	get_docker
 fi
 if [ ! -x /usr/local/bin/docker-compose ]; then
 	get_docker_compose
 fi
-#configure_firewall
-
+configure_firewall
 print_messages
 
