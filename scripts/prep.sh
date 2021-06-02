@@ -2,8 +2,6 @@
 # to be run once at setup 
 
 set -e
-set -x
-
 
 if [ $EUID -ne 0 ]; then
 	echo "Must be root"
@@ -17,6 +15,7 @@ install_apt_packages()
 	apt-get update
 	apt-get upgrade
 	apt-get install -y \
+		ufw \
 		tmux \
 		curl \
 		apt-transport-https \
@@ -52,19 +51,38 @@ get_docker_compose()
 
 }
 
+# secure the server
+configure_firewall()
+{
+	ufw enable
+	ufw default deny incoming
+	ufw allow 22
+	ufw allow 80
+	ufw allow 443
+
+}
+
 # print any messages
 print_messages() 
 {
 
 	echo "\n"
-	echo "reboot to get non-root access to docker cli"
+	echo "Script complete!"
+	echo "Reboot to get non-root access to docker cli"
 
 }
 
 
 # run the script
 install_apt_packages
-get_docker
-get_docker_compose
+
+if [ ! -x /usr/bin/docker ]; then
+	get_docker
+fi
+if [ ! -x /usr/local/bin/docker-compose ]; then
+	get_docker_compose
+fi
+#configure_firewall
+
 print_messages
 
