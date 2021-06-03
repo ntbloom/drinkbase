@@ -26,3 +26,8 @@ __pycache__/
 *.db
 *.~lock.*
 *.ods
+
+# ignore necessary small list of images
+!drinkBaseWhite.png
+!plain.png
+!smallLogo.png
