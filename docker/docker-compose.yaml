@@ -20,13 +20,6 @@ services:
       - "./database/data:/docker-entrypoint-initdb.d"
     network_mode: "host"
  
-  nodejs:
-    build:
-      context: ../
-      dockerfile: ./docker/nodejs/Dockerfile
-    volumes:
-      - "/${HOMEDIR}/build/:/builder/build"
-
   frontend:
     image: nginx:1.19
     volumes:
