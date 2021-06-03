@@ -21,21 +21,26 @@ install_apt_packages()
 		apt-transport-https \
 		ca-certificates \
 		gnupg \
-		lsb-release
+		lsb-release \
+		unattended-upgrades
 }
 
 # install docker, make drinkabse user part of group
 get_docker()
 {
-	url=https://download.docker.com/linux/debian/gpg
-	curl -fsSL $url | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-	echo \
-	  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
-	    $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
-	apt-get update
-	apt-get install -y docker-ce docker-ce-cli containerd.io
-	usermod -aG docker drinkbase
-	echo "docker installed at $(which docker)"
+	if [ ! -x /usr/bin/docker ]; then
+		url=https://download.docker.com/linux/debian/gpg
+		curl -fsSL $url | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+		echo \
+		  "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/debian \
+		    $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
+		apt-get update
+		apt-get install -y docker-ce docker-ce-cli containerd.io
+		usermod -aG docker drinkbase
+		echo "docker installed at $(which docker)"
+	else
+		echo "docker already installed at $(which docker), skipping..."
+	fi
 
 }
 
@@ -43,19 +48,25 @@ get_docker()
 get_docker_compose()
 {
 
-	url=https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
-	curl -L $url -o /usr/local/bin/docker-compose
-	chmod +x /usr/local/bin/docker-compose
-	ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
-	echo "docker-compose installed at $(which docker-compose)"
+	if [ ! -x /usr/local/bin/docker-compose ]; then
+		url=https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+		curl -L $url -o /usr/local/bin/docker-compose
+		chmod +x /usr/local/bin/docker-compose
+		ln -sf /usr/local/bin/docker-compose /usr/bin/docker-compose
+		echo "docker-compose installed at $(which docker-compose)"
+	else
+		echo "docker-compose already installed at $(which docker-compose), skipping..."
+	fi
 
 }
 
 # secure the server
 configure_firewall()
 {
+	yes | ufw reset
 	ufw enable
 	ufw default deny incoming
+	ufw default allow outgoing
 	ufw allow 22
 	ufw allow 80
 	ufw allow 443
@@ -75,12 +86,8 @@ print_messages()
 
 # run the script
 install_apt_packages
-if [ ! -x /usr/bin/docker ]; then
-	get_docker
-fi
-if [ ! -x /usr/local/bin/docker-compose ]; then
-	get_docker_compose
-fi
+get_docker
+get_docker_compose
 configure_firewall
 print_messages
 
