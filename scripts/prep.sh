@@ -18,11 +18,13 @@ install_apt_packages()
 		ufw \
 		tmux \
 		curl \
+		tree \
 		apt-transport-https \
 		ca-certificates \
 		gnupg \
 		lsb-release \
-		unattended-upgrades
+		unattended-upgrades \
+		haveged 
 }
 
 # install docker, make drinkabse user part of group
@@ -67,9 +69,9 @@ configure_firewall()
 	ufw enable
 	ufw default deny incoming
 	ufw default allow outgoing
-	ufw allow 22
-	ufw allow 80
-	ufw allow 443
+	ufw allow 22/tcp
+	ufw allow 80/tcp
+	ufw allow 443/tcp
 
 }
 

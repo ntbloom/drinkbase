@@ -22,13 +22,12 @@ services:
 
   frontend:
     image: nginx:1.19
-    #build:
-    #  context: ../
-    #  dockerfile: ./docker/frontend/Dockerfile
     volumes:
-      - "../frontend/build:/drinkbase"
-      - "./frontend/scripts:/docker-entrypoint.d"
-    network_mode: "host"
+      - "${HOMEDIR}/frontend/build:/drinkbase"
+      - "${HOMEDIR}/docker/nginx/scripts:/docker-entrypoint.d"
+    ports:
+      - "80:80"
+      - "443:443"
     tty: true
     depends_on:
       - db
