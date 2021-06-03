@@ -3,7 +3,8 @@ node_modules/
 
 
 # production
-build/
+#build/
+# Include the build directory so we don't have to actually build in production
 
 # misc
 *.swp
