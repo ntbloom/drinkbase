@@ -6,7 +6,7 @@ YAML=$DOCKERDIR/docker-compose.yaml
 ENV=$DOCKERDIR/env
 
 # build the environment
-build()
+with_build()
 {
 	docker-compose -f $YAML build \
 		--parallel \
@@ -22,12 +22,10 @@ up()
 
 }
 
-down() 
-{
+if [ $1 == build ]; then
+	with_build
+else
+	echo "skipping build"
+fi
 
-	docker-compose -f $YAML down
-}
-
-#build
-#up
-#down
+up
