@@ -11,14 +11,18 @@ build()
 	docker-compose -f $YAML build \
 		--parallel \
 		--no-cache
+	docker-compose up -f $YAML nodejs
 
 }
 
 
-# launch the docker-compose environment
+# launch the docker-compose environment, except for building the front-end
 up()
 {
-	docker-compose -f $YAML up
+	docker-compose -f $YAML up \
+		api \
+		db \
+		frontend
 
 }
 

@@ -32,10 +32,10 @@ services:
     image: nginx:1.19
     volumes:
       - "/opt/drinkbase/build/:/drinkbase"
+      - "${HOMEDIR}/docker/nginx/conf:/etc/nginx/conf.d"
       - "${HOMEDIR}/docker/nginx/scripts:/docker-entrypoint.d"
     network_mode: "host"
     tty: true
     depends_on:
-      - nodejs 
       - db
       - api
