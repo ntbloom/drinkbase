@@ -24,17 +24,16 @@ services:
     build:
       context: ../
       dockerfile: ./docker/nodejs/Dockerfile
+    tty: true
     volumes:
-      - "/${HOMEDIR}/build/:/builder/build"
+      - "/opt/drinkbase/build/:/builder/build"
 
   frontend:
     image: nginx:1.19
     volumes:
-      - "${HOMEDIR}/frontend/build:/drinkbase"
+      - "/opt/drinkbase/build/:/drinkbase"
       - "${HOMEDIR}/docker/nginx/scripts:/docker-entrypoint.d"
-    ports:
-      - "80:80"
-      - "443:443"
+    network_mode: "host"
     tty: true
     depends_on:
       - nodejs 

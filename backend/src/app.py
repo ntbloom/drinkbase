@@ -12,7 +12,7 @@ def _include_headers(payload: Response) -> Response:
     return response
 
 
-@app.route("/drinkbase/v1.2/allDrinks/", methods=["GET"])
+@app.route("/api/v1.2/allDrinks/", methods=["GET"])
 def get_all_drinks() -> Response:
     """sends entire database as JSON"""
     drinks = ds.allDrinks
@@ -20,7 +20,7 @@ def get_all_drinks() -> Response:
     return _include_headers(drinks_json)
 
 
-@app.route("/drinkbase/v1.2/ingreds/", methods=["GET"])
+@app.route("/api/v1.2/ingreds/", methods=["GET"])
 def get_ingredients() -> Response:
     """querying the database by ingredient"""
     incl = request.args.get("incl")
@@ -40,7 +40,7 @@ def get_ingredients() -> Response:
     return _include_headers(drinks)
 
 
-@app.route("/drinkbase/v1.2/names/", methods=["GET"])
+@app.route("/api/v1.2/names/", methods=["GET"])
 def get_name() -> Response:
     """querying the database by drink name"""
     name = request.args.get("name")
