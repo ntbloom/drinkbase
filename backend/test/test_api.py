@@ -1,11 +1,13 @@
-# for testing python API
+from typing import List
 
 import requests
 import pytest
-from typing import List
+import threading
+
+from backend.src.app import create_app
 
 
-BASE_URL = "http://localhost/api/v1.2/"
+BASE_URL = "http://localhost:5000/api/v1.2/"
 
 ABV = "ABV"
 ALC = "AlcoholUnits"
@@ -42,10 +44,14 @@ NO_JUICE_BITTERS = [
 ]
 
 
-@pytest.fixture(scope="class", autouse=True)
-def run_dev_server():
-    """Figure out how to run this, somehow?"""
-    pass
+@pytest.fixture(scope="class")
+def flask_app(log):
+    """flask app fixture"""
+    app = create_app()
+    thread = threading.Thread(target=app.run)
+    thread.start()
+    yield
+    thread.join(0)
 
 
 class TestDrinkBase:
@@ -84,11 +90,11 @@ class TestDrinkBase:
             ("ingreds/?incl=heering&excl=", ["Blood & Sand", "Singapore Sling"]),
         ],
     )
-    def test_api_names(self, api_args: str, expected_names: List[str]):
+    def test_api_names(self, api_args: str, expected_names: List[str], flask_app):
         """Do we get the proper drink names for each query?"""
         assert self._check_api_names(api_args) == expected_names
 
-    def test_api_values(self):
+    def test_api_values(self, flask_app):
         """Do we do the right data crunching? Use Negroni as an example. Also verifies parameters are all there"""
         url = BASE_URL + "allDrinks"
         drinks = requests.get(url).json()["Drinks"]
