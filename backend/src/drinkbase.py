@@ -1,4 +1,4 @@
-from typing import Set
+from typing import Set, List
 
 import psycopg2
 from flask import jsonify
@@ -111,7 +111,7 @@ class DrinkBase:
         try:
             return style[0]
         except IndexError:
-            return 0
+            return ""
 
     def get_glass(self, drink) -> str:
         """returns glass of 'drink' as string"""
@@ -127,7 +127,7 @@ class DrinkBase:
         try:
             return glass[0]
         except IndexError:
-            return 0
+            return ""
 
     def get_garnish(self, drink) -> str:
         """returns garnish of 'drink' as string"""
@@ -143,7 +143,7 @@ class DrinkBase:
         try:
             return garnish[0]
         except IndexError:
-            return 0
+            return ""
 
     def calc_volume(self, drink) -> float:
         """returns volume of 'drink' as float"""
@@ -180,10 +180,10 @@ class DrinkBase:
         try:
             return notes[0]
         except IndexError:
-            return 0
+            return ""
 
-    def ing_search(self, ingredient):
-        """returns drinks that contain 'ingredient' as a set"""
+    def ing_search(self, ingredient) -> List[str]:
+        """returns drinks that contain 'ingredient' as a list"""
         self.cursor.execute(
             """
             SELECT DISTINCT name 
@@ -198,7 +198,7 @@ class DrinkBase:
             drinks.append(i[0])
         return drinks
 
-    def getIngString(self, drink):
+    def get_ing_string(self, drink) -> str:
         """returns ingredients in 'drink' as formatted string for API"""
         self.cursor.execute(
             """
@@ -212,15 +212,15 @@ class DrinkBase:
         for i in self.cursor:
             ingredients.append(i[0])
         ingredients.sort()
-        ingredientString = ""
+        ingredient_string = ""
         for i in range(len(ingredients) - 1):
-            ingredientString += ingredients[i] + " | "
-        ingredientString += ingredients[-1]
+            ingredient_string += ingredients[i] + " | "
+        ingredient_string += ingredients[-1]
 
-        return ingredientString
+        return ingredient_string
 
-    def getRecipe(self, drink):
-        """returns full recipe for 'drink' as a dictionary"""
+    def get_recipe(self, drink) -> List[dict]:
+        """returns full recipe for 'drink'"""
         self.cursor.execute(
             """
             SELECT ingredient
@@ -255,23 +255,23 @@ class DrinkBase:
             unit = self.cursor.fetchone()
             unit = str(unit[0])
             recipe.append({"Ingredient": i, "Amount": amount, "Unit": unit})
-        recipeDict = {"Ingredients": recipe}
         return recipe
 
-    def nameSearch(self, nameQuery):
-        """returns drink names matching 'nameQuery' as set"""
+    def name_search(self, name_query) -> List[str]:
+        """returns drink names matching 'nameQuery'"""
         self.cursor.execute(
             """
             SELECT DISTINCT name 
             FROM recipes 
             WHERE LOWER(name) LIKE %s
+            ORDER BY name
             """,
-            ("%" + nameQuery.lower() + "%",),
+            ("%" + name_query.lower() + "%",),
         )
-        drinks = set()
+        drinks = []
         for i in self.cursor:
-            drinks.add(i[0])
-        return sorted(drinks)
+            drinks.append(i[0])
+        return drinks
 
     def getBuild(self, drink):
         """returns how to build 'drink' as a string"""
@@ -307,7 +307,7 @@ class DrinkBase:
         garnish = self.cursor.fetchone()
         try:
             return build[0] + garnish[0]
-        except:
+        except IndexError:
             return ""
 
     def sendData(self, drink):
@@ -321,7 +321,7 @@ class DrinkBase:
         abv = alcohol / volume
         bright = self.calc_brightness(drink)
         build = self.getBuild(drink)
-        ingredientString = self.getIngString(drink)
+        ingredientString = self.get_ing_string(drink)
         garnish = self.get_garnish(drink)
         glass = self.get_glass(drink)
         notes = self.get_notes(drink)
@@ -349,7 +349,7 @@ class DrinkBase:
         drinkList = []
         for i in drinks:
             drinkDict = {}
-            recipe = self.getRecipe(i)
+            recipe = self.get_recipe(i)
             data = self.sendData(i)
             recipeDict = {"Recipe": recipe}
             drinkDict["Name"] = i

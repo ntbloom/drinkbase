@@ -42,7 +42,7 @@ def create_app():
     def get_name() -> Response:
         """querying the database by drink name"""
         name = request.args.get("name")
-        drinks = ds.nameSearch(name)
+        drinks = ds.name_search(name)
         drinks_json = jsonify({"Names": drinks})
         return _include_headers(drinks_json)
 
