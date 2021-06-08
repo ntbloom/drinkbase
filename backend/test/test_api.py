@@ -5,9 +5,10 @@ import pytest
 import threading
 
 from backend.src.app import create_app
+from werkzeug.serving import make_server
 
-
-BASE_URL = "http://localhost:5000/api/v1.2/"
+PORT = 5000
+BASE_URL = f"http://localhost:{PORT}/api/v1.2/"
 
 ABV = "ABV"
 ALC = "AlcoholUnits"
@@ -45,13 +46,25 @@ NO_JUICE_BITTERS = [
 
 
 @pytest.fixture(scope="class")
-def flask_app(log):
+def flask_app():
     """flask app fixture"""
-    app = create_app()
-    thread = threading.Thread(target=app.run)
+
+    class Server:
+        def __init__(self):
+            self._server = make_server("localhost", PORT, create_app())
+
+        def start(self):
+            self._server.serve_forever()
+
+        def stop(self):
+            self._server.shutdown()
+
+    server = Server()
+
+    thread = threading.Thread(target=server.start)
     thread.start()
     yield
-    thread.join(0)
+    server.stop()
 
 
 class TestDrinkBase:

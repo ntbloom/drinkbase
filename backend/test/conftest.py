@@ -16,7 +16,7 @@ def _port_is_open(port):
 
 
 @pytest.fixture(scope="session", autouse=True)
-def database(log):
+def database():
     """spin up the database"""
     docker_dir = Path(__file__).parent.parent.parent.joinpath("docker")
     up = subprocess.run(
