@@ -1,5 +1,4 @@
-#!/usr/bin/python3
-# drinkStore.py -- defines DrinkBase class for querying postgresql database
+from typing import Set
 
 import psycopg2
 from flask import jsonify
@@ -24,13 +23,13 @@ class DrinkBase:
         temp = set()
         for i in self.cursor:
             temp.add(i[0])
-        self.allDrinks = set(sorted(temp))
+        self.all_drinks = temp
 
-    def sendAllDrinks(self):
+    def send_all_drinks(self) -> Set[str]:
         """returns sorted list of all drink names"""
-        return self.allDrinks
+        return self.all_drinks
 
-    def calcBrightness(self, drink):
+    def calc_brightness(self, drink) -> float:
         """returns brightness value for 'drink' as a float"""
         self.cursor.execute(
             """
@@ -49,10 +48,10 @@ class DrinkBase:
         brightness = self.cursor.fetchone()
         try:
             return brightness[0]
-        except:
+        except IndexError:
             return 0
 
-    def calcSweetness(self, drink):
+    def calc_sweetness(self, drink) -> float:
 
         """returns sweetness value of 'drink' as a float"""
         self.cursor.execute(
@@ -72,10 +71,10 @@ class DrinkBase:
         sweetness = self.cursor.fetchone()
         try:
             return sweetness[0]
-        except:
+        except IndexError:
             return 0
 
-    def calcAlcoholUnits(self, drink):
+    def calc_alcohol_units(self, drink) -> float:
 
         """returns alcohol value of 'drink' as a float"""
         self.cursor.execute(
@@ -92,13 +91,13 @@ class DrinkBase:
             """,
             (drink,),
         )
-        alcoholUnits = self.cursor.fetchone()
+        alcohol_units = self.cursor.fetchone()
         try:
-            return alcoholUnits[0]
-        except:
+            return alcohol_units[0]
+        except IndexError:
             return 0
 
-    def getStyle(self, drink):
+    def get_style(self, drink) -> str:
         """returns style of 'drink' as string"""
         self.cursor.execute(
             """
@@ -111,10 +110,10 @@ class DrinkBase:
         style = self.cursor.fetchone()
         try:
             return style[0]
-        except:
+        except IndexError:
             return 0
 
-    def getGlass(self, drink):
+    def get_glass(self, drink) -> str:
         """returns glass of 'drink' as string"""
         self.cursor.execute(
             """
@@ -127,10 +126,10 @@ class DrinkBase:
         glass = self.cursor.fetchone()
         try:
             return glass[0]
-        except:
+        except IndexError:
             return 0
 
-    def getGarnish(self, drink):
+    def get_garnish(self, drink) -> str:
         """returns garnish of 'drink' as string"""
         self.cursor.execute(
             """
@@ -143,10 +142,10 @@ class DrinkBase:
         garnish = self.cursor.fetchone()
         try:
             return garnish[0]
-        except:
+        except IndexError:
             return 0
 
-    def calcVolume(self, drink):
+    def calc_volume(self, drink) -> float:
         """returns volume of 'drink' as float"""
         self.cursor.execute(
             """
@@ -164,10 +163,10 @@ class DrinkBase:
         volume = self.cursor.fetchone()
         try:
             return volume[0]
-        except:
+        except IndexError:
             return 0
 
-    def getNotes(self, drink):
+    def get_notes(self, drink) -> str:
         """returns notes for 'drink' as string"""
         self.cursor.execute(
             """
@@ -180,23 +179,24 @@ class DrinkBase:
         notes = self.cursor.fetchone()
         try:
             return notes[0]
-        except:
+        except IndexError:
             return 0
 
-    def ingSearch(self, ingredient):
+    def ing_search(self, ingredient):
         """returns drinks that contain 'ingredient' as a set"""
         self.cursor.execute(
             """
             SELECT DISTINCT name 
             FROM recipes 
             WHERE LOWER(ingredient) LIKE %s
+            ORDER BY name
             """,
             ("%" + ingredient.lower() + "%",),
         )
-        drinks = set()
+        drinks = []
         for i in self.cursor:
-            drinks.add(i[0])
-        return sorted(drinks)
+            drinks.append(i[0])
+        return drinks
 
     def getIngString(self, drink):
         """returns ingredients in 'drink' as formatted string for API"""
@@ -316,17 +316,17 @@ class DrinkBase:
         data = {}
 
         # results for each drink
-        alcohol = self.calcAlcoholUnits(drink)
-        volume = self.calcVolume(drink)
+        alcohol = self.calc_alcohol_units(drink)
+        volume = self.calc_volume(drink)
         abv = alcohol / volume
-        bright = self.calcBrightness(drink)
+        bright = self.calc_brightness(drink)
         build = self.getBuild(drink)
         ingredientString = self.getIngString(drink)
-        garnish = self.getGarnish(drink)
-        glass = self.getGlass(drink)
-        notes = self.getNotes(drink)
-        style = self.getStyle(drink)
-        sweet = self.calcSweetness(drink)
+        garnish = self.get_garnish(drink)
+        glass = self.get_glass(drink)
+        notes = self.get_notes(drink)
+        style = self.get_style(drink)
+        sweet = self.calc_sweetness(drink)
 
         # add values to dictionary
         data["ABV"] = abv

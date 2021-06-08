@@ -15,7 +15,7 @@ def create_app():
     @app.route("/api/v1.2/allDrinks/", methods=["GET"])
     def get_all_drinks() -> Response:
         """sends entire database as JSON"""
-        drinks = ds.allDrinks
+        drinks = ds.all_drinks
         drinks_json = ds.sendRecipe(drinks)
         return _include_headers(drinks_json)
 
@@ -24,16 +24,16 @@ def create_app():
         """querying the database by ingredient"""
         incl = request.args.get("incl")
         excl = request.args.get("excl")
-        drinks = ds.allDrinks
+        drinks = ds.all_drinks
         if incl:
             incl = incl.split(", ")
             for i in incl:
-                temp_set = set(ds.ingSearch(i))
+                temp_set = set(ds.ing_search(i))
                 drinks = drinks & temp_set
         if excl:
             excl = excl.split(", ")
             for i in excl:
-                temp_set = set(ds.ingSearch(i))
+                temp_set = set(ds.ing_search(i))
                 drinks = drinks - temp_set
         drinks = jsonify({"Names": sorted(list(drinks))})
         return _include_headers(drinks)

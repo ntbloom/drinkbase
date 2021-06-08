@@ -21,7 +21,11 @@ class TestDrinkbase:
                 break
         assert found
 
-    def test_all_drinks(self, drinkbase: DrinkBase, log):
+    def test_all_drinks(self, drinkbase: DrinkBase):
         """Test all drinks"""
-        drinks = drinkbase.sendAllDrinks()
+        drinks = drinkbase.send_all_drinks()
+
+    def test_ing_search(self, drinkbase: DrinkBase, log):
+        """Test ingredient search"""
+        drinks = drinkbase.ing_search("vermouth")
         assert "Negroni" in drinks
