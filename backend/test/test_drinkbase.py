@@ -47,3 +47,18 @@ class TestDrinkbase:
         names = drinkbase.name_search("Martini")
         assert "Martini" in names
         assert "Martinez" not in names
+
+    def test_get_build(self, drinkbase: DrinkBase):
+        build = drinkbase.get_build("Negroni")
+        for word in ["glass", "Garnish", "ice"]:
+            assert word in build
+
+    def test_send_data(self, drinkbase: DrinkBase):
+        data = drinkbase.send_data("Negroni")
+        for selected_keys in ["ABV", "Glass", "Garnish", "Volume"]:
+            assert selected_keys in data
+
+    @pytest.mark.xfail(reason="needs flask context in order to work, not worth mocking")
+    def test_send_recipe(self, drinkbase: DrinkBase, log):
+        recipe = drinkbase.send_recipe(["Negroni"])
+        log.error(recipe)

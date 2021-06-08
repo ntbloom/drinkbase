@@ -1,5 +1,6 @@
 from typing import Set, List
 
+import flask
 import psycopg2
 from flask import jsonify
 
@@ -273,7 +274,7 @@ class DrinkBase:
             drinks.append(i[0])
         return drinks
 
-    def getBuild(self, drink):
+    def get_build(self, drink) -> str:
         """returns how to build 'drink' as a string"""
         # build and glass notes
         self.cursor.execute(
@@ -310,7 +311,7 @@ class DrinkBase:
         except IndexError:
             return ""
 
-    def sendData(self, drink):
+    def send_data(self, drink) -> dict:
         """returns API-ready data for 'drink' as a dictionary"""
         # define structure to be jsonified
         data = {}
@@ -320,8 +321,8 @@ class DrinkBase:
         volume = self.calc_volume(drink)
         abv = alcohol / volume
         bright = self.calc_brightness(drink)
-        build = self.getBuild(drink)
-        ingredientString = self.get_ing_string(drink)
+        build = self.get_build(drink)
+        ingredient_string = self.get_ing_string(drink)
         garnish = self.get_garnish(drink)
         glass = self.get_glass(drink)
         notes = self.get_notes(drink)
@@ -333,7 +334,7 @@ class DrinkBase:
         data["AlcoholUnits"] = alcohol
         data["Brightness"] = bright
         data["Build"] = build
-        data["IngredientString"] = ingredientString
+        data["IngredientString"] = ingredient_string
         data["Garnish"] = garnish
         data["Glass"] = glass
         data["Notes"] = notes
@@ -343,18 +344,18 @@ class DrinkBase:
 
         return data
 
-    def sendRecipe(self, drinks):
+    def send_recipe(self, drinks) -> flask.Response:
         """returns full dataset for list of 'drinks' as JSON"""
 
-        drinkList = []
+        payload = []
         for i in drinks:
-            drinkDict = {}
+            drink = {}
             recipe = self.get_recipe(i)
-            data = self.sendData(i)
-            recipeDict = {"Recipe": recipe}
-            drinkDict["Name"] = i
-            drinkDict["Recipe"] = recipe
-            drinkDict["Data"] = data
-            drinkList.append(drinkDict)
-        drinks = jsonify({"Drinks": drinkList})
+            data = self.send_data(i)
+            recipe = {"Recipe": recipe}
+            drink["Name"] = i
+            drink["Recipe"] = recipe
+            drink["Data"] = data
+            payload.append(drink)
+        drinks = jsonify({"Drinks": payload})
         return drinks

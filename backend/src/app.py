@@ -16,7 +16,7 @@ def create_app():
     def get_all_drinks() -> Response:
         """sends entire database as JSON"""
         drinks = ds.all_drinks
-        drinks_json = ds.sendRecipe(drinks)
+        drinks_json = ds.send_recipe(drinks)
         return _include_headers(drinks_json)
 
     @app.route("/api/v1.2/ingreds/", methods=["GET"])
