@@ -6,7 +6,7 @@ authors = ["ntbloom <user@localhost>"]
 
 [tool.poetry.dependencies]
 python = "^3.9"
-psycopg2-binary = "^2.8.6"
+psycopg2-binary = "^2.9.1"
 Flask = "^2.0.1"
 requests = "^2.25.1"
 gunicorn = "^20.1.0"
