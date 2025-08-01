@@ -2,3 +2,6 @@
 .git
 *.md
 __pycache__
+.venv
+.poetry.lock
+node_modules

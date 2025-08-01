@@ -20,5 +20,5 @@ WORKDIR /home/debian/src
 CMD sleep 10 && \
   poetry run gunicorn \
   -w 4 \
-  -b localhost:8080 app:main \
+  -b localhost:8080 app:app \
   --access-logfile /var/log/gunicorn.log \
