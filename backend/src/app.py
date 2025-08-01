@@ -59,10 +59,10 @@ def create_app() -> None:
     return app
 
 
-def main() -> None:
+def app() -> None:
     app = create_app()
     app.run(port=8080, debug=False, use_reloader=True)
 
 
 if __name__ == "__main__":
-    main()
+    app()
