@@ -20,7 +20,7 @@ def database():
     """spin up the database"""
     docker_dir = Path(__file__).parent.parent.parent.joinpath("docker")
     up = subprocess.run(
-        "docker-compose up -d db", shell=True, cwd=docker_dir, capture_output=True
+        "docker compose up -d db", shell=True, cwd=docker_dir, capture_output=True
     )
     up.check_returncode()
     connected = False
@@ -33,7 +33,7 @@ def database():
 
     yield
     subprocess.run(
-        "docker-compose down", shell=True, cwd=docker_dir, capture_output=True
+        "docker compose down", shell=True, cwd=docker_dir, capture_output=True
     )
 
 

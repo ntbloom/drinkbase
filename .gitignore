@@ -27,6 +27,7 @@ __pycache__/
 *.~lock.*
 *.ods
 .coverage
+.venv/
 
 # ignore necessary small list of images
 !drinkBaseWhite.png
