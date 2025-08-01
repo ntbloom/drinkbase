@@ -2,6 +2,10 @@
 up:
 	docker compose -f $(PWD)/docker/docker-compose.yaml up --build
 
+.PHONY:down
+down:
+	docker compose -f $(PWD)/docker/docker-compose.yaml down
+
 
 BACKEND_DIR=$(PWD)/backend
 POETRY=poetry --directory=$(BACKEND_DIR)

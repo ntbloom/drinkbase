@@ -1,8 +1,8 @@
-from .drinkbase import DrinkBase
+from drinkbase import DrinkBase
 from flask import Flask, request, make_response, jsonify, Response
 
 
-def create_app():
+def create_app() -> None:
     ds = DrinkBase("drinkbase")
     app = Flask(__name__)
 
@@ -59,6 +59,10 @@ def create_app():
     return app
 
 
-if __name__ == "__main__":
+def main() -> None:
     app = create_app()
     app.run(port=8080, debug=False, use_reloader=True)
+
+
+if __name__ == "__main__":
+    main()

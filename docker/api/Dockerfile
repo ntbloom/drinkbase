@@ -10,15 +10,15 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./backend/ /home/debian/
 
 WORKDIR /home/debian/
-RUN python3 -m pip install poetry
-RUN poetry install
+RUN python3 -m pip install poetry 
+RUN poetry install --without dev
 
 # launch the gunicorn service
-# TODO: find out how to do this more elegantly than waiting 10 seconds
-# TODO: find out how to show logging
+# # TODO: find out how to do this more elegantly than waiting 10 seconds
+# # TODO: find out how to show logging
 WORKDIR /home/debian/src
 CMD sleep 10 && \
   poetry run gunicorn \
   -w 4 \
-  -b localhost:8080 app:app \
+  -b localhost:8080 app:main \
   --access-logfile /var/log/gunicorn.log \
