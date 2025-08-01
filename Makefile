@@ -14,5 +14,5 @@ build-backend:
 
 .PHONY:test-backend
 test-backend:
-	$(PYTEST) -s -x -k test_database_fixture
+	$(PYTEST) -x 
 

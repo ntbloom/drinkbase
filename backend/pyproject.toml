@@ -14,10 +14,10 @@ docker = "^7"
 six = "^1"
 
 [tool.poetry.dev-dependencies]
-black = "^21.5b2"
-flake8 = "^3.9.2"
-pytest = "^6.2.4"
-pytest-cov = "^2.12.1"
+black = "*"
+flake8 = "*"
+pytest = "*"
+pytest-cov = "*"
 
 [tool.pytest.ini_options]
 log_cli_level = "WARN"

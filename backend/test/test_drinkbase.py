@@ -16,7 +16,6 @@ class TestDrinkbase:
         containers = client.containers.list()
         found = False
         for container in containers:
-            print(container.name)
             if container.name == "docker-db-1":
                 found = True
                 break
