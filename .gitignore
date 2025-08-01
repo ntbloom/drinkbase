@@ -28,6 +28,7 @@ __pycache__/
 *.ods
 .coverage
 .venv/
+poetry.lock
 
 # ignore necessary small list of images
 !drinkBaseWhite.png

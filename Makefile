@@ -1,6 +1,6 @@
 .PHONY:up
 up:
-	docker compose -f $(PWD)/docker/docker-compose.yaml up
+	docker compose -f $(PWD)/docker/docker-compose.yaml up --build
 
 
 BACKEND_DIR=$(PWD)/backend
